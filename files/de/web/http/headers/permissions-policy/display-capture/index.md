@@ -1,0 +1,40 @@
+---
+title: "Permissions-Policy: display-capture"
+slug: Web/HTTP/Headers/Permissions-Policy/display-capture
+l10n:
+  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+---
+
+{{HTTPSidebar}}
+
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `display-capture` steuert, ob das Dokument berechtigt ist, die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API), das heißt, {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}}, zu nutzen, um den Bildschirminhalt zu erfassen.
+
+Wenn `display-capture` in einem Dokument deaktiviert ist, kann das Dokument keine Bildschirmerfassung über {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} initiieren und wird eine `NotAllowedError`-Ausnahme auslösen.
+
+## Syntax
+
+```http
+Permissions-Policy: display-capture=<allowlist>;
+```
+
+- `<allowlist>`
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+
+## Standardrichtlinie
+
+Die Standard-Whitelist für `display-capture` ist `self`.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
+## Siehe auch
+
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
+- [Using the Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
