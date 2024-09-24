@@ -3,16 +3,16 @@ title: "Scheduler: yield() Methode"
 short-title: yield()
 slug: Web/API/Scheduler/yield
 l10n:
-  sourceCommit: ca5b9476724568c1c748c601bbf5c216b9fac916
+  sourceCommit: 79f75809844204ce0dd5a1411095b7851711cdeb
 ---
 
-{{APIRef('Prioritized Task Scheduling API')}}{{AvailableInWorkers}}
+{{APIRef('Prioritized Task Scheduling API')}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`yield()`** Methode des [`Scheduler`](/de/docs/Web/API/Scheduler)-Interfaces wird verwendet, um während einer Aufgabe an den {{Glossary("Main_thread", "Hauptthread")}} abzugeben und die Ausführung später fortzusetzen, wobei die Fortsetzung als priorisierte Aufgabe geplant wird (weitere Informationen siehe [Priorisierte Aufgabenplanung-API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)). Dies ermöglicht es, langlaufende Arbeiten aufzuteilen, damit der Browser reaktionsfähig bleibt.
+Die **`yield()`** Methode der [`Scheduler`](/de/docs/Web/API/Scheduler) Schnittstelle wird verwendet, um während einer Aufgabe dem {{Glossary("Main_thread", "Haupt-Thread")}} Vorrang zu gewähren und die Ausführung später fortzusetzen, wobei die Fortsetzung als priorisierte Aufgabe eingeplant wird (siehe die [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) für weitere Informationen). Dies ermöglicht es, langwierige Arbeiten zu unterbrechen, so dass der Browser reaktionsfähig bleibt.
 
-Die Aufgabe kann fortgesetzt werden, wenn das von der Methode zurückgegebene Versprechen aufgelöst wird. Die Priorität, wann das Versprechen aufgelöst wird, ist standardmäßig [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), kann jedoch eine andere Priorität erben, wenn der `yield()`-Aufruf innerhalb eines [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)-Callbacks erfolgt.
+Die Aufgabe kann fortgesetzt werden, wenn das von der Methode zurückgegebene Versprechen erfüllt wird. Die Priorität, wann das Versprechen erfüllt wird, ist standardmäßig [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), kann jedoch eine andere Priorität erben, wenn der `yield()`-Aufruf innerhalb eines [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask) Rückrufs erfolgt.
 
-Zusätzlich kann die Fortsetzung der Arbeit nach dem `yield()`-Aufruf abgebrochen werden, wenn sie innerhalb eines `postTask()`-Callbacks erfolgt und die [Aufgabe abgebrochen wird](/de/docs/Web/API/Scheduler/postTask#aborting_tasks).
+Außerdem kann die Fortsetzung der Arbeit nach dem `yield()`-Aufruf abgebrochen werden, wenn sie innerhalb eines `postTask()`-Rückrufs erfolgt und die [Aufgabe abgebrochen wird](/de/docs/Web/API/Scheduler/postTask#aborting_tasks).
 
 ## Syntax
 
@@ -32,9 +32,9 @@ Gibt ein {{jsxref('Promise')}} zurück, das mit {{jsxref('undefined')}} erfüllt
 
 ### Feature-Überprüfung
 
-Überprüfen Sie, ob die priorisierte Aufgabenplanung unterstützt wird, indem Sie `scheduler.yield` auf {{jsxref('globalThis')}} testen, entweder im Fenster- oder Worker-Bereich.
+Prüfen Sie, ob die priorisierte Aufgabenplanung unterstützt wird, indem Sie `scheduler.yield` auf {{jsxref('globalThis')}} testen, entweder im Fenster- oder Arbeitsbereich.
 
-Das folgende Beispiel gibt "scheduler.yield: Supported" aus, wenn die API im aktuellen Browser unterstützt wird.
+Zum Beispiel protokolliert der folgende Code `"scheduler.yield: Supported"`, wenn die API im aktuellen Browser unterstützt wird.
 
 ```js
 // Check for support before using.
@@ -45,11 +45,11 @@ if (globalThis.scheduler?.yield) {
 }
 ```
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Lange Aufgaben können durch Abwarten von `scheduler.yield()` aufgeteilt werden. Die Funktion gibt ein Versprechen zurück, das an den Hauptthread abgibt, um dem Browser die Möglichkeit zu geben, andere anstehende Aufgaben auszuführen, wie z. B. auf Benutzereingaben zu reagieren. Der Browser plant eine Folgeaufgabe, die das Versprechen auflöst, woraufhin die Ausführung des Codes dort fortgesetzt werden kann, wo sie unterbrochen wurde.
+Lange Aufgaben können durch Warten auf `scheduler.yield()` aufgeteilt werden. Die Funktion gibt ein Versprechen zurück, das dem Haupt-Thread Vorrang gewährt, damit der Browser andere anstehende Arbeiten ausführen kann - wie z.B. auf Benutzereingaben reagieren - wenn nötig. Der Browser plant eine Folgetask, die das Versprechen erfüllt, an welchem Punkt die Ausführung des Codes fortgesetzt werden kann, an dem sie unterbrochen wurde.
 
-Wenn beispielsweise ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis-Listener auf einem Button erhebliche Arbeit verursacht, um neue Seiteninhalte zu laden und anzuzeigen, gibt es keine visuelle Rückmeldung für den Benutzer, dass sein Button-Klick von der Seite registriert wurde, bis diese Arbeit abgeschlossen ist. Ein `scheduler.yield()` kann in den Ereignis-Listener eingefügt werden, damit schnelle Rückmeldungen angezeigt werden können (wie ein Ladesymbol), und dann kann der Rest der Arbeit erfolgen, wenn die Ausführung nach dem Yield fortgesetzt wird.
+Wenn zum Beispiel ein [`click`](/de/docs/Web/API/Element/click_event) Ereignis-Listener auf einer Schaltfläche zu erheblicher Arbeit führt, um neue Seiteninhalte zu laden und anzuzeigen, wird es kein visuelles Feedback für den Benutzer geben, dass sein Klick überhaupt registriert wurde, bis diese Arbeit abgeschlossen ist. Ein `scheduler.yield()` kann in den Ereignis-Listener eingefügt werden, so dass schnelles Feedback wie ein Spinner angezeigt werden kann, und dann kann der Rest der Arbeit erfolgen, wenn die Ausführung nach dem Yield fortgesetzt wird.
 
 ```js
 button.addEventListener("click", async () => {
@@ -61,7 +61,7 @@ button.addEventListener("click", async () => {
 });
 ```
 
-Es kann auch ausreichen, schnelle Interaktionsfeedbacks mit der Standard-Benutzeroberfläche zu liefern. Wenn beispielsweise ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis-Listener auf einem Kontrollkästchen eine langsame Filterung von Seiteninhalten auslöst, kann ein `scheduler.yield()`-Aufruf eingefügt werden, um den Statuswechsel sofort anzuzeigen, bevor die restliche Ereignisantwort fortgesetzt wird.
+Es kann auch ausreichen, schnelles Interaktionsfeedback mit der Standard-Benutzeroberfläche bereitzustellen. Wenn z.B. ein [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis-Listener auf einer Checkbox eine langsame Filterung von Seiteninhalten auslöst, kann ein `scheduler.yield()`-Aufruf eingefügt werden, um den Wechsel des Kontrollkästchenzustandes sofort anzuzeigen, bevor die restliche Ereignisantwort fortgesetzt wird.
 
 ```js
 checkbox.addEventListener("change", async () => {
@@ -70,7 +70,7 @@ checkbox.addEventListener("change", async () => {
 });
 ```
 
-In Situationen, in denen umfangreiche Arbeiten auf dem Hauptthread durchgeführt werden müssen, die in eine Reihe von Aufgaben aufgeteilt werden können, kann `scheduler.yield()` wiederholt aufgerufen werden, um die Seite währenddessen reaktionsfähig zu halten.
+In Situationen, in denen lange Arbeit auf dem Haupt-Thread getan werden muss, die in eine Reihe von Aufgaben aufgeteilt werden kann, kann `scheduler.yield()` wiederholt aufgerufen werden, um die Seite währenddessen reaktionsfähig zu halten.
 
 ```js
 function doWork(value) {
@@ -87,13 +87,13 @@ for (const work of workList) {
 
 ### Yield-Priorität
 
-Die Reihenfolge, in der das von `scheduler.yield()` zurückgegebene Versprechen relativ zu anderen Aufgaben aufgelöst wird, basiert auf einer impliziten [Aufgabenpriorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities).
+Die Reihenfolge, in der das durch `scheduler.yield()` zurückgegebene Versprechen im Verhältnis zu anderen Aufgaben erfüllt wird, basiert auf einer impliziten [Aufgabenpriorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities).
 
-Standardmäßig wird `scheduler.yield()` mit einer [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible)-Priorität ausgeführt. Die Fortsetzung nach einem `scheduler.yield()`-Aufruf hat jedoch ein leicht unterschiedliches Verhalten gegenüber `scheduler.postTask()`-Aufgaben derselben `Priorität`.
+Standardmäßig wird `scheduler.yield()` mit einer [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible) Priorität ausgeführt. Allerdings hat die Fortsetzung nach einem `scheduler.yield()`-Aufruf ein leicht anderes Verhalten als `scheduler.postTask()` Aufgaben der gleichen `priority`.
 
-`scheduler.yield()` reiht seine Aufgabe in eine priorisierte Aufgabenwarteschlange ein, verglichen mit einem `scheduler.postTask()` der gleichen Prioritätsstufe. So wird z. B. eine `scheduler.yield()`-Fortsetzung mit `"user-visible"`-Priorität nach `scheduler.postTask()`-Aufgaben mit der höheren `"user-blocking"`-Prioritätsstufe priorisiert, aber vor `scheduler.postTask()`-Aufgaben mit derselben `"user-visible"`-Priorität (in der Spezifikation ist dies durch die [effektive Priorität der Aufgabenwarteschlange](https://wicg.github.io/scheduling-apis/#scheduler-task-queue-effective-priority) definiert).
+`scheduler.yield()` reiht seine Aufgabe in eine übergeordnete Aufgabenwarteschlange im Vergleich zu einem `scheduler.postTask()` derselben Prioritätsstufe ein. So wird z.B. eine `scheduler.yield()`-Fortsetzung mit `"user-visible"` Priorität nach `scheduler.postTask()`-Aufgaben der höheren `"user-blocking"` Prioritätsebene priorisiert, aber vor `scheduler.postTask()`-Aufgaben derselben `"user-visible"` Priorität (in der Spezifikation wird dies durch die [effektive Priorität](https://wicg.github.io/scheduling-apis/#scheduler-task-queue-effective-priority) einer Aufgabenwarteschlange definiert).
 
-Dies wird manchmal beschrieben, als würde `scheduler.yield()` seine Aufgabe am Anfang der Prioritätsstufenwarteschlange einreihen, während `scheduler.postTask()`-Aufgaben am Ende stehen. Dies kann ein nützliches mentales Modell sein. In Situationen mit nur wenigen Aufgaben bedeutet dies, dass bei derselben Priorität die `scheduler.yield()`-Fortsetzung zuerst kommt und zusätzliche Flexibilität bei der Planung von Aufgaben ermöglicht. Zum Beispiel:
+Dies wird manchmal beschrieben als `scheduler.yield()`, das seine Aufgabe am Anfang der Warteschlange einer Prioritätsstufe einreiht, während `scheduler.postTask()` Aufgaben ans Ende gehen. Dies kann ein nützliches mentales Modell sein. In Situationen mit nur wenigen Aufgaben bedeutet dies, dass bei derselben Priorität die `scheduler.yield()`-Fortsetzung zuerst kommt, was zusätzlichen Spielraum in der Planung von Aufgaben erlaubt. Zum Beispiel:
 
 ```js
 scheduler.postTask(() => console.log("user-visible postTask"));
@@ -104,7 +104,7 @@ await scheduler.yield();
 console.log("user-visible yield");
 ```
 
-wird folgendes protokollieren:
+protokolliert das Folgende:
 
 ```plain
 user-blocking postTask
@@ -112,9 +112,9 @@ user-visible yield
 user-visible postTask
 ```
 
-In Fällen, in denen es mehrere `scheduler.yield()`-Aufrufe gibt, wird der Unterschied, dass die `scheduler.yield()`-Fortsetzungsaufgaben in eine priorisierte Warteschlange gelangen, wichtig, da eine zweite `scheduler.yield()`-Aufgabe nicht vor einer bereits in der Warteschlange befindlichen ausgeführt wird.
+In Fällen, in denen es mehrere `scheduler.yield()` Aufrufe gibt, wird die Unterscheidung, dass die `scheduler.yield()`-Fortsetzungsaufgaben in eine Warteschlange mit erhöhter Priorität eingehen, wichtig, da eine zweite `scheduler.yield()`-Aufgabe nicht vor einer ausgeführt wird, die bereits in der Warteschlange ist.
 
-Wenn eine Funktion ihre Arbeit abgibt, bevor eine zweite Funktion dies tut, wird die erste Funktion, die abgibt, zuerst fortgesetzt. Zum Beispiel:
+Wenn eine Funktion ihre Arbeit vor einer zweiten Funktion unterbricht, wird die erste Funktion, die unterbrochen wurde, zuerst fortgesetzt. Zum Beispiel:
 
 ```js
 async function first() {
@@ -133,7 +133,7 @@ first();
 second();
 ```
 
-wird folgendes protokollieren:
+protokolliert das Folgende:
 
 ```plain
 starting first function
@@ -142,11 +142,11 @@ ending first function
 ending second function
 ```
 
-### Vererbung von Aufgabenprioritäten
+### Erben von Aufgabenprioritäten
 
-Ein `scheduler.yield()`-Aufruf innerhalb einer `scheduler.postTask()`-Aufgabe erbt die Priorität der Aufgabe. Beispielsweise wird Arbeit nach einem `scheduler.yield()` innerhalb einer niedrig priorisierten [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-blocking)-Aufgabe standardmäßig auch als `"background"` geplant (aber, wie zuvor, in der priorisierten `"background"`-Warteschlange eingefügt, um vor allen `"background"`-`postTask()`-Aufgaben ausgeführt zu werden).
+Ein `scheduler.yield()` Aufruf innerhalb einer `scheduler.postTask()` Aufgabe erbt die Priorität der Aufgabe. Zum Beispiel wird Arbeit nach einem `scheduler.yield()` innerhalb einer niedrig priorisierten [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-blocking) Aufgabe auch standardmäßig als `"background"` eingeplant (aber nochmals in der erhöhten `"background"` Prioritätswarteschlange eingefügt, so dass sie vor allen `"background"` `postTask()` Aufgaben ausgeführt wird).
 
-Beispiel:
+Zum Beispiel:
 
 ```js
 async function backgroundWork() {
@@ -164,7 +164,7 @@ async function backgroundWork() {
 await scheduler.postTask(backgroundWork, { priority: "background" });
 ```
 
-wird folgendes protokollieren:
+protokolliert das Folgende:
 
 ```plain
 user-visible postTask
@@ -172,13 +172,13 @@ default-background yield
 background postTask
 ```
 
-`scheduler.yield()`-Fortsetzungen erben die Priorität der umgebenden `scheduler.postTask()`-Aufgabe, einschließlich ob die Priorität der Aufgabe [dynamisch geändert](/de/docs/Web/API/Prioritized_Task_Scheduling_API#changing_task_priorities) wurde.
+`scheduler.yield()` Fortsetzungen erben, welche Priorität auch immer die enthaltene `scheduler.postTask()` Aufgabe hat, einschließlich ob die Priorität der Aufgabe [dynamisch geändert wurde](/de/docs/Web/API/Prioritized_Task_Scheduling_API#changing_task_priorities).
 
 ### Abbrechen eines Yields
 
-Ähnlich wie bei der Festlegung der Priorität kann ein `scheduler.yield()`-Aufruf nicht direkt abgebrochen werden, aber er wird das Abbruchsignal einer umgebenden `scheduler.postTask()`-Aufgabe erben. Der Abbruch der Aufgabe wird auch alle ausstehenden Yields innerhalb dieser abbrechen.
+Ähnlich wie beim Setzen von Prioritäten kann ein `scheduler.yield()` Aufruf nicht direkt abgebrochen werden, aber er wird das Abbruchsignal von einer umgebenden `scheduler.postTask()` Aufgabe erben. Das Abbrechen der Aufgabe wird auch alle anstehenden Yields darin abbrechen.
 
-Dieses Beispiel verwendet einen [`TaskController`](/de/docs/Web/API/TaskController), um eine Aufgabe mit einem `scheduler.yield()` darin abzubrechen.
+Dieses Beispiel verwendet einen [`TaskController`](/de/docs/Web/API/TaskController), um eine Aufgabe mit einem `scheduler.yield()` darin [abzubrechen](/de/docs/Web/API/Prioritized_Task_Scheduling_API#aborting_tasks).
 
 ```js
 const taskController = new TaskController();
@@ -203,13 +203,13 @@ scheduler.postTask(
 );
 ```
 
-Das Beispiel ist etwas konstruiert, da der `taskController.abort()`-Aufruf immer innerhalb der Aufgabe selbst ausgelöst wird, aber der `abort()`-Aufruf könnte von überall kommen. Beispielsweise könnte er durch das Drücken eines 'Abbrechen'-Buttons durch den Benutzer ausgelöst werden.
+Das Beispiel ist etwas konstruiert, da es immer den `taskController.abort()` Aufruf innerhalb der Aufgabe selbst auslöst, aber der `abort()`-Aufruf könnte von überall her kommen. Zum Beispiel könnte er durch das Drücken einer 'Abbrechen'-Schaltfläche durch den Benutzer ausgelöst werden.
 
-In diesem Fall erfolgt der `abort()`-Aufruf, nachdem die `scheduler.postTask()`-Aufgabe bereits gestartet ist (`"first half of work"` wird protokolliert), aber der Yield-Aufruf erbt das [Abbruchsignal](/de/docs/Web/API/AbortSignal), daher wird der `await scheduler.yield()`-Aufruf mit einem Abbruchgrund von `"cancel work"` eine Ausnahme auslösen.
+In diesem Fall erfolgt der `abort()` Aufruf, nachdem die `scheduler.postTask()`-Aufgabe bereits begonnen hat (`"first half of work"` wird protokolliert), aber der Yield-Aufruf erbt das [Abbruchsignal](/de/docs/Web/API/AbortSignal), weshalb der `await scheduler.yield()`-Aufruf mit einem Abbruchgrund von `"cancel work"` auslöst.
 
 ### Verwendung von `yield()` innerhalb von `requestIdleCallback()`
 
-`scheduler.yield()`-Aufrufe erben auch ihre Priorität von [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback), wenn sie innerhalb der Callback-Funktion aufgerufen werden. In diesem Fall wird der [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#background)-Prioritätswert vererbt. Beachten Sie jedoch, dass `scheduler.yield()`-Aufrufe innerhalb von `requestIdleCallback()`-Callbacks nicht abgebrochen werden können.
+`scheduler.yield()` Aufrufe erben auch ihre Priorität von [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback), wenn sie innerhalb der Rückruffunktion aufgerufen werden. In diesem Fall wird der [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#background) Prioritätswert geerbt. Beachten Sie jedoch, dass `scheduler.yield()` Aufrufe innerhalb von `requestIdleCallback()` Rückrufen nicht abbrechbar sind.
 
 ## Spezifikationen
 
@@ -221,6 +221,6 @@ In diesem Fall erfolgt der `abort()`-Aufruf, nachdem die `scheduler.postTask()`-
 
 ## Siehe auch
 
-- [Priorisierte Aufgabenplanung-API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
+- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
 - [`Scheduler`](/de/docs/Web/API/Scheduler)
 - [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)

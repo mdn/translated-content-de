@@ -3,12 +3,15 @@ title: "HTMLAreaElement: port-Eigenschaft"
 short-title: port
 slug: Web/API/HTMLAreaElement/port
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 354f23773b65bad14192eca53e4a63471061b158
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.port`**-Eigenschaft ist ein String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
+Die **`port`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der die Portnummer der URL enthält, oder ein leerer String, wenn der Port der Standardwert für das Protokoll ist.
+
+> [!NOTE]
+> Wenn sich das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Objekt auf eine URL bezieht, die keine explizite Portnummer enthält (z.B. `https://localhost`) oder eine Portnummer enthält, die der Standardportnummer entspricht, die zum Protokollteil der URL gehört (z.B. `https://localhost:443`), dann ist die `port`-Eigenschaft ein leerer String: `''`.
 
 ## Wert
 
@@ -16,12 +19,18 @@ Ein String.
 
 ## Beispiele
 
-### Abrufen des Ports von einem Bereichslink
+### Den Port von einem Bereichslink abrufen
 
 ```js
 // An <area id="myArea" href="https://developer.mozilla.org:443/en-US/docs/HTMLAreaElement"> element is in the document
 const area = document.getElementByID("myArea");
-area.port; // returns '443'
+area.port; // Returns ''
+```
+
+```js
+// Another <area id="myArea" href="https://developer.mozilla.org:8888/en-US/docs/HTMLAreaElement"> element is in the document
+const area = document.getElementByID("myArea");
+area.port; // Returns:'8888'
 ```
 
 ## Spezifikationen
@@ -34,4 +43,4 @@ area.port; // returns '443'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.

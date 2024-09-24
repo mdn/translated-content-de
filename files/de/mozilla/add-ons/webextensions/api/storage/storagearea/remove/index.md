@@ -2,7 +2,7 @@
 title: StorageArea.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/remove
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
 ---
 
 {{AddonSidebar}}
@@ -19,16 +19,16 @@ let removingItem = browser.storage.<storageType>.remove(
 )
 ```
 
-`<storageType>` ist einer der beschreibbaren Speichertypen — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
+Wobei `<storageType>` einer der beschreibbaren Speichertypen ist — {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
 
 ### Parameter
 
 - `keys`
-  - : Ein String oder ein Array von Strings, das den oder die Schlüssel der zu entfernenden Elemente repräsentiert.
+  - : Ein String oder ein Array von Strings, das den/die Schlüssel des/der zu entfernenden Elements/Elemente darstellt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Wenn der Vorgang fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -36,7 +36,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Ein einzelnes Element entfernen:
+Entfernen eines einzelnen Elements:
 
 ```js
 function onRemoved() {

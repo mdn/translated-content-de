@@ -2,29 +2,29 @@
 title: <mmultiscripts>
 slug: Web/MathML/Element/mmultiscripts
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: 5e756ded4a891e5a147b83b6ead78d23f7e899c9
 ---
 
 {{MathMLRef}}
 
-Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um eine beliebige Anzahl von Tief- und Hochstellungen gleichzeitig an einen Ausdruck anzufügen, und verallgemeinert das {{ MathMLElement("msubsup") }}-Element. Skripte können entweder als Vorskripe (vor dem Ausdruck platziert) oder als Nachskripte (nach dem Ausdruck platziert) sein.
+Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einer Ausdruck gleichzeitig eine beliebige Anzahl von Tief- und Hochstellungen hinzuzufügen und verallgemeinert damit das {{ MathMLElement("msubsup") }}-Element. Skripte können entweder Prä-Skripte (vor dem Ausdruck platziert) oder Post-Skripte (danach platziert) sein.
 
-MathML verwendet die unten stehende Syntax: einen Basisausdruck, gefolgt von einer beliebigen Anzahl von Nach-Unterskript-Nach-Oberskript-Paaren (in der angegebenen Reihenfolge angehängt), optional gefolgt von einem `<mprescripts>` und einer beliebigen Anzahl von Vor-Unterskript-Vor-Oberskript-Paaren (in der angegebenen Reihenfolge angehängt). Zusätzlich können leere `<mrow>`-Elemente verwendet werden, um fehlende Skripte darzustellen.
+MathML verwendet die folgende Syntax: Ein Basisausdruck, gefolgt von einer beliebigen Anzahl von Paaren aus Post-Tief- und Post-Hochstellungen (in der angegebenen Reihenfolge angebracht), gefolgt von einem optionalen {{ MathMLElement("mprescripts") }}-Element und einer beliebigen Anzahl von Prä-Tief- und Prä-Hochstellungen (in der angegebenen Reihenfolge angebracht). Zusätzlich können leere {{ MathMLElement("mrow") }}-Elemente verwendet werden, um fehlende Skripte darzustellen.
 
 ```html-nolint
 <mmultiscripts>
   base
-  postsubscript1 postsuperscript1
-  postsubscript2 postsuperscript2
-  postsubscript3 postsuperscript3
+  post-sub-script-1 post-sup-script-1
+  post-sub-script-2 post-sup-script-2
+  post-sub-script-3 post-sup-script-3
   ...
-  postsubscriptN postsuperscriptN
-  <mprescripts/>                ⎫
-  presubscript1 presuperscript1 ⎪
-  presubscript2 presuperscript2 ⎬ Optional
-  presubscript3 presuperscript3 ⎪
-  ...                           ⎪
-  presubscriptM presuperscriptM ⎭
+  post-sub-script-N post-sup-script-N
+  <mprescripts />                    ⎫
+  pre-sub-script-1 pre-sup-script-1  ⎪
+  pre-sub-script-2 pre-sup-script-2  ⎬ Optional
+  pre-sub-script-3 pre-sup-script-3  ⎪
+  ...                                ⎪
+  pre-sub-script-M pre-sup-script-N  ⎭
 </mmultiscripts>
 ```
 
@@ -33,81 +33,114 @@ MathML verwendet die unten stehende Syntax: einen Basisausdruck, gefolgt von ein
 Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Tiefgestellten nach unten zu verschieben.
+  - : Ein {{cssxref("length-percentage")}}, das die minimale Verschiebung der Grundlinie des Tiefstells nach unten angibt.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Hochgestellten nach oben zu verschieben.
+  - : Ein {{cssxref("length-percentage")}}, das die minimale Verschiebung der Grundlinie des Hochstells nach oben angibt.
 
 > [!NOTE]
 > Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
-### Verwendung von `<mprescripts/>`
+### Verwendung von `<mprescripts>`
 
-Kinder nach dem `<mprescripts/>`-Element werden als Vorskripe platziert (vor dem Basisausdruck):
+Kinder nach dem `<mprescripts>`-Element werden als Prä-Skripte (vor dem Basisausdruck) platziert:
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+```
 
 ```html-nolint
 <math display="block">
   <mmultiscripts>
-    <mi>X</mi>      <!-- base expression -->
-    <mi>d</mi>      <!-- postsubscript -->
-    <mi>c</mi>      <!-- postsuperscript -->
+    <mi>X</mi> <!-- base expression -->
+    <mi>a</mi> <!-- post-sub-script -->
+    <mi>b</mi> <!-- post-sup-script -->
     <mprescripts />
-    <mi>b</mi>      <!-- presubscript -->
-    <mi>a</mi>      <!-- presuperscript -->
+    <mi>c</mi> <!-- pre-sub-script -->
+    <mi>d</mi> <!-- pre-sup-script -->
   </mmultiscripts>
 </math>
 ```
 
-{{ EmbedLiveSample('mprescripts_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('using_mprescripts', 700, 200, "", "") }}
 
 ### Leere Skripte
 
 Leere `<mrow>`-Elemente können verwendet werden, um fehlende Skripte darzustellen:
 
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+```
+
 ```html-nolint
 <math display="block">
   <mmultiscripts>
-    <mi>X</mi>      <!-- base expression -->
-    <mrow></mrow>   <!-- postsubscript -->
-    <mi>c</mi>      <!-- postsuperscript -->
+    <mi>X</mi>    <!-- base expression -->
+    <mrow></mrow> <!-- post-sub-script -->
+    <mi>b</mi>    <!-- post-sup-script -->
     <mprescripts />
-    <mi>b</mi>      <!-- presubscript -->
-    <mrow></mrow>   <!-- presuperscript -->
+    <mi>c</mi>    <!-- pre-sub-script -->
+    <mrow></mrow> <!-- pre-sup-script -->
   </mmultiscripts>
 </math>
 ```
 
-{{ EmbedLiveSample('none_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('empty_scripts', 700, 200, "", "") }}
 
 ### Reihenfolge der Skripte
 
-Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis angehängt werden:
+Hier ist ein komplexeres Beispiel mit vielen Skripten, sodass Sie sehen können, in welcher Reihenfolge sie an der Basis angebracht werden:
 
-```html
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+```
+
+```html-nolint
 <math display="block">
   <mmultiscripts>
-    <mtext>base</mtext>
-    <mtext>postsubscript1</mtext>
-    <mtext>postsupscript1</mtext>
-    <mtext>postsubscript2</mtext>
-    <mtext>postsupscript2</mtext>
-    <mtext>postsubscript3</mtext>
-    <mtext>postsupscript3</mtext>
-    <mtext>postsubscript4</mtext>
-    <mtext>postsupscript4</mtext>
+    <mi>X</mi> <!-- base expression -->
+    <mn>1</mn> <!-- post-sub-script-1 -->
+    <mn>2</mn> <!-- post-sup-script-1 -->
+    <mn>3</mn> <!-- post-sub-script-2 -->
+    <mn>4</mn> <!-- post-sup-script-2 -->
     <mprescripts />
-    <mtext>presubscript1</mtext>
-    <mtext>presupscript1</mtext>
-    <mtext>presubscript2</mtext>
-    <mtext>presupscript2</mtext>
-    <mtext>presubscript3</mtext>
-    <mtext>presupscript3</mtext>
+    <mn>5</mn> <!-- pre-sub-script-1 -->
+    <mn>6</mn> <!-- pre-sup-script-1 -->
+    <mn>7</mn> <!-- pre-sub-script-2 -->
+    <mn>8</mn> <!-- pre-sup-script-2 -->
   </mmultiscripts>
 </math>
 ```
 
-{{ EmbedLiveSample('order_of_scripts_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('order_of_scripts', 700, 200, "", "") }}
 
 ## Spezifikationen
 
@@ -119,6 +152,6 @@ Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, 
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Tiefgestellt)
-- {{ MathMLElement("msup") }} (Hochgestellt)
-- {{ MathMLElement("msubsup") }} (Tief-Hochstellungspaar)
+- {{ MathMLElement("msub") }} (Tiefstellung)
+- {{ MathMLElement("msup") }} (Hochstellung)
+- {{ MathMLElement("msubsup") }} (Paar aus Tief- und Hochstellung)

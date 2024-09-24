@@ -3,12 +3,12 @@ title: "HTMLMediaElement: canPlayType() Methode"
 short-title: canPlayType()
 slug: Web/API/HTMLMediaElement/canPlayType
 l10n:
-  sourceCommit: f52c17d00ec3e2abeb7662bbb7e57b753b65f5d5
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`canPlayType()`** des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt an, wie wahrscheinlich es ist, dass der aktuelle Browser Medien eines bestimmten [MIME-Typs](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) abspielen kann.
+Die Methode **`canPlayType()`** des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) meldet, wie wahrscheinlich es ist, dass der aktuelle Browser Medien eines bestimmten [MIME-Typs](/de/docs/Web/HTTP/MIME_types) abspielen kann.
 
 ## Syntax
 
@@ -19,18 +19,19 @@ canPlayType(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) des Mediums und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält, der eine durch Kommata getrennte Liste der unterstützten Codecs enthält.
+  - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) der Medien und (optional) einen [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) enthält, der eine durch Kommas getrennte Liste der unterstützten Codecs umfasst.
 
 ### Rückgabewert
 
-Ein String, der angibt, wie wahrscheinlich es ist, dass das Medium abgespielt werden kann. Der String wird einer der folgenden Werte sein:
+Ein String, der angibt, wie wahrscheinlich es ist, dass die Medien abgespielt werden können.
+Der String wird einen der folgenden Werte haben:
 
 - `""` (leerer String)
-  - : Das Medium kann auf dem aktuellen Gerät nicht abgespielt werden.
+  - : Die Medien können auf dem aktuellen Gerät nicht abgespielt werden.
 - `probably`
-  - : Das Medium ist wahrscheinlich auf diesem Gerät abspielbar.
+  - : Die Medien sind wahrscheinlich auf diesem Gerät abspielbar.
 - `maybe`
-  - : Es gibt nicht genügend Informationen, um festzustellen, ob das Medium abgespielt werden kann (bis der Versuch der Wiedergabe tatsächlich unternommen wird).
+  - : Es gibt nicht genügend Informationen, um festzustellen, ob die Medien abgespielt werden können (bis tatsächlich versucht wird, die Wiedergabe zu starten).
 
 ## Beispiele
 
@@ -49,8 +50,8 @@ console.log(obj.canPlayType("video/mp4")); // "maybe"
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der Methode `HTMLMediaElement.canPlayType()`
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.canPlayType()` Methode
 - [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)
-- [Handhabung von Medienunterstützungsproblemen in Webinhalten](/de/docs/Web/Media/Formats/Support_issues)
+- [Umgang mit Medienunterstützungsproblemen in Webinhalten](/de/docs/Web/Media/Formats/Support_issues)
 - [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats)
 - [Codecs in gängigen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)

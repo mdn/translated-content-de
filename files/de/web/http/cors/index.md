@@ -2,16 +2,16 @@
 title: Cross-Origin Resource Sharing (CORS)
 slug: Web/HTTP/CORS
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{HTTPSidebar}}
 
-**Cross-Origin Resource Sharing** ({{Glossary("CORS", "CORS")}}) ist ein auf {{Glossary("HTTP", "HTTP")}}-Headern basierender Mechanismus, der einem Server ermöglicht, anzugeben, welche {{Glossary("origin", "Ursprünge")}} (Domain, Schema oder Port) außer seinem eigenen das Laden von Ressourcen durch einen Browser erlauben sollen. CORS stützt sich auch auf einen Mechanismus, bei dem Browser eine "Preflight"-Anfrage an den Server stellen, der die Cross-Origin-Ressource hostet, um zu überprüfen, ob der Server die tatsächliche Anfrage zulässt. In diesem Preflight sendet der Browser Header, die die HTTP-Methode und Header angeben, die in der eigentlichen Anfrage verwendet werden.
+**Cross-Origin Resource Sharing** ({{Glossary("CORS", "CORS")}}) ist ein auf {{Glossary("HTTP", "HTTP")}}-Headern basierender Mechanismus, der einem Server ermöglicht, anzugeben, welche {{Glossary("origin", "Ursprünge")}} (Domain, Schema oder Port) zusätzlich zu seinem eigenen von einem Browser zugelassen sein sollen, um Ressourcen zu laden. CORS basiert ebenfalls auf einem Mechanismus, bei dem Browser eine "Preflight"-Anfrage an den Server richten, der die Cross-Origin-Ressource hostet, um zu überprüfen, ob der Server die eigentliche Anfrage zulässt. Bei diesem Preflight sendet der Browser Header, die die HTTP-Methode und die Header der eigentlichen Anfrage angeben.
 
-Ein Beispiel für eine Cross-Origin-Anfrage: Der von `https://domain-a.com` bereitgestellte Frontend-JavaScript-Code verwendet [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Anfrage für `https://domain-b.com/data.json` zu stellen.
+Ein Beispiel für eine Cross-Origin-Anfrage: Der Front-End-JavaScript-Code, der von `https://domain-a.com` bereitgestellt wird, verwendet [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Anfrage für `https://domain-b.com/data.json` zu senden.
 
-Aus Sicherheitsgründen beschränken Browser von Skripten initiierte Cross-Origin-HTTP-Anfragen. Zum Beispiel folgen `fetch()` und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) der [Same-Origin-Richtlinie](/de/docs/Web/Security/Same-origin_policy). Das bedeutet, dass eine Webanwendung, die diese APIs verwendet, nur Ressourcen von dem gleichen Ursprung anfordern kann, von dem die Anwendung geladen wurde, es sei denn, die Antwort von anderen Ursprüngen enthält die richtigen CORS-Header.
+Aus Sicherheitsgründen beschränken Browser das Starten von Cross-Origin-HTTP-Anfragen aus Skripten. Zum Beispiel folgen `fetch()` und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy). Das bedeutet, dass eine Webanwendung mit diesen APIs nur Ressourcen vom gleichen Ursprung anfordern kann, von dem die Anwendung geladen wurde, es sei denn, die Antwort von anderen Ursprüngen enthält die richtigen CORS-Header.
 
 ![Diagrammatische Darstellung des CORS-Mechanismus](https://mdn.github.io/shared-assets/images/diagrams/http/cors/fetching-page-cors.svg)
 
@@ -19,33 +19,33 @@ Der CORS-Mechanismus unterstützt sichere Cross-Origin-Anfragen und Datentransfe
 
 ## Welche Anfragen verwenden CORS?
 
-Dieser [Cross-Origin-Sharing-Standard](https://fetch.spec.whatwg.org/#http-cors-protocol) kann Cross-Origin-HTTP-Anfragen für Folgendes ermöglichen:
+Dieser [Standard für Cross-Origin-Sharing](https://fetch.spec.whatwg.org/#http-cors-protocol) kann Cross-Origin-HTTP-Anfragen für folgende Fälle ermöglichen:
 
-- Aufrufe von `fetch()` oder `XMLHttpRequest`, wie oben beschrieben.
-- Web Fonts (für die plattformübergreifende Verwendung von Schriftarten in `@font-face` innerhalb von CSS), [damit Server TrueType-Schriftarten bereitstellen können, die nur plattformübergreifend geladen und von Webseiten verwendet werden können, die dazu berechtigt sind.](https://www.w3.org/TR/css-fonts-3/#font-fetching-requirements)
+- Aufrufe von `fetch()` oder `XMLHttpRequest`, wie oben besprochen.
+- Web Fonts (für Cross-Domain-Schriftverwendung in `@font-face` innerhalb von CSS), [damit Server TrueType-Schriften bereitstellen können, die nur Cross-Origin geladen und von Websites verwendet werden können, die dazu berechtigt sind.](https://www.w3.org/TR/css-fonts-3/#font-fetching-requirements)
 - [WebGL-Texturen](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL).
-- Bilder/Video-Frames, die mit [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf ein Canvas gezeichnet werden.
-- [CSS-Shapes aus Bildern.](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images)
+- Bilder/Video-Frames, die mit [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf einem Canvas gezeichnet werden.
+- [CSS Shapes aus Bildern.](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images)
 
-Dies ist ein allgemeiner Artikel über Cross-Origin Resource Sharing und enthält eine Diskussion der notwendigen HTTP-Header.
+Dieser Artikel ist eine allgemeine Einführung in Cross-Origin Resource Sharing und beinhaltet eine Diskussion der notwendigen HTTP-Header.
 
 ## Funktionale Übersicht
 
-Der Cross-Origin Resource Sharing-Standard funktioniert, indem neue [HTTP-Header](/de/docs/Web/HTTP/Headers) hinzugefügt werden, die es Servern ermöglichen, zu beschreiben, welche Ursprünge diese Informationen von einem Webbrowser lesen dürfen. Darüber hinaus fordert die Spezifikation für HTTP-Anfragemethoden, die Nebenwirkungen auf Serverdaten verursachen können (insbesondere HTTP-Methoden außer {{HTTPMethod("GET")}} oder {{HTTPMethod("POST")}} mit bestimmten [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types)), dass Browser die Anfrage "vorab abfragen", indem sie die unterstützten Methoden vom Server mit der HTTP-{{HTTPMethod("OPTIONS")}}-Anfragemethode anfordern und dann, nach "Genehmigung" durch den Server, die eigentliche Anfrage senden. Server können Clients auch darüber informieren, ob "Anmeldedaten" (wie [Cookies](/de/docs/Web/HTTP/Cookies) und [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication)) mit Anfragen gesendet werden sollen.
+Der Standard für Cross-Origin Resource Sharing funktioniert durch das Hinzufügen neuer [HTTP-Header](/de/docs/Web/HTTP/Headers), die Servern erlauben zu beschreiben, welche Ursprünge berechtigt sind, Informationen von einem Webbrowser zu lesen. Darüber hinaus verlangt die Spezifikation für HTTP-Anfragemethoden, die Nebenwirkungen auf Serverdaten haben können (insbesondere HTTP-Methoden, die {{HTTPMethod("GET")}} oder {{HTTPMethod("POST")}} mit bestimmten [MIME-Typen](/de/docs/Web/HTTP/MIME_types) sind), dass Browser die Anfrage "vorfliegen", indem sie unterstützte Methoden vom Server mit der HTTP-Methode {{HTTPMethod("OPTIONS")}} erfragen und dann nach "Genehmigung" durch den Server die eigentliche Anfrage senden. Server können Kunden auch darüber informieren, ob "Anmeldeinformationen" (wie [Cookies](/de/docs/Web/HTTP/Cookies) und [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication)) mit Anfragen gesendet werden sollen.
 
-CORS-Fehler führen zu Fehlern, aber aus Sicherheitsgründen sind die Details des Fehlers _nicht im JavaScript_ verfügbar. Der gesamte Code weiß nur, dass ein Fehler aufgetreten ist. Der einzige Weg, um herauszufinden, was genau schiefgelaufen ist, besteht darin, die Konsole des Browsers nach Details zu durchsuchen.
+CORS-Fehler führen zu Fehlern, aber aus Sicherheitsgründen sind spezifische Details zu dem Fehler _nicht für JavaScript verfügbar_. Der einzige Weg, um herauszufinden, was genau schiefgelaufen ist, ist, die Konsole des Browsers nach Details zu durchsuchen.
 
-In den nachfolgenden Abschnitten werden Szenarien erläutert sowie eine Übersicht der verwendeten HTTP-Header gegeben.
+Die nachfolgenden Abschnitte diskutieren Szenarien und liefern eine Aufschlüsselung der verwendeten HTTP-Header.
 
 ## Beispiele für Zugriffskontrollszenarien
 
-Wir präsentieren drei Szenarien, die demonstrieren, wie Cross-Origin Resource Sharing funktioniert. Alle diese Beispiele verwenden [`fetch()`](/de/docs/Web/API/Window/fetch), das in jedem unterstützenden Browser Cross-Origin-Anfragen stellen kann.
+Wir präsentieren drei Szenarien, die zeigen, wie Cross-Origin Resource Sharing funktioniert. Alle diese Beispiele verwenden [`fetch()`](/de/docs/Web/API/Window/fetch), das Cross-Origin-Anfragen in jedem unterstützenden Browser ausführen kann.
 
 ### Einfache Anfragen
 
-Einige Anfragen lösen keine {{Glossary("Preflight_request", "CORS-Preflight")}} aus. Diese werden _einfache Anfragen_ laut der veralteten [CORS-Spezifikation](https://www.w3.org/TR/2014/REC-cors-20140116/#terminology) genannt, obwohl die [Fetch-Spezifikation](https://fetch.spec.whatwg.org/) (die CORS jetzt definiert) diesen Begriff nicht verwendet.
+Einige Anfragen lösen keine {{Glossary("Preflight_request", "CORS-Vorprüfung")}} aus. Diese werden als _einfache Anfragen_ aus der veralteten [CORS-Spezifikation](https://www.w3.org/TR/2014/REC-cors-20140116/#terminology) bezeichnet, obwohl die [Fetch-Spezifikation](https://fetch.spec.whatwg.org/) (die jetzt CORS definiert) diesen Begriff nicht verwendet.
 
-Der Grundgedanke ist, dass das {{HTMLElement("form")}}-Element aus HTML 4.0 (das Cross-Site [`fetch()`](/de/docs/Web/API/Window/fetch) und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) vorweggenommen hat) einfache Anfragen an jeden Ursprung stellen kann, sodass jeder, der einen Server schreibt, bereits gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} (CSRF) geschützt sein muss. Unter dieser Annahme muss der Server nicht seinen Willen zur Annahme von Anfragen mitteilen (indem er auf eine Preflight-Anfrage antwortet), um eine Anfrage zu erhalten, die wie eine Formularübermittlung aussieht, da die Bedrohung durch CSRF nicht schlimmer ist als bei der Formularübermittlung. Der Server muss jedoch dennoch optieren, die Antwort mit dem Skript zu _teilen_, indem er {{HTTPHeader("Access-Control-Allow-Origin")}} verwendet.
+Die Motivation ist, dass das {{HTMLElement("form")}}-Element von HTML 4.0 (das älter ist als cross-site [`fetch()`](/de/docs/Web/API/Window/fetch) und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)) einfache Anfragen an jeden Ursprung senden kann, sodass jeder, der einen Server schreibt, bereits gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} (CSRF) geschützt sein muss. Unter dieser Annahme muss der Server sich nicht anmelden (indem er auf eine Vorab-Anfrage antwortet), um eine Anfrage zu erhalten, die einer Formulareinreichung ähnelt, da die Bedrohung durch CSRF nicht schlimmer ist als die durch die Formularübermittlung. Der Server muss jedoch dennoch mit {{HTTPHeader("Access-Control-Allow-Origin")}} zustimmen, um die Antwort _mit_ dem Skript zu teilen.
 
 Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
 
@@ -55,33 +55,33 @@ Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
   - {{HTTPMethod("HEAD")}}
   - {{HTTPMethod("POST")}}
 
-- Abgesehen von den vom Benutzeragenten automatisch gesetzten Headern (zum Beispiel {{HTTPHeader("Connection")}}, {{HTTPHeader("User-Agent")}} oder [die anderen Header, die in der Fetch-Spezifikation als _forbidden header name_ definiert sind](https://fetch.spec.whatwg.org/#forbidden-header-name)), dürfen nur die Header manuell gesetzt werden, die [die Fetch-Spezifikation als CORS-safelisted request-header definiert](https://fetch.spec.whatwg.org/#cors-safelisted-request-header), nämlich:
+- Abgesehen von den Headern, die automatisch vom Benutzeragenten gesetzt werden (zum Beispiel {{HTTPHeader("Connection")}}, {{HTTPHeader("User-Agent")}} oder [die anderen in der Fetch-Spezifikation als _verbotener Headername_ definierten Header](https://fetch.spec.whatwg.org/#forbidden-header-name)), dürfen nur die Header manuell gesetzt werden, die die Fetch-Spezifikation als CORS-sichere Anforderungs-Header definiert, die sind:
 
   - {{HTTPHeader("Accept")}}
   - {{HTTPHeader("Accept-Language")}}
   - {{HTTPHeader("Content-Language")}}
   - {{HTTPHeader("Content-Type")}} (bitte beachten Sie die zusätzlichen Anforderungen unten)
-  - {{HTTPHeader("Range")}} (nur mit einem [einfachen Bereichs-Headerwert](https://fetch.spec.whatwg.org/#simple-range-header-value); z. B. `bytes=256-` oder `bytes=127-255`)
+  - {{HTTPHeader("Range")}} (nur mit einem [einfachen Bereichs-Headerwert](https://fetch.spec.whatwg.org/#simple-range-header-value); z.B. `bytes=256-` oder `bytes=127-255`)
 
-- Die einzigen typ/subtyp Kombinationsmöglichkeiten, die für den {{Glossary("MIME_type", "Medientyp")}} im {{HTTPHeader("Content-Type")}}-Header erlaubt sind, sind:
+- Die einzigen zulässigen Typen/Subtypen-Kombinationen für den im Header {{HTTPHeader("Content-Type")}} angegebenen {{Glossary("MIME_type", "Medientyp")}} sind:
 
   - `application/x-www-form-urlencoded`
   - `multipart/form-data`
   - `text/plain`
 
-- Wenn die Anfrage unter Verwendung eines [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekts erfolgt, sind keine Ereignis-Listener für das Objekt registriert, das von der [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload)-Eigenschaft in der Anfrage verwendet wird; das heißt, bei einer Instanz von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), `xhr`, hat kein Code `xhr.upload.addEventListener()` aufgerufen, um einen Event-Listener zur Überwachung des Uploads hinzuzufügen.
+- Wenn die Anfrage mit einem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt gestellt wird, sind keine Ereignis-Listener in dem vom [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload)-Attribut zurückgegebenen Objekt in der Anfrage registriert; das heißt, bei einer Instanz von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) `xhr` hat kein Code `xhr.upload.addEventListener()` aufgerufen, um einen Ereignis-Listener hinzuzufügen, um den Upload zu überwachen.
 - Kein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt wird in der Anfrage verwendet.
 
 > [!NOTE]
-> WebKit Nightly und Safari Technology Preview schränken die Werte ein, die in den {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Language")}} und {{HTTPHeader("Content-Language")}} Headern erlaubt sind. Wenn einer dieser Header "nicht standardisierte" Werte hat, betrachtet WebKit/Safari die Anfrage nicht als "einfache Anfrage". Welche Werte WebKit/Safari als "nicht standardisiert" ansehen, ist nicht dokumentiert, außer in den folgenden WebKit-Bugs:
+> WebKit Nightly und Safari Technology Preview setzen zusätzliche Beschränkungen für die in den Headern {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Language")}} und {{HTTPHeader("Content-Language")}} zugelassenen Werte. Wenn einer dieser Header "nicht standardmäßige" Werte enthält, betrachtet WebKit/Safari die Anfrage nicht als "einfache Anfrage". Welche Werte WebKit/Safari als "nicht standardmäßig" betrachten, ist nicht dokumentiert, außer in den folgenden WebKit-Bugs:
 >
-> - [Require preflight for non-standard CORS-safelisted request headers Accept, Accept-Language, and Content-Language](https://webkit.org/b/165178)
-> - [Allow commas in Accept, Accept-Language, and Content-Language request headers for simple CORS](https://webkit.org/b/165566)
-> - [Switch to a blacklist model for restricted Accept headers in simple CORS requests](https://webkit.org/b/166363)
+> - [Vorab-Anfrage für nicht standardmäßige CORS-sichere Anforderungs-Header Accept, Accept-Language und Content-Language erforderlich](https://webkit.org/b/165178)
+> - [Erlaube Kommas in Anfrage-Headern für Accept, Accept-Language und Content-Language bei einfachen CORS](https://webkit.org/b/165566)
+> - [Wechsel zu einem Blacklist-Modell für eingeschränkte Accept-Header in einfachen CORS-Anfragen](https://webkit.org/b/166363)
 >
-> Keine anderen Browser implementieren diese zusätzlichen Beschränkungen, da sie nicht Teil der Spezifikation sind.
+> Keine anderen Browser implementieren diese zusätzlichen Einschränkungen, da sie nicht Teil der Spezifikation sind.
 
-Beispielsweise nehmen wir an, dass Web-Content auf `https://foo.example` JSON-Inhalte von der Domain `https://bar.other` abfragen möchte. Ein Code dieser Art könnte in JavaScript auf `foo.example` verwendet werden:
+Zum Beispiel: Angenommen, Web-Inhalte bei `https://foo.example` möchten JSON-Inhalte von der Domain `https://bar.other` abrufen. Solche Art von Code könnte in JavaScript eingesetzt werden, das auf `foo.example` bereitgestellt wird:
 
 ```js
 const fetchPromise = fetch("https://bar.other");
@@ -93,11 +93,11 @@ fetchPromise
   });
 ```
 
-Dieser Vorgang führt einen einfachen Austausch zwischen Client und Server durch, wobei CORS-Header verwendet werden, um die Berechtigungen zu handhaben:
+Dieser Vorgang führt einen einfachen Datenaustausch zwischen dem Client und dem Server durch und verwendet CORS-Header, um die Berechtigungen zu verwalten:
 
 ![Diagramm einer einfachen CORS-GET-Anfrage](https://mdn.github.io/shared-assets/images/diagrams/http/cors/simple-request.svg)
 
-Sehen wir uns an, was der Browser in diesem Fall an den Server senden wird:
+Sehen wir uns an, was der Browser in diesem Fall an den Server sendet:
 
 ```http
 GET /resources/public-data/ HTTP/1.1
@@ -110,9 +110,9 @@ Connection: keep-alive
 Origin: https://foo.example
 ```
 
-Der relevante Anfrageheader ist {{HTTPHeader("Origin")}}, der zeigt, dass der Aufruf von `https://foo.example` kommt.
+Der beachtenswerte Anfrage-Header ist {{HTTPHeader("Origin")}}, der anzeigt, dass der Aufruf von `https://foo.example` kommt.
 
-Jetzt sehen wir uns an, wie der Server antwortet:
+Nun sehen wir uns an, wie der Server antwortet:
 
 ```http
 HTTP/1.1 200 OK
@@ -127,26 +127,26 @@ Content-Type: application/xml
 […XML Data…]
 ```
 
-In der Antwort gibt der Server einen {{HTTPHeader("Access-Control-Allow-Origin")}}-Header mit `Access-Control-Allow-Origin: *` zurück, was bedeutet, dass die Ressource von **jedem** Ursprung aus zugänglich ist.
+Als Antwort sendet der Server einen {{HTTPHeader("Access-Control-Allow-Origin")}}-Header mit `Access-Control-Allow-Origin: *`, was bedeutet, dass die Ressource von **jedem** Ursprung abgerufen werden kann.
 
 ```http
 Access-Control-Allow-Origin: *
 ```
 
-Dieses Muster der {{HTTPHeader("Origin")}}- und {{HTTPHeader("Access-Control-Allow-Origin")}}-Header ist die einfachste Verwendung des Zugriffskontrollprotokolls. Wenn die Ressourceninhaber bei `https://bar.other` den Zugriff auf die Ressource auf Anfragen _nur_ von `https://foo.example` einschränken möchten (d. h. keine Domain außer `https://foo.example` kann in einer Cross-Origin-Weise auf die Ressource zugreifen), würden sie senden:
+Dieses Muster der {{HTTPHeader("Origin")}}- und {{HTTPHeader("Access-Control-Allow-Origin")}}-Header ist die einfachste Nutzung des Zugriffskontrollprotokolls. Wenn die Ressourcenbesitzer bei `https://bar.other` den Zugriff auf die Ressource auf Anfragen _nur_ von `https://foo.example` beschränken möchten (d.h. keine andere Domain als `https://foo.example` darf die Ressource in einer Cross-Origin-Weise abfragen), würden sie folgendes senden:
 
 ```http
 Access-Control-Allow-Origin: https://foo.example
 ```
 
 > [!NOTE]
-> Wenn auf eine [verschränkte Anfragen](#anfragen_mit_anmeldedaten) Anfrage geantwortet wird, **muss** der Server einen Ursprung im Wert des `Access-Control-Allow-Origin`-Headers angeben, anstatt den `*`-Wildcard zu spezifizieren.
+> Wenn auf eine [anmeldebasierten Anfragen](#anfragen_mit_anmeldeinformationen) Anfrage geantwortet wird, muss der Server einen Ursprung im Wert des `Access-Control-Allow-Origin`-Headers angeben, anstatt den `*` Platzhalter zu spezifizieren.
 
-### Preflighted-Anfragen
+### Vorab-Anfragen
 
-Im Gegensatz zu [_einfachen Anfragen_](#einfache_anfragen) sendet der Browser bei "preflighted" Anfragen zuerst eine HTTP-Anfrage mit der {{HTTPMethod("OPTIONS")}}-Methode an die Ressource auf dem anderen Ursprung, um festzustellen, ob die tatsächliche Anfrage gefahrlos gesendet werden kann. Solche Cross-Origin-Anfragen werden geprüft, da sie Auswirkungen auf Benutzerdaten haben können.
+Im Gegensatz zu [_einfachen Anfragen_](#einfache_anfragen) sendet der Browser bei "vorafgeflogenen" Anfragen zuerst eine HTTP-Anfrage mit der Methode {{HTTPMethod("OPTIONS")}} an die Ressource auf dem anderen Ursprung, um festzustellen, ob die eigentliche Anfrage sicher zu senden ist. Solche Cross-Origin-Anfragen werden vorabgeflogen, da sie Auswirkungen auf Benutzerdaten haben können.
 
-Das folgende ist ein Beispiel für eine Anfrage, die eine Vorabüberprüfung durchläuft:
+Das folgende ist ein Beispiel für eine Anfrage, die vorabgeflogen wird:
 
 ```js
 const fetchPromise = fetch("https://bar.other/doc", {
@@ -164,14 +164,14 @@ fetchPromise.then((response) => {
 });
 ```
 
-Das obige Beispiel erstellt einen XML-Body, der mit der `POST`-Anfrage gesendet wird. Außerdem wird ein nicht standardmäßiger HTTP-Request-Header `X-PINGOTHER` gesetzt. Solche Header sind nicht Teil von HTTP/1.1, sind aber allgemein nützlich für Webanwendungen. Da die Anfrage einen `Content-Type` von `text/xml` verwendet und ein benutzerdefinierter Header gesetzt ist, wird diese Anfrage vorab geprüft.
+Das obige Beispiel erstellt einen XML-Body, der mit der `POST`-Anfrage gesendet werden soll. Außerdem wird ein nicht standardmäßiger HTTP-`X-PINGOTHER`-Anforderungs-Header gesetzt. Solche Header sind nicht Teil von HTTP/1.1, sind aber im Allgemeinen für Webanwendungen nützlich. Da die Anfrage einen `Content-Type` von `text/xml` verwendet und ein benutzerdefinierter Header gesetzt ist, wird diese Anfrage vorabgeflogen.
 
-![Diagramm einer Anfrage, die vorab geprüft ist](https://mdn.github.io/shared-assets/images/diagrams/http/cors/preflight-correct.svg)
+![Diagramm einer Anfrage, die vorabgeflogen wird](https://mdn.github.io/shared-assets/images/diagrams/http/cors/preflight-correct.svg)
 
 > [!NOTE]
-> Wie unten beschrieben, enthält die tatsächliche `POST`-Anfrage nicht die `Access-Control-Request-*` Header; sie werden nur für die `OPTIONS`-Anfrage benötigt.
+> Wie unten beschrieben, enthält die eigentliche `POST`-Anfrage nicht die `Access-Control-Request-*`-Header; sie sind nur für die `OPTIONS`-Anfrage notwendig.
 
-Sehen wir uns den vollständigen Austausch zwischen Client und Server an. Der erste Austausch ist die _Preflight-Anfrage/Antwort_:
+Betrachten wir den vollständigen Austausch zwischen Client und Server. Der erste Austausch ist die _Vorabfrage/-antwort_:
 
 ```http
 OPTIONS /doc HTTP/1.1
@@ -197,16 +197,16 @@ Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
 ```
 
-Der erste Block oben stellt die Preflight-Anfrage mit der {{HTTPMethod("OPTIONS")}}-Methode dar. Der Browser ermittelt, dass er diese Anfrage basierend auf den Anfrageparametern senden muss, die der obige JavaScript-Code verwendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage mit den tatsächlichen Anfrageparametern zu senden. OPTIONS ist eine HTTP/1.1-Methode, die dazu verwendet wird, weitere Informationen von Servern zu erhalten und ist eine {{Glossary("Safe/HTTP", "sichere")}} Methode, was bedeutet, dass sie nicht verwendet werden kann, um die Ressource zu ändern. Beachten Sie, dass zusammen mit der OPTIONS-Anfrage zwei weitere Anfrageheader gesendet werden:
+Der erste Block oben stellt die Vorab-Anfrage mit der Methode {{HTTPMethod("OPTIONS")}} dar. Der Browser bestimmt, dass er diese Anfrage senden muss, basierend auf den Anforderungsparametern, die der obige JavaScript-Code-Schnipsel verwendet, damit der Server antworten kann, ob es zulässig ist, die Anfrage mit den tatsächlichen Anforderungsparametern zu senden. OPTIONS ist eine HTTP/1.1-Methode, die verwendet wird, um weitere Informationen von Servern zu erhalten, und ist eine {{Glossary("Safe/HTTP", "sichere")}} Methode, was bedeutet, dass sie nicht verwendet werden kann, um die Ressource zu ändern. Beachten Sie, dass zusammen mit der OPTIONS-Anfrage zwei andere Anforderungs-Header gesendet werden:
 
 ```http
 Access-Control-Request-Method: POST
 Access-Control-Request-Headers: content-type,x-pingother
 ```
 
-Der {{HTTPHeader("Access-Control-Request-Method")}}-Header benachrichtigt den Server als Teil einer Preflight-Anfrage, dass die tatsächliche Anfrage mit einer `POST`-Anfragemethode gesendet wird. Der {{HTTPHeader("Access-Control-Request-Headers")}}-Header benachrichtigt den Server, dass die tatsächliche Anfrage mit `X-PINGOTHER` und benutzerdefinierten `Content-Type`-Headern gesendet wird. Jetzt hat der Server die Möglichkeit zu bestimmen, ob er eine Anfrage unter diesen Bedingungen akzeptieren kann.
+Der Header {{HTTPHeader("Access-Control-Request-Method")}} benachrichtigt den Server als Teil einer Vorab-Anfrage, dass die tatsächliche Anfrage mit der `POST`-Anfragemethode gesendet wird. Der Header {{HTTPHeader("Access-Control-Request-Headers")}} benachrichtigt den Server, dass die tatsächliche Anfrage mit den benutzerdefinierten Headern `X-PINGOTHER` und `Content-Type` gesendet wird. Jetzt hat der Server die Möglichkeit zu bestimmen, ob er eine Anfrage unter diesen Bedingungen akzeptieren kann.
 
-Der zweite Block oben ist die vom Server zurückgegebene Antwort, die anzeigt, dass die Anfragemethode (`POST`) und Anforderungsheader (`X-PINGOTHER`) akzeptabel sind. Lassen Sie uns einen genaueren Blick auf die folgenden Zeilen werfen:
+Der zweite Block oben ist die Antwort, die der Server zurückgibt, die anzeigt, dass die Anfragemethode (`POST`) und die Anforderungs-Header (`X-PINGOTHER`) akzeptabel sind. Lassen Sie uns die folgenden Zeilen genauer anschauen:
 
 ```http
 Access-Control-Allow-Origin: https://foo.example
@@ -215,13 +215,13 @@ Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
 Access-Control-Max-Age: 86400
 ```
 
-Der Server antwortet mit `Access-Control-Allow-Origin: https://foo.example`, was den Zugriff nur auf die anfordernde Ursprungsdomäne beschränkt. Er antwortet auch mit `Access-Control-Allow-Methods`, was besagt, dass `POST` und `GET` gültige Methoden sind, um die betreffende Ressource abzufragen (dieser Header ähnelt dem {{HTTPHeader("Allow")}}-Antwortheader, wird jedoch ausschließlich im Kontext der Zugriffskontrolle verwendet).
+Der Server antwortet mit `Access-Control-Allow-Origin: https://foo.example`, was den Zugriff nur für die anfragende Ursprungsdomain einschränkt. Er antwortet auch mit `Access-Control-Allow-Methods`, was sagt, dass `POST` und `GET` gültige Methoden sind, um die betreffende Ressource abzufragen (dieser Header ähnelt dem {{HTTPHeader("Allow")}}-Antwortheader, wird jedoch ausschließlich im Kontext der Zugriffskontrolle verwendet).
 
-Der Server sendet auch `Access-Control-Allow-Headers` mit einem Wert von `X-PINGOTHER, Content-Type`, wodurch bestätigt wird, dass dies zulässige Header sind, die mit der tatsächlichen Anfrage verwendet werden dürfen. Wie `Access-Control-Allow-Methods` ist `Access-Control-Allow-Headers` eine durch Kommas getrennte Liste zulässiger Header.
+Der Server sendet auch `Access-Control-Allow-Headers` mit einem Wert von `X-PINGOTHER, Content-Type`, was bestätigt, dass diese Header bei der tatsächlichen Anfrage verwendet werden dürfen. Wie `Access-Control-Allow-Methods` ist `Access-Control-Allow-Headers` eine durch Kommas getrennte Liste zulässiger Header.
 
-Schließlich gibt {{HTTPHeader("Access-Control-Max-Age")}} den Wert in Sekunden an, wie lange die Antwort auf die Preflight-Anfrage zwischengespeichert werden kann, ohne eine andere Preflight-Anfrage zu senden. Der Standardwert beträgt 5 Sekunden. Im vorliegenden Fall beträgt die maximale Gültigkeitsdauer 86400 Sekunden (= 24 Stunden). Beachten Sie, dass jeder Browser einen [maximalen internen Wert](/de/docs/Web/HTTP/Headers/Access-Control-Max-Age) hat, der Vorrang hat, wenn der `Access-Control-Max-Age`-Wert überschritten wird.
+Schließlich gibt {{HTTPHeader("Access-Control-Max-Age")}} den Wert in Sekunden an, wie lange die Antwort auf die Vorab-Anfrage zwischengespeichert werden kann, ohne eine weitere Vorab-Anfrage zu senden. Der Standardwert beträgt 5 Sekunden. Im vorliegenden Fall beträgt das maximale Alter 86400 Sekunden (= 24 Stunden). Beachten Sie, dass jeder Browser einen [maximalen internen Wert](/de/docs/Web/HTTP/Headers/Access-Control-Max-Age) hat, der Vorrang hat, wenn der `Access-Control-Max-Age` diesen übersteigt.
 
-Sobald die Preflight-Anfrage abgeschlossen ist, wird die eigentliche Anfrage gesendet:
+Sobald die Vorab-Anfrage abgeschlossen ist, wird die eigentliche Anfrage gesendet:
 
 ```http
 POST /doc HTTP/1.1
@@ -255,39 +255,39 @@ Content-Type: text/plain
 [Some XML content]
 ```
 
-#### Preflighted-Anfragen und Umleitungen
+#### Vorab-Anfragen und Redirects
 
-Nicht alle Browser unterstützen derzeit das Folgen von Umleitungen nach einer Preflighted-Anfrage. Wenn eine Umleitung nach einer solchen Anfrage erfolgt, werden einige Browser derzeit eine Fehlermeldung wie die folgende melden:
+Nicht alle Browser unterstützen derzeit das Folgen von Redirects nach einer vorabgeflogenen Anfrage. Wenn ein Redirect nach einer solchen Anfrage erfolgt, melden einige Browser aktuell eine Fehlermeldung wie die folgende:
 
-> Die Anfrage wurde zu `https://example.com/foo` umgeleitet, was für Cross-Origin-Anfragen, für die eine Preflighted-Abfrage erforderlich ist, unzulässig ist.
-> Anfrage erfordert Preflight, was das Folgen von Cross-Origin-Umleitungen untersagt.
+> Die Anfrage wurde auf `https://example.com/foo` umgeleitet, was bei Cross-Origin-Anfragen, die eine Vorab-Anfrage erfordern, nicht erlaubt ist.
+> Anforderung erfordert Vorab-Anfrage, was das Folgen von Cross-Origin-Redirects nicht erlaubt.
 
-Das CORS-Protokoll erforderte ursprünglich dieses Verhalten, wurde jedoch [anschließend geändert, um es nicht mehr zu verlangen](https://github.com/whatwg/fetch/commit/0d9a4db8bc02251cc9e391543bb3c1322fb882f2). Nicht alle Browser haben jedoch die Änderung implementiert und zeigen daher noch das ursprünglich erforderliche Verhalten.
+Das CORS-Protokoll hat ursprünglich dieses Verhalten gefordert, wurde aber [später geändert, um es nicht mehr zu verlangen](https://github.com/whatwg/fetch/commit/0d9a4db8bc02251cc9e391543bb3c1322fb882f2). Allerdings haben nicht alle Browser die Änderung implementiert und zeigen daher immer noch das ursprünglich geforderte Verhalten.
 
-Bis die Browser mit der Spezifikation aufholen, können Sie möglicherweise diese Einschränkung umgehen, indem Sie eine oder beide der folgenden Maßnahmen ergreifen:
+Bis Browser die Spezifikation einholen, können Sie möglicherweise dieses Limit umgehen, indem Sie eine oder beide der folgenden Maßnahmen ergreifen:
 
-- Ändern Sie das serverseitige Verhalten, um die Preflight zu vermeiden und/oder die Umleitung zu vermeiden
-- Ändern Sie die Anfrage so, dass es sich um eine [einfache Anfrage](#einfache_anfragen) handelt, die keine Preflight verursacht
+- Ändern Sie das Server-Verhalten, um die Vorab-Anfrage und/oder das Redirect zu vermeiden
+- Ändern Sie die Anfrage, sodass sie eine [einfache Anfrage](#einfache_anfragen) ist, die keine Vorab-Anfrage auslöst
 
 Wenn das nicht möglich ist, gibt es einen anderen Weg:
 
-1. Stellen Sie eine [einfache Anfrage](#einfache_anfragen) (unter verwenden von [`Response.url`](/de/docs/Web/API/Response/url) für die Fetch-API, oder [`XMLHttpRequest.responseURL`](/de/docs/Web/API/XMLHttpRequest/responseURL)) um die URL zu bestimmen, bei der die eigentliche Preflighted-Anfrage enden würde.
-2. Stellen Sie eine weitere Anfrage (die _eigentliche_ Anfrage) mit der URL, die Sie im ersten Schritt aus `Response.url` oder `XMLHttpRequest.responseURL` erhalten haben.
+1. Machen Sie eine [einfache Anfrage](#einfache_anfragen) (using [`Response.url`](/de/docs/Web/API/Response/url) bei der Fetch-API oder [`XMLHttpRequest.responseURL`](/de/docs/Web/API/XMLHttpRequest/responseURL)), um zu bestimmen, welche URL die echte vorabgeflogene Anfrage ansteuern würde.
+2. Machen Sie eine weitere Anfrage (die _echte_ Anfrage) mit der URL, die Sie im ersten Schritt aus `Response.url` oder `XMLHttpRequest.responseURL` erhalten haben.
 
-Wenn die Anfrage jedoch eine ist, die eine Preflight wegen des `Authorization`-Headers in der Anfrage auslöst, können Sie die Einschränkung mit den oben genannten Schritten nicht umgehen. Sie können sie überhaupt nicht umgehen, es sei denn, Sie haben die Kontrolle über den Server, an den die Anfrage gesendet wird.
+Wenn es sich jedoch um eine Anfrage handelt, die eine Vorab-Anfrage aufgrund der Präsenz des `Authorization`-Headers in der Anfrage auslöst, können Sie das Limit nicht mit den obigen Schritten umgehen. Und Sie können es überhaupt nicht umgehen, es sei denn, Sie haben die Kontrolle über den Server, an den die Anfrage gesendet wird.
 
-### Anfragen mit Anmeldedaten
+### Anfragen mit Anmeldeinformationen
 
 > [!NOTE]
-> Wenn authentifizierte Anfragen an eine andere Domain gestellt werden, gelten weiterhin Drittanbieter-Cookie-Richtlinien. Die Richtlinie wird immer unabhängig von der Server- und Client-Konfiguration, wie in diesem Kapitel beschrieben, durchgesetzt.
+> Bei der Erstellung von Anfragen mit Anmeldeinformationen an eine andere Domain gelten immer noch die Richtlinien für Drittanbieter-Cookies. Die Richtlinie wird stets unabhängig von jeglichen Einstellungen auf dem Server und dem Client, wie in diesem Kapitel beschrieben, durchgesetzt.
 
-Die interessanteste Fähigkeit, die sowohl von [`fetch()`](/de/docs/Web/API/Window/fetch) als auch von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und CORS bereitgestellt wird, ist die Möglichkeit, "authentifizierte" Anfragen zu stellen, die sich der [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) und HTTP-Authentifizierungsinformationen bewusst sind. Standardmäßig senden Browser bei Cross-Origin `fetch()`- oder `XMLHttpRequest`-Aufrufen _keine_ Anmeldedaten.
+Die interessanteste Fähigkeit, die man sowohl mit [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und CORS erhält, ist die Möglichkeit, "anmeldungsfähige" Anfragen zu tätigen, die sich der [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) und der HTTP-Authentifizierungsinformationen bewusst sind. Standardmäßig senden Browser bei Cross-Origin-`fetch()`- oder `XMLHttpRequest`-Aufrufen _keine_ Anmeldeinformationen.
 
-Um für eine `fetch()`-Anfrage zu bitten, Anmeldedaten einzuschließen, setzen Sie die [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option auf `"include"`.
+Um eine `fetch()`-Anfrage zu bitten, Anmeldeinformationen einzuschließen, setzen Sie die [`credentials`](/de/docs/Web/API/RequestInit#credentials) Option auf `"include"`.
 
-Um für eine `XMLHttpRequest`-Anfrage zu bitten, Anmeldedaten einzuschließen, setzen Sie die [`XMLHttpRequest.withCredentials`](/de/docs/Web/API/XMLHttpRequest/withCredentials)-Eigenschaft auf `true`.
+Um eine `XMLHttpRequest`-Anfrage mit Anmeldeinformationen zu stellen, setzen Sie die [`XMLHttpRequest.withCredentials`](/de/docs/Web/API/XMLHttpRequest/withCredentials) Eigenschaft auf `true`.
 
-In diesem Beispiel macht der ursprünglich von `https://foo.example` geladene Inhalt eine einfache GET-Anfrage an eine Ressource auf `https://bar.other`, die Cookies setzt. Der Inhalt auf foo.example könnte JavaScript wie folgt enthalten:
+In diesem Beispiel stellt Inhalt, der ursprünglich von `https://foo.example` geladen wurde, eine einfache GET-Anfrage an eine Ressource auf `https://bar.other`, die Cookies setzt. Inhalt auf `foo.example` könnte JavaScript enthalten, das so aussieht:
 
 ```js
 const url = "https://bar.other/resources/credentialed-content/";
@@ -298,7 +298,7 @@ const fetchPromise = fetch(request);
 fetchPromise.then((response) => console.log(response));
 ```
 
-Dieser Code erstellt ein [`Request`](/de/docs/Web/API/Request)-Objekt, indem die `credentials`-Option im Konstruktor auf `"include"` gesetzt wird, und gibt diese Anfrage dann in `fetch()` weiter. Da es sich um eine einfache `GET`-Anfrage handelt, wird sie nicht vorab geprüft, aber der Browser wird **jede** Antwort ablehnen, die nicht den {{HTTPHeader("Access-Control-Allow-Credentials")}}: `true`-Header enthält und **die** Antwort nicht dem aufrufenden Web-Content zur Verfügung stellt.
+Dieser Code erstellt ein [`Request`](/de/docs/Web/API/Request)-Objekt und setzt die `credentials` Option im Konstruktor auf `"include"`, danach übergibt es dieses Request-Objekt an `fetch()`. Da dies eine einfache `GET`-Anfrage ist, wird sie nicht vorabgeflogen, aber der Browser wird **jede** Antwort ablehnen, die nicht den Header {{HTTPHeader("Access-Control-Allow-Credentials")}}`: true` enthält, und **nicht** die Antwort dem aufrufenden Webinhalt zur Verfügung stellen.
 
 ![Diagramm einer einfachen GET-Anfrage mit Access-Control-Allow-Credentials](https://mdn.github.io/shared-assets/images/diagrams/http/cors/include-credentials.svg)
 
@@ -334,43 +334,43 @@ Content-Type: text/plain
 [text/plain content]
 ```
 
-Obwohl der `Cookie`-Header der Anforderung das Cookie enthält, das für den Inhalt auf `https://bar.other` bestimmt ist, würde die Antwort ignoriert und nicht für den Web-Content bereitgestellt, wenn bar.other nicht mit einem {{HTTPHeader("Access-Control-Allow-Credentials")}} mit dem Wert `true` antwortet, wie in diesem Beispiel gezeigt.
+Obwohl der `Cookie`-Header der Anfrage das für die Inhalte auf `https://bar.other` bestimmte Cookie enthält, wenn bar.other nicht mit einem {{HTTPHeader("Access-Control-Allow-Credentials")}} mit Wert `true` antwortete, wie in diesem Beispiel gezeigt, würde die Antwort ignoriert und nicht dem Webinhalt zur Verfügung gestellt.
 
-#### Preflight-Anfragen und Anmeldedaten
+#### Vorab-Anfragen und Anmeldeinformationen
 
-CORS-Preflight-Anfragen dürfen niemals Anmeldedaten enthalten. Die _Antwort_ auf eine Preflight-Anfrage muss `Access-Control-Allow-Credentials: true` angeben, um anzuzeigen, dass die tatsächliche Anfrage mit Anmeldedaten erfolgen darf.
+CORS-Vorab-Anfragen dürfen niemals Anmeldeinformationen einbeziehen. Die _Antwort_ auf eine Vorab-Anfrage muss `Access-Control-Allow-Credentials: true` spezifizieren, um anzuzeigen, dass die tatsächliche Anfrage mit Anmeldeinformationen gesendet werden kann.
 
 > [!NOTE]
-> Einige Unternehmensauthentifizierungsdienste erfordern, dass TLS-Clientzertifikate in Preflight-Anfragen gesendet werden, entgegen der [Fetch](https://fetch.spec.whatwg.org/#cors-protocol-and-credentials)-Spezifikation.
+> Einige Unternehmens-Authentifizierungsdienste erfordern, dass TLS-Client-Zertifikate in Vorab-Anfragen gesendet werden, im Gegensatz zur [Fetch](https://fetch.spec.whatwg.org/#cors-protocol-and-credentials)-Spezifikation.
 >
-> Firefox 87 erlaubt dieses nicht konforme Verhalten, durch das Setzen der Voreinstellung: `network.cors_preflight.allow_client_cert` auf `true` ([Firefox Bug 1511151](https://bugzil.la/1511151)). Auf Chromium basierende Browser senden derzeit immer TLS-Clientzertifikate in CORS-Preflight-Anfragen ([Chrome Bug 775438](https://crbug.com/775438)).
+> Firefox 87 erlaubt dieses nicht-konforme Verhalten, um aktiviert zu werden, indem die Voreinstellung: `network.cors_preflight.allow_client_cert` auf `true` gesetzt wird ([Firefox-Bug 1511151](https://bugzil.la/1511151)). Auf Chromium-basierte Browser senden derzeit immer TLS-Client-Zertifikate in CORS-Vorab-Anfragen ([Chrome-Bug 775438](https://crbug.com/775438)).
 
-#### Authentifizierte Anfragen und Wildcards
+#### Anfragen mit Anmeldeinformationen und Wildcards
 
-Wenn auf eine authentifizierte Anfrage geantwortet wird:
+Bei der Antwort auf eine Anfrage mit Anmeldeinformationen:
 
-- Der Server darf **nicht** das `*`-Wildcard für den Wert des Antwort-Headers `Access-Control-Allow-Origin` spezifizieren, sondern muss stattdessen einen expliziten Ursprung angeben; Beispiel: `Access-Control-Allow-Origin: https://example.com`
-- Der Server darf **nicht** das `*`-Wildcard für den Wert des Antwort-Headers `Access-Control-Allow-Headers` spezifizieren, sondern muss stattdessen eine explizite Liste von Header-Namen angeben; Beispiel: `Access-Control-Allow-Headers: X-PINGOTHER, Content-Type`
-- Der Server darf **nicht** das `*`-Wildcard für den Wert des Antwort-Headers `Access-Control-Allow-Methods` spezifizieren, sondern muss stattdessen eine explizite Liste von Methoden-Namen angeben; Beispiel: `Access-Control-Allow-Methods: POST, GET`
-- Der Server darf **nicht** das `*`-Wildcard für den Wert des Antwort-Headers `Access-Control-Expose-Headers` spezifizieren, sondern muss stattdessen eine explizite Liste von Header-Namen angeben; Beispiel: `Access-Control-Expose-Headers: Content-Encoding, Kuma-Revision`
+- Der Server **darf nicht** den `*` Platzhalter für den Wert des Headers `Access-Control-Allow-Origin` angeben, sondern muss stattdessen einen expliziten Ursprung angeben; zum Beispiel: `Access-Control-Allow-Origin: https://example.com`
+- Der Server **darf nicht** den `*` Platzhalter für den Wert des Headers `Access-Control-Allow-Headers` angeben, sondern muss stattdessen eine explizite Liste von Headernamen angeben; zum Beispiel, `Access-Control-Allow-Headers: X-PINGOTHER, Content-Type`
+- Der Server **darf nicht** den `*` Platzhalter für den Wert des Headers `Access-Control-Allow-Methods` angeben, sondern muss stattdessen eine explizite Liste von Methodennamen angeben; zum Beispiel, `Access-Control-Allow-Methods: POST, GET`
+- Der Server **darf nicht** den `*` Platzhalter für den Wert des Headers `Access-Control-Expose-Headers` angeben, sondern muss stattdessen eine explizite Liste von Headernamen angeben; zum Beispiel, `Access-Control-Expose-Headers: Content-Encoding, Kuma-Revision`
 
-Wenn eine Anfrage ein Anmeldedatum enthält (meistens einen `Cookie`-Header) und die Antwort einen `Access-Control-Allow-Origin: *`-Header (d. h., mit dem Wildcard) enthält, blockiert der Browser den Zugriff auf die Antwort und meldet einen CORS-Fehler in der Entwicklerkonsole.
+Wenn eine Anfrage ein Anmeldekennzeichen enthält (am häufigsten ein `Cookie`-Header) und die Antwort einen `Access-Control-Allow-Origin: *`-Header enthält (das heißt mit dem Platzhalter), blockiert der Browser den Zugriff auf die Antwort und meldet einen CORS-Fehler in der Entwicklungskonsole.
 
-Wenn jedoch eine Anfrage ein Anmeldedatum (wie den `Cookie`-Header) enthält und die Antwort einen tatsächlichen Ursprung anstelle des Wildcards (wie beispielsweise `Access-Control-Allow-Origin: https://example.com`) umfasst, lässt der Browser den Zugriff auf die Antwort von dem angegebenen Ursprung zu.
+Wenn jedoch eine Anfrage ein Anmeldekennzeichen enthält (wie den `Cookie`-Header) und die Antwort anstelle des Platzhalters einen tatsächlichen Ursprung enthält (zum Beispiel `Access-Control-Allow-Origin: https://example.com`), erlaubt der Browser den Zugriff auf die Antwort vom angegebenen Ursprung.
 
-Beachten Sie auch, dass ein `Set-Cookie`-Antwort-Header in einer Antwort kein Cookie setzen würde, wenn der `Access-Control-Allow-Origin`-Wert in dieser Antwort das `*`-Wildcard anstelle eines tatsächlichen Ursprungs ist.
+Beachten Sie auch, dass jeder `Set-Cookie`-Antwort-Header in einer Antwort kein Cookie einstellt, wenn der `Access-Control-Allow-Origin`-Wert in dieser Antwort der `*` Platzhalter anstelle eines tatsächlichen Ursprunges ist.
 
 #### Drittanbieter-Cookies
 
-Beachten Sie, dass Cookies, die in CORS-Antworten gesetzt werden, den normalen Richtlinien für Drittanbieter-Cookies unterliegen. Im obigen Beispiel wird die Seite von `foo.example` geladen, aber der `Cookie`-Header in der Antwort wird von `bar.other` gesendet und würde daher nicht gespeichert werden, wenn der Browser des Benutzers so konfiguriert ist, dass alle Drittanbieter-Cookies abgelehnt werden.
+Beachten Sie, dass in CORS-Antworten gesetzte Cookies den regulären Drittanbieter-Cookie-Richtlinien unterliegen. Im obigen Beispiel wird die Seite von `foo.example` geladen, aber der `Cookie`-Header in der Antwort wird von `bar.other` gesendet und würde daher nicht gespeichert werden, wenn der Browser des Benutzers konfiguriert ist, alle Drittanbieter-Cookies abzulehnen.
 
-Cookies in der Anfrage können auch unter normalen Drittanbieter-Cookie-Richtlinien unterdrückt werden. Die durchgesetzte Cookie-Richtlinie kann die in diesem Kapitel beschriebene Fähigkeit also außer Kraft setzen und effektiv verhindern, dass Sie authentifizierte Anfragen stellen können.
+Cookies in der Anfrage können auch in den regulären Drittanbieter-Cookie-Richtlinien unterdrückt werden. Die durchgesetzte Cookie-Richtlinie könnte daher die Fähigkeit, die in diesem Kapitel beschrieben wird, nullifizieren, effektiv verhindern, dass Sie Anfragen mit Anmeldeinformationen überhaupt stellen können.
 
-Die Cookie-Richtlinie für das [SameSite](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Attribut würde gelten.
+Die Cookie-Richtlinien zum [SameSite](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Attribut würden angewendet werden.
 
-## Die HTTP-Antwortheader
+## Die HTTP-Antwort-Header
 
-Dieser Abschnitt listet die HTTP-Antwortheader auf, die Server für Zugriffskontrollanfragen gemäß der Cross-Origin Resource Sharing-Spezifikation zurückgeben. Der vorherige Abschnitt gibt eine Übersicht über deren Verwendung.
+Dieser Abschnitt listet die HTTP-Antwort-Header auf, die Server für Zugriffskontrollanfragen gemäß der Cross-Origin-Resource-Sharing-Spezifikation zurückgeben. Der vorherige Abschnitt gibt einen Überblick über diese in Aktion.
 
 ### Access-Control-Allow-Origin
 
@@ -380,84 +380,84 @@ Eine zurückgegebene Ressource kann einen {{HTTPHeader("Access-Control-Allow-Ori
 Access-Control-Allow-Origin: <origin> | *
 ```
 
-`Access-Control-Allow-Origin` gibt entweder einen einzelnen Ursprung an, der den Browsern erlaubt, diesem Ursprung den Zugriff auf die Ressource zu gestatten, oder andernfalls – für Anfragen **ohne** Anmeldedaten – dass das `*`-Wildcard den Browsern erlaubt, jedem Ursprung den Zugriff auf die Ressource zu gestatten.
+`Access-Control-Allow-Origin` spezifiziert entweder einen einzelnen Ursprung, der Browsern erlaubt, diesen Ursprung auf die Ressource zugreifen zu lassen; oder - für Anfragen **ohne** Anmeldeinformationen - der `*`-Wildcard, der Browsern erlaubt, von jedem Ursprung aus auf die Ressource zuzugreifen.
 
-Um zum Beispiel Code vom Ursprung `https://mozilla.org` zu erlauben, auf die Ressource zuzugreifen, können Sie die folgende Spezifikation verwenden:
+Zum Beispiel, um dem Code aus dem Ursprung `https://mozilla.org` Zugriff auf die Ressource zu ermöglichen, können Sie angeben:
 
 ```http
 Access-Control-Allow-Origin: https://mozilla.org
 Vary: Origin
 ```
 
-Wenn der Server einen einzelnen Ursprung (der in Abhängigkeit des anfordernden Ursprungs dynamisch anhand einer Positivliste geändert werden kann) statt des `*`-Wildcards spezifiziert, sollte der Server auch `Origin` im {{HTTPHeader("Vary")}} Antwort-Header einschließen, um den Clients anzuzeigen, dass die Antworten des Servers sich anhand des Wertes des {{HTTPHeader("Origin")}} Anforderungs-Headers unterscheiden.
+Wenn der Server einen einzigen Ursprung angibt (der sich dynamisch basierend auf dem anfragenden Ursprung als Teil einer Zulassungsliste ändern kann) anstelle des Platzhalters `*`, dann sollte der Server auch `Origin` im {{HTTPHeader("Vary")}}-Antwort-Header enthalten, um den Clients anzuzeigen, dass Serverantworten sich basierend auf dem Wert des {{HTTPHeader("Origin")}}-Anfrage-Headers unterscheiden werden.
 
 ### Access-Control-Expose-Headers
 
-Der {{HTTPHeader("Access-Control-Expose-Headers")}}-Header fügt die angegebenen Header zur Positivliste hinzu, auf die JavaScript (wie zum Beispiel [`Response.headers`](/de/docs/Web/API/Response/headers)) in Browsern zugreifen darf.
+Der Header {{HTTPHeader("Access-Control-Expose-Headers")}} fügt die angegebenen Header zur Zulassungsliste hinzu, die JavaScript (wie [`Response.headers`](/de/docs/Web/API/Response/headers)) in Browsern zugreifen kann.
 
 ```http
 Access-Control-Expose-Headers: <header-name>[, <header-name>]*
 ```
 
-Zum Beispiel würde Folgendes:
+Zum Beispiel, das folgende:
 
 ```http
 Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header
 ```
 
-…die Header `X-My-Custom-Header` und `X-Another-Custom-Header` für den Browser zugänglich machen.
+…würde es erlauben, dass die Header `X-My-Custom-Header` und `X-Another-Custom-Header` dem Browser ausgesetzt werden.
 
 ### Access-Control-Max-Age
 
-Der {{HTTPHeader("Access-Control-Max-Age")}}-Header gibt an, wie lange die Ergebnisse einer Preflight-Anfrage zwischengespeichert werden können. Ein Beispiel für eine Preflight-Anfrage finden Sie in den obigen Beispielen.
+Der Header {{HTTPHeader("Access-Control-Max-Age")}} gibt an, wie lange die Ergebnisse einer Vorab-Anfrage zwischengespeichert werden können. Ein Beispiel für eine Vorab-Anfrage finden Sie in den obigen Beispielen.
 
 ```http
 Access-Control-Max-Age: <delta-seconds>
 ```
 
-Der `delta-seconds`-Parameter gibt die Anzahl der Sekunden an, für die die Ergebnisse zwischengespeichert werden können.
+Der Parameter `delta-seconds` gibt die Anzahl der Sekunden an, in denen die Ergebnisse zwischengespeichert werden können.
 
 ### Access-Control-Allow-Credentials
 
-Der {{HTTPHeader("Access-Control-Allow-Credentials")}}-Header gibt an, ob die Antwort auf die Anfrage exponiert werden kann, wenn das `credentials`-Flag wahr ist. Wenn dieser Header als Teil einer Antwort auf eine Preflight-Anfrage verwendet wird, zeigt dies an, ob die tatsächliche Anfrage mit Anmeldedaten durchgeführt werden kann. Beachten Sie, dass einfache `GET`-Anfragen nicht vorab geprüft werden und daher, wenn eine Anfrage für eine Resource mit Anmeldedaten gestellt wird, die Antwort ignoriert wird und nicht vom Browser an den Web-Content zurückgegeben wird, wenn dieser Header nicht zusammen mit der Resource zurückgegeben wird.
+Der Header {{HTTPHeader("Access-Control-Allow-Credentials")}} gibt an, ob die Antwort auf die Anfrage offengelegt werden kann, wenn das `credentials`-Flag gesetzt ist. Wenn er als Teil einer Antwort auf eine Vorab-Anfrage verwendet wird, zeigt er an, ob die eigentliche Anfrage mit Anmeldeinformationen ausgeführt werden kann. Beachten Sie, dass einfache `GET`-Anfragen nicht vorabgeflogen werden, und wenn eine Anfrage für eine Ressource mit Anmeldeinformationen gestellt wird, wird die Antwort von der Ressource ignoriert, wenn dieser Header nicht zurückgegeben wird, und wird dem Webinhalt nicht zurückgegeben.
 
 ```http
 Access-Control-Allow-Credentials: true
 ```
 
-[Authentifizierte Anfragen](#anfragen_mit_anmeldedaten) werden oben beschrieben.
+[Anfragen mit Anmeldeinformationen](#anfragen_mit_anmeldeinformationen) werden oben diskutiert.
 
 ### Access-Control-Allow-Methods
 
-Der {{HTTPHeader("Access-Control-Allow-Methods")}}-Header gibt die Methode oder Methoden an, die beim Zugriff auf die Resource erlaubt sind. Dieser wird als Antwort auf eine Preflight-Anfrage verwendet. Die Bedingungen, unter denen eine Anfrage vorab geprüft wird, werden oben beschrieben.
+Der Header {{HTTPHeader("Access-Control-Allow-Methods")}} gibt die Methode oder Methoden an, die beim Zugriff auf die Ressource zulässig sind. Dieser wird als Antwort auf eine Vorab-Anfrage verwendet. Die Bedingungen, unter denen eine Anfrage vorabgeflogen wird, werden oben diskutiert.
 
 ```http
 Access-Control-Allow-Methods: <method>[, <method>]*
 ```
 
-Ein Beispiel für eine {{Glossary("preflight_request", "Preflight-Anfrage")}} wird oben gegeben, einschließlich eines Beispiels, das diesen Header an den Browser sendet.
+Ein Beispiel für eine {{Glossary("preflight_request", "Vorab-Anfrage")}} wird oben gegeben, einschließlich eines Beispiels, das diesen Header an den Browser sendet.
 
 ### Access-Control-Allow-Headers
 
-Der {{HTTPHeader("Access-Control-Allow-Headers")}}-Header wird als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} verwendet, um anzugeben, welche HTTP-Header beim tatsächlichen Anforderung verwendet werden dürfen. Dieser Header ist die Antwort des Servers auf den {{HTTPHeader("Access-Control-Request-Headers")}}-Header des Browsers.
+Der Header {{HTTPHeader("Access-Control-Allow-Headers")}} wird als Antwort auf eine {{Glossary("preflight_request", "Vorab-Anfrage")}} verwendet, um anzugeben, welche HTTP-Header bei der tatsächlichen Anfrage verwendet werden können. Dieser Header ist die Antwort des Servers auf den vom Browser gesandten {{HTTPHeader("Access-Control-Request-Headers")}}-Header.
 
 ```http
 Access-Control-Allow-Headers: <header-name>[, <header-name>]*
 ```
 
-## Die HTTP-Anforderungsheader
+## Die HTTP-Anfrage-Header
 
-Dieser Abschnitt listet Header auf, die Clients bei der Ausgabe von HTTP-Anfragen verwenden können, um die Cross-Origin-Sharing-Funktion zu nutzen. Beachten Sie, dass diese Header bei der Durchführung von Aufrufen an Server für Sie gesetzt werden. Entwickler, die Cross-Origin-Anfragen stellen, müssen keine Cross-Origin-Sharing-Anforderungsheader programmatisch setzen.
+Dieser Abschnitt listet Header auf, die Clients verwenden können, wenn sie HTTP-Anfragen stellen, um die Cross-Origin-Sharing-Funktion zu nutzen. Beachten Sie, dass diese Header für Sie beim Aufruf von Servern gesetzt werden. Entwickler, die Cross-Origin-Anfragen stellen, müssen keine Cross-Origin-Sharing-Anfrage-Header programmatisch setzen.
 
 ### Origin
 
-Der {{HTTPHeader("Origin")}}-Header gibt den Ursprung der Cross-Origin-Zugriffsanfrage oder Preflight-Anfrage an.
+Der {{HTTPHeader("Origin")}}-Header zeigt den Ursprung der Cross-Origin-Zugriffsanfrage oder Vorab-Anfrage an.
 
 ```http
 Origin: <origin>
 ```
 
-Der Ursprung ist eine URL, die den Server angibt, von dem die Anfrage initiiert wurde. Es sind keine Pfadinformationen enthalten, nur der Servername.
+Der Ursprung ist eine URL, die den Server angibt, von dem die Anfrage initiiert wird. Sie enthält keine Pfadinformationen, nur den Servernamen.
 
 > [!NOTE]
 > Der `origin`-Wert kann `null` sein.
@@ -466,23 +466,23 @@ Beachten Sie, dass in jeder Zugriffskontrollanfrage der {{HTTPHeader("Origin")}}
 
 ### Access-Control-Request-Method
 
-Der {{HTTPHeader("Access-Control-Request-Method")}} wird bei der Ausgabe einer Preflight-Anfrage verwendet, um den Server darüber zu informieren, welche HTTP-Methode verwendet wird, wenn die tatsächliche Anfrage gestellt wird.
+Der {{HTTPHeader("Access-Control-Request-Method")}} wird verwendet, wenn eine Vorab-Anfrage gestellt wird, um dem Server mitzuteilen, welche HTTP-Methode verwendet wird, wenn die tatsächliche Anfrage gestellt wird.
 
 ```http
 Access-Control-Request-Method: <method>
 ```
 
-Beispiele für diese Nutzung finden Sie [oben.](#preflighted-anfragen)
+Beispiele für diese Verwendung finden Sie [oben.](#vorab-anfragen)
 
 ### Access-Control-Request-Headers
 
-Der {{HTTPHeader("Access-Control-Request-Headers")}}-Header wird bei der Ausgabe einer Preflight-Anfrage verwendet, um den Server darüber zu informieren, welche HTTP-Header verwendet werden, wenn die tatsächliche Anfrage gestellt wird (zum Beispiel, indem man sie als [`headers`](/de/docs/Web/API/RequestInit#headers) Option übergibt). Dieser browserseitige Header wird durch den ergänzenden serverseitigen Header von {{HTTPHeader("Access-Control-Allow-Headers")}} beantwortet.
+Der {{HTTPHeader("Access-Control-Request-Headers")}}-Header wird verwendet, wenn eine Vorab-Anfrage gesendet wird, um dem Server mitzuteilen, welche HTTP-Header verwendet werden, wenn die tatsächliche Anfrage gestellt wird (zum Beispiel, indem sie als [`headers`](/de/docs/Web/API/RequestInit#headers)-Option übergeben werden). Dieser browserseitige Header wird vom Komplementärserver-Seiten-Header {{HTTPHeader("Access-Control-Allow-Headers")}} beantwortet.
 
 ```http
 Access-Control-Request-Headers: <field-name>[,<field-name>]*
 ```
 
-Beispiele für diese Nutzung finden Sie [oben](#preflighted-anfragen).
+Beispiele für diese Verwendung finden Sie [oben](#vorab-anfragen).
 
 ## Spezifikationen
 
@@ -495,14 +495,14 @@ Beispiele für diese Nutzung finden Sie [oben](#preflighted-anfragen).
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- [CORS aktivieren: Ich möchte CORS-Unterstützung zu meinem Server hinzufügen](https://enable-cors.org/server.html)
+- [CORS aktivieren: Ich möchte meinem Server CORS-Unterstützung hinzufügen](https://enable-cors.org/server.html)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [Will it CORS?](https://httptoolkit.com/will-it-cors/) - ein interaktiver CORS-Erklärer & Generator
 - [Wie man den Chrome-Browser ohne CORS ausführt](https://alfilatov.com/posts/run-chrome-without-cors/)
-- [Verwendung von CORS mit allen (modernen) Browsern](https://www.telerik.com/blogs/using-cors-with-all-modern-browsers)
-- [Stack Overflow Antwort mit "Anleitung"-Infos für den Umgang mit häufigen Problemen](https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141):
+- [CORS mit allen (modernen) Browsern verwenden](https://www.telerik.com/blogs/using-cors-with-all-modern-browsers)
+- [Stack Overflow Antwort mit "Anleitung" zur Behandlung von häufigen Problemen](https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141):
 
-  - Wie man das CORS-Preflight vermeidet
-  - Wie man einen CORS-Proxy nutzt, um das Problem _"Kein Access-Control-Allow-Origin-Header vorhanden"_ zu umgehen
-  - Wie man das Problem _"Access-Control-Allow-Origin-Header darf nicht das Wildcard sein"_ löst
+  - Wie man die CORS-Vorab-Anfrage vermeidet
+  - Wie man einen CORS-Proxy verwendet, um das Problem _"No Access-Control-Allow-Origin header"_ zu umgehen
+  - Wie man das Problem _"Access-Control-Allow-Origin header must not be the wildcard"_ löst

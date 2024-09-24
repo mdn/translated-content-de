@@ -2,32 +2,32 @@
 title: serviceworker
 slug: Web/Manifest/serviceworker
 l10n:
-  sourceCommit: 2b44e3e665ceb5f4336089695aa5f617b1baf33c
+  sourceCommit: 79f75809844204ce0dd5a1411095b7851711cdeb
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Das `serviceworker`-Mitglied spezifiziert einen Serviceworker, der Just-In-Time (JIT) installiert und registriert wird, um eine webbasierte Zahlungs-App bereitzustellen, die einen Zahlungsmechanismus für eine spezifizierte Zahlungsmethode auf einer Händler-Website anbietet. Siehe [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) für weitere Details.
+Das `serviceworker`-Element gibt einen Serviceworker an, der Just-In-Time (JIT) installiert und registriert wird, um eine webbasierte Zahlungs-App auszuführen, die einen Zahlungsmechanismus für eine bestimmte Zahlungsmethode auf einer Händler-Website bereitstellt. Siehe [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) für weitere Details.
 
 ### Werte
 
 `serviceworker`-Objekte können die folgenden Werte enthalten:
 
-- `scope` {{experimental_inline}}
+- `scope` {{experimental_inline}} {{non-standard_inline}}
 
-  - : Ein String, der den Registrierungsscope des Service Workers darstellt.
+  - : Ein String, der den Registrierungsscope des Serviceworkers darstellt.
 
-- `src` {{experimental_inline}}
+- `src` {{experimental_inline}} {{non-standard_inline}}
 
-  - : Ein String, der die URL angibt, von der das Serviceworker-Skript heruntergeladen werden soll.
+  - : Ein String, der die URL angibt, von der das Skript des Serviceworkers heruntergeladen wird.
 
-- `use_cache` {{experimental_inline}}
+- `use_cache` {{experimental_inline}} {{non-standard_inline}}
 
-  - : Ein boolescher Wert, der festlegt, wie der HTTP-Cache für Serviceworker-Skriptressourcen während der Aktualisierungen verwendet wird.
-    Es bietet eine äquivalente Funktionalität zu bestimmten Werten der `updateViaCache`-Option, die bereitgestellt wird, wenn ein Serviceworker über JavaScript mit [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) registriert wird.
+  - : Ein Boolean, der festlegt, wie der HTTP-Cache für Serviceworker-Skriptressourcen während der Aktualisierungen verwendet wird.
+    Er bietet eine gleichwertige Funktionalität zu bestimmten Werten der `updateViaCache`-Option, die verwendet wird, wenn ein Serviceworker über JavaScript mithilfe von [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) registriert wird.
 
     - `true`: Der HTTP-Cache wird für Importe abgefragt, aber das Hauptskript wird immer aus dem Netzwerk aktualisiert. Wenn kein aktueller Eintrag im HTTP-Cache für die Importe gefunden wird, werden sie aus dem Netzwerk abgerufen. Entspricht `updateViaCache: "imports"`.
-    - `false`: Der HTTP-Cache wird weder für das Hauptskript noch dessen Importe verwendet. Alle Serviceworker-Skriptressourcen werden aus dem Netzwerk aktualisiert. Entspricht `updateViaCache: "none"`.
+    - `false`: Der HTTP-Cache wird weder für das Hauptskript noch für seine Importe verwendet. Alle Serviceworker-Skriptressourcen werden aus dem Netzwerk aktualisiert. Entspricht `updateViaCache: "none"`.
 
 ## Beispiele
 
@@ -45,8 +45,8 @@ Siehe [Payment Handler API > Konzepte und Nutzung](/de/docs/Web/API/Payment_Hand
 
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Web-basierte Zahlungs-Apps Übersicht](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

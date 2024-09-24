@@ -2,18 +2,18 @@
 title: HTTP/3
 slug: Glossary/HTTP_3
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{GlossarySidebar}}
 
-**HTTP/3** ist die kommende Hauptversion des [HTTP-Netzwerkprotokolls](/de/docs/Web/HTTP/Basics_of_HTTP), die auf {{Glossary("HTTP_2", "HTTP/2")}} folgt.
+**HTTP/3** ist eine bedeutende Überarbeitung des [HTTP-Netzwerkprotokolls](/de/docs/Web/HTTP) und der Nachfolger von {{Glossary("HTTP_2", "HTTP/2")}}.
 
-Der Hauptpunkt von HTTP/3 ist, dass es ein neues {{Glossary("UDP", "UDP")}}-Protokoll namens QUIC verwendet, anstelle von {{Glossary("TCP", "TCP")}}.
+Der bemerkenswerteste Unterschied bei HTTP/3 ist, dass es ein Protokoll namens QUIC über {{Glossary("UDP", "UDP")}} anstelle von {{Glossary("TCP", "TCP")}} nutzt.
 
 ## Siehe auch
 
-- [HTTP auf MDN](/de/docs/Web/HTTP)
+- [HTTP-Dokumentation](/de/docs/Web/HTTP)
 - [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3) auf Wikipedia
 - Verwandte Glossarbegriffe:
   - {{Glossary("HTTP", "HTTP")}}

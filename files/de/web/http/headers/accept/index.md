@@ -2,12 +2,12 @@
 title: Accept
 slug: Web/HTTP/Headers/Accept
 l10n:
-  sourceCommit: 7aab76c49ae49d606b4958f8dc8cd1269fb7b9b6
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{HTTPSidebar}}
 
-Der **`Accept`** HTTP-Anforderungsheader gibt an, welche Inhaltstypen, ausgedrückt als [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), der Client verstehen kann. Der Server verwendet die [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation), um einen der Vorschläge auszuwählen, und informiert den Client über die Wahl mit dem {{HTTPHeader("Content-Type")}} Antwort-Header. Browser setzen erforderliche Werte für diesen Header basierend auf dem Kontext der Anfrage. Zum Beispiel verwendet ein Browser unterschiedliche Werte in einer Anfrage, wenn ein CSS-Stylesheet, Bild, Video oder ein Skript abgerufen wird.
+Der **`Accept`** HTTP-Anforderungsheader zeigt an, welche Inhaltstypen, ausgedrückt als [MIME-Typen](/de/docs/Web/HTTP/MIME_types), der Client verstehen kann. Der Server verwendet die [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation), um einen der Vorschläge auszuwählen und informiert den Client über die Wahl mit dem {{HTTPHeader("Content-Type")}}-Antwortheader. Browser setzen erforderliche Werte für diesen Header basierend auf dem Kontext der Anfrage. Zum Beispiel verwendet ein Browser unterschiedliche Werte in einer Anfrage, wenn er ein CSS-Stylesheet, ein Bild, ein Video oder ein Skript abruft.
 
 <table class="properties">
   <tbody>
@@ -21,11 +21,11 @@ Der **`Accept`** HTTP-Anforderungsheader gibt an, welche Inhaltstypen, ausgedrü
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-Whitelisted Anforderungsheader")}}
       </th>
       <td>
-        ja, mit der zusätzlichen Einschränkung, dass die Werte kein
-        <em>CORS-unsicheres Anforderungsheader-Byte</em> enthalten dürfen: 0x00-0x1F (außer 0x09 (HT)),
+        ja, mit der zusätzlichen Einschränkung, dass die Werte keine
+        <em>CORS-unsicheren Anforderungsheader-Bytes</em> enthalten dürfen: 0x00-0x1F (außer 0x09 (HT)),
         <code>"():&#x3C;>?@[\]{}</code> und 0x7F (DEL).
       </td>
     </tr>
@@ -46,13 +46,13 @@ Accept: text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*
 ## Direktiven
 
 - `<MIME_type>/<MIME_subtype>`
-  - : Ein einzelner, präziser [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), wie `text/html`.
+  - : Ein einzelner, präziser [MIME-Typ](/de/docs/Web/HTTP/MIME_types), wie `text/html`.
 - `<MIME_type>/*`
-  - : Ein MIME-Typ, aber ohne Subtyp. `image/*` entspricht `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
+  - : Ein MIME-Typ, jedoch ohne Subtyp. `image/*` entspricht `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
 - `*/*`
   - : Jeder MIME-Typ
-- `;q=` (q-Faktor Gewichtung)
-  - : Ein verwendeter Wert wird in einer Präferenzordnung ausgedrückt mittels eines relativen {{Glossary("Quality_values", "Qualitätswertes")}}, dem _Gewicht_.
+- `;q=` (q-Faktor-Gewichtung)
+  - : Ein Wert, der in eine Reihenfolge der Präferenz gesetzt wird, ausgedrückt durch einen relativen {{Glossary("Quality_values", "Qualitätswert")}}, der als _Gewicht_ bezeichnet wird.
 
 ## Beispiele
 
@@ -78,7 +78,7 @@ Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8
 
 ## Siehe auch
 
-- HTTP [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)
+- HTTP [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
 - [Liste der Standard-Accept-Werte](/de/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values)
-- Ein Header mit dem Ergebnis der Inhaltsverhandlung: {{HTTPHeader("Content-Type")}}
+- Ein Header mit dem Ergebnis der Inhaltsaushandlung: {{HTTPHeader("Content-Type")}}
 - Andere ähnliche Header: {{HTTPHeader("TE")}}, {{HTTPHeader("Accept-Encoding")}}, {{HTTPHeader("Accept-Language")}}

@@ -3,18 +3,18 @@ title: "RTCIceTransport: selectedcandidatepairchange-Ereignis"
 short-title: selectedcandidatepairchange
 slug: Web/API/RTCIceTransport/selectedcandidatepairchange_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 760de2c2bd37e5d1a1d68ed48be2d234a14a43bc
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der {{Glossary("ICE", "ICE")}}-Agent ein neues Paar von Kandidaten auswählt, die die Endpunkte einer tragfähigen Verbindung beschreiben.
+Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der {{Glossary("ICE", "ICE")}}-Agent ein neues Paar von Kandidaten auswählt, das die Endpunkte einer brauchbaren Verbindung beschreibt.
 
-Das Paar von Kandidaten wird wiederum durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, welches das lokale Ende der Verbindung darstellt, und ein weiteres, das das entfernte Ende der Verbindung darstellt.
+Das Paar von Kandidaten wird durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben, das einen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, der das lokale Ende der Verbindung darstellt, und einen anderen für das entfernte Ende der Verbindung.
 
-Zusammen können die Kandidaten zur Einrichtung einer Verbindung verwendet werden, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und im weiteren Sinne von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt werden kann.
+Zusammen können die Kandidaten verwendet werden, um eine Verbindung herzustellen, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und in weiterer Folge von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt wird.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst kein Bubbling aus.
 
 ## Syntax
 
@@ -32,10 +32,10 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Ereignis-Handler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert, die dem Benutzer Informationen über den Fortschritt der ICE-Aushandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` liefert.
+Dieses Beispiel erstellt einen Ereignis-Handler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert, die dem Benutzer Informationen über den Fortschritt der ICE-Verhandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` bereitstellt.
 
 ```js
-let iceTransport = pc.getSenders[0].transport.iceTransport;
+let iceTransport = pc.getSenders()[0].transport.iceTransport;
 let localProtoElem = document.getElementById("local-protocol");
 let remoteProtoElem = document.getElementById("remote-protocol");
 
@@ -50,10 +50,10 @@ iceTransport.addEventListener(
 );
 ```
 
-Dies kann auch direkt durch Setzen der `onselectedcandidatepairchange`-Ereignis-Handler-Eigenschaft erfolgen.
+Dies kann auch durch direktes Setzen der `onselectedcandidatepairchange` Ereignis-Handler-Eigenschaft erreicht werden.
 
 ```js
-let iceTransport = pc.getSenders[0].transport.iceTransport;
+let iceTransport = pc.getSenders()[0].transport.iceTransport;
 let localProtoElem = document.getElementById("local-protocol");
 let remoteProtoElem = document.getElementById("remote-protocol");
 
@@ -75,7 +75,7 @@ iceTransport.onselectedcandidatepairchange = (ev) => {
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
+- [WebRTC-Verbindung](/de/docs/Web/API/WebRTC_API/Connectivity)
 
 ### Verwandte RTCIceTransport-Ereignisse
 

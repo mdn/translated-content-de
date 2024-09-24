@@ -2,38 +2,38 @@
 title: file_handlers
 slug: Web/Manifest/file_handlers
 l10n:
-  sourceCommit: 54dbdfc6be6e1cb62b1c10e23356e895953fb196
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-Das `file_handlers`-Mitglied gibt ein Array von Objekten an, das die Arten von Dateien repräsentiert, die eine installierte [Progressive Web App (PWA)](/de/docs/Web/Progressive_web_apps) verarbeiten kann.
+Das `file_handlers`-Mitglied spezifiziert ein Array von Objekten, die die Typen von Dateien darstellen, die eine installierte [Progressive Web App (PWA)](/de/docs/Web/Progressive_web_apps) bearbeiten kann.
 
-Das `file_handlers`-Mitglied wird vom Browser gelesen, wenn die PWA installiert wird, und wird verwendet, um die Anwendung auf Betriebssystemebene mit einer bestimmten Dateiart zu verknüpfen.
+Das `file_handlers`-Mitglied wird vom Browser gelesen, wenn die PWA installiert wird, und verwendet, um die Anwendung mit einem bestimmten Satz von Dateitypen auf Betriebssystemebene zu verknüpfen.
 
-Zum Beispiel kann eine PWA registriert werden, um Dateien zu behandeln, die dem `text/plain` [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) entsprechen. Sobald diese PWA installiert ist, kann das Betriebssystem sie verwenden, um Textdateien zu verarbeiten und die PWA zu öffnen, wenn der Benutzer eine Datei dieses Typs öffnet. Beachten Sie, dass auch andere Anwendungen als Textdatei-Handler registriert sein können und dass die Art und Weise, wie Betriebssysteme die Verknüpfung zwischen Dateitypen und Anwendungen verwalten und dem Nutzer die Möglichkeit geben, eine Anwendung für die Verarbeitung einer bestimmten Datei auszuwählen, von Gerät zu Gerät unterschiedlich sein kann.
+Zum Beispiel kann eine PWA so registriert werden, dass sie Dateien verarbeiten kann, die dem `text/plain` [MIME-Typ](/de/docs/Web/HTTP/MIME_types/Common_types) entsprechen. Sobald diese PWA installiert ist, kann das Betriebssystem sie verwenden, um Textdateien zu verarbeiten, indem es die PWA öffnet, wenn der Nutzer eine Datei dieses Typs öffnet. Beachten Sie, dass auch andere Anwendungen als Textdatei-Handler registriert sein können und dass die Art und Weise, wie Betriebssysteme die Zuordnung zwischen Dateitypen und Anwendungen verwalten und wie sie den Benutzern erlauben, eine Anwendung zur Verarbeitung einer bestimmten Datei auszuwählen, von Gerät zu Gerät unterschiedlich sein kann.
 
 > [!NOTE]
-> Auch wenn das `file_handlers`-Mitglied verwendet wird, um eine PWA mit einer bestimmten Dateiart zu registrieren, führt dies nur dazu, dass das Betriebssystem die PWA startet, wenn eine passende Datei geöffnet wird. Die PWA muss die Datei dann tatsächlich mithilfe von JavaScript-Code verarbeiten. Weitere Informationen finden Sie unter [Dateien verarbeiten](#dateien_verarbeiten).
+> Während das `file_handlers`-Mitglied verwendet wird, um eine PWA mit einem bestimmten Satz von Dateitypen zu registrieren, führt dies nur dazu, dass das Betriebssystem die PWA startet, wenn eine passende Datei geöffnet wird. Die PWA muss die Datei dann tatsächlich mit JavaScript-Code verarbeiten. Weitere Informationen finden Sie unter [Umgang mit den Dateien](#umgang_mit_den_dateien).
 
 ### Werte
 
-Ein Array von Objekten. Jedes Objekt im Array muss die folgenden Werte enthalten (`action` und `accept` sind erforderlich):
+Ein Array von Objekten. Jedes Objekt in dem Array muss die folgenden Werte enthalten (`action` und `accept` sind erforderlich):
 
 - `action`
 
-  - : Ein String, der die URL beinhaltet, zu der navigiert wird, wenn eine Datei verarbeitet wird.
-    Diese URL muss innerhalb des Navigationsbereichs der PWA liegen, also der Menge von URLs, zu denen die PWA navigieren kann. Der Navigationsbereich einer PWA wird standardmäßig durch ihr [`start_url`](/de/docs/Web/Manifest/start_url)-Mitglied festgelegt, kann aber auch durch Verwendung des [`scope`](/de/docs/Web/Manifest/scope)-Mitglieds definiert werden.
+  - : Ein String, der die URL enthält, zu der navigiert wird, wenn eine Datei verarbeitet wird.
+    Diese URL muss innerhalb des Navigationsbereichs der PWA liegen, das ist der Satz von URLs, zu denen die PWA navigieren kann. Der Navigationsbereich einer PWA hat standardmäßig den Wert ihres [`start_url`](/de/docs/Web/Manifest/start_url)-Mitglieds, kann aber auch durch das [`scope`](/de/docs/Web/Manifest/scope)-Mitglied definiert werden.
 
 - `accept`
 
   - : Ein Objekt. Für jede Eigenschaft im Objekt:
-    - Der Eigenschaftsschlüssel ist ein MIME-Typ.
-    - Der Eigenschaftswert ist ein Array von Strings, die Dateiendungen repräsentieren, die mit diesem MIME-Typ assoziiert sind.
+    - Der Eigenschaftsname ist ein MIME-Typ.
+    - Der Eigenschaftswert ist ein Array von Strings, die Dateiendungen darstellen, die diesem MIME-Typ zugeordnet sind.
 
 ## Beispiele
 
-In diesem Beispiel erklärt ein Web-App-Manifest einen Datei-Handler, der die App registriert, um Audiodateien zu verarbeiten. Andere Manifestmitglieder wie `name` oder `icons` sind in diesem Beispiel aus Gründen der Kürze nicht enthalten:
+In diesem Beispiel erklärt ein Web-App-Manifest einen Dateihandler, der die App so registriert, dass sie Audiodateien verarbeiten kann. Andere Manifestmitglieder wie `name` oder `icons` sind in diesem Beispiel der Kürze halber nicht enthalten:
 
 ```json
 {
@@ -57,13 +57,13 @@ In diesem Beispiel erklärt ein Web-App-Manifest einen Datei-Handler, der die Ap
 }
 ```
 
-### Dateien verarbeiten
+### Umgang mit den Dateien
 
-Um die Dateiabwicklung tatsächlich in einer PWA zu implementieren, müssen Webentwickler auch [`window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verwenden, um die eingehenden Dateien in ihrem Anwendungs-JavaScript-Code zu verarbeiten.
+Um die Datei-Verarbeitung in einer PWA tatsächlich zu implementieren, müssen Webentwickler auch [`window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verwenden, um die eingehenden Dateien im JavaScript-Code ihrer Anwendung zu verarbeiten.
 
-Die Verarbeitung von Dateien erfolgt im Anwendungscode, der auf dem {{Glossary("main_thread", "Haupt-Thread")}} läuft, nicht im [Service Worker](/de/docs/Web/API/Service_Worker_API) der Anwendung.
+Die Verarbeitung der Dateien erfolgt im Anwendungscode, der im {{Glossary("main_thread", "Hauptthread")}} läuft, nicht im [Service Worker](/de/docs/Web/API/Service_Worker_API) der Anwendung.
 
-Im folgenden Beispiel wird [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) verwendet, um eine Callback-Funktion festzulegen, die eingehende Audiodateien empfängt und die erste mithilfe eines [`Audio`](/de/docs/Web/API/HTMLAudioElement/Audio)-Elements abspielt:
+Im folgenden Beispiel wird [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) verwendet, um eine Callback-Funktion zu spezifizieren, die eingehende Audiodateien empfängt und die erste mit einem [`Audio`](/de/docs/Web/API/HTMLAudioElement/Audio)-Element abspielt:
 
 ```js
 async function playSong(handledFile) {
@@ -92,5 +92,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Verarbeiten von Dateien in Progressive Web Apps auf learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files)
-- [Installierte Webanwendungen als Datei-Handler auf developer.chrome.com zulassen](https://developer.chrome.com/docs/capabilities/web-apis/file-handling)
+- [Handle files in Progressive Web Apps auf learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files) 
+- [Let installed web applications be file handlers auf developer.chrome.com](https://developer.chrome.com/docs/capabilities/web-apis/file-handling)

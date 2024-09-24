@@ -3,12 +3,12 @@ title: "ImageDecoder: isTypeSupported() statische Methode"
 short-title: isTypeSupported()
 slug: Web/API/ImageDecoder/isTypeSupported_static
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die statische Methode **`ImageDecoder.isTypeSupported()`** überprüft, ob ein gegebener [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) vom Benutzeragenten dekodiert werden kann.
+Die statische Methode **`ImageDecoder.isTypeSupported()`** prüft, ob ein bestimmter [MIME-Typ](/de/docs/Web/HTTP/MIME_types) vom Benutzeragenten dekodiert werden kann.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ ImageDecoder.isTypeSupported(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den zu überprüfenden [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) für Dekodierungsunterstützung enthält.
+  - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) enthält, für den die Unterstützung der Dekodierung überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das mit einem booleschen Wert aufgelöst wird, der anzeigt, ob Bilder mit einem Format des Typs `type` von der API dekodiert werden können.
+Ein {{jsxref("promise")}}, das mit einem booleanen Wert auflöst, der angibt, ob Bilder mit einem Format des Typs `type` von der API dekodiert werden können.
 
 ## Beispiele
 
-Das folgende Beispiel überprüft, ob GIF- und PCX-Bilder für die Dekodierung unterstützt werden und gibt das Ergebnis in der Konsole aus.
+Im folgenden Beispiel wird überprüft, ob GIF- und PCX-Bilder für die Dekodierung unterstützt werden, und das Ergebnis wird in der Konsole ausgegeben.
 
 ```js
 let isGifSupported = await ImageDecoder.isTypeSupported("image/gif");

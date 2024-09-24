@@ -3,12 +3,12 @@ title: "WorkerGlobalScope: importScripts()-Methode"
 short-title: importScripts()
 slug: Web/API/WorkerGlobalScope/importScripts
 l10n:
-  sourceCommit: 10c33115fb571546e2f92a6dceb4eaaa741b1a28
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`importScripts()`**-Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces importiert synchron ein oder mehrere Skripte in den Bereich des Workers.
+Die **`importScripts()`**-Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces importiert synchron ein oder mehrere Skripte in den Workers-Bereich.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ importScripts(path0, path1, /* …, */ pathN)
 ### Parameter
 
 - `pathN`
-  - : Ein String, der die URL des zu importierenden Skripts darstellt. Die URL kann absolut oder relativ sein. Wenn die URL relativ ist, bezieht sie sich auf die URL des Einstiegsskripts des Workers.
+  - : Ein String-Wert, der die URL des zu importierenden Skripts darstellt. Die URL kann absolut oder relativ sein. Ist die URL relativ, bezieht sie sich auf die URL des Einstiegs-Skripts des Workers.
 
 ### Rückgabewert
 
@@ -30,21 +30,21 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NetworkError`
-  - : Importierte Skripte wurden ohne `text/javascript` MIME-Typ oder ohne einen der erlaubten [Legacy-JavaScript-MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types#legacy_javascript_mime_types) bereitgestellt.
+  - : Importierte Skripte wurden ohne einen `text/javascript` MIME-Typ oder ohne einen der erlaubten [Legacy-JavaScript-MIME-Typen](/de/docs/Web/HTTP/MIME_types#legacy_javascript_mime_types) bereitgestellt.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der aktuelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ein Modul ist. Verwenden Sie stattdessen [`import`](/de/docs/Web/JavaScript/Reference/Statements/import).
 
 ## Beispiele
 
-Wenn Sie eine Funktionalität in einem separaten Skript namens `foo.js` geschrieben haben, die Sie innerhalb von `worker.js` verwenden möchten, könnten Sie sie mit der folgenden Zeile importieren:
+Wenn Sie eine Funktionalität in einem separaten Skript namens `foo.js` geschrieben haben, die Sie in `worker.js` verwenden möchten, könnten Sie es mit der folgenden Zeile importieren:
 
 ```js
 importScripts("foo.js");
 ```
 
-`foo.js` sollte im gleichen URL-Unterverzeichnis wie der Einstiegspunkt des Workers liegen — zum Beispiel, wenn dieser Worker mit `new Worker("worker.js")` erstellt wurde, dann ist `worker.js` der Einstiegspunkt. Wenn `worker.js` unter `https://example.com/scripts/worker.js` liegt, sollte `foo.js` unter `https://example.com/scripts/foo.js` liegen.
+`foo.js` sollte sich im selben URL-Teilbaum wie der Einstiegspunkt des Workers befinden — zum Beispiel, wenn dieser Worker mit `new Worker("worker.js")` erstellt wurde, dann ist `worker.js` der Einstiegspunkt. Befindet sich `worker.js` unter `https://example.com/scripts/worker.js`, dann sollte `foo.js` unter `https://example.com/scripts/foo.js` sein.
 
-`importScripts()` und `self.importScripts()` sind im Wesentlichen gleichbedeutend — beide repräsentieren `importScripts()`, das aus dem inneren Bereich des Workers aufgerufen wird.
+`importScripts()` und `self.importScripts()` sind im Wesentlichen gleichwertig — beide repräsentieren `importScripts()`, das aus dem inneren Bereich des Workers aufgerufen wird.
 
 ## Spezifikationen
 

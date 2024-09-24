@@ -2,16 +2,16 @@
 title: StorageArea.setAccessLevel()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/setAccessLevel
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
 ---
 
 {{AddonSidebar}}
 
-Legt das Zugriffslevel für den Speicherbereich fest.
+Legt die Zugriffsebene für den Speicherbereich fest.
 
 Diese Methode wird nur für den `storage.session` StorageArea unterstützt.
 
-Im Gegensatz zu anderen Speicherbereichen ist `storage.session` nur für privilegierte (vertrauenswürdige) Erweiterungskontexte verfügbar. Diese `setAccessLevel` Methode wird verwendet, um den Session-Speicherbereich auch für Content Scripts freizugeben. Standardmäßig sind alle anderen Speicherbereiche für alle Erweiterungskontexte, einschließlich Content Scripts, freigegeben.
+Im Gegensatz zu anderen Speicherbereichen ist `storage.session` nur in privilegierten (vertrauenswürdigen) Erweiterungskontexten verfügbar. Diese `setAccessLevel`-Methode wird verwendet, um den Sitzungspeicherbereich auch für Inhaltsskripte zugänglich zu machen. Standardmäßig sind alle anderen Speicherbereiche in allen Erweiterungskontexten, einschließlich Inhaltsskripten, verfügbar.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +23,17 @@ await browser.storage.<storageType>.setAccessLevel(
 )
 ```
 
-`<storageType>` kann der {{WebExtAPIRef("storage.session")}} Speicher-Typ sein.
+Wo `<storageType>` der {{WebExtAPIRef("storage.session")}}-Speichertyp ist.
 
 ### Parameter
 
 - `accessLevel`
 
-  - : `String`. Das Zugriffslevel des Speicherbereichs. Mögliche Werte sind `TRUSTED_CONTEXTS` oder `TRUSTED_AND_UNTRUSTED_CONTEXTS`.
+  - : `String`. Die Zugriffsebene des Speicherbereichs. Mögliche Werte sind `TRUSTED_CONTEXTS` oder `TRUSTED_AND_UNTRUSTED_CONTEXTS`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples}}
 
@@ -42,4 +42,4 @@ Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation wird aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.

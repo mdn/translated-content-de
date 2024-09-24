@@ -2,12 +2,12 @@
 title: Senden von Formulardaten
 slug: Learn/Forms/Sending_and_retrieving_form_data
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
 ---
 
 {{LearnSidebar}}{{PreviousMenu("Learn/Forms/Form_validation", "Learn/Forms")}}
 
-Sobald die Formulardaten auf der Client-Seite validiert wurden, ist es in Ordnung, das Formular abzuschicken. Da wir die Validierung im vorherigen Artikel behandelt haben, sind wir bereit, es abzuschicken! Dieser Artikel beleuchtet, was passiert, wenn ein Benutzer ein Formular absendet – wohin die Daten gehen und wie wir sie dort handhaben. Wir betrachten auch einige der Sicherheitsbedenken im Zusammenhang mit dem Senden von Formulardaten.
+Sobald die Formulardaten auf der Client-Seite validiert wurden, ist es in Ordnung, das Formular zu übermitteln. Da wir die Validierung im vorherigen Artikel behandelt haben, sind wir bereit zur Übermittlung! Dieser Artikel betrachtet, was passiert, wenn ein Benutzer ein Formular absendet — wohin gehen die Daten und wie gehen wir damit um, wenn sie ankommen? Wir betrachten auch einige der Sicherheitsbedenken im Zusammenhang mit dem Versenden von Formulardaten.
 
 <table>
   <tbody>
@@ -17,77 +17,77 @@ Sobald die Formulardaten auf der Client-Seite validiert wurden, ist es in Ordnun
         Ein
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Verständnis von HTML</a
-        > und Grundkenntnisse über
-        <a href="/de/docs/Web/HTTP/Basics_of_HTTP">HTTP</a> und
+        > und grundlegende Kenntnisse in
+        <a href="/de/docs/Web/HTTP">HTTP</a> und
         <a href="/de/docs/Learn/Server-side/First_steps"
-          >serverseitige Programmierung</a
+          >serverseitiger Programmierung</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, was passiert, wenn Formulardaten gesendet werden, einschließlich einer grundlegenden Vorstellung davon, wie Daten auf dem Server verarbeitet werden.
+        Zu verstehen, was passiert, wenn Formulardaten übermittelt werden, einschließlich eines grundlegenden Verständnisses der Datenverarbeitung auf dem Server.
       </td>
     </tr>
   </tbody>
 </table>
 
-Zuerst besprechen wir, was mit den Daten passiert, wenn ein Formular abgeschickt wird.
+Zuerst besprechen wir, was mit den Daten passiert, wenn ein Formular übermittelt wird.
 
-## Client/Server-Architektur
+## Client-Server-Architektur
 
-Im einfachsten Fall verwendet das Web eine Client/Server-Architektur, die wie folgt zusammengefasst werden kann: Ein Client (normalerweise ein Webbrowser) sendet eine Anfrage an einen Server (meistens ein Webserver wie [Apache](https://httpd.apache.org/), [Nginx](https://nginx.org/), [IIS](https://www.iis.net/), [Tomcat](https://tomcat.apache.org/) usw.), unter Verwendung des [HTTP-Protokolls](/de/docs/Web/HTTP). Der Server beantwortet die Anfrage mit demselben Protokoll.
+Grundsätzlich verwendet das Web eine Client-Server-Architektur, die folgendermaßen zusammengefasst werden kann: Ein Client (meist ein Webbrowser) sendet eine Anfrage an einen Server (meist ein Webserver wie [Apache](https://httpd.apache.org/), [Nginx](https://nginx.org/), [IIS](https://www.iis.net/), [Tomcat](https://tomcat.apache.org/) usw.) über das [HTTP-Protokoll](/de/docs/Web/HTTP). Der Server beantwortet die Anfrage mit demselben Protokoll.
 
-![Ein einfaches Schema der Client/Server-Architektur des Webs](client-server.png)
+![Ein einfaches Schema der Web-Client-Server-Architektur](client-server.png)
 
-Ein HTML-Formular auf einer Webseite ist nichts anderes als eine benutzerfreundliche Möglichkeit, eine HTTP-Anfrage zu konfigurieren, um Daten an einen Server zu senden. Dies ermöglicht es dem Benutzer, Informationen bereitzustellen, die in der HTTP-Anfrage übermittelt werden.
+Ein HTML-Formular auf einer Webseite ist nichts anderes als eine benutzerfreundliche Möglichkeit, eine HTTP-Anfrage zu konfigurieren, um Daten an einen Server zu senden. Dadurch kann der Benutzer Informationen bereitstellen, die in der HTTP-Anfrage übermittelt werden.
 
 > [!NOTE]
-> Um ein besseres Verständnis davon zu bekommen, wie Client-Server-Architekturen funktionieren, lesen Sie unser [Leitfaden zu den ersten Schritten der serverseitigen Webprogrammierung](/de/docs/Learn/Server-side/First_steps) Modul.
+> Um eine bessere Vorstellung davon zu bekommen, wie Clients-Server-Architekturen funktionieren, lesen Sie unser [Server-seitige Website-Programmierung Erste Schritte](/de/docs/Learn/Server-side/First_steps)-Modul.
 
-## Auf der Client-Seite: Definieren, wie die Daten gesendet werden
+## Auf der Client-Seite: Definieren, wie die Daten gesendet werden sollen
 
-Das {{HTMLElement("form")}}-Element definiert, wie die Daten gesendet werden. Alle seine Attribute sind dafür gedacht, dass Sie die Anfrage konfigurieren können, die gesendet wird, wenn ein Benutzer auf einen {{Glossary("submit_button", "Submit-Button")}} klickt. Die zwei wichtigsten Attribute sind [`action`](/de/docs/Web/HTML/Element/form#action) und [`method`](/de/docs/Web/HTML/Element/form#method).
+Das {{HTMLElement("form")}}-Element definiert, wie die Daten gesendet werden sollen. Alle seine Attribute sind dafür ausgelegt, die Anfrage zu konfigurieren, die gesendet wird, wenn ein Benutzer einen {{Glossary("submit_button", "Submit-Button")}} drückt. Die beiden wichtigsten Attribute sind [`action`](/de/docs/Web/HTML/Element/form#action) und [`method`](/de/docs/Web/HTML/Element/form#method).
 
 ### Das action-Attribut
 
-Das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut definiert, wohin die Daten gesendet werden. Sein Wert muss eine gültige relative oder absolute [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) sein. Wenn dieses Attribut nicht angegeben wird, werden die Daten an die URL der Seite gesendet, die das Formular enthält – die aktuelle Seite.
+Das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut definiert, wohin die Daten gesendet werden. Sein Wert muss eine gültige relative oder absolute [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) sein. Wenn dieses Attribut nicht angegeben ist, werden die Daten an die URL der Seite gesendet, die das Formular enthält — die aktuelle Seite.
 
-In diesem Beispiel werden die Daten an eine absolute URL gesendet – `https://example.com`:
+In diesem Beispiel werden die Daten an eine absolute URL — `https://example.com` — gesendet:
 
 ```html
 <form action="https://example.com">…</form>
 ```
 
-Hier verwenden wir eine relative URL – die Daten werden an eine andere URL im gleichen Ursprung gesendet:
+Hier verwenden wir eine relative URL — die Daten werden an eine andere URL im selben Ursprung gesendet:
 
 ```html
 <form action="/somewhere_else">…</form>
 ```
 
-Wenn keine Attribute angegeben sind, wie unten, werden die {{HTMLElement("form")}}-Daten an dieselbe Seite gesendet, auf der sich das Formular befindet:
+Wenn das {{HTMLElement("form")}}-Element ohne Attribute angegeben wird, werden die Daten an dieselbe Seite gesendet, auf der sich das Formular befindet:
 
 ```html
 <form>…</form>
 ```
 
 > [!NOTE]
-> Es ist möglich, eine URL anzugeben, die das HTTPS-Protokoll (sicheres HTTP) verwendet. Wenn Sie dies tun, werden die Daten zusammen mit dem Rest der Anfrage verschlüsselt, selbst wenn das Formular selbst auf einer unsicheren Seite gehostet wird, die mit HTTP aufgerufen wird. Andererseits zeigen alle Browser eine Sicherheitswarnung an den Benutzer an, wenn das Formular auf einer sicheren Seite gehostet wird, Sie jedoch eine unsichere HTTP-URL mit dem [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angeben, weil die Daten nicht verschlüsselt werden.
+> Es ist möglich, eine URL anzugeben, die das HTTPS (sichere HTTP)-Protokoll verwendet. Wenn Sie dies tun, werden die Daten zusammen mit dem Rest der Anfrage verschlüsselt, selbst wenn das Formular auf einer unsicheren Seite gehostet wird, die über HTTP aufgerufen wurde. Wenn das Formular jedoch auf einer sicheren Seite gehostet wird, Sie aber eine unsichere HTTP-URL mit dem [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angeben, zeigen alle Browser jedes Mal, wenn der Benutzer Daten senden möchte, eine Sicherheitswarnung an, da die Daten nicht verschlüsselt werden.
 
-Die Namen und Werte der Nicht-Datei-Formularsteuerungen werden als `name=value`-Paare, die mit Ampersands verbunden sind, an den Server gesendet. Der `action`-Wert sollte eine Datei auf dem Server sein, die die eingehenden Daten verarbeiten kann, einschließlich serverseitiger Validierung. Der Server antwortet dann im Allgemeinen, indem er die Daten verarbeitet und die URL lädt, die im `action`-Attribut angegeben ist, was einen neuen Seitenaufruf oder eine Aktualisierung der vorhandenen Seite verursacht, wenn `action` auf dieselbe Seite zeigt.
+Die Namen und Werte der Nicht-Datei-Formularsteuerelemente werden als `name=value`-Paare, die mit Ampersands verbunden sind, an den Server gesendet. Der `action`-Wert sollte eine Datei auf dem Server sein, die die eingehenden Daten verarbeiten kann, einschließlich einer serverseitigen Validierung. Der Server antwortet dann, bearbeitet die Daten und lädt die URL, die durch das `action`-Attribut definiert ist, wodurch ein neuer Seitenaufruf erfolgt (oder ein Refresh der vorhandenen Seite, wenn das `action` auf dieselbe Seite verweist).
 
 Wie die Daten gesendet werden, hängt vom `method`-Attribut ab.
 
 ### Das method-Attribut
 
-Das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut definiert, wie Daten gesendet werden. Das [HTTP-Protokoll](/de/docs/Web/HTTP) bietet mehrere Möglichkeiten, eine Anfrage durchzuführen; HTML-Formulardaten können über eine Reihe von verschiedenen Methoden übermittelt werden, die gebräuchlichsten sind die `GET`-Methode und die `POST`-Methode.
+Das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut definiert, auf welche Weise Daten gesendet werden. Das [HTTP-Protokoll](/de/docs/Web/HTTP) bietet mehrere Möglichkeiten, eine Anfrage auszuführen; HTML-Formulardaten können über verschiedene Methoden übertragen werden, am häufigsten sind dies die `GET`-Methode und die `POST`-Methode.
 
-Um den Unterschied zwischen diesen beiden Methoden zu verstehen, lassen Sie uns zurücktreten und betrachten, [wie HTTP funktioniert](/de/docs/Web/HTTP/Overview). Jedes Mal, wenn Sie eine Ressource im Web erreichen wollen, sendet der Browser eine Anfrage an eine URL. Eine HTTP-Anfrage besteht aus zwei Teilen: einem [Header](/de/docs/Web/HTTP/Headers), der eine Reihe von globalen Metadaten über die Fähigkeiten des Browsers enthält, und einem Body, der Informationen enthalten kann, die der Server benötigt, um die spezifische Anfrage zu verarbeiten.
+Um den Unterschied zwischen diesen beiden Methoden zu verstehen, gehen wir einen Schritt zurück und betrachten, [wie HTTP funktioniert](/de/docs/Web/HTTP/Overview). Jedes Mal, wenn Sie eine Ressource im Web erreichen möchten, sendet der Browser eine Anfrage an eine URL. Eine HTTP-Anfrage besteht aus zwei Teilen: einem [Header](/de/docs/Web/HTTP/Headers), der eine Reihe globaler Metadaten über die Fähigkeiten des Browsers enthält, und einem Body, der Informationen enthalten kann, die der Server benötigt, um die spezifische Anfrage zu verarbeiten.
 
 #### Die GET-Methode
 
-Die [`GET`](/de/docs/Web/HTTP/Methods/GET)-Methode ist die Methode, die der Browser verwendet, um den Server zu bitten, eine gegebene Ressource zurückzusenden: "Hey Server, ich möchte diese Ressource abrufen." In diesem Fall sendet der Browser einen leeren Body. Da der Body leer ist, wenn ein Formular mit dieser Methode gesendet wird, werden die an den Server gesendeten Daten an die URL angehängt.
+Die [`GET`-Methode](/de/docs/Web/HTTP/Methods/GET) ist die Methode, die der Browser verwendet, um den Server zu bitten, eine bestimmte Ressource zurückzusenden: "Hey Server, ich möchte diese Ressource erhalten." In diesem Fall sendet der Browser einen leeren Body. Da der Body leer ist, werden die Daten, wenn ein Formular mit dieser Methode gesendet wird, an die URL angehängt.
 
 Betrachten Sie das folgende Formular:
 
@@ -107,14 +107,14 @@ Betrachten Sie das folgende Formular:
 </form>
 ```
 
-Da die `GET`-Methode verwendet wurde, sehen Sie die URL `www.foo.com/?say=Hi&to=Mom` in der Adressleiste des Browsers, wenn Sie das Formular absenden.
+Da die `GET`-Methode verwendet wurde, sehen Sie die URL `www.foo.com/?say=Hi&to=Mom` in der Adressleiste des Browsers erscheinen, wenn Sie das Formular abschicken.
 
-![Die geänderte URL mit Abfrageparametern nach Einreichen des Formulars mit der GET-Methode mit einer "Server nicht gefunden"-Fehlerseite im Browser](url-parameters.png)
+![Die geänderte URL mit Abfrageparametern nach dem Absenden des Formulars mit der GET-Methode mit einer "Server nicht gefunden"-Fehlerseite des Browsers](url-parameters.png)
 
-Die Daten werden als Reihe von Namens-/Werte-Paaren an die URL angehängt. Nachdem die Webadresse der URL beendet ist, fügen wir ein Fragezeichen (`?`) gefolgt von den Namens-/Werte-Paaren ein, wobei jedes durch ein Ampersand (`&`) getrennt ist. In diesem Fall übermitteln wir dem Server zwei Datenelemente:
+Die Daten werden als eine Reihe von Namens-/Wert-Paaren an die URL angehängt. Nachdem die URL-Adresse beendet ist, fügen wir ein Fragezeichen (`?`) ein, gefolgt von den Namens-/Wert-Paaren, die jeweils durch ein Ampersand (`&`) getrennt sind. In diesem Fall übergeben wir zwei Datenstücke an den Server:
 
-- `say`, das einen Wert von `Hi` hat
-- `to`, das einen Wert von `Mom` hat
+- `say`, das den Wert `Hi` hat
+- `to`, das den Wert `Mom` hat
 
 Die HTTP-Anfrage sieht so aus:
 
@@ -124,16 +124,16 @@ Host: foo.com
 ```
 
 > [!NOTE]
-> Sie können dieses Beispiel auf GitHub finden — siehe [get-method.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/get-method.html) ([siehe es auch live](https://mdn.github.io/learning-area/html/forms/sending-form-data/get-method.html)).
+> Sie können dieses Beispiel auf GitHub finden — siehe [get-method.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/get-method.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/sending-form-data/get-method.html)).
 
 > [!NOTE]
-> Die Daten werden nicht angehängt, wenn das `action`-URL-Schema keine Abfragen verarbeiten kann, z. B. `file:`.
+> Die Daten werden nicht angehängt, wenn die `action`-URL-Struktur keine Abfragen verarbeiten kann, z.B. `file:`.
 
 #### Die POST-Methode
 
-Die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode ist etwas anders. Es ist die Methode, die der Browser verwendet, um mit dem Server zu sprechen, wenn er eine Antwort anfordert, die die im Body der HTTP-Anfrage bereitgestellten Daten berücksichtigt: "Hey Server, schau dir diese Daten an und schick mir eine entsprechende Antwort zurück." Wenn ein Formular mit dieser Methode gesendet wird, werden die Daten an den Body der HTTP-Anfrage angehängt.
+Die [`POST`-Methode](/de/docs/Web/HTTP/Methods/POST) ist etwas anders. Es ist die Methode, die der Browser verwendet, um mit dem Server zu sprechen, wenn er um eine Antwort bittet, die die im Body der HTTP-Anfrage bereitgestellten Daten berücksichtigt: "Hey Server, schau dir diese Daten an und sende mir ein entsprechendes Ergebnis zurück." Wenn ein Formular mit dieser Methode gesendet wird, werden die Daten an den Body der HTTP-Anfrage angehängt.
 
-Betrachten wir ein Beispiel — dies ist dasselbe Formular, das wir oben im `GET`-Abschnitt betrachtet haben, aber mit dem [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut auf `POST` gesetzt.
+Schauen wir uns ein Beispiel an — dies ist dasselbe Formular, das wir im Abschnitt zur `GET`-Methode betrachtet haben, jedoch mit dem [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut auf `POST` gesetzt.
 
 ```html
 <form action="http://www.foo.com" method="POST">
@@ -151,7 +151,7 @@ Betrachten wir ein Beispiel — dies ist dasselbe Formular, das wir oben im `GET
 </form>
 ```
 
-Wenn das Formular mit der `POST`-Methode abgesendet wird, sehen Sie keine Daten, die der URL angehängt sind, und die HTTP-Anfrage sieht so aus, wobei die Daten stattdessen im Anfragetext enthalten sind:
+Wenn das Formular mit der `POST`-Methode abgeschickt wird, erhalten Sie keine Daten, die an die URL angehängt sind, und die HTTP-Anfrage sieht so aus, wobei die Daten stattdessen im Anfragekörper enthalten sind:
 
 ```http
 POST / HTTP/2.0
@@ -162,40 +162,40 @@ Content-Length: 13
 say=Hi&to=Mom
 ```
 
-Der `Content-Length`-Header gibt die Größe des Bodys an, und der `Content-Type`-Header gibt den Typ der an den Server gesendeten Ressource an. Wir werden diese Header später besprechen.
+Der `Content-Length`-Header gibt die Größe des Bodys an, und der `Content-Type`-Header gibt den Typ der an den Server gesendeten Ressource an. Wir werden diese Header später näher besprechen.
 
 > [!NOTE]
-> Sie können dieses Beispiel auf GitHub finden — siehe [post-method.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/post-method.html) ([siehe es auch live](https://mdn.github.io/learning-area/html/forms/sending-form-data/post-method.html)).
+> Sie können dieses Beispiel auf GitHub finden — siehe [post-method.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/post-method.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/sending-form-data/post-method.html)).
 
 > [!NOTE]
-> Die `GET`-Methode wird stattdessen verwendet, wenn das `action`-URL-Schema keinen Anfragetext verarbeiten kann, z. B. `data:`.
+> Die `GET`-Methode wird verwendet, wenn die `action`-URL-Struktur keinen Anfrage-Body verarbeiten kann, z.B. `data:`.
 
-### Anzeigen von HTTP-Anfragen
+### Betrachten von HTTP-Anfragen
 
-HTTP-Anfragen werden dem Benutzer niemals angezeigt (wenn Sie sie sehen möchten, müssen Sie Tools wie den [Firefox-Netzwerkmonitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) oder die [Chrome-Entwicklertools](https://developer.chrome.com/docs/devtools/) verwenden). Ihr Formulardaten werden in der Registerkarte "Netzwerk" von Chrome wie folgt angezeigt. Nach dem Absenden des Formulars:
+HTTP-Anfragen werden dem Benutzer nie angezeigt (wenn Sie sie sehen möchten, müssen Sie Tools wie das [Firefox Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) oder die [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) verwenden). Als Beispiel werden Ihre Formulardaten im Chrome-Netzwerktab wie folgt angezeigt. Nach dem Absenden des Formulars:
 
 1. Öffnen Sie die Entwicklertools.
 2. Wählen Sie "Netzwerk"
 3. Wählen Sie "Alle"
-4. Wählen Sie "foo.com" in der Registerkarte "Name"
-5. Wählen Sie "Anfrage" (Firefox) oder "Payload" (Chrome/Edge)
+4. Wählen Sie "foo.com" im Tab "Name"
+5. Wählen Sie "Anfrage" (Firefox) oder "Nutzlast" (Chrome/Edge)
 
-Sie können dann die Formulardaten abrufen, wie im folgenden Bild gezeigt.
+Dann können Sie die Formulardaten abrufen, wie im Bild unten gezeigt.
 
-![HTTP-Anfragen und Antwortdaten in der Registerkarte zur Netzwerküberwachung in den Entwicklertools des Browsers](network-monitor.png)
+![HTTP-Anfragen und Antwortdaten im Netzwerküberwachungs-Tab in den Entwicklertools des Browsers](network-monitor.png)
 
-Das einzige, was dem Benutzer angezeigt wird, ist die aufgerufene URL. Wie oben erwähnt, sieht der Benutzer bei einer `GET`-Anfrage die Daten in seiner URL-Leiste, bei einer `POST`-Anfrage jedoch nicht. Dies kann aus zwei Gründen sehr wichtig sein:
+Das einzige, was dem Benutzer angezeigt wird, ist die aufgerufene URL. Wie oben erwähnt, wird der Benutzer bei einer `GET`-Anfrage die Daten in seiner URL-Leiste sehen, bei einer `POST`-Anfrage jedoch nicht. Dies kann aus zwei Gründen sehr wichtig sein:
 
-1. Wenn Sie ein Passwort (oder ein anderes sensibles Datenelement) senden müssen, verwenden Sie niemals die `GET`-Methode, da Sie es riskieren, es in der URL-Leiste anzuzeigen, was sehr unsicher wäre.
-2. Wenn Sie eine große Datenmenge senden müssen, wird die `POST`-Methode bevorzugt, da einige Browser die Größen von URLs einschränken. Zusätzlich begrenzen viele Server die Länge der URLs, die sie akzeptieren.
+1. Wenn Sie ein Passwort (oder andere sensible Daten) senden müssen, verwenden Sie niemals die `GET`-Methode, da Sie riskieren, diese Daten in der URL-Leiste anzuzeigen, was sehr unsicher wäre.
+2. Wenn Sie eine große Menge an Daten senden müssen, ist die `POST`-Methode vorzuziehen, da einige Browser die Größen von URLs begrenzen. Außerdem begrenzen viele Server die Länge der URLs, die sie akzeptieren.
 
 ## Auf der Server-Seite: Abrufen der Daten
 
-Unabhängig davon, welche HTTP-Methode Sie wählen, erhält der Server eine Zeichenkette, die geparst wird, um die Daten als Liste von Schlüssel/Wert-Paaren zu erhalten. Der Zugriff auf diese Liste hängt von der Entwicklungsplattform ab, die Sie verwenden, und von den speziellen Frameworks, die Sie damit möglicherweise verwenden.
+Egal, welche HTTP-Methode Sie wählen, der Server erhält einen String, der geparst wird, um die Daten als Liste von Namens-/Wert-Paaren zu bekommen. Wie Sie auf diese Liste zugreifen, hängt von der Entwicklungsplattform ab, die Sie verwenden, und von den spezifischen Frameworks, die Sie möglicherweise verwenden.
 
 ### Beispiel: Rohes PHP
 
-[PHP](https://www.php.net/) bietet einige globale Objekte zum Zugriff auf die Daten. Angenommen, Sie haben die `POST`-Methode verwendet, dann nimmt das folgende Beispiel nur die Daten und zeigt sie dem Benutzer an. Natürlich liegt es bei Ihnen, was Sie mit den Daten machen. Sie könnten sie anzeigen, in einer Datenbank speichern, per E-Mail versenden oder auf andere Weise verarbeiten.
+[PHP](https://www.php.net/) bietet einige globale Objekte zum Zugriff auf die Daten. Angenommen, Sie haben die `POST`-Methode verwendet, zeigt das folgende Beispiel einfach die Daten dem Benutzer an. Natürlich liegt es an Ihnen, was Sie mit den Daten machen. Sie könnten sie anzeigen, in einer Datenbank speichern, per E-Mail versenden oder auf andere Weise verarbeiten.
 
 ```php
 <?php
@@ -208,18 +208,18 @@ Unabhängig davon, welche HTTP-Methode Sie wählen, erhält der Server eine Zeic
 ?>
 ```
 
-Dieses Beispiel zeigt eine Seite mit den gesendeten Daten. Sie können dies in unserem Beispiel [php-example.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/php-example.html) Datei sehen — die dasselbe Beispielformular enthält, wie wir es zuvor gesehen haben, mit einer `method` von `POST` und einer `action` von `php-example.php`. Wenn es abgesendet wird, sendet es die Formulardaten an [php-example.php](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/php-example.php), das den oben gesehenen PHP-Code enthält. Wenn dieser Code ausgeführt wird, ist die Ausgabe im Browser `Hi Mom`.
+Dieses Beispiel zeigt eine Seite mit den gesendeten Daten an. Sie können dies in Aktion sehen in unserer Beispieldatei [php-example.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/php-example.html) — sie enthält dasselbe Formularbeispiel, das wir vorher gesehen haben, mit `method` auf `POST` und `action` auf `php-example.php`. Wenn es übermittelt wird, sendet es die Formulardaten an [php-example.php](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/php-example.php), das den oben gezeigten PHP-Code enthält. Wenn dieser Code ausgeführt wird, ist die Ausgabe im Browser `Hi Mom`.
 
-![Sonst leere Webseite mit "hi mom", den Daten, die nach dem Absenden der Formulardaten an eine PHP-Datei mit der POST-Methode empfangen wurden](php-result.png)
+![Ansonsten leere Webseite mit "hi mom", die Daten, die als Antwort nach dem Absenden von Formulardaten an eine PHP-Datei mit der POST-Methode empfangen wurden](php-result.png)
 
 > [!NOTE]
-> Dieses Beispiel funktioniert nicht, wenn Sie es lokal in einen Browser laden — Browser können PHP-Code nicht interpretieren, sodass der Browser nur anbietet, die PHP-Datei für Sie herunterzuladen, wenn das Formular gesendet wird. Um es funktionsfähig zu machen, müssen Sie das Beispiel auf einem PHP-Server jeglicher Art ausführen. Gute Optionen für das lokale PHP-Testing sind [MAMP](https://www.mamp.info/en/downloads/) (Mac und Windows) und [AMPPS](https://ampps.com/downloads/) (Mac, Windows, Linux).
+> Dieses Beispiel wird nicht funktionieren, wenn Sie es lokal in einem Browser laden — Browser können keinen PHP-Code interpretieren, daher wird der Browser, wenn das Formular übermittelt wird, einfach anbieten, die PHP-Datei für Sie herunterzuladen. Um es zum Laufen zu bringen, müssen Sie das Beispiel über einen PHP-Server irgendeiner Art ausführen. Gute Optionen für lokales PHP-Testing sind [MAMP](https://www.mamp.info/en/downloads/) (Mac und Windows) und [AMPPS](https://ampps.com/downloads/) (Mac, Windows, Linux).
 >
-> Beachten Sie auch, dass, wenn Sie MAMP ohne MAMP Pro installiert haben (oder wenn die MAMP Pro-Demotestphase abgelaufen ist), es möglicherweise zu Schwierigkeiten beim Funktionieren kommt. Wir haben festgestellt, dass Sie die MAMP-App laden können und dann die Menüoptionen _MAMP_ > _Einstellungen_ > _PHP_ wählen und "Standardversion:" auf "7.2.x" setzen können (x variiert je nach installierter Version).
+> Beachten Sie auch, dass wenn Sie MAMP verwenden, MAMP Pro jedoch nicht installiert haben (oder wenn die MAMP Pro-Demoversion abgelaufen ist), es Probleme geben kann, es zum Funktionieren zu bringen. Um es wieder zum Laufen zu bringen, haben wir festgestellt, dass Sie die MAMP-App starten und dann die Menüoptionen _MAMP_ > _Einstellungen_ > _PHP_ auswählen und die "Standard Version:" auf "7.2.x" (der x-Wert hängt von der installierten Version ab) setzen müssen.
 
 ### Beispiel: Python
 
-Dieses Beispiel zeigt, wie Sie mit Python genau das Gleiche tun würden – die übermittelten Daten auf einer Webseite anzeigen. Es verwendet das [Flask-Framework](https://flask.palletsprojects.com/) zum Rendern der Templates, Verarbeitung der Formulardatenübermittlung usw. (siehe [python-example.py](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/python-example.py)).
+Dieses Beispiel zeigt, wie Sie mit Python dasselbe tun würden — die gesendeten Daten auf einer Webseite anzeigen. Dies nutzt das [Flask-Framework](https://flask.palletsprojects.com/) zum Rendern der Templates, zur Verarbeitung der Formulardatenübermittlung usw. (siehe [python-example.py](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/python-example.py)).
 
 ```python
 from flask import Flask, render_template, request
@@ -238,23 +238,23 @@ if __name__ == "__main__":
     app.run()
 ```
 
-Die zwei im oben gezeigten Code referenzierten Vorlagen sind wie folgt (diese müssen sich in einem Unterverzeichnis namens `templates` im gleichen Verzeichnis wie die `python-example.py`-Datei befinden, wenn Sie das Beispiel selbst ausführen möchten):
+Die beiden in dem obigen Code referenzierten Vorlagen sind wie folgt (diese müssen sich in einem Unterverzeichnis namens `templates` im selben Verzeichnis wie die `python-example.py`-Datei befinden, falls Sie das Beispiel selbst ausführen möchten):
 
-- [form.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/templates/form.html): Dasselbe Formular, das wir oben im Abschnitt [Die POST-Methode](#die_post-methode) gesehen haben, jedoch mit `action` auf `\{{ url_for('hello') }}` gesetzt. Dies ist ein [Jinja](https://jinja.palletsprojects.com/)-Template, das im Wesentlichen HTML ist, aber Aufrufe an den die Webseite betreibenden Python-Code enthalten kann, der in geschweiften Klammern eingeschlossen ist. `url_for('hello')` bedeutet im Grunde "nach `/hello` umleiten, wenn das Formular übermittelt wird".
-- [greeting.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/templates/greeting.html): Diese Vorlage enthält nur eine Zeile, die die beiden beim Rendern übergebenen Datenelemente anzeigt. Dies geschieht über die oben gesehene `hello()`-Funktion, die ausgeführt wird, wenn die `/hello`-URL aufgerufen wird.
+- [form.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/templates/form.html): Dasselbe Formular, das wir oben im Abschnitt zur [POST-Methode](#die_post-methode) gesehen haben, aber mit dem `action` auf `\{{ url_for('hello') }}` gesetzt. Dies ist eine [Jinja](https://jinja.palletsprojects.com/)-Vorlage, die im Wesentlichen HTML ist, aber Aufrufe zum Python-Code enthalten kann, der den auf dem Webserver laufenden Code darstellt, enthalten in geschweiften Klammern. `url_for('hello')` bedeutet im Grunde "leite zu `/hello` weiter, wenn das Formular gesendet wird".
+- [greeting.html](https://github.com/mdn/learning-area/blob/main/html/forms/sending-form-data/templates/greeting.html): Diese Vorlage enthält nur eine Zeile, die die beiden Datenstücke rendert, die an sie übergeben werden, wenn sie gerendert wird. Dies geschieht über die oben gesehenen `hello()`-Funktion, die ausgeführt wird, wenn die `/hello`-URL aufgerufen wird.
 
 > [!NOTE]
-> Auch hier funktioniert dieser Code nicht, wenn Sie versuchen, ihn direkt in einen Browser zu laden. Python funktioniert etwas anders als PHP – um diesen Code lokal auszuführen, müssen Sie [Python/PIP installieren](/de/docs/Learn/Server-side/Django/development_environment#installing_python_3) und dann Flask mit `pip3 install flask` installieren. An diesem Punkt sollten Sie das Beispiel mit `python3 python-example.py` ausführen können und dann in Ihrem Browser zu `localhost:5042` navigieren.
+> Auch dieser Code funktioniert nicht, wenn Sie ihn direkt in einen Browser laden. Python funktioniert ein bisschen anders als PHP — um diesen Code lokal auszuführen, müssen Sie [Python/PIP installieren](/de/docs/Learn/Server-side/Django/development_environment#installing_python_3) und dann Flask mit `pip3 install flask` installieren. An diesem Punkt sollten Sie in der Lage sein, das Beispiel mit `python3 python-example.py` auszuführen und dann im Browser auf `localhost:5042` zu navigieren.
 
 ### Andere Sprachen und Frameworks
 
-Es gibt viele andere serverseitige Technologien, die Sie für die Formularverarbeitung verwenden können, darunter Perl, Java, .Net, Ruby usw. Wählen Sie einfach diejenige aus, die Ihnen am besten gefällt. Es ist jedoch wichtig zu beachten, dass es sehr ungewöhnlich ist, diese Technologien direkt zu verwenden, da dies schwierig sein kann. Oftmals verwendet man eines der vielen hochwertigen Frameworks, die die Verarbeitung von Formularen erleichtern, wie zum Beispiel:
+Es gibt viele andere serverseitige Technologien, die Sie zur Formularverarbeitung verwenden können, einschließlich Perl, Java, .Net, Ruby usw. Wählen Sie einfach die aus, die Ihnen am besten gefällt. Allerdings ist es erwähnenswert, dass es sehr unüblich ist, diese Technologien direkt zu verwenden, da dies schwierig sein kann. Es ist üblicher, eines der vielen hochwertigen Frameworks zu verwenden, die die Formularverarbeitung erleichtern, wie:
 
 - Python
   - [Django](/de/docs/Learn/Server-side/Django)
   - [Flask](https://flask.palletsprojects.com/)
-  - [web2py](https://github.com/web2py/web2py) (am einfachsten zu beginnen)
-  - [py4web](https://py4web.com/) (geschrieben von denselben Entwicklern wie web2py, hat einen mehr Django-ähnlichen Aufbau)
+  - [web2py](https://github.com/web2py/web2py) (am leichtesten anzufangen)
+  - [py4web](https://py4web.com/) (geschrieben von denselben Entwicklern wie web2py, hat ein mehr Django-ähnliches Setup)
 - Node.js
   - [Express](/de/docs/Learn/Server-side/Express_Nodejs)
   - [Next.js](https://nextjs.org/) (für React-Anwendungen)
@@ -262,31 +262,31 @@ Es gibt viele andere serverseitige Technologien, die Sie für die Formularverarb
   - [Remix](https://remix.run/)
 - PHP
   - [Laravel](https://laravel.com/)
-  - [Laminas](https://getlaminas.org/) (ehemals Zend Framework)
+  - [Laminas](https://getlaminas.org/) (früher Zend Framework)
   - [Symfony](https://symfony.com/)
 - Ruby
   - [Ruby On Rails](https://rubyonrails.org/)
 - Java
   - [Spring Boot](https://spring.io/guides/gs/handling-form-submission/)
 
-Es ist wichtig zu beachten, dass selbst mit diesen Frameworks die Arbeit mit Formularen nicht unbedingt _einfach_ ist. Aber es ist viel einfacher, als zu versuchen, die gesamte Funktionalität selbst von Grund auf zu schreiben, und es wird Ihnen viel Zeit sparen.
+Es ist erwähnenswert, dass selbst bei der Verwendung dieser Frameworks die Arbeit mit Formularen nicht unbedingt _einfach_ ist. Aber es ist viel einfacher als zu versuchen, die gesamte Funktionalität selbst von Grund auf neu zu schreiben, und es wird Ihnen viel Zeit sparen.
 
 > [!NOTE]
-> Es liegt außerhalb des Umfangs dieses Artikels, Ihnen serverseitige Sprachen oder Frameworks beizubringen. Die obigen Links geben Ihnen einige Hilfe, falls Sie sie lernen möchten.
+> Es liegt außerhalb des Scopes dieses Artikels, Ihnen serverseitige Sprachen oder Frameworks beizubringen. Die oben genannten Links bieten Ihnen einige Hilfen, falls Sie sie erlernen möchten.
 
-## Ein Sonderfall: Dateien senden
+## Ein Sonderfall: Senden von Dateien
 
-Das Senden von Dateien mit HTML-Formularen ist ein Sonderfall. Dateien sind Binärdaten – oder werden als solche betrachtet – während alle anderen Daten Textdaten sind. Da HTTP ein Textprotokoll ist, gibt es besondere Anforderungen für den Umgang mit Binärdaten.
+Das Senden von Dateien mit HTML-Formularen ist ein Sonderfall. Dateien sind Binärdaten — oder werden als solche betrachtet —, während alle anderen Daten Textdaten sind. Da HTTP ein Textprotokoll ist, gibt es besondere Anforderungen für den Umgang mit Binärdaten.
 
 ### Das enctype-Attribut
 
-Dieses Attribut ermöglicht es Ihnen, den Wert des `Content-Type`-HTTP-Headers anzugeben, der in die Anfrage eingefügt wird, wenn das Formular übermittelt wird. Dieser Header ist sehr wichtig, da er dem Server mitteilt, welche Art von Daten gesendet werden. Standardmäßig hat er den Wert `application/x-www-form-urlencoded`. In menschlichen Worten bedeutet dies: "Dies sind Formulardaten, die in URL-Parameter kodiert wurden."
+Dieses Attribut ermöglicht es Ihnen, den Wert des `Content-Type`-HTTP-Headers anzugeben, der in die Anfrage aufgenommen wird, die beim Absenden des Formulars generiert wird. Dieser Header ist sehr wichtig, da er dem Server mitteilt, welche Art von Daten gesendet werden. Standardmäßig ist sein Wert `application/x-www-form-urlencoded`. Dies bedeutet in menschlichen Worten: "Das sind Formulardaten, die in URL-Parameter kodiert sind."
 
 Wenn Sie Dateien senden möchten, müssen Sie drei zusätzliche Schritte unternehmen:
 
-- Setzen Sie das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut auf `POST`, da Dateiinhalte nicht in URL-Parameter gepackt werden können.
-- Setzen Sie den Wert von [`enctype`](/de/docs/Web/HTML/Element/form#enctype) auf `multipart/form-data`, da die Daten in mehrere Teile aufgeteilt werden, einen für jede Datei sowie einen für die im Formulartext eingegebenen Textdaten (falls auch Text im Formular eingegeben wurde).
-- Fügen Sie ein oder mehrere [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Steuerelemente hinzu, um Ihren Benutzern das Auswählen der hochzuladenden Datei(en) zu ermöglichen.
+- Setzen Sie das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut auf `POST`, da Datei-Inhalte nicht in URL-Parameter eingefügt werden können.
+- Setzen Sie den Wert von [`enctype`](/de/docs/Web/HTML/Element/form#enctype) auf `multipart/form-data`, da die Daten in mehrere Teile aufgeteilt werden, einen für jede Datei plus einen für die in den Formular-Body eingegebenen Textdaten (falls der Text ebenfalls in das Formular eingegeben wird).
+- Fügen Sie ein oder mehrere [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Steuerelemente hinzu, um Ihren Benutzern die Auswahl der hochzuladenen Datei(en) zu ermöglichen.
 
 Zum Beispiel:
 
@@ -303,44 +303,44 @@ Zum Beispiel:
 ```
 
 > [!NOTE]
-> Server können mit einer Größenbeschränkung für Dateien und HTTP-Anfragen konfiguriert werden, um Missbrauch zu verhindern.
+> Server können konfiguriert werden, um die Größe von Dateien und HTTP-Anfragen zu begrenzen, um Missbrauch zu verhindern.
 
 ## Sicherheitsprobleme
 
-Jedes Mal, wenn Sie Daten an einen Server senden, müssen Sie die Sicherheit berücksichtigen. HTML-Formulare sind mit Abstand die häufigsten Angriffspunkte auf Server (Stellen, an denen Angriffe auftreten können). Die Probleme entstehen nie aus den HTML-Formularen selbst – sie entstehen aus der Art und Weise, wie der Server die Daten behandelt.
+Jedes Mal, wenn Sie Daten an einen Server senden, müssen Sie die Sicherheit berücksichtigen. HTML-Formulare sind bei weitem die häufigsten Angriffsvektoren auf Server (stellen, an denen Angriffe stattfinden können). Die Probleme kommen nie von den HTML-Formularen selbst — sie kommen von der Art und Weise, wie der Server die Daten verarbeitet.
 
-Der Artikel [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) unseres [serverseitigen](/de/docs/Learn/Server-side) Lernprogramms behandelt mehrere gängige Angriffe und mögliche Abwehrmaßnahmen im Detail. Sie sollten sich diesen Artikel ansehen, um eine Vorstellung von den Möglichkeiten zu bekommen.
+Der Artikel [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) unseres [serverseitigen](/de/docs/Learn/Server-side) Lernbereichs diskutiert mehrere häufige Angriffe und mögliche Abwehrmaßnahmen gegen sie im Detail. Sie sollten diesen Artikel lesen, um eine Vorstellung davon zu bekommen, was möglich ist.
 
-### Seien Sie paranoid: Vertrauen Sie Ihren Nutzern niemals
+### Seien Sie paranoid: Vertrauen Sie niemals Ihren Benutzern
 
-Wie bekämpfen Sie diese Bedrohungen? Dies ist ein Thema, das weit über diesen Leitfaden hinausgeht, aber es gibt einige Regeln zu beachten. Die wichtigste Regel lautet: Vertrauen Sie niemals Ihren Nutzern, einschließlich sich selbst; selbst ein vertrauenswürdiger Nutzer könnte gehackt worden sein.
+Wie bekämpfen Sie diese Bedrohungen? Dies ist ein Thema, das weit über diesen Leitfaden hinausgeht, aber es gibt ein paar Regeln zu beachten. Die wichtigste Regel ist: Vertrauen Sie niemals, niemals Ihren Benutzern, einschließlich sich selbst; selbst ein vertrauenswürdiger Benutzer könnte gekapert worden sein.
 
-Alle Daten, die an Ihren Server kommen, müssen überprüft und bereinigt werden. Immer. Ohne Ausnahme.
+Alle Daten, die an Ihren Server kommen, müssen überprüft und bereinigt werden. Immer. Keine Ausnahme.
 
-- **Escapen Sie potenziell gefährliche Zeichen**. Die spezifischen Zeichen, auf die man achten sollte, variieren je nach Kontext, in dem die Daten verwendet werden und der verwendeten Serverplattform, aber alle serverseitigen Sprachen haben dafür Funktionen. Dinge, auf die Sie achten sollten, sind Zeichenfolgen, die wie ausführbarer Code aussehen (wie [JavaScript](/de/docs/Learn/JavaScript)- oder [SQL](https://en.wikipedia.org/wiki/SQL)-Befehle).
-- **Begrenzen Sie die Menge der eingehenden Daten auf das, was notwendig ist**.
-- **Sandboxen Sie hochgeladene Dateien**. Speichern Sie sie auf einem anderen Server und erlauben Sie den Zugriff auf die Datei nur über eine andere Subdomain oder noch besser über eine komplett andere Domain.
+- **Entfernen Sie potenziell gefährliche Zeichen**. Die spezifischen Zeichen, bei denen Sie vorsichtig sein sollten, variieren je nach Kontext, in dem die Daten verwendet werden, und der Serverplattform, die Sie verwenden, aber alle serverseitigen Sprachen haben Funktionen dafür. Achten Sie vor allem auf Zeichenfolgen, die wie ausführbarer Code aussehen (wie [JavaScript](/de/docs/Learn/JavaScript) oder [SQL](https://de.wikipedia.org/wiki/SQL)-Befehle).
+- **Beschränken Sie die einzugehenden Datenmengen auf das, was notwendig ist**.
+- **Sandboxen Sie hochgeladene Dateien**. Speichern Sie sie auf einem anderen Server und erlauben Sie den Zugriff auf die Datei nur über eine andere Subdomain oder noch besser über eine völlig andere Domain.
 
-Wenn Sie diese drei Regeln befolgen, sollten Sie viele/der meisten Probleme vermeiden können, aber es ist immer eine gute Idee, sich von einem kompetenten Dritten eine Sicherheitsüberprüfung durchführen zu lassen. Gehen Sie nicht davon aus, dass Sie alle möglichen Probleme gesehen haben.
+Wenn Sie diese drei Regeln befolgen, sollten Sie in der Lage sein, viele/den meisten Problemen aus dem Weg zu gehen, aber es ist immer eine gute Idee, eine Sicherheitsüberprüfung durch eine kompetente dritte Partei durchführen zu lassen. Gehen Sie nicht davon aus, dass Sie alle möglichen Probleme gesehen haben.
 
 ## Zusammenfassung
 
-Wie wir oben angedeutet haben, ist das Senden von Formulardaten einfach, aber die Sicherung einer Anwendung kann knifflig sein. Denken Sie daran, dass ein Front-End-Entwickler nicht derjenige ist, der das Sicherheitsmodell der Daten definieren sollte. Es ist möglich, eine [Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation) durchzuführen, aber der Server kann dieser Validierung nicht trauen, da er keine Möglichkeit hat, wirklich zu wissen, was auf der Client-Seite geschehen ist.
+Wie wir oben angedeutet haben, ist das Senden von Formulardaten einfach, aber das Sichern einer Anwendung kann schwierig sein. Denken Sie daran, dass ein Frontend-Entwickler nicht derjenige ist, der das Sicherheitsmodell der Daten festlegen sollte. Es ist möglich, [Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation) durchzuführen, aber der Server kann dieser Validierung nicht vertrauen, da er keine Möglichkeit hat, wirklich zu wissen, was auf der Client-Seite passiert ist.
 
-Wenn Sie diese Tutorials in der richtigen Reihenfolge durchgearbeitet haben, wissen Sie jetzt, wie man ein Formular markiert und gestaltet, eine Client-seitige Validierung durchführt und haben eine Vorstellung davon, wie ein Formular abgesendet wird.
+Wenn Sie sich durch diese Tutorials durcharbeiten, wissen Sie jetzt, wie man ein Formular markiert und stylt, Client-seitige Validierung durchführt und haben eine Vorstellung vom Absenden eines Formulars.
 
 ## Siehe auch
 
-Wenn Sie mehr über die Sicherung einer Webanwendung erfahren möchten, können Sie sich in diese Ressourcen vertiefen:
+Wenn Sie mehr über die Sicherung einer Webanwendung lernen möchten, können Sie sich mit diesen Ressourcen befassen:
 
-- [Erste Schritte bei der serverseitigen Webprogrammierung](/de/docs/Learn/Server-side/First_steps)
-- [Das Open Web Application Security Project (OWASP)](https://owasp.org/)
+- [Server-seitige Website-Programmierung Erste Schritte](/de/docs/Learn/Server-side/First_steps)
+- [Open Web Application Security Project (OWASP)](https://owasp.org/)
 - [Web Security von Mozilla](https://infosec.mozilla.org/guidelines/web_security)
 
 {{PreviousMenu("Learn/Forms/Form_validation", "Learn/Forms")}}
 
-### Fortgeschrittene Themen
+### Erweiterte Themen
 
-- [Anleitung zur Erstellung benutzerdefinierter Formularsteuerelemente](/de/docs/Learn/Forms/How_to_build_custom_form_controls)
-- [Formulare über JavaScript senden](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
-- [Kompatibilitätstabelle für Eigenschaften von Formular-Widgets](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)
+- [Anleitung zum Erstellen benutzerdefinierter Formularelemente](/de/docs/Learn/Forms/How_to_build_custom_form_controls)
+- [Versenden von Formularen über JavaScript](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
+- [Kompatibilitätstabelle für Formularkomponenten-Eigenschaften](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)

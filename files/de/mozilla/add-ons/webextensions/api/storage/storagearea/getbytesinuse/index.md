@@ -2,18 +2,22 @@
 title: StorageArea.getBytesInUse()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/getBytesInUse
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
 ---
 
 {{AddonSidebar}}
 
-Ermittelt die Menge des Speicherplatzes in Byte, die von einem oder mehreren Elementen im Speicherbereich verwendet wird.
+Ermittelt den Speicherplatz in Bytes, der von einem oder mehreren Elementen im Speicherbereich genutzt wird.
 
-Diese Funktion existiert nur in `browser.storage.sync`.
-Sie existiert nicht in `browser.storage.local`.
-Siehe <https://bugzil.la/1385832>
+> [!NOTE]
+> In Firefox wird diese Methode:
+>
+> - in {{WebExtAPIRef("storage.sync")}} unterstützt.
+> - ab Firefox 131 in {{WebExtAPIRef("storage.session")}} unterstützt.
+> - nicht in {{WebExtAPIRef("storage.local")}} unterstützt, siehe [Firefox Fehler 1385832](https://bugzil.la/1385832).
+> - nicht in {{WebExtAPIRef("storage.managed")}} bereitgestellt.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Methode, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -23,16 +27,18 @@ let gettingSpace = browser.storage.<storageType>.getBytesInUse(
 )
 ```
 
-`<storageType>` kann nur {{WebExtAPIRef("storage.sync")}} sein, nicht {{WebExtAPIRef("storage.local")}}, aufgrund dieses [Bugs](https://bugzil.la/1385832).
+Wobei `<storageType>` einer der Speichertypen ist — {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}}, oder {{WebExtAPIRef("storage.managed", "managed")}}.
+
+In Firefox kann `<storageType>` nicht {{WebExtAPIRef("storage.local")}} sein, aufgrund von [Fehler 1385832](https://bugzil.la/1385832).
 
 ### Parameter
 
 - `keys`
-  - : Ein Schlüssel (String) oder Schlüssel (ein Array von Strings), um das oder die Elemente zu identifizieren, deren Speicherplatz Sie abrufen möchten. Wenn ein leeres Array übergeben wird, wird 0 zurückgegeben. Wenn Sie hier `null` oder `undefined` übergeben, gibt die Funktion den vom gesamten Speicherbereich genutzten Platz zurück.
+  - : Ein Schlüssel (string) oder Schlüssel (ein Array von Strings), um die Elemente zu identifizieren, deren Speicherplatz Sie abrufen möchten. Wenn ein leeres Array übergeben wird, wird 0 zurückgegeben. Wenn Sie `null` oder `undefined` übergeben, gibt die Funktion den Speicherplatz zurück, der vom gesamten Speicherbereich genutzt wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Ganzzahlwert, `bytesUsed`, erfüllt wird, der den Speicherplatz repräsentiert, der von den in `keys` angegebenen Objekten verwendet wird. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Integer, `bytesUsed`, erfüllt wird. Dieser repräsentiert den Speicherplatz, der von den in `keys` angegebenen Objekten genutzt wird. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -41,4 +47,4 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage). Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

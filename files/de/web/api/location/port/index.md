@@ -3,25 +3,30 @@ title: "Location: port Eigenschaft"
 short-title: port
 slug: Web/API/Location/port
 l10n:
-  sourceCommit: 1238ffad886924b20549d0cf3adca735cb0d074f
+  sourceCommit: 354f23773b65bad14192eca53e4a63471061b158
 ---
 
 {{ApiRef("Location")}}
 
-Die **`port`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)
-Interfaces ist eine Zeichenkette, die die Portnummer der URL enthält. Wenn die
-URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
+Die **`port`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der die Portnummer der URL enthält, oder der leere String, wenn der Port der Standardwert für das Protokoll ist.
+
+> [!NOTE]
+> Wenn das [`Location`](/de/docs/Web/API/Location)-Objekt auf eine URL verweist, die keine explizite Portnummer enthält (z. B. `https://localhost`) oder eine Portnummer enthält, die der Standard-Portnummer entspricht, die zum Protokollteil der URL gehört (z. B. `https://localhost:443`), dann wird die `port`-Eigenschaft der leere String sein: `''`.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
 ```js
-// Let's an <a id="myAnchor" href="https://developer.mozilla.org:443/en-US/docs/Location.port"> element be in the document
-const anchor = document.getElementByID("myAnchor");
-const result = anchor.port; // Returns:'443'
+// Assume current page is at https://developer.mozilla.org/en-US/docs/Location/port
+const result = location.port; // Returns:''
+```
+
+```js
+// Assume another page is at https://developer.mozilla.org:8888/en-US/docs/Location/port
+const result = location.port; // Returns:'8888'
 ```
 
 ## Spezifikationen

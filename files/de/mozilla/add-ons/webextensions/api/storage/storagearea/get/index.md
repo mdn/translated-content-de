@@ -2,12 +2,12 @@
 title: StorageArea.get()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/get
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
 ---
 
 {{AddonSidebar}}
 
-Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
+Ruft einen oder mehrere Einträge aus dem Speicherbereich ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -19,27 +19,27 @@ let results = browser.storage.<storageType>.get(
 )
 ```
 
-`<storageType>` wird einer der beschreibbaren Speicherarten sein — {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, oder {{WebExtAPIRef("storage.managed", "managed")}}.
+Dabei ist `<storageType>` eine der Speicherarten — {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}}, oder {{WebExtAPIRef("storage.managed", "managed")}}.
 
 ### Parameter
 
 - `keys`
-  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Strings _oder_ ein Objekt, das Standardwerte angibt), um die abzurufenden Elemente aus dem Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, werden die gesamten Speicherinhalte abgerufen.
+  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Zeichenfolgen, _oder_ ein Objekt, das Standardwerte angibt), um den/die abzurufenden Eintrag/Einträge aus dem Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, werden die gesamten Speicherinhalte abgerufen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das zu einem `results`-Objekt aufgelöst wird, das jedes im Speicherbereich gefundene Objekt in `keys` enthält. Wenn `keys` ein Objekt ist, erhalten Schlüssel, die im Speicherbereich nicht gefunden werden, ihre Werte vom `keys`-Objekt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das zu einem `results`-Objekt auflöst, das jedes im `keys`-Parameter gefundene Objekt im Speicherbereich enthält. Wenn `keys` ein Objekt ist, werden Schlüssel, die im Speicherbereich nicht gefunden wurden, die Werte des `keys`-Objekts zugeordnet.
 
-Wenn der Vorgang fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn die Operation fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
-Wenn verwalteter Speicher nicht gesetzt ist, wird `undefined` zurückgegeben.
+Wenn kein verwalteter Speicher festgelegt ist, wird `undefined` zurückgegeben.
 
 > [!WARNING]
-> Wenn es in einem Inhalts-Skript in Firefox-Versionen vor 52 verwendet wird, wird das von `browser.storage.local.get()` zurückgegebene Promise mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die im Speicherbereich gefundenen `keys`, wie oben beschrieben.
+> Wenn in einer Inhalts-Skript in Firefox-Versionen vor 52 verwendet, wird das Promise, das von `browser.storage.local.get()` zurückgegeben wird, mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die im Speicherbereich gefundenen `keys`, wie oben beschrieben.
 >
 > Das Promise wird korrekt mit einem Objekt erfüllt, wenn es im Hintergrundkontext (Hintergrundskripte, Popups, Optionsseiten usw.) verwendet wird.
 >
-> Wenn diese API als `chrome.storage.local.get()` verwendet wird, wird korrekt ein Objekt an die Callback-Funktion übergeben.
+> Wenn diese API als `chrome.storage.local.get()` verwendet wird, übergibt sie korrekt ein Objekt an die Rückruffunktion.
 
 ## Browser-Kompatibilität
 
@@ -47,7 +47,7 @@ Wenn verwalteter Speicher nicht gesetzt ist, wird `undefined` zurückgegeben.
 
 ## Beispiele
 
-Angenommen, der Speicher enthält zwei Elemente:
+Angenommen, der Speicher enthält zwei Einträge:
 
 ```js
 // storage contains two items,
@@ -58,7 +58,7 @@ browser.storage.local.set({
 });
 ```
 
-Erfolgs- und Fehlerbehandler für das Promise definieren:
+Definieren Sie Erfolgs- und Fehlermethoden für das Promise:
 
 ```js
 function onGot(item) {
@@ -70,7 +70,7 @@ function onError(error) {
 }
 ```
 
-Ohne das `keys`-Argument alles abrufen:
+Ohne `keys`-Argument alles abrufen:
 
 ```js
 let gettingItem = browser.storage.local.get();
@@ -89,7 +89,7 @@ gettingItem.then(onGot, onError);
 // -> Object { }
 ```
 
-Mit dem Namen eines Objekts die Übereinstimmung abrufen:
+Mit dem Namen eines Objekts das passende Ergebnis abrufen:
 
 ```js
 let gettingItem = browser.storage.local.get("kitten");
@@ -111,7 +111,7 @@ gettingItem.then(onGot, onError);
 // -> Object { kitten: Object, monster: Object }
 ```
 
-Mit einem Objekt mit Objektnamen als Schlüsseln und dem Standardwert als Wert:
+Mit einem Objekt mit Objektnamen als Schlüssel und Standardwert als Wert:
 
 ```js
 let gettingItem = browser.storage.local.get({
@@ -136,7 +136,7 @@ chrome.storage.local.get("kitten", (items) => {
 });
 ```
 
-Oder unter Verwendung eines Promises
+Oder unter Verwendung eines Promise
 
 ```js
 let gettingItem = new Promise((resolve) =>
