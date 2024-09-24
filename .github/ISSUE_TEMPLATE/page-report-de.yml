@@ -1,0 +1,65 @@
+name: "[über MDN-Seiten // de]"
+description: Problem gemeldet über den Link "Report a problem with this content on GitHub" auf MDN-Seiten.
+labels: ["l10n-de", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Bevor du anfängst
+
+        **Möchtest du diese Seite selbst ändern?** Dieser Inhalt ist Open Source!
+        ↩ Geh zurück und nutze den _Edit on GitHub_-Link auf der Seite.
+
+        **Geht dein Problem um die Kompatibilitätstabelle für Browser?**
+        ↩ Geh zurück und nutze den _Report problems with this compatibility data on GitHub_-Link auf der Seite.
+
+        **Brauchst du Hilfe mit einem Browser?**
+        🙋 Um Hilfe mit [Firefox](https://support.mozilla.org/de/kb/mozilla-bug-report-oder-feature-request-erstellen), [Chrome](https://support.google.com/chrome/answer/95315?ref_topic=7439544), [Safari](https://www.apple.com/feedback/safari.html) oder einem anderen Browser zu bekommen, schau auf der Support-Seite des Browsers nach.
+
+        ---
+  - type: input
+    id: mdn-url
+    attributes:
+      label: MDN-URL
+      description: Wird automatisch gesetzt. Nicht ändern.
+    validations:
+      required: true
+  # -- BEGIN Felder, die `content-bug.yml` entsprechen —
+  # Wenn du diese Felder bearbeitest, bearbeite sie in beiden Dateien!
+  - type: input
+    id: section
+    attributes:
+      label: Um welchen spezifischen Abschnitt oder welche Überschrift geht es bei diesem Problem?
+  - type: textarea
+    id: problem
+    attributes:
+      label: Welche Informationen waren falsch, unhilfreich oder unvollständig?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Was hast du erwartet zu sehen?
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Hast du irgendwelche unterstützenden Links, Referenzen oder Zitate?
+      description: Verlinke Informationen, die uns helfen, dein Problem zu bestätigen.
+  - type: textarea
+    id: more-info
+    attributes:
+      label: Hast du noch etwas, das du teilen möchtest?
+      description: Zum Beispiel Schritte zur Reproduktion eines Fehlers, Screenshots, Bildschirmaufnahmen oder Beispielcode
+  # -- ENDE Felder, die `content-bug.yml` entsprechen —
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Du bist fertig! Die folgenden Felder sind vorausgefüllt. Bitte klicke auf **Submit new issue**.
+  - type: textarea
+    id: metadata
+    attributes:
+      label: MDN-Metadaten
+      description: Wird automatisch gesetzt. Nicht ändern.

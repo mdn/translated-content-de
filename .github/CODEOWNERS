@@ -1,0 +1,47 @@
+# ----------------------------------------------------------------------------
+# MDN Content CODEOWNERS
+# ----------------------------------------------------------------------------
+# Order is important. The last matching pattern takes precedence. For more
+# detailed information, see:
+# https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# DEFAULT OWNERS
+# ----------------------------------------------------------------------------
+*    @mdn/core-dev
+
+# ----------------------------------------------------------------------------
+# DEFAULT CONTENT OWNER(S)
+# ----------------------------------------------------------------------------
+/files/    @mdn/core-yari-content
+
+# ----------------------------------------------------------------------------
+# GERMAN (de) CONTENT OWNER(S)
+# ----------------------------------------------------------------------------
+/files/de/    @mdn/yari-content-de
+
+# ----------------------------------------------------------------------------
+# TRANSLATION GUIDE OWNER(S)
+# ----------------------------------------------------------------------------
+/docs/        @mdn/core-yari-content
+/docs/de/     @mdn/yari-content-de
+
+# ----------------------------------------------------------------------------
+# ISSUE TEMPLATE OWNER(S)
+# ----------------------------------------------------------------------------
+.github/ISSUE_TEMPLATE/page-report-de.yml     @mdn/yari-content-de
+
+# ----------------------------------------------------------------------------
+# CONTROL FILES OWNER(S)
+# ----------------------------------------------------------------------------
+# These should be the last matches in this file, since any pull request that
+# tries to change any one or more of these files should be escalated to the
+# owners specified here.
+# ----------------------------------------------------------------------------
+/.github/     @mdn/core-dev
+/*            @mdn/core-dev
+/*.md         @mdn/core-dev @mdn/core-yari-content
+/CONTRIBUTING.md            @mdn/core-yari-content
+/PEERS_GUIDELINES.md        @mdn/core-yari-content
+/.prettierignore
