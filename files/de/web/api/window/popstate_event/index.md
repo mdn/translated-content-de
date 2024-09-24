@@ -1,18 +1,18 @@
 ---
-title: "Window: popstate-Ereignis"
+title: "Window: popstate Ereignis"
 short-title: popstate
 slug: Web/API/Window/popstate_event
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{APIRef("History API")}}
 
-Das **`popstate`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn sich der aktive Verlaufs-Eintrag ändert, während der Benutzer in der Sitzungsverlauf navigiert. Es ändert den aktuellen Verlaufs-Eintrag zu dem der letzten Seite, die der Benutzer besucht hat, oder, wenn [`history.pushState()`](/de/docs/Web/API/History/pushState) verwendet wurde, um einen Verlaufs-Eintrag zum Verlaufs-Stapel hinzuzufügen, wird dieser Verlaufs-Eintrag stattdessen verwendet.
+Das **`popstate`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn der aktive Verlaufseintrag sich ändert, während der Benutzer im Sitzungsverlauf navigiert. Es ändert den aktuellen Verlaufseintrag zu dem der zuletzt besuchten Seite des Benutzers oder, wenn [`history.pushState()`](/de/docs/Web/API/History/pushState) verwendet wurde, um einen Verlaufseintrag zum Verlaufstapel hinzuzufügen, wird dieser Verlaufseintrag stattdessen verwendet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("popstate", (event) => {});
@@ -30,57 +30,57 @@ Ein [`PopStateEvent`](/de/docs/Web/API/PopStateEvent). Erbt von [`Event`](/de/do
 - [`PopStateEvent.state`](/de/docs/Web/API/PopStateEvent/state) {{ReadOnlyInline}}
   - : Gibt eine Kopie der Informationen zurück, die `pushState()` oder `replaceState()` bereitgestellt wurden.
 
-## Ereignishandler-Aliase
+## Eventhandler-Alias
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onpopstate` auch auf den folgenden Elementen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Eventhandler-Eigenschaft `onpopstate` auch bei den folgenden Elementen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
 - [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
-## Der Verlaufs-Stapel
+## Der Verlaufstapel
 
-Wenn der aktivierte Verlaufs-Eintrag durch einen Aufruf von [`history.pushState()`](/de/docs/Web/API/History/pushState) erstellt oder durch einen Aufruf von [`history.replaceState()`](/de/docs/Web/API/History/replaceState) beeinflusst wurde, enthält die `state`-Eigenschaft des `popstate`-Ereignisses eine Kopie des Verlaufs-Eintragszustandsobjekts.
+Wenn der aktivierte Verlaufseintrag durch einen Aufruf von [`history.pushState()`](/de/docs/Web/API/History/pushState) erstellt wurde oder durch einen Aufruf von [`history.replaceState()`](/de/docs/Web/API/History/replaceState) betroffen ist, enthält die `state`-Eigenschaft des `popstate`-Ereignisses eine Kopie des Statusobjekts des Verlaufseintrags.
 
-Diese Methoden und die entsprechenden Ereignisse können verwendet werden, um Daten zum Verlaufs-Stapel hinzuzufügen, die verwendet werden können, um eine dynamisch generierte Seite zu rekonstruieren oder um den Zustand des präsentierten Inhalts zu ändern, während Sie sich auf demselben [`Document`](/de/docs/Web/API/Document) befinden.
+Diese Methoden und deren entsprechende Ereignisse können verwendet werden, um Daten zum Verlaufstapel hinzuzufügen, die verwenden werden können, um eine dynamisch generierte Seite zu rekonstruieren oder um den Zustand des präsentierten Inhalts zu ändern, während dasselbe [`Document`](/de/docs/Web/API/Document) beibehalten wird.
 
-Beachten Sie, dass nur der Aufruf von `history.pushState()` oder `history.replaceState()` kein `popstate`-Ereignis auslöst. Das `popstate`-Ereignis wird durch eine Browseraktion wie einen Klick auf die Schaltfläche Zurück oder Vorwärts (oder durch Aufrufen von `history.back()` oder `history.forward()` in JavaScript) ausgelöst.
+Beachten Sie, dass das bloße Aufrufen von `history.pushState()` oder `history.replaceState()` kein `popstate`-Ereignis auslösen wird. Das `popstate`-Ereignis wird durch eine Browseraktion wie einen Klick auf die Vor- oder Zurück-Schaltfläche (oder durch das Aufrufen von `history.back()` oder `history.forward()` in JavaScript) ausgelöst.
 
-Browser behandeln das `popstate`-Ereignis beim Laden der Seite unterschiedlich. Chrome (vor Version 34) und Safari senden immer ein `popstate`-Ereignis beim Seitenladen, Firefox tut dies jedoch nicht.
+Browser neigen dazu, das `popstate`-Ereignis beim Laden der Seite unterschiedlich zu behandeln. Chrome (vor Version 34) und Safari emittieren immer ein `popstate`-Ereignis beim Laden der Seite, aber Firefox nicht.
 
 > [!NOTE]
-> Beim Schreiben von Funktionen, die das `popstate`-Ereignis verarbeiten, ist es wichtig zu berücksichtigen, dass Eigenschaften wie `window.location` bereits die Zustandsänderung widerspiegeln (wenn sie die aktuelle URL betrifft), aber `document` möglicherweise noch nicht. Wenn das Ziel darin besteht, den Moment zu erfassen, in dem der neue Dokumentzustand bereits vollständig vorhanden ist, sollte eine `setTimeout()`-Methode mit null Verzögerung verwendet werden, um die innere _Callback_-Funktion, die die Verarbeitung vornimmt, effektiv am Ende der Ereignisschleife des Browsers zu platzieren: `window.onpopstate = () => setTimeout(doSomeThing, 0);`
+> Beim Schreiben von Funktionen, die das `popstate`-Ereignis verarbeiten, ist es wichtig, zu beachten, dass Eigenschaften wie `window.location` die Statusänderung bereits widerspiegeln (wenn sie die aktuelle URL betroffen hat), das `document` jedoch möglicherweise noch nicht. Wenn das Ziel darin besteht, den Moment zu erfassen, in dem der neue Dokumentzustand bereits vollständig vorhanden ist, sollte eine Methode [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) mit Null-Verzögerung verwendet werden, um die innere _callback_-Funktion, die die Verarbeitung übernimmt, effektiv am Ende der Browser-Ereignisschleife zu platzieren: `window.onpopstate = () => setTimeout(doSomeThing, 0);`
 
-## Wann das popstate gesendet wird
+## Wann popstate gesendet wird
 
-Es ist wichtig, zuerst zu verstehen, dass - um unerwünschte Pop-ups zu bekämpfen - Browser das `popstate`-Ereignis möglicherweise überhaupt nicht auslösen, es sei denn, die Seite wurde interagiert.
+Es ist wichtig zuerst zu verstehen, dass — um unerwünschte Pop-ups zu bekämpfen — Browser das `popstate`-Ereignis möglicherweise gar nicht auslösen, es sei denn, die Seite wurde interagiert.
 
-Dieser Abschnitt beschreibt die Schritte, die Browser befolgen, in den Fällen, in denen sie das `popstate`-Ereignis _potenziell_ auslösen (also in den Fällen, in denen mit der Seite interagiert wurde).
+Dieser Abschnitt beschreibt die Schritte, die Browser für die Fälle ausführen, in denen sie das `popstate`-Ereignis möglicherweise auslösen (also in den Fällen, in denen mit der Seite interagiert wurde).
 
-Wenn eine Navigation erfolgt - entweder durch das Auslösen der Schaltfläche <kbd>Zurück</kbd> des Browsers oder auf andere Weise - ist das `popstate`-Ereignis gegen Ende des Prozesses zur Navigation zur neuen Position. Es tritt auf, nachdem die neue Position geladen wurde (falls erforderlich), angezeigt, sichtbar gemacht und so weiter - nachdem das [`pageshow`](/de/docs/Web/API/Window/pageshow_event)-Ereignis gesendet wurde, aber bevor die gespeicherten Benutzerdaten wiederhergestellt und das [`hashchange`](/de/docs/Web/API/Window/hashchange_event)-Ereignis gesendet werden.
+Wenn eine Navigation stattfindet — entweder weil der Benutzer die <kbd>Zurück</kbd>-Schaltfläche des Browsers auslöst oder anderweitig — ist das `popstate`-Ereignis nahe dem Ende des Prozesses, um zur neuen Position zu navigieren. Es tritt auf, nachdem die neue Position geladen (falls erforderlich), angezeigt und sichtbar gemacht wurde und so weiter — nachdem das [`pageshow`](/de/docs/Web/API/Window/pageshow_event) gesendet wurde, aber bevor die persistierte Benutzerzustandsinformation wiederhergestellt und das [`hashchange`](/de/docs/Web/API/Window/hashchange_event) gesendet wird.
 
-Um besser zu verstehen, wann das `popstate`-Ereignis ausgelöst wird, beachten Sie diese vereinfachte Abfolge von Ereignissen, die auftritt, wenn sich der aktuelle Verlaufs-Eintrag aufgrund der Navigation des Benutzers auf der Website oder der programmgesteuerten Navigation des Verlaufs ändert. Hier ändert die Transition den aktuellen Verlaufs-Eintrag zu einem Eintrag, den wir als **neuen Eintrag** bezeichnen werden. Der aktuelle Verlaufs-Stapel-Eintrag der Seite wird als **aktueller Eintrag** bezeichnet.
+Um besser zu verstehen, wann das `popstate`-Ereignis ausgelöst wird, betrachten Sie diese vereinfachte Abfolge von Ereignissen, die auftritt, wenn der aktuelle Verlaufseintrag sich ändert, entweder durch das Navigieren der Seite durch den Benutzer oder durch das programmgesteuerte Durchlaufen des Verlaufs. Hierbei wechselt der Übergang den aktuellen Verlaufseintrag zu einem, den wir als **new-entry** bezeichnen werden. Der Verlaufseintrag der aktuellen Sitzung der Seite wird als **current-entry** bezeichnet.
 
-1. Wenn **neuer Eintrag** derzeit kein vorhandenes [`Document`](/de/docs/Web/API/Document) enthält, holen Sie die Inhalte ab und erstellen Sie deren `Document`, bevor Sie fortfahren. Dies wird schließlich Ereignisse wie [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) und [`load`](/de/docs/Web/API/Window/load_event) an das [`Window`](/de/docs/Web/API/Window) senden, das das Dokument enthält, aber die folgenden Schritte werden dennoch fortgesetzt.
-2. Wenn der Titel von **aktuellem Eintrag** nicht mit einer der Methoden der History API ([`pushState()`](/de/docs/Web/API/History/pushState) oder [`replaceState()`](/de/docs/Web/API/History/replaceState)) gesetzt wurde, setzen Sie den Titel des Eintrags auf den String, der vom Attribut [`document.title`](/de/docs/Web/API/Document/title) seines Dokuments zurückgegeben wird.
-3. Falls der Browser den Zustand speichern möchte, bevor er von **aktuellem Eintrag** weg navigiert, erfolgt dies. Jetzt heißt es, dass der Eintrag "persistierten Benutzerzustand" hat. Diese Informationen, die der Browser zum Verlaufs-Sitzungseintrag hinzufügen könnte, können zum Beispiel die Scrollposition des Dokuments, die Werte der Formulareingaben und andere solche Daten umfassen.
-4. Wenn **neuer Eintrag** ein anderes `Document`-Objekt als **aktueller Eintrag** hat, wird der Browsing-Kontext aktualisiert, sodass seine [`document`](/de/docs/Web/API/Window/document)-Eigenschaft auf das Dokument verweist, das von **neuer Eintrag** referenziert wird, und der Kontextname des nun aktuellen Dokuments aktualisiert wird.
-5. Jedes Formularfeld innerhalb des `Document` von **neuer Eintrag**, das mit [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete) konfiguriert ist mit seinem Autofill-Feldnamen auf `off`, wird zurückgesetzt. Siehe [Das HTML-Autocomplete-Attribut](/de/docs/Web/HTML/Attributes/autocomplete) für mehr Informationen über die Autocomplete-Feldnamen und wie Autocomplete funktioniert.
-6. Wenn das Dokument von **neuer Eintrag** bereits vollständig geladen und bereit ist - das heißt, sein [`readyState`](/de/docs/Web/API/Document/readyState) `complete` ist - und das Dokument nicht bereits sichtbar ist, wird es sichtbar gemacht und das [`pageshow`](/de/docs/Web/API/Window/pageshow_event)-Ereignis wird an das Dokument mit dem [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent)'s [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted)-Attribut auf `true` gesendet.
-7. Die [`URL`](/de/docs/Web/API/Document/URL) des Dokuments wird auf die von **neuer Eintrag** gesetzt.
-8. Falls die Verlaufsgeschichte mit Aktivierung des Ersetzens durchgeführt wird, wird der Eintrag direkt vor dem Ziel-Eintrag (unter Berücksichtigung des `delta`-Parameters bei Methoden wie [`go()`](/de/docs/Web/API/History/go)) aus dem Verlaufs-Stapel entfernt.
-9. Wenn **neuer Eintrag** keinen persistierten Benutzerzustand hat und das Fragment seiner URL nicht `null` ist, wird das Dokument zu diesem Fragment gescrollt.
-10. Als nächstes wird **aktueller Eintrag** auf **neuer Eintrag** gesetzt. Der Zieleintrag wird nun als aktuell angesehen.
-11. Wenn **neuer Eintrag** serialisierte Zustandsinformationen gespeichert hat, werden diese Informationen in [`History.state`](/de/docs/Web/API/History/state) deserialisiert; sonst ist `state` `null`.
+1. Wenn **new-entry** derzeit kein existierendes [`Document`](/de/docs/Web/API/Document) enthält, holen Sie den Inhalt und erstellen sein `Document`, bevor Sie fortfahren. Dies wird schließlich Ereignisse wie [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) und [`load`](/de/docs/Web/API/Window/load_event) zum [`Window`](/de/docs/Web/API/Window), das das Dokument enthält, senden, aber die untenstehenden Schritte werden fortgesetzt.
+2. Wenn der Titel von **current-entry** nicht mit einer der History API-Methoden ([`pushState()`](/de/docs/Web/API/History/pushState) oder [`replaceState()`](/de/docs/Web/API/History/replaceState)) gesetzt wurde, setzen Sie den Eintragstitel auf den String, der von seinem [`document.title`](/de/docs/Web/API/Document/title) Attribut zurückgegeben wird.
+3. Wenn der Browser Zustandinformationen speichern möchte, die er mit **current-entry** speichern möchte, bevor er sie verlässt, tut er dies. Der Eintrag hat nun "persistierten Benutzerzustand". Diese Informationen, die der Browser möglicherweise dem Verlaufssitzungseintrag hinzufügt, können zum Beispiel die Scrollposition des Dokuments, die Werte von Formulareingaben und andere solche Daten umfassen.
+4. Wenn **new-entry** ein anderes `Document`-Objekt als **current-entry** hat, wird der Browsing-Kontext aktualisiert, sodass seine [`document`](/de/docs/Web/API/Window/document)-Eigenschaft auf das durch **new-entry** referenzierte Dokument verweist, und der Kontextname wird aktualisiert, um mit dem Kontextnamen des jetzt aktuellen Dokuments übereinzustimmen.
+5. Jedes Formularsteuerungselement innerhalb des [`Document`](/de/docs/Web/API/Document) von **new-entry**, das mit [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete) konfiguriert ist und dessen Autofill-Feldname auf `off` gesetzt ist, wird zurückgesetzt. Siehe [Das HTML autocomplete Attribut](/de/docs/Web/HTML/Attributes/autocomplete), um mehr über die Autocomplete-Feldnamen und wie Autocomplete funktioniert, zu erfahren.
+6. Wenn das Dokument von **new-entry** bereits vollständig geladen und bereit ist — das heißt, sein [`readyState`](/de/docs/Web/API/Document/readyState) ist `complete` — und das Dokument nicht bereits sichtbar ist, wird es sichtbar gemacht und das [`pageshow`](/de/docs/Web/API/Window/pageshow_event) wird dem Dokument mit dem [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent) sein [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) Attribut auf `true` gesetzt.
+7. Die [`URL`](/de/docs/Web/API/Document/URL) des Dokuments wird auf die von **new-entry** gesetzt.
+8. Wenn die Verlaufsnavigation mit aktivierter Ersetzung durchgeführt wird, wird der Eintrag unmittelbar vor dem Zieleintrag (unter Berücksichtigung des `delta`-Parameters von Methoden wie [`go()`](/de/docs/Web/API/History/go)) aus dem Verlaufstack entfernt.
+9. Wenn **new-entry** keinen persistierten Benutzerzustand hat und das Fragment seiner URL nicht `null` ist, wird das Dokument auf das Fragment gescrollt.
+10. Als nächstes wird **current-entry** auf **new-entry** gesetzt. Der Zieleintrag wird nun als aktuell angesehen.
+11. Wenn **new-entry** serialisierte Zustandsinformationen mit sich gespeichert hat, werden diese Informationen in [`History.state`](/de/docs/Web/API/History/state) deserialisiert; andernfalls ist `state` `null`.
 12. Wenn sich der Wert von `state` geändert hat, wird das `popstate`-Ereignis an das Dokument gesendet.
-13. Jeglicher persistierter Benutzerzustand wird wiederhergestellt, falls der Browser dies wählt.
-14. Falls die Original- und die neuen Einträge dasselbe Dokument teilen, aber unterschiedliche Fragmente in ihren URLs haben, wird das [`hashchange`](/de/docs/Web/API/Window/hashchange_event)-Ereignis an das Fenster gesendet.
+13. Jeder persistierte Benutzerzustand wird wiederhergestellt, wenn sich der Browser dazu entscheidet.
+14. Wenn die ursprünglichen und neuen Einträge dasselbe Dokument teilten, aber unterschiedliche Fragmente in ihren URLs hatten, wird das [`hashchange`](/de/docs/Web/API/Window/hashchange_event) an das Fenster gesendet.
 
-Wie Sie sehen können, ist das `popstate`-Ereignis fast das letzte, das im Prozess des Navigierens durch die Seiten auf diese Weise ausgeführt wird.
+Wie Sie sehen, ist das `popstate`-Ereignis fast das Letzte, was im Prozess des Navigierens in Seiten auf diese Weise getan wird.
 
 ## Beispiele
 
-Eine Seite unter `http://example.com/example.html`, die den folgenden Code ausführt, generiert die angegebenen Protokolle:
+Eine Seite bei `http://example.com/example.html`, die den folgenden Code ausführt, wird Protokolle wie angegeben erzeugen:
 
 ```js
 window.addEventListener("popstate", (event) => {
@@ -96,7 +96,7 @@ history.back(); // Logs "location: http://example.com/example.html, state: null"
 history.go(2); // Logs "location: http://example.com/example.html?page=3, state: {"page":3}"
 ```
 
-Dasselbe Beispiel unter Verwendung der `onpopstate`-Ereignishandler-Eigenschaft:
+Dasselbe Beispiel mit der `onpopstate`-Eventhandler-Eigenschaft:
 
 ```js
 window.onpopstate = (event) => {
@@ -112,7 +112,7 @@ history.back(); // Logs "location: http://example.com/example.html, state: null"
 history.go(2); // Logs "location: http://example.com/example.html?page=3, state: {"page":3}"
 ```
 
-Beachten Sie, dass auch wenn der Original-Verlaufs-Eintrag (für `http://example.com/example.html`) kein Zustandsobjekt damit verbunden hat, immer noch ein `popstate`-Ereignis ausgelöst wird, wenn wir diesen Eintrag nach dem zweiten Aufruf von `history.back()` aktivieren.
+Beachten Sie, dass selbst wenn der ursprüngliche Verlaufseintrag (für `http://example.com/example.html`) kein Statusobjekt damit assoziiert hat, ein `popstate`-Ereignis trotzdem ausgelöst wird, wenn wir diesen Eintrag nach dem zweiten Aufruf von `history.back()` aktivieren.
 
 ## Spezifikationen
 
@@ -124,5 +124,5 @@ Beachten Sie, dass auch wenn der Original-Verlaufs-Eintrag (für `http://example
 
 ## Siehe auch
 
-- [Manipulation des Browserverlaufs (die History API)](/de/docs/Web/API/History_API)
-- [Window: `hashchange`-Ereignis](/de/docs/Web/API/Window/hashchange_event)
+- [Manipulieren des Browserverlaufs (die History API)](/de/docs/Web/API/History_API)
+- [Window: `hashchange` Ereignis](/de/docs/Web/API/Window/hashchange_event)

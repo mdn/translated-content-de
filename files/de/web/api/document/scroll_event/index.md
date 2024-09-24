@@ -3,7 +3,7 @@ title: "Document: scroll-Ereignis"
 short-title: scroll
 slug: Web/API/Document/scroll_event
 l10n:
-  sourceCommit: 332bbd7d5079f418175e68a13db8c38f4636cee9
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{APIRef}}
@@ -26,11 +26,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Scroll-Event-Drosselung
+### Scroll-Ereignis-Throttling
 
-Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Es wird stattdessen empfohlen, das Ereignis mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu {{Glossary("throttle", "drosseln")}}, wie folgt.
+Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Änderungen ausführen. Stattdessen wird empfohlen, das Ereignis mithilfe von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu drosseln, wie folgt.
 
-Beachten Sie jedoch, dass Eingabeereignisse und Animationsrahmen ungefähr mit der gleichen Frequenz ausgelöst werden, weshalb die Optimierung unten oft nicht notwendig ist. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
+Beachten Sie jedoch, dass Eingabeereignisse und Animationsframes mit etwa der gleichen Geschwindigkeit ausgelöst werden, daher ist die untenstehende Optimierung oft nicht erforderlich. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
 
 ```js
 let lastKnownScrollPosition = 0;

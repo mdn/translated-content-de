@@ -1,31 +1,31 @@
 ---
-title: Verwendung von Readable Streams
+title: Verwendung von readable streams
 slug: Web/API/Streams_API/Using_readable_streams
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: b795bc99fc5c5d8a96c1b202a12750404085c28a
 ---
 
 {{DefaultAPISidebar("Streams")}}
 
-Als JavaScript-Entwickler ist das programmatische Lesen und Manipulieren von Datenströmen, die stückweise über das Netzwerk empfangen werden, sehr nützlich! Aber wie verwenden Sie die Funktionalität der Streams API für lesbare Streams? Dieser Artikel erklärt die Grundlagen.
+Als JavaScript-Entwickler ist das programmatische Lesen und Manipulieren von Datenströmen, die über das Netzwerk stückweise empfangen werden, sehr nützlich! Aber wie verwendet man die Funktionalität der Lesbaren Streams der Streams-API? Dieser Artikel erklärt die Grundlagen.
 
 > [!NOTE]
-> Dieser Artikel setzt voraus, dass Sie die Anwendungsfälle für lesbare Streams verstehen und mit den grundlegenden Konzepten vertraut sind. Falls nicht, empfehlen wir, zunächst die [Übersicht über Konzepte und Nutzung von Streams](/de/docs/Web/API/Streams_API#concepts_and_usage) und den speziellen Artikel [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts) zu lesen und dann zurückzukehren.
+> Dieser Artikel setzt voraus, dass Sie die Anwendungsfälle von lesbaren Streams verstehen und mit den übergeordneten Konzepten vertraut sind. Wenn nicht, empfehlen wir Ihnen, zuerst den [Streams-Konzepte und Anwendungsübersicht](/de/docs/Web/API/Streams_API#concepts_and_usage) und den speziellen Artikel [Streams API-Konzepte](/de/docs/Web/API/Streams_API/Concepts) zu lesen und dann zurückzukommen.
 
 > [!NOTE]
-> Wenn Sie nach Informationen über beschreibbare Streams suchen, versuchen Sie es stattdessen mit [Verwendung von beschreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams).
+> Wenn Sie Informationen zu beschreibbaren Streams suchen, versuchen Sie es stattdessen mit [Verwendung von beschreibbaren Streams](/de/docs/Web/API/Streams_API/Using_writable_streams).
 
-## Einige Beispiele finden
+## Finden einiger Beispiele
 
-Wir werden uns in diesem Artikel verschiedene Beispiele ansehen, die aus unserem [dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams) Repository stammen. Dort finden Sie den vollständigen Quellcode sowie Links zu den Beispielanwendungen.
+Wir werden uns in diesem Artikel verschiedene Beispiele ansehen, die aus unserem [dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams) Repository stammen. Dort finden Sie den vollständigen Quellcode sowie Links zu den Beispielen.
 
-## Eine Fetch-Abfrage als Stream konsumieren
+## Konsumieren eines Fetch als Stream
 
-Die [Fetch API](/de/docs/Web/API/Fetch_API) ermöglicht es Ihnen, Ressourcen über das Netzwerk abzurufen und bietet eine moderne Alternative zu [XHR](/de/docs/Web/API/XMLHttpRequest). Sie hat eine Reihe von Vorteilen, und wirklich schön ist, dass Browser kürzlich die Möglichkeit hinzugefügt haben, eine Fetch-Antwort als lesbaren Stream zu konsumieren.
+Die [Fetch API](/de/docs/Web/API/Fetch_API) erlaubt es Ihnen, Ressourcen über das Netzwerk abzurufen und bietet eine moderne Alternative zu [XHR](/de/docs/Web/API/XMLHttpRequest). Sie hat eine Reihe von Vorteilen, und was wirklich schön daran ist, ist, dass Browser kürzlich die Möglichkeit hinzugefügt haben, eine Fetch-Antwort als lesbaren Stream zu konsumieren.
 
-Die Eigenschaften [`Request.body`](/de/docs/Web/API/Request/body) und [`Response.body`](/de/docs/Web/API/Response/body) sind verfügbar und stellen die Inhalte des Körpers als einen lesbaren Stream bereit.
+Die Eigenschaften [`Request.body`](/de/docs/Web/API/Request/body) und [`Response.body`](/de/docs/Web/API/Response/body) stehen zur Verfügung und ermöglichen das Abrufen des Inhalts als lesbaren Stream.
 
-Wie unser [Beispiel eines einfachen Stream Pumps](https://github.com/mdn/dom-examples/tree/main/streams/simple-pump) zeigt ([siehe auch live](https://mdn.github.io/dom-examples/streams/simple-pump/)), ist es einfach, darauf zuzugreifen, indem Sie die `body`-Eigenschaft der Antwort verwenden:
+Wie unser [Einfaches Stream-Pumpen](https://github.com/mdn/dom-examples/tree/main/streams/simple-pump) Beispiel zeigt ([siehe es auch live](https://mdn.github.io/dom-examples/streams/simple-pump/)), besteht das Exponieren darin, einfach die `body`-Eigenschaft der Antwort zuzugreifen:
 
 ```js
 // Fetch the original image
@@ -34,11 +34,11 @@ fetch("./tortoise.png")
   .then((response) => response.body);
 ```
 
-Dies bietet uns ein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt.
+Dies liefert uns ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) Objekt.
 
-### Einen Reader anhängen
+### Einleser anfügen
 
-Nun haben wir den Streaming-Körper, das Lesen des Streams erfordert das Anhängen eines Readers. Dies erfolgt mit der Methode [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader):
+Jetzt, wo wir unseren streamenden Body haben, erfordert das Lesen des Streams das Anfügen eines Readers. Dies wird mit der Methode [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) gemacht:
 
 ```js
 // Fetch the original image
@@ -51,9 +51,9 @@ fetch("./tortoise.png")
   });
 ```
 
-Der Aufruf dieser Methode erstellt einen Reader und sperrt ihn für den Stream — kein anderer Reader kann diesen Stream lesen, bis dieser Reader freigegeben wird, z. B. durch Aufrufen von [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock).
+Das Aufrufen dieser Methode erstellt einen Reader und sperrt ihn für den Stream — kein anderer Reader darf diesen Stream lesen, bis dieser Reader freigegeben wird, z. B. durch Aufrufen von [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock).
 
-Beachten Sie auch, dass das vorherige Beispiel um einen Schritt verkürzt werden kann, da `response.body` synchron ist und daher nicht auf das Versprechen wartet:
+Beachten Sie auch, dass das vorherige Beispiel um einen Schritt reduziert werden kann, da `response.body` synchron ist und daher kein Promise benötigt:
 
 ```js
 // Fetch the original image
@@ -65,9 +65,9 @@ fetch("./tortoise.png")
   });
 ```
 
-### Den Stream lesen
+### Lesen des Streams
 
-Nun, da Sie Ihren Reader angeschlossen haben, können Sie Datenblöcke aus dem Stream mit der Methode [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) lesen. Dies liest einen Block aus dem Stream, mit dem Sie dann alles Mögliche machen können. Zum Beispiel reihen wir in unserem einfachen Stream Pump-Beispiel jeden Block in einen neuen, benutzerdefinierten `ReadableStream` ein (darüber werden wir im nächsten Abschnitt mehr erfahren), erstellen dann eine neue [`Response`](/de/docs/Web/API/Response) daraus, konsumieren sie als [`Blob`](/de/docs/Web/API/Blob), erstellen eine Objekt-URL aus diesem Blob mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese dann in einem {{htmlelement("img")}}-Element auf dem Bildschirm an, wodurch effektiv eine Kopie des ursprünglich abgerufenen Bildes erstellt wird.
+Jetzt, da Sie Ihren Reader angehängt haben, können Sie Datenstücke aus dem Stream mit der Methode [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) lesen. Dies liest ein Stück aus dem Stream, welches Sie dann beliebig verwenden können. Zum Beispiel wird in unserem Beispiel für das einfache Stream-Pumpen jedes Stück in einen neuen, benutzerdefinierten `ReadableStream` eingeplant (wir werden darüber im nächsten Abschnitt mehr erfahren), dann wird eine neue [`Response`](/de/docs/Web/API/Response) daraus erstellt. Sie wird als [`Blob`](/de/docs/Web/API/Blob) konsumiert, ein Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt, und dann auf dem Bildschirm in einem {{htmlelement("img")}} Element angezeigt, wodurch effektiv eine Kopie des ursprünglich abgerufenen Bildes erstellt wird.
 
 ```js
 // Fetch the original image
@@ -103,7 +103,7 @@ fetch("./tortoise.png")
   .catch((err) => console.error(err));
 ```
 
-Schauen wir uns genauer an, wie `read()` verwendet wird. In der oben gezeigten Funktion `pump()` rufen wir zuerst `read()` auf, was ein Promise mit einem Ergebnisobjekt zurückgibt — dieses hat die Ergebnisse unserer Leseoperation in der Form `{ done, value }`:
+Lassen Sie uns detailliert anschauen, wie `read()` verwendet wird. In der oben gezeigten `pump()` Funktion rufen wir zuerst `read()` auf, welches ein Promise mit einem Ergebnissobjekt zurückgibt — dieses hat die Ergebnisse unseres Lesens in der Form `{ done, value }`:
 
 ```js
 reader.read().then(({ done, value }) => {
@@ -113,11 +113,11 @@ reader.read().then(({ done, value }) => {
 
 Die Ergebnisse können eine von drei verschiedenen Typen sein:
 
-- Wenn ein Block zum Lesen verfügbar ist, wird das Versprechen mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
-- Wenn der Stream geschlossen wird, wird das Versprechen mit einem Objekt der Form `{ value: undefined, done: true }` erfüllt.
-- Wenn der Stream fehlerhaft wird, wird das Versprechen mit dem entsprechenden Fehler abgelehnt.
+- Wenn ein Stück zum Lesen verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
+- Wenn der Stream geschlossen wird, wird das Promise mit einem Objekt der Form `{ value: undefined, done: true }` erfüllt.
+- Wenn der Stream fehlerhaft wird, wird das Promise mit dem entsprechenden Fehler abgelehnt.
 
-Als Nächstes überprüfen wir, ob `done` `true` ist. Wenn ja, gibt es keine weiteren Blöcke mehr zu lesen (der Wert ist `undefined`), sodass wir die Funktion verlassen und den benutzerdefinierten Stream mit [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) schließen:
+Als Nächstes prüfen wir, ob `done` `true` ist. Wenn ja, gibt es keine weiteren Stücke zu lesen (der Wert ist `undefined`), also geben wir aus der Funktion zurück und schließen den benutzerdefinierten Stream mit [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close):
 
 ```js
 if (done) {
@@ -126,9 +126,9 @@ if (done) {
 }
 ```
 
-> **Hinweis:** `close()` ist Teil des neuen benutzerdefinierten Streams, nicht des hier diskutierten ursprünglichen Streams. Im nächsten Abschnitt werden wir mehr über den benutzerdefinierten Stream erklären.
+> **Beachten:** `close()` ist Teil des neuen benutzerdefinierten Streams, nicht des ursprünglichen Streams, den wir hier besprechen. Wir werden im nächsten Abschnitt mehr über den benutzerdefinierten Stream erklären.
 
-Wenn `done` nicht `true` ist, verarbeiten wir den neuen Block, den wir gelesen haben (im `value`-Eigenschaft des Ergebnisobjekts enthalten), und rufen dann die `pump()`-Funktion erneut auf, um den nächsten Block zu lesen.
+Wenn `done` nicht `true` ist, verarbeiten wir das neue Stück, das wir gelesen haben (im `value`-Eigenschaft des Ergebnissobjekts enthalten), und rufen dann die `pump()` Funktion erneut auf, um das nächste Stück zu lesen.
 
 ```js
 // Enqueue the next data chunk into our target stream
@@ -136,14 +136,14 @@ controller.enqueue(value);
 return pump();
 ```
 
-Dies ist das Standardmuster, das Sie beim Verwenden von Stream-Readern sehen:
+Dies ist das Standardmuster, das Sie beim Verwenden von Stream-Readern sehen werden:
 
 1. Sie schreiben eine Funktion, die mit dem Lesen des Streams beginnt.
-2. Wenn kein weiterer Stream mehr zum Lesen steht, verlassen Sie die Funktion.
-3. Wenn noch Stream zum Lesen vorhanden ist, verarbeiten Sie den aktuellen Block, und führen die Funktion erneut aus.
-4. Sie verketten die `pipe`-Funktion, bis kein Stream mehr zu lesen ist, in welchem Fall Schritt 2 ausgeführt wird.
+2. Wenn es keinen Strom mehr zu lesen gibt, verlassen Sie die Funktion.
+3. Wenn es mehr Stream zu lesen gibt, verarbeiten Sie das aktuelle Stück und führen die Funktion erneut aus.
+4. Sie verketteten die `pipe` Funktion, bis es keinen Stream mehr zu lesen gibt, in welchem Fall Schritt 2 erfolgt.
 
-Wenn man den gesamten Code für das tatsächliche "Pumpen" entfernt, könnte der Code verallgemeinert so aussehen:
+Wenn alle Codes entfernt sind, um tatsächlich ein "Pumpen" durchzuführen, könnte der Code verallgemeinert folgendermaßen aussehen:
 
 ```js
 fetch("http://example.com/somefile.txt")
@@ -167,9 +167,9 @@ fetch("http://example.com/somefile.txt")
 
 > [!NOTE]
 > Die Funktion sieht so aus, als ob `pump()` sich selbst aufruft und zu einer potenziell tiefen Rekursion führt.
-> Da `pump` jedoch asynchron ist und jeder `pump()`-Aufruf am Ende des Promise-Handlers steht, entspricht es tatsächlich einer Kette von Promise-Handlern.
+> Da `pump` jedoch asynchron ist und jeder `pump()`-Aufruf am Ende des Promise-Handlers steht, ist es tatsächlich analog zu einer Kette von Promise-Handlern.
 
-Das Lesen des Streams ist noch einfacher, wenn man `async/await` anstelle von Versprechen verwendet:
+Das Lesen des Streams ist noch einfacher, wenn es mit async/await anstelle von Promises geschrieben wird:
 
 ```js
 async function readData(url) {
@@ -186,12 +186,12 @@ async function readData(url) {
 }
 ```
 
-## Einen fetch() mit asynchroner Iteration konsumieren
+## Konsumieren von fetch() mit asynchroner Iteration
 
-Es gibt einen noch einfacheren Weg, um einen `fetch()` zu konsumieren, indem Sie den zurückgegebenen `response.body` mit der [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Syntax iterieren.
-Das funktioniert, weil der `response.body` einen `ReadableStream` zurückgibt, der ein [asynchrones Iterable](/de/docs/Web/API/ReadableStream#async_iteration) ist.
+Es gibt einen noch einfacheren Weg, ein `fetch()` zu konsumieren, nämlich die `response.body` mittels der Syntax [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) zu iterieren.
+Dies funktioniert, weil die `response.body` einen `ReadableStream` zurückgibt, der ein [asynchroner iterierbarer](/de/docs/Web/API/ReadableStream#async_iteration) ist.
 
-In diesem Ansatz kann der Beispielcode aus dem vorherigen Abschnitt wie gezeigt umgeschrieben werden:
+Mit diesem Ansatz kann der Beispielcode im vorhergehenden Abschnitt wie folgt umgeschrieben werden:
 
 ```js
 async function readData(url) {
@@ -203,7 +203,7 @@ async function readData(url) {
 }
 ```
 
-Wenn Sie das Iterieren des Streams beenden möchten, können Sie die `fetch()`-Operation mit einem [`AbortController`](/de/docs/Web/API/AbortController) und dem zugehörigen [`AbortSignal`](/de/docs/Web/API/AbortSignal) abbrechen:
+Wenn Sie das Iterieren des Streams beenden möchten, können Sie die `fetch()`-Operation mit einem [`AbortController`](/de/docs/Web/API/AbortController) und seinem zugehörigen [`AbortSignal`](/de/docs/Web/API/AbortSignal) abbrechen:
 
 ```js
 const aborter = new AbortController();
@@ -218,8 +218,7 @@ async function logChunks(url, { signal }) {
 }
 ```
 
-Alternativ können Sie die Schleife mit `break` verlassen, wie im folgenden Code gezeigt.
-Beachten Sie, dass der Code in der Schleife nur ausgeführt wird, wenn der Stream neue Daten zu verarbeiten hat, sodass es zu einer gewissen Verzögerung zwischen dem Signalabbruch und dem Aufruf von `break` kommen kann.
+Alternativ können Sie die Schleife mit `break` beenden, wie im folgenden Code gezeigt. Beachten Sie, dass der Code in der Schleife nur ausgeführt wird, wenn der Stream neue Daten zum Verarbeiten hat, es kann also einige Verzögerung zwischen dem Abbruch des Signals und der Ausführung von `break` geben.
 
 ```js
 const aborter = new AbortController();
@@ -235,9 +234,9 @@ async function logChunks(url, { signal }) {
 }
 ```
 
-### Beispiel eines asynchronen Readers
+### Beispiel für einen asynchronen Reader
 
-<!-- Der größte Teil des folgenden Codes ist absichtlich ausgeblendet, da er für das Beispiel nicht relevant ist -->
+<!-- ein Großteil des folgenden Codes ist absichtlich verborgen, da er für das Beispiel nicht relevant ist -->
 
 ```js hidden
 // A mock push source.
@@ -293,7 +292,7 @@ class MockPushSource {
 }
 ```
 
-<!-- Der folgende HTML- und JS-Code richtet das Reporting ein. Ausgeblendet, da es für Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet das Reporting ein. Ausgeblendet, weil es für die Leser nicht nützlich ist -->
 
 ```css hidden
 .input {
@@ -385,11 +384,11 @@ window.fetch = async (...args) => {
 };
 ```
 
-Der folgende Code zeigt ein vollständigeres Beispiel.
-Hier wird der Fetch-Stream mit dem Iterator innerhalb eines try/catch-Blocks konsumiert.
-Bei jeder Iteration der Schleife protokolliert und zählt der Code einfach die empfangenen Bytes.
+Der folgende Code zeigt ein umfassenderes Beispiel.
+Hier wird der Fetch-Stream im Iterator innerhalb eines try/catch-Blocks konsumiert.
+Bei jeder Iteration der Schleife loggt der Code einfach und zählt die empfangenen Bytes.
 Wenn ein Fehler auftritt, wird das Problem protokolliert.
-Die `fetch()`-Operation kann mit einem `AbortSignal` abgebrochen werden, was ebenfalls als Fehler protokolliert würde.
+Die `fetch()`-Operation kann mit einem `AbortSignal` abgebrochen werden, was ebenfalls als Fehler protokolliert wird.
 
 ```js
 let bytes = 0;
@@ -417,25 +416,25 @@ async function logChunks(url, { signal }) {
 }
 ```
 
-Im Beispielprotokoll unten sehen Sie den Code in Aktion oder es wird berichtet, dass Ihr Browser die asynchrone Iteration von `ReadableStream` nicht unterstützt.
-Die rechte Seite zeigt die empfangenen Blöcke; Sie können die Abbrechen-Taste drücken, um den Abruf zu stoppen.
+Das folgende Beispielprotokoll zeigt den Code, der entweder läuft oder meldet, dass Ihr Browser die asynchrone Iteration von `ReadableStream` nicht unterstützt.
+Die rechte Seite zeigt die empfangenen Stücke; Sie können die Abbruch-Taste drücken, um den Fetch zu stoppen.
 
 > [!NOTE]
-> Diese `fetch`-Operation ist _nachgebildet_ zu Vorführzwecken und gibt einfach einen `ReadableStream` zurück, der zufällige Textblöcke generiert.
-> Die "Underlying source" auf der linken Seite unten sind die Daten, die in der nachgebildeten Quelle generiert werden, während die Spalte rechts das Protokoll des Verbrauchers ist.
-> (Der Code für die nachgebildete Quelle wird nicht angezeigt, da er für das Beispiel nicht relevant ist.)
+> Dieser Fetch-Vorgang ist für Demonstrationszwecke _simuliert_ und gibt nur einen `ReadableStream` zurück, der zufällige Textstücke generiert.
+> Die "Underlying source" links unten ist die in der simulierten Quelle generierte Datenquelle, während die Spalte rechts das Protokoll vom Verbraucher ist.
+> (Der Code für die simulierte Quelle wird nicht angezeigt, da er für das Beispiel nicht relevant ist.)
 
 {{EmbedLiveSample("Example async reader","100%","400px")}}
 
-## Erstellen eines benutzerdefinierten lesbaren Streams
+## Erstellen eines eigenen benutzerdefinierten readable streams
 
-Das einfache Stream Pump-Beispiel, das wir in diesem Artikel untersuchen, enthält einen zweiten Teil — nachdem wir das Bild von der Fetch-Abfrage in Blöcken gelesen haben, reihen wir sie in einen weiteren, selbst erstellten benutzerdefinierten Stream ein. Wie erstellen wir diesen? Mit dem `ReadableStream()`-Konstruktor.
+Das einfache Stream-Pumpen-Beispiel, das wir in diesem Artikel studiert haben, enthält einen zweiten Teil – sobald wir das Bild aus dem Fetch-Body in Stücke gelesen haben, schieben wir sie in einen anderen benutzerdefinierten Stream unserer eigenen Kreation. Wie erstellen wir diesen? Den `ReadableStream()` Konstruktor.
 
-### Der ReadableStream()-Konstruktor
+### Der ReadableStream() Konstruktor
 
-Es ist einfach, aus einem Stream zu lesen, wenn er Ihnen vom Browser zur Verfügung gestellt wird, wie im Fall von Fetch, aber manchmal müssen Sie einen benutzerdefinierten Stream erstellen und ihn mit Ihren eigenen Blöcken füllen. Der [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor ermöglicht Ihnen dies über eine Syntax, die auf den ersten Blick komplex erscheint, aber tatsächlich nicht so schlimm ist.
+Es ist einfach, aus einem Stream zu lesen, wenn der Browser ihn Ihnen bereitstellt, wie im Fall von Fetch, aber manchmal müssen Sie einen benutzerdefinierten Stream erstellen und ihn mit Ihren eigenen Stücken bestücken. Der [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor erlaubt es Ihnen, dies über eine Syntax zu tun, die zunächst kompliziert erscheint, aber tatsächlich nicht so schlimm ist.
 
-Das generische Syntax-Skelett sieht folgendermaßen aus:
+Das generische Syntax-Skelett sieht so aus:
 
 ```js
 const stream = new ReadableStream(
@@ -453,17 +452,17 @@ const stream = new ReadableStream(
 );
 ```
 
-Der Konstruktor nimmt zwei Objekte als Parameter. Das erste Objekt ist erforderlich und erstellt ein Modell in JavaScript von der zugrunde liegenden Quelle, aus der die Daten gelesen werden. Das zweite Objekt ist optional und ermöglicht Ihnen, eine [benutzerdefinierte Warteschlangenstrategie](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für Ihren Stream festzulegen. Dies müssen Sie selten tun, daher konzentrieren wir uns vorerst nur auf das erste.
+Der Konstruktor nimmt zwei Objekte als Parameter. Das erste Objekt ist erforderlich und erstellt ein Modell in JavaScript der zugrundeliegenden Quelle, von der die Daten gelesen werden. Das zweite Objekt ist optional und ermöglicht es Ihnen, eine [benutzerdefinierte Queueing-Strategie](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für Ihren Stream zu spezifizieren. Sie werden dies selten tun müssen, daher konzentrieren wir uns jetzt nur auf das erste.
 
 Das erste Objekt kann bis zu fünf Mitglieder enthalten, von denen nur das erste erforderlich ist:
 
-1. `start(controller)` — Eine Methode, die einmal sofort nach der Erstellung des `ReadableStream` aufgerufen wird. In dieser Methode sollten Sie Code einfügen, der die Stream-Funktionalität einrichtet, z. B. das Beginnen der Datengenerierung oder anderweitiges Erlangen von Zugriff auf die Quelle.
-2. `pull(controller)` — Eine Methode, die, wenn sie enthalten ist, wiederholt aufgerufen wird, bis die interne Warteschlange des Streams voll ist. Dies kann verwendet werden, um den Stream zu steuern, während mehr Blöcke eingereiht werden.
-3. `cancel()` — Eine Methode, die, wenn sie enthalten ist, aufgerufen wird, wenn die App signalisiert, dass der Stream abgebrochen werden soll (z. B. wenn [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aufgerufen wird). Der Inhalt sollte tun, was nötig ist, um den Zugriff auf die Stream-Quelle freizugeben.
-4. `type` und `autoAllocateChunkSize` — Diese werden verwendet, wenn sie enthalten sind, um anzuzeigen, dass der Stream ein Bytestream sein soll.
-   Bytestreams werden separat in [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) behandelt, da sie sich in Zweck und Anwendungsfall etwas von regulären (Standard-)Streams unterscheiden.
+1. `start(controller)` — Eine Methode, die einmal aufgerufen wird, unmittelbar nachdem der `ReadableStream` konstruiert wurde. Innerhalb dieser Methode sollten Sie Code einschließen, der die Stream-Funktionalität einrichtet, zum Beispiel die Datenerzeugung beginnt oder auf andere Weise Zugang zur Quelle erhält.
+2. `pull(controller)` — Eine Methode, die, wenn sie enthalten ist, wiederholt aufgerufen wird, bis die interne Queue des Streams voll ist. Dies kann verwendet werden, um den Stream zu steuern, wenn mehr Stücke eingeplant werden.
+3. `cancel()` — Eine Methode, die, wenn sie enthalten ist, aufgerufen wird, wenn die App signalisiert, dass der Stream abgebrochen werden soll (z. B. wenn [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aufgerufen wird). Der Inhalt sollte alles Notwendige tun, um den Zugang zur Stream-Quelle freizugeben.
+4. `type` und `autoAllocateChunkSize` — Diese werden verwendet - wenn enthalten -, um zu signalisieren, dass der Stream ein Bytestream sein soll.
+   Bytestreams werden separat in [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) behandelt, da sie in Zweck und Anwendungsfall etwas anders sind als reguläre (Standard-)Streams.
 
-Wenn wir uns unser einfaches Beispiel noch einmal ansehen, können Sie sehen, dass unser `ReadableStream()`-Konstruktor nur eine einzelne Methode enthält — `start()`, die dazu dient, alle Daten unseres Fetch-Streams zu lesen.
+Wenn wir unseren einfachen Beispielcode erneut betrachten, sehen Sie, dass der `ReadableStream()` Konstruktor nur eine einzige Methode enthält – `start()`, die dient dazu, alle Daten aus unserem Fetch-Stream zu lesen.
 
 ```js
 // Fetch the original image
@@ -491,17 +490,17 @@ fetch("./tortoise.png")
   });
 ```
 
-### ReadableStream Controller
+### ReadableStream-Controller
 
-Sie werden bemerken, dass die `start()`- und `pull()`-Methoden, die an den `ReadableStream()`-Konstruktor übergeben werden, `controller`-Parameter verwenden — dies sind Instanzen der Klasse [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController), die verwendet werden können, um Ihren Stream zu steuern.
+Sie werden bemerken, dass die `start()` und `pull()` Methoden, die in den `ReadableStream()` Konstruktor übergeben werden, `controller`-Parameter erhalten - dies sind Instanzen der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController) Klasse, die verwendet werden können, um Ihren Stream zu steuern.
 
-In unserem Beispiel verwenden wir die [`enqueue()`](/de/docs/Web/API/ReadableStreamDefaultController/enqueue)-Methode des Controllers, um einen Wert in den benutzerdefinierten Stream einzureihen, nachdem er aus dem Fetch-Körper gelesen wurde.
+In unserem Beispiel verwenden wir die `enqueue()`-Methode des Controllers, um einen Wert in den benutzerdefinierten Stream einzureihen, nachdem er aus dem Fetch-Body gelesen wurde.
 
-Darüber hinaus verwenden wir, wenn wir mit dem Lesen des Fetch-Körpers fertig sind, die [`close()`](/de/docs/Web/API/ReadableStreamDefaultController/close)-Methode des Controllers, um den benutzerdefinierten Stream zu schließen — zuvor eingereihte Blöcke können daraus noch gelesen werden, aber es können keine weiteren mehr eingereiht werden, und der Stream wird geschlossen, wenn das Lesen abgeschlossen ist.
+Zusätzlich verwenden wir, wenn wir mit dem Lesen des Fetch-Bodys fertig sind, die `close()`-Methode des Controllers, um den benutzerdefinierten Stream zu schließen – alle zuvor eingeplanten Teile können noch aus ihm herausgelesen werden, aber es können keine weiteren eingereiht werden, und der Stream ist geschlossen, wenn das Lesen abgeschlossen ist.
 
-### Vom benutzerdefinierten Stream lesen
+### Lesen aus benutzerdefinierten Streams
 
-In unserem einfachen Stream Pump-Beispiel konsumieren wir den benutzerdefinierten lesbaren Stream, indem wir ihn in einen [`Response`](/de/docs/Web/API/Response/Response)-Konstruktoraufruf übergeben und ihn anschließend als `blob()` konsumieren.
+In unserem einfachen Stream-Pumpen-Beispiel konsumieren wir den benutzerdefinierten lesbaren Stream, indem wir ihn in einen [`Response`](/de/docs/Web/API/Response/Response) Konstruktoraufruf übergeben, wonach wir ihn als `blob()` konsumieren.
 
 ```js
 readableStream
@@ -512,12 +511,12 @@ readableStream
   .catch((err) => console.error(err));
 ```
 
-Aber ein benutzerdefinierter Stream ist immer noch eine `ReadableStream`-Instanz, d. h. Sie können einen Reader daran anschließen. Schauen Sie sich als Beispiel unser [Beispiel für einen einfachen Zufallsstrom](https://github.com/mdn/dom-examples/blob/main/streams/simple-random-stream/index.html) an ([siehe es auch live](https://mdn.github.io/dom-examples/streams/simple-random-stream/)), das einen benutzerdefinierten Stream erstellt, einige zufällige Zeichenfolgen darin einreiht und dann die Daten wieder aus dem Stream liest, sobald die _Stop string generation_-Schaltfläche gedrückt wird.
+Aber ein benutzerdefinierter Stream ist immer noch eine `ReadableStream`-Instanz, was bedeutet, dass Sie einen Leser daran anhängen können. Schauen Sie sich als Beispiel unser [Einfaches zufälliges Stream-Demo](https://github.com/mdn/dom-examples/blob/main/streams/simple-random-stream/index.html) ([sehen Sie es auch live](https://mdn.github.io/dom-examples/streams/simple-random-stream/)) an, welches einen benutzerdefinierten Stream erstellt, einige zufällige Zeichenfolgen darin einreiht und dann die Daten aus dem Stream liest, sobald die Schaltfläche _Stop string generation_ gedrückt wird.
 
 > [!NOTE]
-> Um einen Stream mit [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) zu konsumieren, müssen die eingereihten Stream-Inhalte vom Typ {{jsxref("Uint8Array")}} sein; beispielsweise mit [`TextEncoder`](/de/docs/Web/API/TextEncoder) codiert.
+> Um einen Stream mit [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) zu konsumieren, müssen die eingereihten Stream-Inhalte vom Typ {{jsxref("Uint8Array")}} sein; z. B. kodiert mit [`TextEncoder`](/de/docs/Web/API/TextEncoder).
 
-Der benutzerdefinierte Stream-Konstruktor hat eine `start()`-Methode, die einen [`setInterval()`](/de/docs/Web/API/SetInterval)-Aufruf verwendet, um jede Sekunde eine zufällige Zeichenfolge zu generieren. [`ReadableStreamDefaultController.enqueue()`](/de/docs/Web/API/ReadableStreamDefaultController/enqueue) wird dann verwendet, um es in den Stream einzureihen. Wenn die Taste gedrückt wird, wird das Intervall abgebrochen, und eine Funktion namens `readStream()` wird aufgerufen, um die Daten wieder aus dem Stream zu lesen. Wir schließen auch den Stream, da wir aufgehört haben, Blöcke darin einzureihen.
+Der benutzerdefinierte Stream-Konstruktor hat eine `start()`-Methode, die einen [`setInterval()`](/de/docs/Web/API/Window/setInterval) Aufruf verwendet, um jede Sekunde einen zufälligen String zu generieren. [`ReadableStreamDefaultController.enqueue()`](/de/docs/Web/API/ReadableStreamDefaultController/enqueue) wird dann verwendet, um es in den Stream einzureihen. Wenn die Schaltfläche gedrückt wird, wird das Intervall abgebrochen und eine Funktion namens `readStream()` wird aufgerufen, um die Daten wieder aus dem Stream zu lesen. Wir schließen auch den Stream, da wir aufgehört haben, Stücke darin einzuplanen.
 
 ```js
 let interval;
@@ -549,7 +548,7 @@ const stream = new ReadableStream({
 });
 ```
 
-In der eigentlichen `readStream()`-Funktion sperren wir einen Reader an den Stream mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) und folgen dann dem gleichen Muster, das wir zuvor gesehen haben — jeden Block mit `read()` lesen, überprüfen, ob `done` `true` ist und dann den Prozess beenden, wenn ja, und den nächsten Block lesen und verarbeiten, wenn nicht, bevor wir die `read()`-Methode erneut ausführen.
+In der `readStream()`-Funktion selbst sperren wir einen Reader an den Stream mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader), dann folgen wir dem gleichen Muster, das wir zuvor gesehen haben – jedes Stück mit `read()` lesen, prüfen, ob `done` `true` ist und dann den Prozess beenden, wenn ja, und das nächste Stück lesen und verarbeiten, wenn nicht, bevor wir die `read()`-Methode erneut ausführen.
 
 ```js
 function readStream() {
@@ -585,17 +584,17 @@ function readStream() {
 
 ### Schließen und Abbrechen von Streams
 
-Wir haben bereits Beispiele für die Verwendung von [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) zum Schließen eines Readers gezeigt. Wie zuvor erwähnt, werden alle zuvor eingereihten Blöcke noch gelesen, aber es können keine weiteren mehr eingereiht werden, da der Stream geschlossen ist.
+Wir haben bereits Beispiele für die Verwendung von [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) gezeigt, um einen Reader zu schließen. Wie wir bereits gesagt haben, werden alle zuvor eingereihten Teile noch gelesen, aber es können keine weiteren eingereiht werden, weil er geschlossen ist.
 
-Wenn Sie den Stream vollständig loswerden und alle eingereihten Blöcke verwerfen möchten, würden Sie [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) oder [`ReadableStreamDefaultReader.cancel()`](/de/docs/Web/API/ReadableStreamDefaultReader/cancel) verwenden.
+Wenn Sie den Stream vollständig entfernen und alle eingeplanten Teile verwerfen möchten, würden Sie [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) oder [`ReadableStreamDefaultReader.cancel()`](/de/docs/Web/API/ReadableStreamDefaultReader/cancel) verwenden.
 
-## Teile eines Streams
+## Tee-ing eines Streams
 
-Manchmal möchten Sie einen Stream gleichzeitig zweimal lesen. Dies wird durch die Methode [`ReadableStream.tee()`](/de/docs/Web/API/ReadableStream/tee) erreicht — sie gibt ein Array mit zwei identischen Kopien des ursprünglichen lesbaren Streams aus, die dann unabhängig voneinander von zwei separaten Readern gelesen werden können.
+Manchmal möchten Sie einen Stream zweimal gleichzeitig lesen. Dies wird über die [`ReadableStream.tee()`](/de/docs/Web/API/ReadableStream/tee) Methode erreicht — sie gibt ein Array mit zwei identischen Kopien des ursprünglichen lesbaren Streams aus, die dann unabhängig voneinander von zwei separaten Lesern gelesen werden können.
 
-Dies könnten Sie zum Beispiel in einem [ServiceWorker](/de/docs/Web/API/Service_Worker_API) tun, wenn Sie eine Antwort vom Server abrufen und an den Browser streamen, aber auch an den Service Worker-Cache streamen möchten. Da ein Antwortkörper nicht mehr als einmal konsumiert werden kann und ein Stream nicht von mehr als einem Reader gleichzeitig gelesen werden kann, würden Sie zwei Kopien benötigen, um dies zu tun.
+Sie könnten dies zum Beispiel in einem [ServiceWorker](/de/docs/Web/API/Service_Worker_API) tun, wenn Sie eine Antwort vom Server abrufen und sie an den Browser streamen möchten, sie aber auch in den Cache des Service Workers streamen möchten. Da ein Antwortkörper nicht mehr als einmal konsumiert werden kann und ein Stream nicht gleichzeitig von mehr als einem Reader gelesen werden kann, benötigen Sie zwei Kopien dafür.
 
-Wir bieten ein Beispiel hierfür in unserem [Einfachen Teile-Beispiel](https://github.com/mdn/dom-examples/blob/main/streams/simple-tee-example/index.html) ([siehe es auch live](https://mdn.github.io/dom-examples/streams/simple-tee-example/)). Dieses Beispiel funktioniert sehr ähnlich wie unser einfacher ZufallStream, außer dass, wenn die Taste zum Stoppen der Zufallsgenerierung gedrückt wird, der benutzerdefinierte Stream genommen und geteilt wird, und beide resultierenden Streams dann gelesen werden:
+Wir bieten ein Beispiel dafür in unserem [Einfaches Tee Beispiel](https://github.com/mdn/dom-examples/blob/main/streams/simple-tee-example/index.html) ([sehen Sie es auch live](https://mdn.github.io/dom-examples/streams/simple-tee-example/)). Dieses Beispiel funktioniert ähnlich wie unser einfaches zufälliges Stream, außer dass wenn die Schaltfläche gedrückt wird, um zufällige Strings zu stoppen, der benutzerdefinierte Stream genommen und geteert wird, und beide resultierenden Streams dann gelesen werden:
 
 ```js
 function teeStream() {
@@ -605,11 +604,11 @@ function teeStream() {
 }
 ```
 
-## Pipe-Ketten
+## Rohrketten
 
-Ein weiteres Feature von Streams ist die Fähigkeit, Streams ineinander zu pipen (genannt eine [Pipe-Kette](/de/docs/Web/API/Streams_API/Concepts#pipe_chains)). Dies beinhaltet zwei Methoden — [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough), das einen lesbaren Stream durch ein Schreib-/Leserpaar piped, um ein Datenformat in ein anderes zu transformieren, und [`ReadableStream.pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo), das einen lesbaren Stream zu einem Writer piped, der als Endpunkt für die Pipe-Kette dient.
+Ein weiteres Merkmal von Streams ist die Fähigkeit, Streams nacheinander zu verrohren (sogenannte [Rohrketten](/de/docs/Web/API/Streams_API/Concepts#pipe_chains)). Dies umfasst zwei Methoden — [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough), die einen lesbaren Stream durch ein Schreiber/Lese-Paar leitet, um ein Datenformat in ein anderes zu transformieren, und [`ReadableStream.pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo), die einen lesbaren Stream zu einem Schreiber leitet, der als Endpunkt für die Rohrkette dient.
 
-Wir haben ein einfaches Beispiel namens [Entpacken von PNG-Blöcken](https://github.com/mdn/dom-examples/tree/main/streams/png-transform-stream) ([siehe es auch live](https://mdn.github.io/dom-examples/streams/png-transform-stream/)), das ein Bild als Stream abruft und es dann durch einen benutzerdefinierten PNG-Transform-Stream piped, der PNG-Blöcke aus einem binären Datenstrom extrahiert.
+Wir haben ein einfaches Beispiel namens [Entpacken von PNG-Stücken](https://github.com/mdn/dom-examples/tree/main/streams/png-transform-stream) ([sehen Sie es auch live](https://mdn.github.io/dom-examples/streams/png-transform-stream/)), das ein Bild als Stream abruft und es dann durch einen benutzerdefinierten PNG-Transformationsstream führt, der PNG-Stücke aus einem binären Datenstrom herausholt.
 
 ```js
 // Fetch the original image
@@ -626,6 +625,6 @@ Wir haben noch kein Beispiel, das [`TransformStream`](/de/docs/Web/API/Transform
 
 ## Zusammenfassung
 
-Das erklärt die Grundlagen der "standardmäßigen" lesbaren Streams.
+Das erklärt die Grundlagen der "Standard"-lesbaren Streams.
 
-Informationen zur Verwendung von lesbaren _Byte_-Streams finden Sie unter [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams): Streams mit einer zugrunde liegenden Byte-Quelle, die effiziente zero-copy-Übertragungen zu einem Verbraucher durchführen können und die internen Warteschlangen des Streams umgehen.
+Sehen Sie [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) für Informationen darüber, wie man lesbare _Byte_-Streams verwendet: Streams mit einer zugrunde liegenden Byte-Quelle, die effiziente Zero-Copy-Übertragungen zu einem Verbraucher ausführen können und dabei die internen Queues des Streams umgehen.

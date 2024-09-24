@@ -1,20 +1,20 @@
 ---
-title: "AudioEncoder: dequeue-Ereignis"
+title: "AudioEncoder: dequeue Ereignis"
 short-title: dequeue
 slug: Web/API/AudioEncoder/dequeue_event
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`dequeue`**-Ereignis der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle wird ausgelöst, um eine Verringerung in [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) zu signalisieren.
+Das **`dequeue`**-Ereignis des [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Interfaces wird ausgelöst, um eine Verringerung der [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) anzuzeigen.
 
-Dies eliminiert die Notwendigkeit für Entwickler, ein [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Polling zu verwenden, um festzustellen, wann die Warteschlange abgenommen hat und mehr Arbeit eingereiht werden sollte.
+Dies eliminiert die Notwendigkeit für Entwickler, ein [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Polling zu verwenden, um zu bestimmen, wann die Warteschlange abgenommen hat und mehr Arbeit eingeordnet werden sollte.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("dequeue", (event) => {});

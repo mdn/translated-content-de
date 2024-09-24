@@ -1,14 +1,14 @@
 ---
-title: "HTMLElement: hidden-Eigenschaft"
+title: "HTMLElement: versteckte Eigenschaft"
 short-title: hidden
 slug: Web/API/HTMLElement/hidden
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`hidden`** spiegelt den Wert des [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attributs des Elements wider.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft **`hidden`** spiegelt den Wert des `hidden` Attributs des Elements wider.
 
 ## Wert
 
@@ -17,19 +17,19 @@ Dieses Attribut kann einen von drei Werten haben:
 - `true`
   - : Das Element ist verborgen.
 - `false`
-  - : Das Element ist nicht verborgen. Dies ist der Standardwert für das Attribut.
+  - : Das Element ist nicht verborgen. Dies ist der Standardwert des Attributs.
 - `"until-found"`
-  - : Das Element ist _verborgen bis es gefunden wird_, was bedeutet, dass es verborgen ist, aber angezeigt wird, wenn es durch die Seitensuche oder die Fragmentnavigation gefunden wird.
+  - : Das Element ist _verborgen, bis es gefunden wird_, was bedeutet, dass es versteckt ist, aber enthüllt wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
 
-Details zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) HTML-Attribut, das diese Eigenschaft widerspiegelt.
+Details zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) HTML-Attribut, auf das sich diese Eigenschaft bezieht.
 
 ## Beispiele
 
-Hier ist ein Beispiel, wo ein verborgener Block verwendet wird, um eine 'Dankeschön'-Nachricht einzuschließen, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine „Danke“-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Paneele: ein Willkommenspaneel, das die Benutzer bittet, damit einverstanden zu sein, großartig zu sein, und ein Folgepaneel, das anfangs verborgen ist.
+Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer fragt, ob sie großartig sein möchten, und ein Folgepanel, das anfänglich versteckt ist.
 
 ```html
 <div id="welcome" class="panel">
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Ereignis-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel verbirgt und das "Großartig"-Panel zeigt:
+Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel ausblendet und das "Großartig"-Panel anzeigt:
 
 ```js
 document.getElementById("okButton").addEventListener(
@@ -105,5 +105,5 @@ document.getElementById("okButton").addEventListener(
 
 ## Siehe auch
 
-- [hidden](/de/docs/Web/HTML/Global_attributes#hidden) Attribut
+- [hidden](/de/docs/Web/HTML/Global_attributes/hidden) Attribut
 - {{cssxref("display")}}

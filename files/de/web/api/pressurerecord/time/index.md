@@ -3,22 +3,22 @@ title: "PressureRecord: time-Eigenschaft"
 short-title: time
 slug: Web/API/PressureRecord/time
 l10n:
-  sourceCommit: a251e34887530216e319fee73b5b859c8c943a53
+  sourceCommit: e1d2d6a3880d47638de6b5a54b58df92826ec58e
 ---
 
-{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die schreibgeschützte **`time`**-Eigenschaft gibt den [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der für ein [`PressureRecord`](/de/docs/Web/API/PressureRecord) aufgezeichnet wurde. Er entspricht der Zeit, zu der die Daten vom System bezogen wurden, relativ zum [Zeitursprung des globalen Objekts](/de/docs/Web/API/Performance/timeOrigin), in dem der [`PressureObserver`](/de/docs/Web/API/PressureObserver) die Benachrichtigung generierte.
+Die schreibgeschützte **`time`**-Eigenschaft gibt den [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der für ein [`PressureRecord`](/de/docs/Web/API/PressureRecord) aufgezeichnet wurde. Sie entspricht der Zeit, zu der die Daten vom System im Verhältnis zum [Zeitursprung des globalen Objekts](/de/docs/Web/API/Performance/timeOrigin) erfasst wurden, in dem der [`PressureObserver`](/de/docs/Web/API/PressureObserver) die Benachrichtigung erzeugte.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel darstellt, als das [`PressureRecord`](/de/docs/Web/API/PressureRecord) erstellt wurde.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel darstellt, zu dem das [`PressureRecord`](/de/docs/Web/API/PressureRecord) erstellt wurde.
 
 ## Beispiele
 
 ### Verwendung der `time`-Eigenschaft
 
-Im folgenden Beispiel protokollieren wir den Wert der `time`-Eigenschaft in der Callback-Funktion des Pressure Observers.
+Im folgenden Beispiel protokollieren wir den Wert der `time`-Eigenschaft im Rückruf des Pressure-Observers.
 
 ```js
 function callback(records) {

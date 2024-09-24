@@ -1,14 +1,14 @@
 ---
-title: "RTCPeerConnection: Methode getStats()"
+title: "RTCPeerConnection: getStats()-Methode"
 short-title: getStats()
 slug: Web/API/RTCPeerConnection/getStats
 l10n:
-  sourceCommit: 9f18116c362265a3dfb65185728548ec43cd12f4
+  sourceCommit: b795bc99fc5c5d8a96c1b202a12750404085c28a
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getStats()`** Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Promise zurück, das mit Daten aufgelöst wird, die Statistiken entweder über die gesamte Verbindung oder über das angegebene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellen.
+Die **`getStats()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Promise zurück, das mit Daten aufgelöst wird, die Statistiken über entweder die Gesamtverbindung oder über den angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bieten.
 
 ## Syntax
 
@@ -22,31 +22,39 @@ getStats(selector, successCallback, failureCallback) // deprecated
 ### Parameter
 
 - `selector` {{optional_inline}}
-  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), für das Statistiken gesammelt werden sollen. Wenn dies `null` (der Standardwert) ist, werden Statistiken für die gesamte [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesammelt.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), für den Statistiken gesammelt werden sollen.
+    Wenn dies `null` (der Standardwert) ist, werden Statistiken für die gesamte [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesammelt.
 
 ### Veraltete Parameter
 
-In älterem Code und Dokumentationen könnte eine rückrufbasierte Version dieser Funktion zu sehen sein. Diese ist veraltet und ihre Verwendung wird **stark** abgeraten. Sie sollten bestehenden Code aktualisieren, um die auf {{jsxref("Promise")}} basierende Version von `getStats()` zu verwenden. Die Parameter für die ältere Form von `getStats()` sind unten beschrieben, um bei der Aktualisierung bestehenden Codes zu helfen.
+In älterem Code und Dokumentationen könnte eine rückrufbasierte Version dieser Funktion zu sehen sein.
+Diese ist veraltet und ihre Verwendung wird **dringend** abgeraten.
+Sie sollten bestehenden Code aktualisieren, um die auf {{jsxref("Promise")}} basierende Version von `getStats()` zu verwenden.
+Die Parameter der älteren Form von `getStats()` sind unten beschrieben, um bei der Aktualisierung vorhandenen Codes zu helfen.
 
 - `successCallback` {{deprecated_inline}}
   - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die aufgerufen wird, sobald der Bericht erfolgreich erstellt wurde.
 - `failureCallback` {{deprecated_inline}}
-  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die aufgerufen wird, wenn der Bericht nicht erstellt werden konnte.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die aufgerufen wird, wenn die Erstellung des Berichts fehlgeschlagen ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt aufgelöst wird, das Verbindungsstatistiken bereitstellt. Der Inhalt des Berichts hängt vom `selector` und anderen Details der Verbindung ab.
+Ein {{jsxref("Promise")}}, das mit einem [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt aufgelöst wird, das Verbindungsstatistiken bereitstellt.
+Der Inhalt des Berichts hängt vom `selector` und anderen Details der Verbindung ab.
 
 ### Ausnahmen
 
 Diese Methode wirft keine Ausnahmen; stattdessen lehnt sie das zurückgegebene Promise mit einem der folgenden Fehler ab:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn es keinen [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) oder [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gibt, dessen `track` dem angegebenen `selector` entspricht, oder wenn `selector` mit mehr als einem Sender oder Empfänger übereinstimmt.
+  - : Wird ausgelöst, wenn kein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) oder [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) vorhanden ist, dessen `track` dem angegebenen `selector` entspricht, oder
+    `selector` mehr als einem Sender oder Empfänger entspricht.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine periodische Funktion mit [`setInterval()`](/de/docs/Web/API/SetInterval), die jede Sekunde Statistiken für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sammelt, einen HTML-formatierten Bericht erstellt und ihn in ein bestimmtes Element im DOM einfügt.
+Dieses Beispiel erstellt eine periodische Funktion unter Verwendung von
+[`setInterval()`](/de/docs/Web/API/Window/setInterval), die alle Sekunde
+Statistiken für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sammelt, einen HTML-formatierten Bericht erstellt und ihn in ein bestimmtes Element im DOM einfügt.
 
 ```js
 setInterval(() => {
@@ -77,9 +85,10 @@ setInterval(() => {
 }, 1000);
 ```
 
-Dies funktioniert, indem `getStats()` aufgerufen wird und nach der Auflösung des Promises über die [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekte auf dem zurückgegebenen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert wird. Für jeden Bericht wird ein Abschnitt mit einer Überschrift und allen darunter liegenden Statistiken erstellt, wobei Typ, ID und Zeitstempel speziell behandelt werden, um sie an den Anfang der Liste zu setzen.
+Dies funktioniert, indem `getStats()` aufgerufen wird; wenn das Promise aufgelöst wird, iteriert es über die [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekte im zurückgegebenen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport).
+Ein Abschnitt wird für jeden Bericht mit einem Header und allen darunter liegenden Statistiken erstellt, wobei Typ, ID und Zeitstempel speziell behandelt werden, um sie am Anfang der Liste zu platzieren.
 
-Sobald das [HTML](/de/docs/Web/HTML) für den Bericht erstellt ist, wird es in das Element mit der Klasse `"stats-box"` injiziert, indem dessen [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft gesetzt wird.
+Sobald das [HTML](/de/docs/Web/HTML) für den Bericht generiert ist, wird es in das Element mit der Klasse `"stats-box"` eingefügt, indem seine [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft gesetzt wird.
 
 ## Spezifikationen
 

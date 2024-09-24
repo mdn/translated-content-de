@@ -2,12 +2,12 @@
 title: "CSP: child-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/child-src
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) definiert mit der **`child-src`**-Direktive gültige Quellen für [Web Worker](/de/docs/Web/API/Web_Workers_API) und eingebettete Browsing-Kontexte, die mithilfe von Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Für Worker werden nicht konforme Anfragen vom Benutzeragenten als schwerwiegende Netzwerkfehler behandelt.
+Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`**-Direktive definiert die gültigen Quellen für [Web Worker](/de/docs/Web/API/Web_Workers_API) und verschachtelte Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Für Worker werden nicht konforme Anfragen vom User-Agenten als fatale Netzwerkfehler behandelt.
 
 <table class="properties">
   <tbody>
@@ -16,14 +16,14 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) definiert mit de
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Art der Direktive</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der Benutzeragent nach der
-        <code>default-src</code>-Direktive suchen.
+        Ja. Falls diese Direktive fehlt, sucht der User-Agent nach der
+        <code>default-src</code>-Direktive.
       </td>
     </tr>
   </tbody>
@@ -31,22 +31,24 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) definiert mit de
 
 ## Syntax
 
-Für die `child-src`-Richtlinie können eine oder mehrere Quellen zugelassen werden:
-
 ```http
-Content-Security-Policy: child-src <source>;
-Content-Security-Policy: child-src <source> <source>;
+Content-Security-Policy: child-src 'none';
+Content-Security-Policy: child-src <source-expression-list>;
 ```
 
-### Quellen
+Diese Direktive kann einen der folgenden Werte haben:
 
-`<source>` kann einer der in den [CSP-Quellenwerten](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+- `'none'`
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+- `<source-expression-list>`
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (sowie in einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdruck_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie einem der angegebenen Quellenausdrücke entsprechen.
+
+    Quellenausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellenausdruck ist in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) angegeben.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
 Angenommen, dieser CSP-Header:
 

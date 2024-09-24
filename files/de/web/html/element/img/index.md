@@ -1,95 +1,95 @@
 ---
-title: "<img>: Das Image Embed Element"
+title: "<img>: Das Bild-Einbettungselement"
 slug: Web/HTML/Element/img
 l10n:
-  sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
+  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
 ---
 
 {{HTMLSidebar}}
 
-Das **`<img>`**-Element von [HTML](/de/docs/Web/HTML) bettet ein Bild in das Dokument ein.
+Das **`<img>`**-Element [HTML](/de/docs/Web/HTML) bettet ein Bild in das Dokument ein.
 
 {{EmbedInteractiveExample("pages/tabbed/img.html", "tabbed-standard")}}
 
 Das obige Beispiel zeigt die Verwendung des `<img>`-Elements:
 
 - Das `src`-Attribut ist **erforderlich** und enthält den Pfad zum Bild, das Sie einbetten möchten.
-- Das `alt`-Attribut enthält einen textuellen Ersatz für das Bild, der obligatorisch und **ungemein nützlich** für die Barrierefreiheit ist — Screenreader lesen den Attributwert aus, damit die Nutzer wissen, was das Bild bedeutet. Alternativtext wird auch auf der Seite angezeigt, wenn das Bild aus irgendeinem Grund nicht geladen werden kann, beispielsweise bei Netzwerkfehlern, Inhaltsblockierung oder „Linkrot“.
+- Das `alt`-Attribut hält einen textuellen Ersatz für das Bild bereit, der obligatorisch und **unglaublich nützlich** für die Barrierefreiheit ist - Screenreader lesen den Attributwert für ihre Benutzer vor, damit diese wissen, was das Bild bedeutet. Alternativer Text wird auch auf der Seite angezeigt, wenn das Bild aus irgendeinem Grund nicht geladen werden kann: beispielsweise bei Netzwerkfehlern, Inhaltsblockierungen oder Linkverrottung.
 
-Es gibt viele weitere Attribute, um verschiedene Zwecke zu erreichen:
+Es gibt viele andere Attribute, um verschiedene Zwecke zu erreichen:
 
 - [Referrer](/de/docs/Web/HTTP/Headers/Referrer-Policy)/{{Glossary("CORS", "CORS")}}-Kontrolle für Sicherheit und Datenschutz: siehe [`crossorigin`](#crossorigin) und [`referrerpolicy`](#referrerpolicy).
-- Verwenden Sie sowohl [`width`](#width) als auch [`height`](#height), um die intrinsische Größe des Bildes festzulegen und damit es Platz einnimmt, bevor es geladen wird, um Layoutverschiebungen zu mildern.
-- Responsive Bildhinweise mit [`sizes`](#sizes) und [`srcset`](#srcset) (siehe auch das {{htmlelement("picture")}}-Element und unser [Leitfaden zu responsiven Bildern](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)).
+- Verwenden Sie sowohl [`width`](#width) als auch [`height`](#height), um die intrinsische Größe des Bildes festzulegen, sodass es Platz einnimmt, bevor es geladen wird, damit Inhaltslayout-Verschiebungen gemildert werden.
+- Responsives Bild mit Hinweisen über [`sizes`](#sizes) und [`srcset`](#srcset) (siehe auch das {{htmlelement("picture")}}-Element und unser [Responsive Images](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)-Tutorial).
 
 ## Unterstützte Bildformate
 
-Der HTML-Standard gibt nicht an, welche Bildformate unterstützt werden sollten, daher können {{Glossary("user_agent", "Benutzeragenten")}} unterschiedliche Formate unterstützen.
+Der HTML-Standard listet nicht auf, welche Bildformate unterstützt werden sollen, sodass {{Glossary("user_agent", "User Agents")}} unterschiedliche Formate unterstützen können.
 
 > [!NOTE]
-> Der [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types) bietet umfassende Informationen über Bildformate und deren Unterstützung durch Webbrowser.
+> Der [Bilddateitypen- und Formatleitfaden](/de/docs/Web/Media/Formats/Image_types) bietet umfassende Informationen über Bildformate und deren Unterstützung in Webbrowsern.
 > Dieser Abschnitt ist nur eine Zusammenfassung!
 
-Die auf dem Web am häufigsten verwendeten Bilddateiformate sind:
+Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind:
 
-- [APNG (Animated Portable Network Graphics)](/de/docs/Web/Media/Formats/Image_types#apng_animated_portable_network_graphics) — Gute Wahl für verlustfreie Animationssequenzen (GIF ist weniger leistungsfähig)
-- [AVIF (AV1 Image File Format)](/de/docs/Web/Media/Formats/Image_types#avif_image) — Gute Wahl für sowohl Bilder als auch animierte Bilder aufgrund der hohen Leistung.
+- [APNG (Animated Portable Network Graphics)](/de/docs/Web/Media/Formats/Image_types#apng_animated_portable_network_graphics) — Gute Wahl für verlustfreie Animationssequenzen (GIF ist weniger performant)
+- [AVIF (AV1 Image File Format)](/de/docs/Web/Media/Formats/Image_types#avif_image) — Gute Wahl für sowohl Bilder als auch animierte Bilder aufgrund hoher Leistung.
 - [GIF (Graphics Interchange Format)](/de/docs/Web/Media/Formats/Image_types#gif_graphics_interchange_format) — Gute Wahl für _einfache_ Bilder und Animationen.
-- [JPEG (Joint Photographic Expert Group image)](/de/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image) — Gute Wahl für verlustbehaftete Komprimierung von Standbildern (derzeit am beliebtesten).
-- [PNG (Portable Network Graphics)](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics) — Gute Wahl für verlustfreie Komprimierung von Standbildern (leicht bessere Qualität als JPEG).
-- [SVG (Scalable Vector Graphics)](/de/docs/Web/Media/Formats/Image_types#svg_scalable_vector_graphics) — Vektorbild-Format. Verwenden Sie es für Bilder, die in unterschiedlichen Größen genau dargestellt werden müssen.
-- [WebP (Web Picture format)](/de/docs/Web/Media/Formats/Image_types#webp_image) — Hervorragende Wahl für sowohl Bilder als auch animierte Bilder.
+- [JPEG (Joint Photographic Expert Group image)](/de/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image) — Gute Wahl für verlustbehaftete Komprimierung von Standbildern (derzeit das beliebteste).
+- [PNG (Portable Network Graphics)](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics) — Gute Wahl für verlustfreie Komprimierung von Standbildern (etwas bessere Qualität als JPEG).
+- [SVG (Scalable Vector Graphics)](/de/docs/Web/Media/Formats/Image_types#svg_scalable_vector_graphics) — Vektorbildformat. Verwenden Sie es für Bilder, die in unterschiedlichen Größen genau gezeichnet werden müssen.
+- [WebP (Web Picture format)](/de/docs/Web/Media/Formats/Image_types#webp_image) — Hervorragende Wahl für sowohl Bilder als auch animierte Bilder
 
-Formate wie [WebP](/de/docs/Web/Media/Formats/Image_types#webp_image) und [AVIF](/de/docs/Web/Media/Formats/Image_types#avif_image) werden empfohlen, da sie viel besser als PNG, JPEG, GIF sowohl für Standbilder als auch für animierte Bilder funktionieren.
+Formate wie [WebP](/de/docs/Web/Media/Formats/Image_types#webp_image) und [AVIF](/de/docs/Web/Media/Formats/Image_types#avif_image) werden empfohlen, da sie sowohl für Stand- als auch für animierte Bilder viel besser als PNG, JPEG, GIF performen.
 
-SVG bleibt das empfohlene Format für Bilder, die in unterschiedlichen Größen genau dargestellt werden müssen.
+SVG bleibt das empfohlene Format für Bilder, die in verschiedenen Größen genau gezeichnet werden müssen.
 
 ## Bildladefehler
 
-Wenn beim Laden oder Rendern eines Bildes ein Fehler auftritt und ein `onerror`-Ereignishandler für das [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis gesetzt wurde, wird dieser Ereignishandler aufgerufen. Dies kann in mehreren Situationen passieren, unter anderem:
+Wenn ein Fehler beim Laden oder Rendern eines Bildes auftritt und ein `onerror`-Ereignishandler für das [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis festgelegt wurde, wird dieser Ereignishandler aufgerufen. Dies kann in verschiedenen Situationen passieren, darunter:
 
 - Das `src`-Attribut ist leer (`""`) oder `null`.
-- Die `src`- {{Glossary("URL", "URL")}} ist identisch mit der URL der Seite, auf der sich der Benutzer gerade befindet.
-- Das Bild ist in irgendeiner Weise beschädigt, was verhindert, dass es geladen wird.
-- Die Metadaten des Bildes sind so beschädigt, dass es unmöglich ist, seine Abmessungen abzurufen, und keine Abmessungen im `<img>`-Element-Attribut angegeben wurden.
-- Das Bild ist in einem Format, das von dem {{Glossary("user_agent", "Benutzeragenten")}} nicht unterstützt wird.
+- Die `src`-URL](/de/docs/Glossary/URL) ist dieselbe wie die URL der Seite, auf der sich der Benutzer gerade befindet.
+- Das Bild ist in irgendeiner Weise beschädigt, die es verhindert, dass es geladen wird.
+- Die Metadaten des Bildes sind so beschädigt, dass es unmöglich ist, seine Abmessungen abzurufen, und es wurden keine Abmessungen in den Attributen des `<img>`-Elements angegeben.
+- Das Bild befindet sich in einem Format, das nicht vom {{Glossary("user_agent", "User Agent")}} unterstützt wird.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`alt`](/de/docs/Web/API/HTMLImageElement/alt#usage_notes)
 
-  - : Definiert den Text, der das Bild auf der Seite ersetzen kann.
+  - : Definiert Text, der das Bild auf der Seite ersetzen kann.
 
     > [!NOTE]
-    > Browser zeigen nicht immer Bilder an. Es gibt eine Reihe von Situationen, in denen ein Browser keine Bilder anzeigt, wie z.B.:
+    > Browser zeigen nicht immer Bilder an. Es gibt eine Reihe von Situationen, in denen ein Browser keine Bilder anzeigt, wie zum Beispiel:
     >
-    > - Nicht-visuelle Browser (wie die von Personen mit Sehbehinderungen genutzt)
-    > - Der Benutzer wählt, Bilder nicht anzuzeigen (um Bandbreite zu sparen, aus Datenschutzgründen)
+    > - Nicht-visuelle Browser (wie solche, die von Menschen mit Sehbehinderungen verwendet werden)
+    > - Der Benutzer entscheidet sich, keine Bilder anzuzeigen (um Bandbreite zu sparen, aus Datenschutzgründen)
     > - Das Bild ist ungültig oder ein [nicht unterstützter Typ](#unterstützte_bildformate)
     >
-    > In diesen Fällen kann der Browser das Bild durch den Text im `alt`-Attribut des Elements ersetzen. Aus diesen und anderen Gründen sollten Sie immer, wenn möglich, einen nützlichen Wert für `alt` bereitstellen.
+    > In diesen Fällen kann der Browser das Bild durch den Text im `alt`-Attribut des Elements ersetzen. Aus diesen und anderen Gründen sollte man wann immer möglich einen nützlichen Wert für `alt` angeben.
 
-    Wenn dieses Attribut auf einen leeren String (`alt=""`) gesetzt wird, zeigt es an, dass dieses Bild _kein_ wesentlicher Teil des Inhalts ist (es ist Dekoration oder ein Tracking-Pixel) und dass nicht-visuelle Browser es von der {{Glossary("Engine/Rendering", "Darstellung")}} weglassen dürfen. Visuelle Browser werden auch das Symbol für ein defektes Bild ausblenden, wenn das `alt`-Attribut leer ist und das Bild nicht angezeigt werden konnte.
+    Die Einstellung dieses Attributs auf einen leeren String (`alt=""`) gibt an, dass dieses Bild _kein_ wichtiger Teil des Inhalts ist (es ist Dekoration oder ein Tracking-Pixel), und dass nicht-visuelle Browser es vom {{Glossary("Engine/Rendering", "Rendern")}} weglassen können. Visuelle Browser verbergen auch das kaputte Bildsymbol, wenn das `alt`-Attribut leer ist und das Bild nicht angezeigt werden konnte.
 
-    Dieses Attribut wird auch verwendet, wenn das Bild in Text kopiert oder ein verlinktes Bild zu einem Lesezeichen hinzugefügt wird.
+    Dieses Attribut wird auch verwendet, wenn das Bild in Text kopiert und eingefügt oder ein verlinktes Bild mit einem Lesezeichen versehen wird.
 
 - `attributionsrc` {{experimental_inline}}
 
-  - : Gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header mit der Bildanfrage sendet.
+  - : Spezifiziert, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Bildanforderung sendet.
 
-    Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine bildbasierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#html-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#html-based_attribution_triggers) zu registrieren. Welcher Antwortheader zurückgesendet werden sollte, hängt vom Wert des `Attribution-Reporting-Eligible`-Headers ab, der die Registrierung ausgelöst hat.
+    Auf der Serverseite wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine bildbasierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#html-based_event_sources) oder [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#html-based_attribution_triggers) zu registrieren. Welchen Antwortheader zurückgesendet werden soll, hängt vom Wert des Headers `Attribution-Reporting-Eligible` ab, der die Registrierung ausgelöst hat.
 
-    Das entsprechende Quell- oder Triggerereignis wird ausgelöst, sobald der Browser die Antwort mit der Bilddatei erhält.
+    Das entsprechende Quellen- oder Triggerevent wird ausgelöst, sobald der Browser die Antwort mit der Bilddatei erhält.
 
     > [!NOTE]
-    > Weitere Informationen finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
+    > Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
-    Es gibt zwei Versionen dieses Attributs, die Sie einstellen können:
+    Es gibt zwei Versionen dieses Attributs, die Sie festlegen können:
 
-    - Boolean, d.h. nur der Name `attributionsrc`. Dies gibt an, dass Sie den {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server senden möchten, auf den das `src`-Attribut verweist. Das ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle oder des Triggers auf demselben Server vornehmen. Beim Registrieren eines Attributionstriggers ist diese Eigenschaft optional, und ein boolescher Wert wird verwendet, wenn sie weggelassen wird.
-    - Wert, der eine oder mehrere URLs enthält, zum Beispiel:
+    - Boolean, d.h. nur der Name `attributionsrc`. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `src`-Attribut zeigt. Dies ist in Ordnung, wenn Sie die Registrierung der Attribution-Quelle oder des Triggers auf demselben Server verwalten. Beim Registrieren eines Attributionstriggers ist diese Eigenschaft optional und wird als Boolean-Wert verwendet, wenn sie weggelassen wird.
+    - Wert mit einer oder mehreren URLs, zum Beispiel:
 
     ```html
     <img
@@ -99,57 +99,57 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
                          https://b.example/register-source" />
     ```
 
-    Dies ist nützlich in Fällen, in denen die angeforderte Ressource nicht auf einem Server unter Ihrer Kontrolle liegt, oder wenn Sie die Registrierung der Attributionsquelle auf einem anderen Server durchführen möchten. In diesem Fall können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanforderung erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header zusätzlich zum Ursprung der Ressource an die in `attributionSrc` angegebenen URL(s) gesendet. Diese URLs können dann mit einem entsprechenden {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header antworten, um die Registrierung abzuschließen.
+    Dies ist nützlich, wenn die angeforderte Ressource nicht auf einem von Ihnen kontrollierten Server vorhanden ist oder Sie die Registrierung der Attribution-Quelle auf einem anderen Server durchführen möchten. In diesem Fall können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressource angefordert wird, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionSrc` angegebenen URL(s) zusätzlich zum Ursprungsort der Ressource gesendet. Diese URLs können dann mit einem {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header reagieren, um die Registrierung abzuschließen.
 
     > [!NOTE]
-    > Die Angabe mehrerer URLs bedeutet, dass mehrere Attributionsquellen für dasselbe Merkmal registriert werden können. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen möchten, was das Generieren verschiedener Berichte über unterschiedliche Daten beinhaltet.
+    > Die Angabe mehrerer URLs bedeutet, dass mehrere Attributionsquellen auf derselben Funktion registriert werden können. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen möchten und die das Generieren von Berichten zu unterschiedlichen Daten beinhalten.
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
 
-  - : Gibt an, ob das Abrufen des Bildes unter Verwendung einer {{Glossary("CORS", "CORS")}}-Anfrage erfolgen muss. Bilddaten aus einem [CORS-aktivierten Bild](/de/docs/Web/HTML/CORS_enabled_image), das aus einer CORS-Anfrage zurückgegeben wird, können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne als "[verunreinigt](/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases)" markiert zu werden.
+  - : Gibt an, ob das Abrufen des Bildes mit einer {{Glossary("CORS", "CORS")}}-Anfrage erfolgen muss. Bilddaten von einem [CORS-aktivierten Bild](/de/docs/Web/HTML/CORS_enabled_image), das aus einer CORS-Anfrage zurückgegeben wird, können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne als "[contaminiert](/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases)" markiert zu werden.
 
-    Wenn das Attribut `crossorigin` _nicht_ angegeben ist, wird eine Nicht-CORS-Anfrage gesendet (ohne den {{httpheader("Origin")}}-Header), und der Browser markiert das Bild als verunreinigt und beschränkt den Zugriff auf seine Bilddaten, wodurch seine Verwendung in {{HTMLElement("canvas")}}-Elementen verhindert wird.
+    Wenn das `crossorigin`-Attribut nicht angegeben ist, wird eine Nicht-CORS-Anfrage gesendet (ohne den {{httpheader("Origin")}}-Header), und der Browser markiert das Bild als kontaminiert und beschränkt den Zugriff auf seine Bilddaten, wodurch seine Nutzung in {{HTMLElement("canvas")}}-Elementen verhindert wird.
 
-    Wenn das Attribut `crossorigin` _angegeben_ ist, wird eine CORS-Anfrage gesendet (mit dem {{httpheader("Origin")}}-Header); aber wenn der Server nicht vorgibt, den Zugriff auf die Bilddaten durch die Ursprungsseite zu erlauben (indem er keinen {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader sendet oder die Ursprungsseite nicht in einen gesendeten {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader einbezieht), blockiert der Browser das Laden des Bildes und protokolliert einen CORS-Fehler in der Entwicklertools-Konsole.
+    Wenn das `crossorigin`-Attribut angegeben ist, wird eine CORS-Anfrage gesendet (mit dem {{httpheader("Origin")}}-Header); wenn der Server jedoch nicht dafür auswählt, den Zugriff auf die Bilddaten der Ursprungsseite zuzulassen (indem er keinen {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader sendet oder die Ursprungsseite in keinem {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader einschließt, den er sendet), blockiert der Browser das Laden des Bildes und protokolliert einen CORS-Fehler in der DevTools-Konsole.
 
     Zulässige Werte:
 
     - `anonymous`
-      - : Eine CORS-Anfrage wird gesendet, bei der Anmeldeinformationen ausgelassen werden (d.h. keine {{Glossary("cookie", "Cookies")}}, [X.509-Zertifikate](https://datatracker.ietf.org/doc/html/rfc5280) oder {{httpheader("Authorization")}}-Header).
+      - : Eine CORS-Anfrage wird ohne Anmeldeinformationen gesendet (d.h. keine {{Glossary("cookie", "Cookies")}}, [X.509-Zertifikate](https://datatracker.ietf.org/doc/html/rfc5280) oder {{httpheader("Authorization")}}-Header).
     - `use-credentials`
-      - : Die CORS-Anfrage wird mit enthaltenen Anmeldeinformationen gesendet (d.h. Cookies, X.509-Zertifikate und der `Authorization`-Header). Wenn der Server nicht vorgibt, Anmeldeinformationen mit der Ursprungsseite zu teilen (indem er den `Access-Control-Allow-Credentials: true`-Header zurücksendet), markiert der Browser das Bild als verunreinigt und beschränkt den Zugriff auf seine Bilddaten.
+      - : Die CORS-Anfrage wird mit allen Anmeldedaten gesendet (d.h. Cookies, X.509-Zertifikate und der `Authorization`-Header). Wenn der Server keinen Einblick in die gemeinsame Nutzung von Anmeldedaten mit der Ursprungsseite gewährt (durch Rücksendung des `Access-Control-Allow-Credentials: true`-Antwortheaders), markiert der Browser das Bild als kontaminiert und beschränkt den Zugriff auf seine Bilddaten.
 
-    Wenn das Attribut einen ungültigen Wert hat, wird es von Browsern so behandelt, als ob der Wert `anonymous` verwendet wurde. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
+    Wenn das Attribut einen ungültigen Wert hat, behandeln Browser es, als ob der Wert `anonymous` verwendet worden wäre. Siehe [CORS-Einstellung-Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
 
 - `decoding`
 
-  - : Dieses Attribut bietet dem Browser einen Hinweis darauf, ob die Bild-Dekodierung zusammen mit dem Rendern des restlichen DOM-Inhalts in einem einzigen Präsentationsschritt erfolgen sollte, der „korrekter“ aussieht (`sync`), oder ob der restliche DOM-Inhalt zuerst gerendert und präsentiert werden soll und das Bild dann dekodiert und später präsentiert wird (`async`). In der Praxis bedeutet `async`, dass der nächste Paint nicht auf die Bild-Dekodierung wartet.
+  - : Dieses Attribut gibt dem Browser einen Hinweis, ob die Bilddecodierung zusammen mit dem Rendern des anderen DOM-Inhalts in einem einzigen Präsentationsschritt erfolgen soll, der "korrekter" aussieht (`sync`), oder den anderen DOM-Inhalt zuerst rendern und präsentieren und anschließend das Bild decodieren und später präsentieren (`async`). In der Praxis bedeutet `async`, dass die nächste Darstellung nicht auf das Decodieren des Bildes wartet.
 
-    Es ist oft schwierig, einen wahrnehmbaren Effekt bei der Verwendung von `decoding` auf statischen `<img>`-Elementen zu erkennen. Sie werden wahrscheinlich zunächst als leere Bilder gerendert, während die Bilddateien abgerufen (entweder aus dem Netzwerk oder aus dem Cache) und dann unabhängig verarbeitet werden. Daher wird die „Synchronisation“ von Inhaltsaktualisierungen weniger deutlich. Die Blockierung des Renderings während der Dekodierung, die oft sehr klein ist, _kann_ jedoch gemessen werden — selbst wenn es mit dem menschlichen Auge schwer zu beobachten ist. Siehe [Was macht das Image-Dekodierungs-Attribut eigentlich?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/) für eine detailliertere Analyse (tunetheweb.com, 2023).
+    Es ist oft schwierig, einen deutlichen Effekt bei der Verwendung von `decoding` auf statische `<img>`-Elemente wahrzunehmen. Sie werden wahrscheinlich zunächst als leere Bilder gerendert, während die Bilddateien (entweder aus dem Netzwerk oder aus dem Cache) abgerufen werden und dann sowieso unabhängig bearbeitet werden, sodass das "Synchronisieren" von Inhaltsaktualisierungen weniger offensichtlich ist. Das Blockieren des Renderns während des Decodierens kann, obwohl oft ziemlich klein, _gemessen_ werden - selbst wenn es schwierig ist, es mit dem menschlichen Auge zu beobachten. Siehe [Was macht das Bilddecodierungs-Attribut tatsächlich?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/) für eine detailliertere Analyse (tunetheweb.com, 2023).
 
-    Die Verwendung unterschiedlicher `decoding`-Typen kann zu wahrnehmbaren Unterschieden führen, wenn `<img>`-Elemente dynamisch über JavaScript in das DOM eingefügt werden — siehe [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding) für weitere Details.
+    Die Verwendung unterschiedlicher `decoding`-Typen kann zu deutlicheren Unterschieden führen, wenn `<img>`-Elemente dynamisch über JavaScript in das DOM eingefügt werden - siehe [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding) für weitere Details.
 
     Zulässige Werte:
 
     - `sync`
-      - : Dekodiert das Bild synchron zusammen mit dem Rendern des restlichen DOM-Inhalts und präsentiert alles zusammen.
+      - : Decodieren Sie das Bild synchron zusammen mit dem Rendern des anderen DOM-Inhalts und präsentieren Sie alles zusammen.
     - `async`
-      - : Dekodiert das Bild asynchron, nach dem Rendern und Präsentieren des restlichen DOM-Inhalts.
+      - : Decodieren Sie das Bild asynchron, nach dem Rendern und Präsentieren des anderen DOM-Inhalts.
     - `auto`
-      - : Keine Präferenz für den Dekodierungsmodus; der Browser entscheidet, was für den Benutzer am besten ist. Dies ist der Standardwert.
+      - : Keine Präferenz für den Decodierungsmodus; der Browser entscheidet, was für den Benutzer am besten ist. Dies ist der Standardwert.
 
 - [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)
 
-  - : Markiert das Bild zur Beobachtung durch die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API. Der angegebene Wert wird zum Bezeichner für das beobachtete Bildelement. Siehe auch die Seite zum [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut.
+  - : Markiert das Bild zur Beobachtung durch die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API. Der angegebene Wert wird zu einer Kennung für das beobachtete Bild. Siehe auch die Seite zum [elementtiming-Attribut](/de/docs/Web/HTML/Attributes/elementtiming).
 
 - `fetchpriority`
 
-  - : Gibt einen Hinweis auf die relative Priorität, die beim Abrufen des Bildes zu verwenden ist. Zulässige Werte:
+  - : Gibt einen Hinweis auf die relative Priorität beim Abrufen des Bildes. Erlaubte Werte:
 
     - `high`
-      - : Signalisiert einen Abruf mit hoher Priorität im Vergleich zu anderen Bildern.
+      - : Signalisiert ein Abrufen mit hoher Priorität im Vergleich zu anderen Bildern.
     - `low`
-      - : Signalisiert einen Abruf mit niedriger Priorität im Vergleich zu anderen Bildern.
+      - : Signalisiert ein Abrufen mit niedriger Priorität im Vergleich zu anderen Bildern.
     - `auto`
       - : Standard: Signalisiert die automatische Bestimmung der Abrufpriorität im Vergleich zu anderen Bildern.
 
@@ -158,88 +158,88 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
   - : Die intrinsische Höhe des Bildes in Pixel. Muss eine ganze Zahl ohne Einheit sein.
 
     > [!NOTE]
-    > Das Hinzufügen von `height` und [`width`](#width) ermöglicht es dem Browser, das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Bildes vor dem Laden zu berechnen. Dieses Seitenverhältnis wird verwendet, um den Platz zu reservieren, der benötigt wird, um das Bild anzuzeigen, und reduziert oder verhindert eine Layoutverschiebung, wenn das Bild heruntergeladen und auf den Bildschirm gemalt wird. Die Reduzierung der Layoutverschiebung ist ein wichtiger Bestandteil einer guten Benutzererfahrung und Web-Performance.
+    > Die Angabe von `height` und [`width`](#width) ermöglicht es dem Browser, das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Bildes zu berechnen, bevor das Bild geladen wird. Dieses Seitenverhältnis wird verwendet, um den benötigten Platz zur Anzeige des Bildes zu reservieren, wodurch eine Layout-Verschiebung reduziert oder sogar verhindert wird, wenn das Bild heruntergeladen und auf den Bildschirm gezeichnet wird. Die Reduzierung von Layout-Verschiebungen ist eine wichtige Komponente für eine gute Benutzererfahrung und Webleistung.
 
 - `ismap`
 
-  - : Dieses boolesche Attribut gibt an, dass das Bild Teil einer [serverseitigen Karte](https://de.wikipedia.org/wiki/Image_map#Server-side) ist. In diesem Fall werden die Koordinaten, auf die der Benutzer auf das Bild geklickt hat, an den Server gesendet.
+  - : Dieses Boolean-Attribut gibt an, dass das Bild Teil einer [serverseitigen Karte](https://en.wikipedia.org/wiki/Image_map#Server-side) ist. Wenn ja, werden die Koordinaten, an denen der Benutzer auf das Bild geklickt hat, an den Server gesendet.
 
     > [!NOTE]
-    > Dieses Attribut ist nur erlaubt, wenn das `<img>`-Element ein Nachkomme eines {{htmlelement("a")}}-Elements mit einem gültigen [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut ist. Dies bietet Benutzern ohne Zeigegeräte ein alternatives Ziel.
+    > Dieses Attribut ist nur zulässig, wenn das `<img>`-Element ein Nachkomme eines {{htmlelement("a")}}-Elements mit einem gültigen [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut. Dies gibt Benutzern ohne Zeigegeräte ein alternatives Ziel.
 
 - `loading`
 
   - : Gibt an, wie der Browser das Bild laden soll:
 
     - `eager`
-      - : Lädt das Bild sofort, unabhängig davon, ob sich das Bild derzeit im sichtbaren Viewport befindet oder nicht (dies ist der Standardwert).
+      - : Lädt das Bild sofort, unabhängig davon, ob sich das Bild derzeit im sichtbaren Viewport befindet (dies ist der Standardwert).
     - `lazy`
-      - : Verzögert das Laden des Bildes, bis es eine berechnete Entfernung vom Viewport erreicht, wie vom Browser definiert. Das Ziel besteht darin, die Netz- und Speicherbandbreite zu vermeiden, die benötigt wird, um das Bild zu verarbeiten, bis es mit vernünftiger Wahrscheinlichkeit benötigt wird. Dies verbessert in den meisten typischen Anwendungsfällen die Leistung der Inhalte.
+      - : Verzögert das Laden des Bildes, bis es eine berechnete Entfernung vom Viewport erreicht, wie vom Browser definiert. Der Zweck besteht darin, das Netzwerk und die Speicherbandbreite zu umgehen, die benötigt werden, um das Bild zu verarbeiten, bis es in vernünftiger Weise wahrscheinlich ist, dass es benötigt wird. Dies verbessert in der Regel die Leistung des Inhalts in den meisten typischen Anwendungsfällen.
 
     > [!NOTE]
-    > Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Anti-Tracking-Maßnahme, da es möglich wäre, die ungefähre Scroll-Position eines Benutzers während einer Sitzung zu verfolgen, indem strategisch Bilder im Markup einer Seite platziert werden, um einem Server mitzuteilen, wie viele Bilder angefordert werden und wann.
+    > Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Anti-Tracking-Maßnahme, da es, wenn ein User Agent das verzögerte Laden unterstützte, wenn das Skripting deaktiviert ist, immer noch möglich wäre, die ungefähre Scroll-Position eines Benutzers während einer Sitzung zu verfolgen, indem Bilder so in einem Seitenmarkup platziert werden, dass ein Server verfolgen kann, wie viele Bilder angefordert werden und wann.
 
     > [!NOTE]
-    > Bilder mit `loading` auf `lazy` gesetzt, werden niemals geladen, wenn sie keinen sichtbaren Teil eines Elements schneiden, selbst wenn das Laden sie ändern würde, da nicht geladene Bilder eine `width` und `height` von `0` haben. Das Hinzufügen von `width` und `height` zu lazygeladenen Bildern behebt dieses Problem und ist eine bewährte Praxis, die von der Spezifikation [empfohlen](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element) wird. Dies trägt auch dazu bei, Layoutverschiebungen zu vermeiden.
+    > Bilder mit `loading`, die auf `lazy` gesetzt sind, werden nie geladen, wenn sie keinen sichtbaren Teil eines Elements schneiden, selbst wenn das Laden sie ändern würde, da ungeladene Bilder eine `width` und `height` von `0` haben. Die Einrichtung von `width` und `height` auf lazy-geladenen Bildern behebt dieses Problem und ist eine bewährte Praxis, [empfohlen durch die Spezifikation](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element). Dies hilft auch, Layout-Verschiebungen zu verhindern.
 
 - `referrerpolicy`
 
-  - : Ein string, der angibt, welcher Referrer beim Abrufen der Ressource verwendet werden soll:
+  - : Ein String, der angibt, welchen Referrer beim Abrufen der Ressource verwendet werden soll:
 
     - `no-referrer`: Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
-    - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationsvorgänge im selben Ursprung enthalten weiterhin den Pfad.
-    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "gleichartiger Ursprung")}} gesendet, aber abweichende Ursprungsanfragen enthalten keine Referrer-Informationen.
-    - `strict-origin`: Sendet den Ursprung des Dokuments nur als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), sendet es jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
-    - `strict-origin-when-cross-origin` (Standard): Sendet eine vollständige URL bei gleichartiger Ursprunganfrage, sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und sendet keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
-    - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)) enthalten. **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergibt.
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "origin")}}s ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [Schema](/de/docs/Learn/Common_questions/Web_mechanics/Was_ist_eine_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
+    - `origin-when-cross-origin`: Der Referrer, der an andere Ursprünge gesendet wird, wird auf das Schema, den Host und den Port beschränkt. Navigationen im selben Ursprung enthalten weiterhin den Pfad.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "same origin")}} gesendet, aber bei anfragen über verschiedene Ursprünge werden keine Referrerinformationen gesendet.
+    - `strict-origin`: Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), sendet jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
+    - `strict-origin-when-cross-origin` (Standard): Sendet eine vollständige URL bei einer Anfrage innerhalb desselben Ursprungs, sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und sendet keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
+    - `unsafe-url`: Der Referrer umfasst den Ursprung _und_ den Pfad (jedoch nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er ursprüngliche Informationen und Basispfade von TLS-geschützten Ressourcen an unsichere Ursprünge leckt.
 
 - `sizes`
 
-  - : Ein oder mehrere durch Kommas getrennte Strings, die eine Reihe von Quellgrößen angeben. Jede Quellgröße besteht aus:
+  - : Eine oder mehrere durch Kommas getrennte Zeichenfolgen, die eine Reihe von Quellgrößen angeben. Jede Quellgröße besteht aus:
 
     1. Einer [Medienbedingung](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax). Diese muss für das letzte Element in der Liste weggelassen werden.
     2. Einem Quellgrößenwert.
 
-    Medienbedingungen beschreiben Eigenschaften des _Viewports_, nicht des _Bildes_. Zum Beispiel schlägt `(max-height: 500px) 1000px` vor, eine Quelle von 1000px Breite zu verwenden, falls der _Viewport_ nicht höher als 500px ist.
+    Medienbedingungen beschreiben Eigenschaften des _Viewports_, nicht des _Bildes_. Zum Beispiel schlägt `(max-height: 500px) 1000px` vor, eine Quelle mit 1000px Breite zu verwenden, wenn der _Viewport_ nicht höher als 500px ist.
 
-    Quellgrößenwerte geben die beabsichtigte Darstellungsgröße des Bildes an. {{Glossary("User_agent", "Benutzeragenten")}} verwenden die aktuelle Quellgröße, um eine der durch das `srcset`-Attribut bereitgestellten Quellen zu wählen, wenn diese Quellen mit Breiten-(`w`)-Beschreibungen beschrieben sind. Die ausgewählte Quellgröße beeinflusst die {{Glossary("intrinsic_size", "intrinsische Größe")}} des Bildes (die Anzeigengröße des Bildes, wenn keine {{Glossary("CSS", "CSS")}}-Stilregeln angewendet werden). Wenn das `srcset`-Attribut fehlt oder keine Werte mit einer Breitenbeschreibung enthält, hat das `sizes`-Attribut keine Wirkung.
+    Quellenwertgrößen geben die beabsichtigte Anzeigegröße des Bildes an. {{Glossary("User_agent", "User Agents")}} verwenden die aktuelle Quellgröße, um eine der Quellen auszuwählen, die durch das `srcset`-Attribut bereitgestellt werden, wenn diese Quellen mit Breitenbeschreibungen (`w`) beschrieben werden. Die ausgewählte Quellgröße wirkt sich auf die {{Glossary("intrinsic_size", "intrinsische Größe")}} des Bildes aus (die Anzeigengröße des Bildes, wenn kein {{Glossary("CSS", "CSS")}}-Stil angewendet wird). Wenn das `srcset`-Attribut fehlt oder keine Werte mit einer Breitenbeschreibung enthält, hat das `sizes`-Attribut keine Auswirkung.
 
 - `src`
-  - : Die Bild-{{Glossary("URL", "URL")}}. Obligatorisch für das `<img>`-Element. In {{Glossary("Browser", "Browsern")}}, die `srcset` unterstützen, wird `src` wie ein Kandidatenbild mit einem Pixeldichte-Beschreiber `1x` behandelt, es sei denn, ein Bild mit diesem Pixeldichte-Beschreiber ist bereits in `srcset` definiert, oder `srcset` enthält `w`-Beschreibungen.
+  - : Die Bild-{{Glossary("URL", "URL")}}. Obligatorisch für das `<img>`-Element. In {{Glossary("Browser", "Browsern")}}, die `srcset` unterstützen, wird `src` wie ein Bildkandidat mit einem Pixeldichtkeitsindikator `1x` behandelt, es sei denn, in `srcset` ist bereits ein Bild mit diesem Pixeldichtheitsindikator definiert oder `srcset` enthält `w`-Indikatoren.
 - `srcset`
 
-  - : Ein oder mehrere durch Kommas getrennte Strings, die mögliche Bildquellen für den {{Glossary("user_agent", "Benutzeragenten")}} angeben, die verwendet werden sollen. Jeder String besteht aus:
+  - : Eine oder mehrere durch Kommas getrennte Zeichenfolgen, die mögliche Bildquellen für den {{Glossary("user_agent", "User Agent")}} angeben, die verwendet werden sollen. Jede Zeichenfolge setzt sich zusammen aus:
 
     1. Einer {{Glossary("URL", "URL")}} zu einem Bild
-    2. Optional gefolgt von einem Leerzeichen und einer der folgenden Optionen:
+    2. Optional kann nach einem Leerzeichen eine der folgenden Optionen angegeben werden:
 
-       - Einem Breiten-Beschreiber (eine positive ganze Zahl direkt gefolgt von `w`). Der Breiten-Beschreiber wird durch die Quellgröße dividiert, die im `sizes`-Attribut angegeben ist, um die effektive Pixeldichte zu berechnen.
-       - Einem Pixeldichte-Beschreiber (eine positive Gleitkommazahl direkt gefolgt von `x`).
+       - Einem Breitenbeschreiber (einer positiven Ganzzahl unmittelbar gefolgt von `w`). Der Breitenbeschreiber wird durch die Quellgröße geteilt, die im `sizes`-Attribut angegeben ist, um die effektive Pixeldichte zu berechnen.
+       - Einem Pixeldichte-Beschreiber (einer positiven Gleitkommazahl unmittelbar gefolgt von `x`).
 
-    Wenn kein Beschreiber spezifiziert ist, wird der Quelle der Standardbeschreiber von `1x` zugewiesen.
+    Wenn kein Beschreiber angegeben ist, wird der Quelle der Standardbeschreiber `1x` zugewiesen.
 
-    Es ist unzulässig, Breiten-Beschreibungen und Pixeldichte-Beschreibungen im selben `srcset`-Attribut zu mischen. Doppelte Beschreiber (z.B., wenn zwei Quellen im selben `srcset` vorhanden sind, die beide mit `2x` beschrieben sind) sind ebenfalls ungültig.
+    Es ist falsch, Breitenbeschreiber und Pixeldichte-Beschreiber im selben `srcset`-Attribut zu mischen. Doppelte Beschreiber (zum Beispiel zwei Quellen im selben `srcset`, die beide mit `2x` beschrieben werden) sind ebenfalls ungültig.
 
-    Wenn das `srcset`-Attribut Breiten-Beschreibungen verwendet, muss auch das `sizes`-Attribut vorhanden sein, andernfalls wird das `srcset` selbst ignoriert.
+    Wenn das `srcset`-Attribut Breitenbeschreiber verwendet, muss auch das `sizes`-Attribut vorhanden sein, andernfalls wird das `srcset` selbst ignoriert.
 
-    Der Benutzeragent wählt nach eigenem Ermessen eine der verfügbaren Quellen aus. Dies gibt ihnen erhebliche Freiheit, ihre Auswahl basierend auf Dingen wie Benutzervorlieben oder {{Glossary("bandwidth", "Bandbreiten")}}-Bedingungen anzupassen. Weitere Informationen finden Sie in unserem [Leitfaden zu responsiven Bildern](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+    Der Benutzer-Agent wählt nach eigenem Ermessen eine der verfügbaren Quellen aus. Dies gibt ihnen erheblichen Spielraum, ihre Auswahl basierend auf Benutzerpräferenzen oder {{Glossary("bandwidth", "Bandbreiten")}}-Bedingungen anzupassen. Siehe unser [Responsive Images](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)-Tutorial für ein Beispiel.
 
 - `width`
   - : Die intrinsische Breite des Bildes in Pixel. Muss eine ganze Zahl ohne Einheit sein.
 - `usemap`
 
-  - : Die partielle {{Glossary("URL", "URL")}} (beginnend mit `#`) einer [Bildkarte](/de/docs/Web/HTML/Element/map), die dem Element zugeordnet ist.
+  - : Die partielle {{Glossary("URL", "URL")}} (beginnend mit `#`) einer [Bildkarte](/de/docs/Web/HTML/Element/map), die mit dem Element verbunden ist.
 
     > [!NOTE]
-    > Sie dürfen dieses Attribut nicht verwenden, wenn das `<img>`-Element innerhalb eines {{htmlelement("a")}}- oder {{HTMLElement("button")}}-Elements ist.
+    > Sie können dieses Attribut nicht verwenden, wenn das `<img>`-Element innerhalb eines {{htmlelement("a")}}- oder {{HTMLElement("button")}}-Elements ist.
 
 ### Veraltete Attribute
 
 - `align` {{deprecated_inline}}
 
-  - : Richten Sie das Bild mit seinem umgebenden Kontext aus. Verwenden Sie die {{cssxref('float')}}- und/oder {{cssxref('vertical-align')}}-{{Glossary("CSS", "CSS")}}-Eigenschaften statt dieses Attributs. Zulässige Werte:
+  - : Richtet das Bild in seinem umgebenden Kontext aus. Verwenden Sie die {{cssxref('float')}}- und/oder {{cssxref('vertical-align')}}-Eigenschaften von {{Glossary("CSS", "CSS")}} anstelle dieses Attributs. Zulässige Werte:
 
     - `top`
       - : Entspricht `vertical-align: top` oder `vertical-align: text-top`
@@ -253,60 +253,60 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       - : Entspricht `float: right`
 
 - `border` {{deprecated_inline}}
-  - : Die Breite eines Rahmens um das Bild. Verwenden Sie die {{cssxref('border')}}-{{Glossary("CSS", "CSS")}}-Eigenschaft stattdessen.
+  - : Die Breite eines Rahmens um das Bild. Verwenden Sie die {{cssxref('border')}}-Eigenschaft von {{Glossary("CSS", "CSS")}} stattdessen.
 - `hspace` {{deprecated_inline}}
-  - : Die Anzahl der Pixel an Leerraum links und rechts vom Bild. Verwenden Sie die {{cssxref('margin')}}-CSS-Eigenschaft stattdessen.
+  - : Die Anzahl der Pixel von Weißraum links und rechts des Bildes. Verwenden Sie stattdessen die {{cssxref('margin')}}-CSS-Eigenschaft.
 - `longdesc` {{deprecated_inline}}
 
-  - : Ein Link zu einer detaillierteren Beschreibung des Bildes. Mögliche Werte sind eine {{Glossary("URL", "URL")}} oder eine Element-[`id`](/de/docs/Web/HTML/Global_attributes#id).
+  - : Ein Link zu einer detaillierteren Beschreibung des Bildes. Mögliche Werte sind eine {{Glossary("URL", "URL")}} oder eine Element-[`id`](/de/docs/Web/HTML/Global_attributes/id).
 
     > [!NOTE]
-    > Dieses Attribut wird in der neuesten {{Glossary("W3C", "W3C")}}-Version, [HTML 5.2](https://html.spec.whatwg.org/multipage/obsolete.html#element-attrdef-img-longdesc), erwähnt, wurde jedoch aus dem [HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element) der {{Glossary("WHATWG", "WHATWG")}} entfernt. Es hat eine ungewisse Zukunft; Autoren sollten eine {{Glossary("WAI", "WAI")}}-{{Glossary("ARIA", "ARIA")}}-Alternative wie [`aria-describedby`](https://www.w3.org/TR/wai-aria-1.1/#aria-describedby) oder [`aria-details`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) verwenden.
+    > Dieses Attribut wird in der neuesten {{Glossary("W3C", "W3C")}}-Version, [HTML 5.2](https://html.spec.whatwg.org/multipage/obsolete.html#element-attrdef-img-longdesc), erwähnt, wurde jedoch aus dem {{Glossary("WHATWG", "WHATWG")}}'s [HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element) entfernt. Es hat eine ungewisse Zukunft; Autoren sollten eine {{Glossary("WAI", "WAI")}}-{{Glossary("ARIA", "ARIA")}}-Alternative wie [`aria-describedby`](https://www.w3.org/TR/wai-aria-1.1/#aria-describedby) oder [`aria-details`](https://www.w3.org/TR/wai-aria-1.1/#aria-details) verwenden.
 
 - `name` {{deprecated_inline}}
-  - : Ein Name für das Element. Verwenden Sie das [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut stattdessen.
+  - : Ein Name für das Element. Verwenden Sie stattdessen das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut.
 - `vspace` {{deprecated_inline}}
-  - : Die Anzahl der Pixel an Leerraum oberhalb und unterhalb vom Bild. Verwenden Sie die {{cssxref('margin')}}-CSS-Eigenschaft stattdessen.
+  - : Die Anzahl der Pixel von Weißraum oberhalb und unterhalb des Bildes. Verwenden Sie stattdessen die {{cssxref('margin')}}-CSS-Eigenschaft.
 
-## Gestaltung mit CSS
+## Styling mit CSS
 
-`<img>` ist ein [ersetzenes Element](/de/docs/Web/CSS/Replaced_element); es hat standardmäßig einen {{cssxref("display")}}-Wert von `inline`, aber seine Standardmaße werden durch die intrinsischen Werte des eingebetteten Bildes definiert, als wäre es `inline-block`. Sie können Eigenschaften wie {{cssxref("border")}}/{{cssxref("border-radius")}}, {{cssxref("padding")}}/{{cssxref("margin")}}, {{cssxref("width")}}, {{cssxref("height")}} usw. auf ein Bild anwenden.
+`<img>` ist ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element); es hat einen {{cssxref("display")}}-Wert von `inline` standardmäßig, aber seine Standardabmessungen sind durch die eingebetteten intrinsischen Bildwerte definiert, als wäre es ein `inline-block`. Sie können Eigenschaften wie {{cssxref("border")}}/{{cssxref("border-radius")}}, {{cssxref("padding")}}/{{cssxref("margin")}}, {{cssxref("width")}}, {{cssxref("height")}} usw. auf ein Bild anwenden.
 
-`<img>` hat keine Grundlinie, so dass, wenn Bilder in einem Inline-Formatting-Kontext mit {{cssxref("vertical-align", "vertical-align: baseline")}} verwendet werden, der untere Rand des Bildes auf der Textgrundlinie platziert wird.
+`<img>` hat keine Basislinie, sodass, wenn Bilder in einem Inline-Formatierungskontext mit {{cssxref("vertical-align", "vertical-align: baseline")}} verwendet werden, die Unterseite des Bildes auf die Textbasislinie gelegt wird.
 
-Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um das Bild innerhalb des Elemente-Box zu positionieren, und die {{cssxref("object-fit")}}-Eigenschaft, um die Größenanpassung des Bildes innerhalb der Box zu justieren (z.B., ob das Bild die Box ausfüllen oder anpassen soll, selbst wenn eine Ausschnitt erforderlich ist).
+Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um das Bild innerhalb der Box des Elements zu positionieren, und die {{cssxref("object-fit")}}-Eigenschaft, um die Größe des Bildes innerhalb der Box anzupassen (z.B. ob das Bild die Box ausfüllen oder so anpassen soll, dass es befriedigt).
 
-Abhängig von seinem Typ kann ein Bild eine intrinsische Breite und Höhe haben. Für einige Bildtypen sind jedoch intrinsische Abmessungen nicht erforderlich. {{Glossary("SVG", "SVG")}}-Bilder, zum Beispiel, haben keine intrinsischen Abmessungen, wenn ihr Stamm-{{SVGElement("svg")}}-Element keine `width` oder `height` eingestellt hat.
+Je nach Typ kann ein Bild eine intrinsische Breite und Höhe haben. Bei einigen Bildtypen sind jedoch keine intrinsischen Abmessungen erforderlich. {{Glossary("SVG", "SVG")}}-Bilder, zum Beispiel, haben keine intrinsischen Abmessungen, wenn ihr Wurzel-{{SVGElement("svg")}}-Element keinen `width`- oder `height`-Wert hat.
 
 ## Barrierefreiheit
 
-### Sinnvolle Ersatzbeschreibungen verfassen
+### Beschreibungen für aussagekräftige Alternativtexte formulieren
 
-Der Wert des `alt`-Attributs sollte einen klaren und prägnanten textuellen Ersatz für den Inhalt des Bildes bieten. Es sollte nicht die Anwesenheit des Bildes selbst oder den Dateinamen des Bildes beschreiben. Wenn das `alt`-Attribut absichtlich weggelassen wird, weil das Bild kein textliches Äquivalent hat, sollten Sie alternative Methoden in Betracht ziehen, um das, was das Bild kommunizieren möchte, darzustellen.
+Der Wert eines `alt`-Attributs sollte einen klaren und prägnanten Textersatz für den Inhalt des Bildes bieten. Es sollte nicht das Vorhandensein des Bildes selbst oder den Dateinamen des Bildes beschreiben. Wenn das `alt`-Attribut absichtlich weggelassen wurde, weil das Bild keinen Textersatz hat, ziehen Sie alternative Methoden in Betracht, um das zu präsentieren, was das Bild versucht zu kommunizieren.
 
-#### Nicht so
+#### Nicht tun
 
 ```html example-bad
 <img alt="image" src="penguin.jpg" />
 ```
 
-#### So machen
+#### Tun
 
 ```html example-good
 <img alt="A Rockhopper Penguin is standing on a beach." src="penguin.jpg" />
 ```
 
-Wenn ein `alt`-Attribut nicht auf einem Bild vorhanden ist, können einige Screenreader stattdessen den Dateinamen des Bildes ankündigen. Dies kann eine verwirrende Erfahrung sein, wenn der Dateinamen nicht repräsentativ für den Inhalt des Bildes ist.
+Wenn ein `alt`-Attribut bei einem Bild nicht vorhanden ist, können einige Screenreader stattdessen den Dateinamen des Bildes ankündigen. Dies kann eine verwirrende Erfahrung sein, wenn der Dateiname nicht repräsentativ für den Inhalt des Bildes ist.
 
-- [Ein Alternativtext-Entscheidungsbaum • Bilder • WAI-Web-Accessibility-Tutorials](https://www.w3.org/WAI/tutorials/images/decision-tree/)
-- [Alt-Texte: Der Ultimative Leitfaden — Axess Lab](https://axesslab.com/alt-texts/)
-- [Wie man großartige Alt-Texte gestaltet: Eine Einführung | Deque](https://www.deque.com/blog/great-alt-text-introduction/)
+- [Ein Alt-Entscheidungsbaum • Bilder • WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/images/decision-tree/)
+- [Alt-Texte: Der ultimative Leitfaden — Axess Lab](https://axesslab.com/alt-texts/)
+- [Wie man großartige Alt-Texte entwirft: Eine Einführung | Deque](https://www.deque.com/blog/great-alt-text-introduction/)
 - [MDN Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Erfolgskriterium 1.1.1 verstehen | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [Erfolgskriterium 1.1.1 verstehen | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ### SVG als Bild identifizieren
 
-Aufgrund eines [VoiceOver-Bugs](https://webkit.org/b/216364) kündigt VoiceOver SVG-Bilder nicht korrekt als Bilder an. Fügen Sie [`role="img"`](/de/docs/Web/Accessibility/ARIA/Roles/img_role) zu allen `<img>`-Elementen mit SVG-Quelldateien hinzu, um sicherzustellen, dass unterstützende Technologien das SVG als Bildinhalt korrekt ankündigen.
+Aufgrund eines [VoiceOver-Fehlers](https://webkit.org/b/216364) kündigt VoiceOver SVG-Bilder nicht korrekt als Bilder an. Für alle `<img>`-Elemente mit SVG-Quelldateien sollten Sie [`role="img"`](/de/docs/Web/Accessibility/ARIA/Roles/img_role) einfügen, um sicherzustellen, dass unterstützende Technologien das SVG korrekt als Bildinhalt ankündigen.
 
 ```html
 <img src="mdn.svg" alt="MDN" role="img" />
@@ -314,19 +314,19 @@ Aufgrund eines [VoiceOver-Bugs](https://webkit.org/b/216364) kündigt VoiceOver 
 
 ### Das title-Attribut
 
-Das [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attribut ist kein akzeptabler Ersatz für das `alt`-Attribut. Vermeiden Sie zudem, den Wert des `alt`-Attributs in einem `title`-Attribut zu duplizieren, das auf demselben Bild deklariert ist. Dies könnte dazu führen, dass einige Screenreader denselben Text zweimal ankündigen, was eine verwirrende Erfahrung erzeugt.
+Das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut ist kein akzeptabler Ersatz für das `alt`-Attribut. Vermeiden Sie außerdem, den Wert des `alt`-Attributs in einem `title`-Attribut auf dasselbe Bild zu duplizieren. Dies kann dazu führen, dass einige Screenreader denselben Text zweimal ankündigen, was zu einer verwirrenden Erfahrung führen kann.
 
-Das `title`-Attribut sollte auch nicht als ergänzende Beschriftungsinformation zur Begleitung der `alt`-Beschreibung eines Bildes verwendet werden. Wenn ein Bild eine Beschriftung benötigt, verwenden Sie die [`figure`](/de/docs/Web/HTML/Element/figure)- und [`figcaption`](/de/docs/Web/HTML/Element/figcaption)-Elemente.
+Das `title`-Attribut sollte auch nicht für ergänzende Beschriftungsinformationen verwendet werden, die die `alt`-Beschreibung eines Bildes begleiten. Wenn ein Bild eine Überschrift benötigt, verwenden Sie die Elemente [`figure`](/de/docs/Web/HTML/Element/figure) und [`figcaption`](/de/docs/Web/HTML/Element/figcaption).
 
-Der Wert des `title`-Attributs wird dem Benutzer in der Regel als Tooltipp präsentiert, der kurz erscheint, nachdem sich der Cursor über dem Bild nicht mehr bewegt. Obwohl dies dem Benutzer zusätzliche Informationen bieten _kann_, sollten Sie nicht davon ausgehen, dass der Benutzer es jemals sehen wird: Der Benutzer könnte nur eine Tastatur oder einen Touchscreen haben. Wenn Sie Informationen haben, die besonders wichtig oder wertvoll für den Benutzer sind, präsentieren Sie sie inline, indem Sie eine der oben genannten Methoden verwenden, statt `title`.
+Der Wert des `title`-Attributs wird dem Benutzer normalerweise als Tooltip präsentiert, der kurz nach dem Stoppen des Cursors über dem Bild erscheint. Während dies _zusätzliche_ Informationen für den Benutzer liefern kann, sollten Sie nicht davon ausgehen, dass der Benutzer diesen Tooltip jemals sehen wird: der Benutzer könnte nur eine Tastatur oder einen Touchscreen haben. Wenn Sie Informationen haben, die besonders wichtig oder wertvoll für den Benutzer sind, präsentieren Sie diese inline mit einer der oben genannten Methoden anstelle der Verwendung von `title`.
 
-- [Verwendung des HTML-title-Attributs – aktualisiert | The Paciello Group](https://www.tpgi.com/using-the-html-title-attribute-updated/)
+- [Die Verwendung des HTML title-Attributs – aktualisiert | Die Paciello Group](https://www.tpgi.com/using-the-html-title-attribute-updated/)
 
 ## Beispiele
 
-### Alternativtext
+### Alternativer Text
 
-Das folgende Beispiel bettet ein Bild in die Seite ein und enthält alternativen Text zur Barrierefreiheit.
+Im folgenden Beispiel wird ein Bild in die Seite eingebettet, und es wird Alternativtext für die Barrierefreiheit hinzugefügt.
 
 ```html
 <img src="favicon144.png" alt="MDN" />
@@ -336,7 +336,7 @@ Das folgende Beispiel bettet ein Bild in die Seite ein und enthält alternativen
 
 ### Bildlink
 
-Dieses Beispiel baut auf dem vorherigen auf und zeigt, wie das Bild in einen Link verwandelt werden kann. Dazu verschachteln Sie das `<img>`-Tag innerhalb eines {{HTMLElement("a")}}-Tags. Der alternative Text sollte die Ressource beschreiben, auf die der Link verweist, als ob Sie stattdessen einen Textlink verwenden würden.
+Dieses Beispiel baut auf dem vorherigen auf und zeigt, wie das Bild in einen Link verwandelt werden kann. Dazu müssen Sie das `<img>`-Tag innerhalb eines {{HTMLElement("a")}} platzieren. Der Alternativtext sollte die Ressource beschreiben, auf die der Link verweist, als ob Sie einen Textlink anstelle des Bildes verwenden würden.
 
 ```html
 <a href="https://developer.mozilla.org">
@@ -348,7 +348,7 @@ Dieses Beispiel baut auf dem vorherigen auf und zeigt, wie das Bild in einen Lin
 
 ### Verwendung des srcset-Attributs
 
-In diesem Beispiel fügen wir ein `srcset`-Attribut mit einem Verweis auf eine hochauflösende Version des Logos hinzu; Diese wird auf Geräten mit hoher Auflösung anstelle des `src`-Bildes geladen. Das im `src`-Attribut angegebene Bild wird als `1x`-Kandidat in {{Glossary("User_agent", "Benutzeragenten")}} gezählt, die `srcset` unterstützen.
+In diesem Beispiel fügen wir ein `srcset`-Attribut mit einem Verweis auf eine hochauflösende Version des Logos ein; dieses wird auf hochauflösenden Geräten anstelle des `src`-Bildes geladen. Das in `src` referenzierte Bild wird in {{Glossary("User_agent", "User Agents")}}, die `srcset` unterstützen, als `1x`-Kandidat gezählt.
 
 ```html
 <img src="favicon72.png" alt="MDN" srcset="favicon144.png 2x" />
@@ -356,9 +356,9 @@ In diesem Beispiel fügen wir ein `srcset`-Attribut mit einem Verweis auf eine h
 
 {{EmbedLiveSample("Using_the_srcset_attribute", "100%", "160")}}
 
-### Verwendung der srcset- und sizes-Attribute
+### Verwendung der Attribute srcset und sizes
 
-Das `src`-Attribut wird in {{Glossary("User_agent", "Benutzeragenten")}}, die `srcset` unterstützen, ignoriert, wenn `w`-Beschreibungen enthalten sind. Wenn die Medienbedingung `(max-width: 600px)` zutrifft, wird das 200 Pixel breite Bild geladen (es ist das, das `200px` am nächsten kommt), andernfalls wird das andere Bild geladen.
+In {{Glossary("User_agent", "User Agents")}} die `srcset` unterstützen bleibt das `src`-Attribut unberücksichtigt, wenn `w`-Beschreiber enthalten sind. Wenn die Medienbedingung `(max-width: 600px)` zutrifft, wird das 200 Pixel breite Bild geladen (es ist das, das `200px` am nächsten entspricht), andernfalls wird das andere Bild geladen.
 
 ```html
 <img
@@ -371,11 +371,11 @@ Das `src`-Attribut wird in {{Glossary("User_agent", "Benutzeragenten")}}, die `s
 {{EmbedLiveSample("Using_the_srcset_and_sizes_attributes", "100%", 350)}}
 
 > [!NOTE]
-> Um die Größenänderung in Aktion zu sehen, {{LiveSampleLink('Using_the_srcset_and_sizes_attributes', 'sehen Sie sich das Beispiel auf einer separaten Seite an')}}, damit Sie tatsächlich den Inhaltsbereich ändern können.
+> Um die Größenänderung in Aktion zu sehen, {{LiveSampleLink('Using_the_srcset_and_sizes_attributes', 'sehen Sie das Beispiel auf einer separaten Seite')}}, sodass Sie den Inhaltsbereich tatsächlich anpassen können.
 
 ## Sicherheits- und Datenschutzbedenken
 
-Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwünschte Folgen für die Sicherheit und den Datenschutz des Benutzers haben. Weitere Informationen und Maßnahmen finden Sie unter [Referer-Header: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns).
+Obwohl `<img>`-Elemente harmlose Verwendungen haben, können sie unerwünschte Folgen für die Sicherheit und Privatsphäre der Benutzer haben. Weitere Informationen und Möglichkeiten zur Abmilderung finden Sie unter [Referer-Header: Datenschutz- und Sicherheitsbelange](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns).
 
 ## Technische Zusammenfassung
 
@@ -389,21 +389,21 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#embedded_content"
           >eingebetteter Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
           >fühlbarer Inhalt</a
-        >. Wenn das Element ein <code>usemap</code>-Attribut hat, gehört es auch zur Kategorie der interaktiven Inhalte.
+        >. Wenn das Element ein <code>usemap</code>-Attribut hat, gehört es auch zur Kategorie des interaktiven Inhalts.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
@@ -411,7 +411,7 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
       <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>Jedes Element, das eingebetteten Inhalt akzeptiert.</td>
     </tr>
     <tr>
@@ -419,7 +419,7 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
       <td>
         <ul>
           <li>
-            mit nicht leerem <code>alt</code>-Attribut oder keinem
+            mit nicht leerem <code>alt</code>-Attribut oder ohne
             <code>alt</code>-Attribut:
             <code
               ><a href="/de/docs/Web/Accessibility/ARIA/Roles/img_role"
@@ -437,7 +437,7 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <ul>
           <li>
@@ -491,7 +491,7 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
             oder <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>
           </li>
           <li>
-            mit keinem <code>alt</code>-Attribut, keine <code>role</code> erlaubt
+            ohne <code>alt</code>-Attribut, keine <code>role</code> zulässig
           </li>
         </ul>
       </td>
@@ -515,7 +515,7 @@ Obwohl `<img>`-Elemente unschuldige Verwendungszwecke haben, können sie unerwü
 
 - {{HTMLElement("picture")}}, {{HTMLElement("object")}}, und {{HTMLElement("embed")}} Elemente
 - {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, und {{cssxref("image-resolution")}}: Bildbezogene CSS-Eigenschaften.
-- [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Schnittstelle für dieses Element
+- [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle für dieses Element
 - [Bilder in HTML](/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML)
-- [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Formats/Image_types)
-- [Responsive Bilder](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+- [Bilddateitypen- und Formatleitfaden](/de/docs/Web/Media/Formats/Image_types)
+- [Responsive Images](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)

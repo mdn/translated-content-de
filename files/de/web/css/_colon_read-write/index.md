@@ -2,12 +2,12 @@
 title: ":read-write"
 slug: Web/CSS/:read-write
 l10n:
-  sourceCommit: d3cdafcdb4d22e5c55771501e7c80451a96aa032
+  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
 ---
 
 {{CSSRef}}
 
-Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie zum Beispiel `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
+Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-write.html", "tabbed-shorter")}}
 
@@ -21,11 +21,11 @@ Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Ps
 
 ## Beispiele
 
-### Bestätigung von Formularinformationen in schreibgeschützten/schreibbaren Steuerelementen
+### Bestätigung von Formularinformationen in Nur-Lese-/Lese-Schreib-Steuerelementen
 
-Eine Verwendung von `readonly`-Formularsteuerelementen besteht darin, dem Benutzer zu erlauben, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Lieferdetails), während er die Informationen zusammen mit dem Rest des Formulars dennoch absenden kann. Genau das tun wir im untenstehenden Beispiel.
+Eine Verwendung von `readonly` Formularsteuerelementen besteht darin, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er eventuell in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er in der Lage bleibt, die Informationen zusammen mit dem Rest des Formulars einzureichen. Wir tun genau dies im unten stehenden Beispiel.
 
-Die `:read-only` Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, und sie stattdessen wie schreibgeschützte Absätze erscheinen zu lassen. Die `:read-write` Pseudoklasse hingegen wird verwendet, um das bearbeitbare `<textarea>` ansprechend zu gestalten.
+Die `:read-only` Pseudoklasse wird verwendet, um alle Stile zu entfernen, die die Eingabefelder wie anklickbare Felder aussehen lassen, und sie stattdessen wie Nur-Lese-Absätze aussehen zu lassen. Die `:read-write` Pseudoklasse hingegen wird verwendet, um dem bearbeitbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
 
 ```css
 input:-moz-read-only,
@@ -44,13 +44,13 @@ textarea:read-write {
 }
 ```
 
-Der vollständige Quellcode befindet sich unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html); dies wird wie folgt dargestellt:
+Der vollständige Quellcode ist bei [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html) verfügbar; dieser wird wie folgt gerendert:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/readonly-confirmation.html", '100%', 660)}}
 
-### Styling schreibbarer Nicht-Formular-Steuerelemente
+### Styling von Lese-Schreib-Kontrollen, die keine Formularsteuerelemente sind
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie beispielsweise ein {{htmlelement("p")}}-Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie zum Beispiel ein {{htmlelement("p")}} Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -88,4 +88,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-only")}}
-- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)
+- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut

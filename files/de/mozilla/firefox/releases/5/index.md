@@ -2,7 +2,7 @@
 title: Firefox 5 für Entwickler
 slug: Mozilla/Firefox/Releases/5
 l10n:
-  sourceCommit: 4163a227e2c4b42139056a3474b146fe90876cbf
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{FirefoxSidebar}}
@@ -13,92 +13,92 @@ Firefox 5, basierend auf Gecko 5.0, wurde am 21. Juni 2011 veröffentlicht. Dies
 
 ### HTML
 
-- Alle HTML-Elemente verfügen nun über das [`accessKey`](/de/docs/Web/API/HTMLElement/accessKey)-Attribut sowie die Methoden [`blur()`](/de/docs/Web/API/HTMLElement/blur), [`click()`](/de/docs/Web/API/HTMLElement/click) und [`focus()`](/de/docs/Web/API/HTMLElement/focus). Diese sind in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle spezifiziert.
-- Um der HTML5-Spezifikation zu entsprechen, wurde die Unterstützung der Zeichensätze UTF-7 und UTF-32 [Character Sets](/de/docs/Character_Sets_Supported_by_Gecko) entfernt.
-- Im Quirks-Modus werden leere {{ HTMLElement("map") }}-Elemente nicht mehr zugunsten nicht leerer Elemente übersprungen, wenn eine Übereinstimmung stattfindet. Siehe die [Gecko-Hinweise](/de/docs/Web/HTML/Element/map#gecko_notes) zum {{ HTMLElement("map") }}-Element für Details.
-- Firefox Mobile auf Android unterstützt jetzt WOFF-Schriften für {{ cssxref("@font-face") }}.
-- WebGL [lädt keine Texturen mehr von anderen Domains als der ursprünglichen Domain](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#cross-domain_textures) als Sicherheitsmaßnahme. Unterstützung für [HTTP-Zugriffskontrolle](/de/docs/Web/HTTP_access_control) wird in Zukunft erwartet, um dies sicherer zu gestalten.
+- Alle HTML-Elemente haben jetzt das [`accessKey`](/de/docs/Web/API/HTMLElement/accessKey)-Attribut sowie die Methoden [`blur()`](/de/docs/Web/API/HTMLElement/blur), [`click()`](/de/docs/Web/API/HTMLElement/click) und [`focus()`](/de/docs/Web/API/HTMLElement/focus). Diese sind in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle spezifiziert.
+- Um der HTML5-Spezifikation zu entsprechen, wurde die Unterstützung für die Zeichensätze UTF-7 und UTF-32 entfernt.
+- Im Quirks-Modus werden leere {{ HTMLElement("map") }}s nicht mehr zugunsten von nicht-leeren übersprungen, wenn eine Übereinstimmung erfolgt. Siehe die [Gecko-Notizen](/de/docs/Web/HTML/Element/map#gecko_notes) zum {{ HTMLElement("map") }}-Element für Details.
+- Firefox Mobile auf Android unterstützt jetzt WOFF-Schriftarten für {{ cssxref("@font-face") }}.
+- WebGL [lädt keine Texturen mehr von anderen Domains als der Ursprungsdomäne](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#cross-domain_textures) als Sicherheitsmaßnahme. [HTTP-Zugriffskontrolle](/de/docs/Web/HTTP_access_control)-Unterstützung sollte in naher Zukunft kommen, um dies sicherer zu machen.
 
 #### Canvas-Verbesserungen
 
-- Der 2D-Zeichnungskontext von {{ HTMLElement("canvas") }} unterstützt jetzt die Angabe eines `ImageData`-Objekts als Eingabe für die Methode `createImageData()`; dies [erstellt ein neues `ImageData`-Objekt](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas#creating_an_imagedata_object) mit denselben Abmessungen wie das angegebene Objekt, jedoch sind alle Pixel weiterhin auf transparentes Schwarz voreingestellt. Dies war als bereits implementiert dokumentiert, es war jedoch nicht so.
-- Die Angabe von nicht-endlichen Werten beim Hinzufügen von Farbverläufen über einen Aufruf der `addColorStop()`-Methode des [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) führt nun korrekt zu einem `INDEX_SIZE_ERR` anstelle eines `SYNTAX_ERR`.
-- Die Methode `toDataURL()` von [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) verwendet nun korrekt kleingeschriebene MIME-Typen, bevor sie sie abgleicht.
-- `getImageData()` akzeptiert jetzt korrekt Rechtecke, die über die Grenzen der Leinwand hinausgehen; Pixel außerhalb der Leinwand werden als transparentes Schwarz zurückgegeben.
-- `drawImage()` und `createImageData()` behandeln jetzt negative Argumente gemäß der Spezifikation, indem das Rechteck um die entsprechende Achse gespiegelt wird. **Wir benötigen einen Artikel über [CSS-Sizing](https://drafts.csswg.org/css-images-3/) und wie dies funktioniert.**
-- Die Angabe von nicht-endlichen Werten bei einem Aufruf von `createImageData()` führt nun korrekt zu einer `NOT_SUPPORTED_ERR`-Ausnahme.
-- `createImageData()` und `getImageData()` liefern jetzt korrekt mindestens einen Pixel an Bilddaten, wenn ein Rechteck kleiner als ein Pixel angegeben wird.
-- Die Angabe eines negativen Radius bei einem Aufruf von `createRadialGradient()` führt nun korrekt zu einem `INDEX_SIZE_ERR`.
-- Die Angabe eines `null` oder `undefined` Bildes bei einem Aufruf von `createPattern()` oder `drawImage()` führt nun korrekt zu einer `TYPE_MISMATCH_ERR`-Ausnahme.
-- Ungültige Werte für `globalAlpha` lösen keine `SYNTAX_ERR`-Ausnahme mehr aus; diese werden nun korrekt stillschweigend ignoriert.
-- Ungültige Werte beim Aufruf von `translate()`, `transform()`, `rect()`, `clearRect()`, `fillRect()`, `strokeRect()`, `lineTo()`, `moveTo()`, `quadraticCurveTo()` oder `arc()` lösen keine Ausnahme mehr aus; diese Aufrufe werden nun korrekt stillschweigend ignoriert.
-- Die Einstellung eines ungültigen Werts für `shadowOffsetX`, `shadowOffsetY` oder `shadowBlur` wird nun stillschweigend ignoriert.
-- Die Einstellung eines ungültigen Werts für `rotate` oder `scale` wird nun stillschweigend ignoriert.
+- Der 2D-Zeichnungskontext des {{ HTMLElement("canvas") }} unterstützt jetzt das Angeben eines `ImageData`-Objekts als Eingabe für die `createImageData()`-Methode; dies [erstellt ein neues `ImageData`-Objekt](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas#creating_an_imagedata_object) mit denselben Dimensionen wie das angegebene Objekt, jedoch immer noch mit allen Pixeln auf transparentes Schwarz voreingestellt. Dies war dokumentiert, wurde aber nicht umgesetzt.
+- Das Angeben nicht-finiten Werten beim Hinzufügen von Farbunterbrechungen durch einen Aufruf der [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Methode `addColorStop()` wirft jetzt korrekt `INDEX_SIZE_ERR` statt `SYNTAX_ERR`.
+- Die [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Methode `toDataURL()` verwendet jetzt korrekt Kleinbuchstaben für den angegebenen MIME-Typ vor dem Abgleich.
+- `getImageData()` akzeptiert nun korrekt Rechtecke, die über die Grenzen des Canvas hinausgehen; Pixel außerhalb des Canvas werden als transparentes Schwarz zurückgegeben.
+- `drawImage()` und `createImageData()` behandeln jetzt negative Argumente gemäß der Spezifikation, indem das Rechteck um die geeignete Achse gespiegelt wird. **Wir benötigen einen Artikel über [CSS-Größenanpassung](https://drafts.csswg.org/css-images-3/) und wie dies funktioniert.**
+- Das Angeben nicht-finiten Werten beim Aufruf von `createImageData()` wirft jetzt richtig eine `NOT_SUPPORTED_ERR`-Ausnahme.
+- `createImageData()` und `getImageData()` geben nun korrekt mindestens ein Pixel Bilddaten zurück, wenn ein Rechteck kleiner als ein Pixel angegeben wird.
+- Das Angeben eines negativen Radius beim Aufruf von `createRadialGradient()` wirft jetzt korrekt `INDEX_SIZE_ERR`.
+- Das Angeben eines `null`- oder `undefined`-Bildes beim Aufruf von `createPattern()` oder `drawImage()` wirft jetzt korrekt eine `TYPE_MISMATCH_ERR`-Ausnahme.
+- Das Angeben ungültiger Werte für `globalAlpha` wirft keine `SYNTAX_ERR`-Ausnahme mehr; diese werden jetzt korrekt stillschweigend ignoriert.
+- Das Angeben ungültiger Werte beim Aufruf von `translate()`, `transform()`, `rect()`, `clearRect()`, `fillRect()`, `strokeRect()`, `lineTo()`, `moveTo()`, `quadraticCurveTo()` oder `arc()` wirft keine Ausnahme mehr; diese Aufrufe werden jetzt korrekt stillschweigend ignoriert.
+- Das Festlegen des Wertes von `shadowOffsetX`, `shadowOffsetY` oder `shadowBlur` auf einen ungültigen Wert wird jetzt stillschweigend ignoriert.
+- Das Festlegen des Wertes von `rotate` oder `scale` auf einen ungültigen Wert wird jetzt stillschweigend ignoriert.
 
 ### CSS
 
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-  - : Unterstützung für CSS-Animationen wurde hinzugefügt, vorerst mit dem Präfix `-moz-`.
+  - Unterstützung für CSS-Animationen wurde hinzugefügt, derzeit mit dem `-moz-`-Präfix.
 
 ### DOM
 
-- Die Methode [`modify()`](/de/docs/Web/API/Selection/modify) des [`selection`](/de/docs/Web/API/Selection)-Objekts wurde geändert, so dass die "word"-Granularität der Auswahl keine nachfolgenden Leerzeichen mehr einschließt; dies macht sie plattformübergreifend konsistenter und entspricht dem Verhalten von WebKit.
-- Die Methode [`setTimeout()`](/de/docs/Web/API/SetTimeout) wurde geändert, sodass nicht mehr als einmal pro Sekunde ein Timeout in inaktiven Tabs gesendet wird. Außerdem wird jetzt das kleinste vom HTML5-Spezifikation erlaubte Intervall verwendet: 4 ms (anstatt der früheren 10 ms).
-- Ebenso wird die Methode [`setInterval()`](/de/docs/Web/API/SetInterval) nun auf maximal ein Intervall pro Sekunde in inaktiven Tabs begrenzt.
-- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) unterstützt jetzt das [`loadend`](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#detecting_any_load_end_condition)-Ereignis für Fortschrittslistener. Dieses wird nach Abschluss eines Datenübertragungsversuchs (das heißt, nach dem `abort`-, `error`- oder `load`-Ereignis) gesendet. Sie können dies verwenden, um Aufgaben zu behandeln, die unabhängig vom Erfolg oder Misserfolg einer Übertragung ausgeführt werden müssen.
-- Die `slice()`-Methode der [`Blob`](/de/docs/Web/API/Blob)- und damit auch der [`File`](/de/docs/Web/API/File)-Objekte wurde entfernt und durch eine neue, vorgeschlagene Syntax ersetzt, die sie konsistenter mit den Methoden [`Array.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) und [`String.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/slice) in JavaScript macht. Diese Methode heißt vorerst `mozSlice()`.
-- Der Wert von [`Navigator.language`](/de/docs/Web/API/Navigator/language) wird jetzt durch den Wert des `Accept-Language` [HTTP-Headers](/de/docs/Web/HTTP/Headers) bestimmt.
-- Die Eigenschaft [`Element.prefix`](/de/docs/Web/API/Element/prefix) ist nun schreibgeschützt, wie es die DOM-Spezifikation verlangt.
-- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) unterstützt jetzt experimentelle Eigenschaften, um Informationen über Video-Wiedergabestatistiken wie Bildraten zu erhalten.
+- Die Methode [`modify()`](/de/docs/Web/API/Selection/modify) des [`Selection`](/de/docs/Web/API/Selection)-Objekts wurde so geändert, dass die Granularität der Wortauswahl keine nachfolgenden Leerzeichen mehr einschließt; dies macht sie plattformübergreifend konsistenter und entspricht dem Verhalten der WebKit-Implementierung.
+- Die Methoden [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout) sind jetzt begrenzt, um nicht mehr als ein Timeout pro Sekunde in inaktiven Tabs zu senden. Außerdem sind verschachtelte Timeouts jetzt auf den kleinsten Wert begrenzt, der von der HTML5-Spezifikation erlaubt ist: 4 ms (statt der früheren 10 ms).
+- Ähnlich sind die Methoden [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) und [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval) jetzt auf nicht mehr als ein Intervall pro Sekunde in inaktiven Tabs begrenzt.
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) unterstützt jetzt das [`loadend`-Ereignis](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#detecting_any_load_end_condition) für Fortschitts-Listener. Dieses wird nach jedem Übertragungsende gesendet (d. h. nach dem `abort`-, `error`- oder `load`-Ereignis). Sie können dies verwenden, um alle Aufgaben zu erledigen, die unabhängig vom Erfolg oder Misserfolg einer Übertragung durchgeführt werden müssen.
+- Die [`slice()`-Methode](/de/docs/Web/API/Blob) der [`Blob`]- und dadurch der [`File`]-Objekte wurde entfernt und durch eine neue, vorgeschlagene Syntax ersetzt, die sie konsistenter mit den Methoden [`Array.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) und [`String.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/slice) in JavaScript macht. Diese Methode wird momentan `mozSlice()` genannt.
+- Der Wert von [`Navigator.language`](/de/docs/Web/API/Navigator/language) wird jetzt bestimmt, indem der Wert des `Accept-Language`-HTTP-Headers betrachtet wird.
+- Die Eigenschaft [`Element.prefix`](/de/docs/Web/API/Element/prefix) ist jetzt schreibgeschützt, wie es von der DOM-Spezifikation gefordert wird.
+- Das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) unterstützt jetzt experimentelle Eigenschaften, um Informationen über Videomalanzeigen wie Bildraten zu erhalten.
 
 ### JavaScript
 
-- Reguläre Ausdrücke sind nicht mehr als Funktionen aufrufbar; diese Änderung wurde in Zusammenarbeit mit dem WebKit-Team durchgeführt, um die Kompatibilität zu gewährleisten (siehe [Webkit-Bug 28285](https://webkit.org/b/28285)). Diese Funktion existierte seit langem, wurde jedoch nie dokumentiert (zumindest nicht hier auf MDC).
-- Die Methode `Function.prototype.isGenerator()` wird jetzt unterstützt; damit können Sie feststellen, ob eine Funktion ein [Generator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#generator_functions) ist.
-- Die folgenden [reservierten Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) wurden bisher nur im strikten Modus als reserviert behandelt; nun werden sie immer als reserviert behandelt: `class`, `enum`, `export`, `extends`, `import` und `super`.
-- DOM-Dokumente, die in Chrome-Code erstellt wurden, dürfen nicht mehr für gesandboxte Skripte zugänglich gemacht werden.
-- Der JSON-Parser wurde neu geschrieben, um die Geschwindigkeit und Konformität zu verbessern. Dies beinhaltet eine Fehlerbehebung für [Firefox-Bug 572279](https://bugzil.la/572279).
+- Reguläre Ausdrücke sind nicht mehr aufrufbar, als ob sie Funktionen wären; diese Änderung wurde in Zusammenarbeit mit dem WebKit-Team vorgenommen, um die Kompatibilität zu gewährleisten (siehe [Webkit-Fehler 28285](https://webkit.org/b/28285)). Diese Funktion existierte schon lange, war jedoch nie dokumentiert worden (zumindest nicht hier auf MDC).
+- Die `Function.prototype.isGenerator()`-Methode wird jetzt unterstützt; damit können Sie feststellen, ob eine Funktion ein [Generator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#generator_functions) ist.
+- Die folgenden [reservierten Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) wurden zuvor nur im strikten Modus als reserviert betrachtet; jetzt werden sie immer als reserviert betrachtet: `class`, `enum`, `export`, `extends`, `import` und `super`.
+- DOM-Dokumente, die im Chrome-Code erstellt werden, dürfen nicht mehr an gesandboxte Skripte weitergegeben werden.
+- Der JSON-Parser wurde neu geschrieben für verbesserte Geschwindigkeit und Konformität. Dies schließt einen Fix für [Firefox-Fehler 572279](https://bugzil.la/572279) ein.
 
 ### SVG
 
-- Das {{ SVGAttr("class") }} SVG-Attribut kann jetzt animiert werden.
-- Die folgenden SVG-bezogenen DOM-Schnittstellen, die Listen von Objekten darstellen, sind jetzt indexierbar und können ähnlich wie Arrays zugegriffen werden; zusätzlich haben sie eine `length`-Eigenschaft, die die Anzahl der Elemente in der Liste angibt: [`SVGLengthList`](/de/docs/Web/API/SVGLengthList), [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), [`SVGPathSegList`](/de/docs/Web/API/SVGPathSegList) und [`SVGPointList`](/de/docs/Web/API/SVGPointList).
+- Das {{ SVGAttr("class") }}-SVG-Attribut kann jetzt animiert werden.
+- Die folgenden SVG-bezogenen DOM-Schnittstellen, die Listen von Objekten darstellen, sind jetzt indexierbar und können wie Arrays abgefragt werden; zudem haben sie eine `length`-Eigenschaft, die die Anzahl der Einträge in den Listen angibt: [`SVGLengthList`](/de/docs/Web/API/SVGLengthList), [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), [`SVGPathSegList`](/de/docs/Web/API/SVGPathSegList) und [`SVGPointList`](/de/docs/Web/API/SVGPointList).
 
 ### HTTP
 
-- Firefox sendet den `Keep-Alive` HTTP-Header nicht mehr; wir haben ihn nicht korrekt formatiert, und er war überflüssig, da wir ohnehin den {{ httpheader("Connection") }} oder {{ httpheader("Proxy-Connection") }}-Header mit dem Wert „keep-alive“ gesendet haben.
-- Das HTTP-Transaktionsmodell wurde aktualisiert, um intelligenter mit der Wiederverwendung von Verbindungen im Persistent-Connection-Pool umzugehen; anstatt den Pool als [FIFO](https://en.wikipedia.org/wiki/FIFO)-Warteschlange zu behandeln, versucht Necko, den Pool so zu sortieren, dass Verbindungen mit dem größten [Staufenster](https://en.wikipedia.org/wiki/Congestion_window) (CWND) zuerst bearbeitet werden. Dies kann die Round-Trip-Zeit (RTT) von HTTP-Transaktionen verkürzen, indem vermieden wird, dass in vielen Fällen die Fenster von Verbindungen erhöht werden müssen.
-- Firefox arbeitet nun effektiver mit dem HTTP-Antwortheader `Content-Disposition`, wenn sowohl die Parameter `filename` als auch `filename*` bereitgestellt werden; es durchsucht alle bereitgestellten Namen und verwendet den Parameter `filename*`, sofern vorhanden, selbst wenn ein `filename`-Parameter zuerst enthalten ist. Zuvor wurde der erste passende Parameter verwendet, wodurch die Verwendung eines geeigneteren Namens verhindert wurde. Siehe [Firefox-Bug 588781](https://bugzil.la/588781).
+- Firefox sendet den `Keep-Alive`-HTTP-Header nicht mehr; wir formatierten ihn nicht korrekt, und er war redundant, da wir ohnehin den {{ httpheader("Connection") }} oder {{ httpheader("Proxy-Connection") }}-Header mit dem Wert "keep-alive" versendeten.
+- Das HTTP-Transaktionsmodell wurde aktualisiert, um beim erneuten Verwenden von Verbindungen im persistenten Verbindungspool intelligenter zu agieren; anstatt den Pool als [FIFO](https://en.wikipedia.org/wiki/FIFO)-Warteschlange zu behandeln, versucht Necko, den Pool so zu sortieren, dass Verbindungen mit dem größten [congestion window](https://en.wikipedia.org/wiki/Congestion_window) (CWND) zuerst genutzt werden. Dies kann die Round-Trip-Time (RTT) von HTTP-Transaktionen reduzieren, indem in vielen Fällen das Wachsen der Verbindungsfenster vermieden wird.
+- Firefox behandelt jetzt den `Content-Disposition`-HTTP-Response-Header effektiver, wenn sowohl `filename` als auch `filename*`-Parameter vorhanden sind; es prüft alle bereitgestellten Namen und verwendet den `filename*`-Parameter, wenn einer verfügbar ist, sogar wenn ein `filename`-Parameter zuerst angegeben wird. Zuvor wurde der erste übereinstimmende Parameter verwendet, was verhinderte, dass ein angemessenerer Name genutzt wurde. Siehe [Firefox-Fehler 588781](https://bugzil.la/588781).
 
 ### MathML
 
-- Unterstützung für [verschönte Operatoren](https://www.w3.org/TR/MathML3/chapter3.html#id.3.2.5.7.3)
+- Unterstützung für [verzierte Operatoren](https://www.w3.org/TR/MathML3/chapter3.html#id.3.2.5.7.3)
 
 ### Entwicklerwerkzeuge
 
-- Das [`Console`-Objekt der Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#the-console-object) hat jetzt eine `debug()`-Methode, die ein Alias für seine `log()`-Methode ist; dies verbessert die Kompatibilität mit bestimmten bestehenden Websites.
+- Das [Webkonsolen-`Console`-Objekt](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#the-console-object) hat jetzt eine `debug()`-Methode, die ein Alias für seine `log()`-Methode ist; dies verbessert die Kompatibilität mit bestimmten existierenden Websites.
 
 ## Änderungen für Mozilla- und Add-on-Entwickler
 
-Für einen Leitfaden zur Aktualisierung Ihres Add-ons für Firefox 5 lesen Sie bitte [Add-ons für Firefox 5 aktualisieren](/de/docs/Mozilla/Firefox/Updating_add-ons).
+Für einen Leitfaden zur Aktualisierung Ihres Add-ons für Firefox 5, siehe [Aktualisieren von Add-ons für Firefox 5](/de/docs/Mozilla/Firefox/Updating_add-ons).
 
 > [!NOTE]
-> Firefox 5 erfordert, dass Binärkomponenten neu kompiliert werden, wie es bei allen Hauptversionen von Firefox der Fall ist. Siehe [Binärschnittstellen](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces) für Details.
+> Firefox 5 erfordert, dass Binärkomponenten neu kompiliert werden, wie es bei allen Hauptversionen von Firefox der Fall ist. Siehe [Binary Interfaces](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces) für Details.
 
 ### Änderungen an JavaScript-Code-Modulen
 
 #### Neue JavaScript-Code-Module
 
-- Das [`Dict.jsm`](/de/docs/JavaScript_code_modules/Dict.jsm)-Code-Modul wurde hinzugefügt; es bietet eine API für Wörterbücher mit Schlüssel/Wert-Paaren.
+- Das [`Dict.jsm`](/de/docs/JavaScript_code_modules/Dict.jsm)-Code-Modul wurde hinzugefügt; es bietet eine API für Wörterbücher von Schlüssel/Wert-Paaren.
 
 #### NetUtil.jsm
 
-- Die Methode `asyncFetch()` unterstützt nun die Angabe der Eingabequelle als `nsIInputStream`.
+- Die `asyncFetch()`-Methode unterstützt jetzt das Angeben der Eingangsquelle als `nsIInputStream`.
 
 ### Schnittstellenänderungen
 
 - Die `nsIHttpChannelInternal`-Schnittstelle hat neue Attribute, die Zugriff auf Informationen über die Adressen und Ports der Endpunkte der Kanäle bieten. Diese Informationen werden hauptsächlich für Debugging-Zwecke bereitgestellt.
-- Die Attribute [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height) des {{ HTMLElement("canvas") }}-Elements werden jetzt in IDL als vorzeichenlose Ganzzahlen anstelle von vorzeichenbehafteten reflektiert (siehe [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)).
+- Die Attribute [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height) des {{ HTMLElement("canvas") }}-Elements werden jetzt in IDL als unsignierte Ganzzahlen statt als signiert reflektiert (siehe [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)).
 - Die Schnittstellen `nsIAppStartup2` und `nsIAppStartup_MOZILLA_2_0` wurden in die `nsIAppStartup`-Schnittstelle zusammengeführt.
 - Die Schnittstelle `nsIDocShell_MOZILLA_2_0_BRANCH` wurde in die `nsIDocShell`-Schnittstelle zusammengeführt.
 - Die Schnittstelle `nsIFocusManager_MOZILLA_2_0_BRANCH` wurde in die `nsIFocusManager`-Schnittstelle zusammengeführt.
@@ -110,24 +110,24 @@ Für einen Leitfaden zur Aktualisierung Ihres Add-ons für Firefox 5 lesen Sie b
 
 #### Entfernte Schnittstellen
 
-Die folgenden Schnittstellen waren Implementierungsdetails, die nicht mehr benötigt werden:
+Die folgenden Schnittstellen wurden als Implementierungsdetails eingestuft und sind nicht mehr erforderlich:
 
-- `nsICiter` (siehe [Firefox-Bug 633066](https://bugzil.la/633066))
-- `nsIDOM3Document` (siehe [Firefox-Bug 639849](https://bugzil.la/639849))
+- `nsICiter` (siehe [Firefox-Fehler 633066](https://bugzil.la/633066))
+- `nsIDOM3Document` (siehe [Firefox-Fehler 639849](https://bugzil.la/639849))
 - `nsIFIXptrEvaluator`
-- `nsISelectElement` (siehe [Firefox-Bug 619996](https://bugzil.la/619996))
+- `nsISelectElement` (siehe [Firefox-Fehler 619996](https://bugzil.la/619996))
 
-### Debugging-Hilfen
+### Debug-Hilfen
 
-- Der neue Helfer [`DebugOnly<T>`](/en-US/Namespace/Mozilla/DebugOnly%3CT%3E) ermöglicht es, Variablen nur für `DEBUG`-Builds zu deklarieren.
+- Der neue [`DebugOnly<T>`](/en-US/Namespace/Mozilla/DebugOnly%3CT%3E)-Helfer ermöglicht es, Variablen nur für `DEBUG`-Builds zu deklarieren.
 
-### JavaScript API (SpiderMonkey)
+### JavaScript-API (SpiderMonkey)
 
-- [`JS_DoubleToInt32()`](/de/docs/SpiderMonkey/JSAPI_Reference/JS_DoubleToInt32) und [`JS_DoubleToUint32()`](/de/docs/SpiderMonkey/JSAPI_Reference/JS_DoubleToUint32) wurden hinzugefügt, um [`jsdouble`](/de/docs/SpiderMonkey/JSAPI_Reference/jsdouble)-Werte in C-Ganzzahlen und vorzeichenlose Ganzzahlen zu konvertieren.
+- [`JS_DoubleToInt32()`](/de/docs/SpiderMonkey/JSAPI_Reference/JS_DoubleToInt32) und [`JS_DoubleToUint32()`](/de/docs/SpiderMonkey/JSAPI_Reference/JS_DoubleToUint32) wurden hinzugefügt, um [`jsdouble`](/de/docs/SpiderMonkey/JSAPI_Reference/jsdouble)-Werte in C-Ganzzahlen und unsignierte Ganzzahlen umzuwandeln.
 
 ### Änderungen am Build-System
 
-- Sie können Firefox jetzt ohne eine `mozconfig`-Datei erstellen; die [`--enable-application` Einstellung](https://firefox-source-docs.mozilla.org/setup/configuring_build_options.html#choose_an_application) ist jetzt standardmäßig auf "browser" eingestellt. Nach dem Herunterladen oder Abrufen des Codes können Sie `configure && make` (oder `make -f client.mk`) verwenden, um Firefox zu bauen.
+- Sie können jetzt Firefox ohne eine `mozconfig`-Datei bauen; die [`--enable-application`-Einstellung](https://firefox-source-docs.mozilla.org/setup/configuring_build_options.html#choose_an_application) hat jetzt standardmäßig den Wert "browser". Nach dem Herunterladen oder Abrufen des Codes können Sie `configure && make` (oder `make -f client.mk`) ausführen, um Firefox zu bauen.
 
 ## Siehe auch
 

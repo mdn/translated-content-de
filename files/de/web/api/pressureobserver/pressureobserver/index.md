@@ -1,14 +1,14 @@
 ---
-title: "PressureObserver: PressureObserver()-Konstruktor"
+title: "PressureObserver: PressureObserver() Konstruktor"
 short-title: PressureObserver()
 slug: Web/API/PressureObserver/PressureObserver
 l10n:
-  sourceCommit: 5d670c42df8ede57e3d6341cb15d8251eb188dc4
+  sourceCommit: e1d2d6a3880d47638de6b5a54b58df92826ec58e
 ---
 
-{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Der **`PressureObserver()`**-Konstruktor erstellt ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Objekt, um Änderungen des Drucks von Systemressourcen wie der CPU zu überwachen.
+Der **`PressureObserver()`** Konstruktor erstellt ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Objekt, um Änderungen des Drucks von Systemressourcen wie der CPU zu überwachen.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ new PressureObserver(callback)
 ### Parameter
 
 - `callback`
-  - : Ein Rückruf, der aufgerufen wird, wenn Druckaufzeichnungen beobachtet werden. Wenn der Rückruf aufgerufen wird, stehen die folgenden Parameter zur Verfügung:
+  - : Ein Callback, das aufgerufen wird, wenn Druckänderungen beobachtet werden. Wenn das Callback aufgerufen wird, stehen die folgenden Parameter zur Verfügung:
     - `changes`
-      - : Ein Array, das alle [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekte enthält, die seit dem letzten Aufruf des Rückrufs oder seit dem letzten Aufruf der [`takeRecords()`](/de/docs/Web/API/PressureObserver/takeRecords)-Methode des Observers aufgezeichnet wurden.
+      - : Ein Array, das alle seit dem letzten Aufruf des Callbacks oder seit dem letzten Aufruf der [`takeRecords()`](/de/docs/Web/API/PressureObserver/takeRecords)-Methode des Beobachters aufgetretenen [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekte enthält.
     - `observer`
-      - : Das [`observer`](/de/docs/Web/API/PressureObserver)-Objekt, das die oben genannten Aufzeichnungen erhält.
+      - : Das [`observer`](/de/docs/Web/API/PressureObserver)-Objekt, das die obigen Aufzeichnungen empfängt.
 
 ### Rückgabewert
 
-Ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Objekt mit der angegebenen `callback`-Funktion, die aufgerufen wird, wenn [`PressureObserver.observe()`](/de/docs/Web/API/PressureObserver/observe) aufgerufen wurde, um Druckänderungen zu überwachen.
+Ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Objekt mit der angegebenen `callback`-Funktion, die aufgerufen wird, wenn [`PressureObserver.observe()`](/de/docs/Web/API/PressureObserver/observe) aufgerufen wurde, um Druckänderungen zu beobachten.
 
 ### Ausnahmen
 
@@ -38,7 +38,7 @@ Ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Objekt mit der
 
 ### Aktuellen Druck protokollieren
 
-Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und führt Aktionen aus, wann immer es zu einer Druckänderung kommt. Das Probenintervall ist auf 1000ms eingestellt, was bedeutet, dass es höchstens einmal pro Sekunde Aktualisierungen gibt.
+Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und reagiert, wann immer es eine Druckänderung gibt. Das Abtastintervall ist auf 1000ms eingestellt, was bedeutet, dass es maximal jede Sekunde Aktualisierungen gibt.
 
 ```js
 function callback(records) {

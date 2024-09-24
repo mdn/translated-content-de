@@ -2,72 +2,72 @@
 title: Web Workers API
 slug: Web/API/Web_Workers_API
 l10n:
-  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-**Web Workers** ermöglichen es, eine Skriptoperation in einem Hintergrund-Thread auszuführen, der von dem Haupt-Execution-Thread einer Webanwendung getrennt ist. Der Vorteil davon ist, dass aufwendige Verarbeitung in einem separaten Thread durchgeführt werden kann, sodass der Haupt- (normalerweise der UI-) Thread ohne Blockierung oder Verlangsamung weiterlaufen kann.
+**Web Workers** ermöglichen es, eine Skriptoperation in einem Hintergrundthread auszuführen, der vom Haupt-Execution-Thread einer Webanwendung getrennt ist. Der Vorteil hiervon ist, dass aufwendige Verarbeitung in einem separaten Thread durchgeführt werden kann, wodurch der Hauptthread (in der Regel die Benutzeroberfläche) ohne Blockierung oder Verlangsamung laufen kann.
 
 ## Web Workers Konzepte und Nutzung
 
-Ein Worker ist ein Objekt, das mithilfe eines Konstruktors erstellt wird (z.B. [`Worker()`](/de/docs/Web/API/Worker/Worker)), das eine benannte JavaScript-Datei ausführt – diese Datei enthält den Code, der im Worker-Thread ausgeführt wird.
+Ein Worker ist ein Objekt, das mithilfe eines Konstruktors erstellt wird (z.B. [`Worker()`](/de/docs/Web/API/Worker/Worker)), das eine benannte JavaScript-Datei ausführt – diese Datei enthält den Code, der im Worker-Thread laufen wird.
 
-Zusätzlich zum Standardumfang der [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, usw.) können Sie fast jeden Code in einem Worker-Thread ausführen. Es gibt einige Ausnahmen: Zum Beispiel können Sie das DOM nicht direkt aus einem Worker heraus manipulieren oder einige Standardmethoden und -eigenschaften des [`Window`](/de/docs/Web/API/Window)-Objekts verwenden. Informationen über den Code, den Sie _ausführen_ können, finden Sie im Abschnitt [worker globaler Kontext und Funktionen](#worker_globaler_kontexte_und_funktionen) und [unterstützte Web-APIs](#unterstützte_web-apis) unten.
+Neben dem Standard-Funktionssatz von [JavaScript](/de/docs/Web/JavaScript) (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, usw.) können Sie fast jeden beliebigen Code innerhalb eines Worker-Threads ausführen. Es gibt einige Ausnahmen: Zum Beispiel können Sie das DOM nicht direkt aus einem Worker heraus manipulieren oder einige Standardmethoden und -eigenschaften des [`Window`](/de/docs/Web/API/Window)-Objekts verwenden. Informationen über den Code, den Sie ausführen _können_, finden Sie unten unter [Worker globaler Kontext und Funktionen](#worker_globaler_kontext_und_funktionen) und [unterstützte Web-APIs](#unterstützte_web-apis).
 
-Zwischen Workern und dem Haupt-Thread werden Daten über ein Nachrichtensystem gesendet – beide Seiten senden ihre Nachrichten mithilfe der `postMessage()`-Methode und reagieren auf Nachrichten über den `onmessage`-Event-Handler (die Nachricht befindet sich in der `data`-Eigenschaft des [`message`](/de/docs/Web/API/Worker/message_event)-Events). Die Daten werden kopiert anstatt geteilt.
+Daten werden über ein Nachrichtensystem zwischen Workern und dem Hauptthread gesendet – beide Seiten senden ihre Nachrichten mit der `postMessage()`-Methode und reagieren auf Nachrichten über den `onmessage`-Ereignishandler (die Nachricht befindet sich innerhalb der `data`-Eigenschaft des [`message`](/de/docs/Web/API/Worker/message_event)-Ereignisses). Die Daten werden kopiert anstatt geteilt.
 
-Worker können wiederum neue Worker erstellen, solange diese Worker im selben {{Glossary("origin", "Ursprung")}} wie die übergeordnete Seite gehostet werden.
+Worker können ihrerseits neue Worker erzeugen, solange diese Worker innerhalb desselben {{Glossary("origin", "Ursprungs")}} wie die übergeordnete Seite gehostet werden.
 
-Darüber hinaus können Worker Netzwerk-Anfragen mit den APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) machen (obwohl das Attribut [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) von `XMLHttpRequest` immer `null` sein wird).
+Zusätzlich können Worker Netzwerk-Anfragen mit den APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) machen (obwohl zu beachten ist, dass das Attribut [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) von `XMLHttpRequest` immer `null` sein wird).
 
-### Workertypen
+### Worker Typen
 
-Es gibt eine Reihe von verschiedenen Arten von Workern:
+Es gibt eine Anzahl unterschiedlicher Typen von Workern:
 
-- [Dedizierte Worker](/de/docs/Web/API/Worker) sind Worker, die von einem einzigen Skript genutzt werden. Dieser Kontext wird durch ein [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt dargestellt.
-- [Geteilte Worker](/de/docs/Web/API/SharedWorker) sind Worker, die von mehreren Skripten, die in verschiedenen Fenstern, IFrames usw. laufen, genutzt werden können, solange sie sich in derselben Domäne wie der Worker befinden. Sie sind etwas komplexer als dedizierte Worker – Skripte müssen über einen aktiven Port kommunizieren.
-- [Service Worker](/de/docs/Web/API/Service_Worker_API) fungieren im Wesentlichen als Proxy-Server, die zwischen Webanwendungen, dem Browser und dem Netzwerk (wenn verfügbar) sitzen. Sie sind unter anderem dazu gedacht, die Erstellung effektiver Offline-Erfahrungen zu ermöglichen, Netzwerk-Anfragen abzufangen und je nach Verfügbarkeit des Netzwerks entsprechende Maßnahmen zu ergreifen und Ressourcen auf dem Server zu aktualisieren. Sie ermöglichen auch den Zugriff auf Push-Benachrichtigungen und Hintergrund-Synchronisierungs-APIs.
+- [Dedizierte Worker](/de/docs/Web/API/Worker) sind Worker, die von einem einzigen Skript genutzt werden. Dieser Kontext wird durch ein [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt repräsentiert.
+- [Shared Worker](/de/docs/Web/API/SharedWorker) sind Worker, die von mehreren Skripten genutzt werden können, die in verschiedenen Fenstern, IFrames usw. laufen, sofern sie sich in derselben Domain wie der Worker befinden. Sie sind etwas komplexer als dedizierte Worker — Skripte müssen über einen aktiven Port kommunizieren.
+- [Service Worker](/de/docs/Web/API/Service_Worker_API) fungieren im Wesentlichen als Proxyserver, die zwischen Webanwendungen, dem Browser und dem Netzwerk (sofern verfügbar) sitzen. Sie sollen unter anderem die Erstellung effektiver Offline-Erlebnisse ermöglichen, Netzwerk-Anfragen abfangen und je nach Netzwerkverfügbarkeit geeignete Maßnahmen ergreifen sowie auf dem Server befindliche Ressourcen aktualisieren. Sie ermöglichen auch den Zugriff auf Push-Benachrichtigungen und Hintergrundsynchronisierungs-APIs.
 
 > [!NOTE]
-> Gemäß der [Web workers Spezifikation](https://html.spec.whatwg.org/multipage/workers.html#runtime-script-errors-2) sollten Worker-Fehlerevents nicht aufsteigen (siehe [Firefox Fehler 1188141](https://bugzil.la/1188141)). Dies wurde in Firefox 42 implementiert.
+> Gemäß der [Web Workers Spezifikation](https://html.spec.whatwg.org/multipage/workers.html#runtime-script-errors-2) sollten Worker-Fehlerereignisse nicht aufsteigen (siehe [Firefox-Bug 1188141](https://bugzil.la/1188141)). Dies wurde in Firefox 42 implementiert.
 
-### Worker globaler Kontexte und Funktionen
+### Worker globaler Kontext und Funktionen
 
-Worker laufen in einem anderen globalen Kontext als das aktuelle [`window`](/de/docs/Web/API/Window)! Während [`Window`](/de/docs/Web/API/Window) nicht direkt für Worker verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und durch die eigenen von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) abgeleiteten Kontexte für Worker verfügbar gemacht:
+Worker laufen in einem anderen globalen Kontext als das aktuelle [`window`](/de/docs/Web/API/Window)! Während [`Window`](/de/docs/Web/API/Window) direkt für Worker nicht verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und durch ihre eigenen, von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) abgeleiteten Kontexte für Worker verfügbar gemacht:
 
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Worker
-- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für geteilte Worker
+- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für shared Worker
 - [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service Worker](/de/docs/Web/API/Service_Worker_API)
 
-Einige der Funktionen (eine Teilmenge), die allen Workern gemeinsam sind und dem Haupt-Thread (von `WindowOrWorkerGlobalScope`) zur Verfügung stehen, sind:
+Einige der Funktionen (ein Teilmenge), die allen Workern und dem Hauptthread gemeinsam sind (aus `WindowOrWorkerGlobalScope`) sind:
 
-- [`atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
-- [`btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
-- [`clearInterval()`](/de/docs/Web/API/ClearInterval)
-- [`clearTimeout()`](/de/docs/Web/API/ClearTimeout)
-- [`createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap)
-- [`dump()`](/de/docs/Web/API/WorkerGlobalScope/dump) {{non-standard_inline}}
-- [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
-- [`queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
-- [`reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
-- [`setInterval()`](/de/docs/Web/API/SetInterval)
-- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
-- [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
-- [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Worker)
-- [`cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Worker)
+- [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
+- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
+- [`WorkerGlobalScope.clearInterval()`](/de/docs/Web/API/WorkerGlobalScope/clearInterval)
+- [`WorkerGlobalScope.clearTimeout()`](/de/docs/Web/API/WorkerGlobalScope/clearTimeout)
+- [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap)
+- [`WorkerGlobalScope.dump()`](/de/docs/Web/API/WorkerGlobalScope/dump) {{non-standard_inline}}
+- [`WorkerGlobalScope.fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
+- [`WorkerGlobalScope.queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
+- [`WorkerGlobalScope.reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
+- [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)
+- [`WorkerGlobalScope.setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)
+- [`WorkerGlobalScope.structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
+- [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur für dedizierte Worker)
+- [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur für dedizierte Worker)
 
 Die folgenden Funktionen sind **nur** für Worker verfügbar:
 
-- [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts),
-- [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Worker).
+- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Worker)
+- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur für dedizierte Worker)
 
 ### Unterstützte Web-APIs
 
 > [!NOTE]
-> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein angenommen werden, dass sie in Web Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch auf der Seite testen: <https://worker-playground.glitch.me/>
+> Wenn eine aufgelistete API von einer Plattform in einer bestimmten Version unterstützt wird, kann in der Regel davon ausgegangen werden, dass sie in Web Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch auf der Seite testen: <https://worker-playground.glitch.me/>
 
-Die folgenden Web-APIs sind für Worker verfügbar:
+Die folgenden Web-APIs stehen Workern zur Verfügung:
 
 - [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
@@ -86,7 +86,7 @@ Die folgenden Web-APIs sind für Worker verfügbar:
 - [Idle Detection API](/de/docs/Web/API/Idle_Detection_API)
 - [IndexedDB API](/de/docs/Web/API/IndexedDB_API)
 - [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
-- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur dedizierte Worker)
+- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur für dedizierte Worker)
 - [Network Information API](/de/docs/Web/API/Network_Information_API)
 - [Notifications API](/de/docs/Web/API/Notifications_API)
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
@@ -111,7 +111,7 @@ Die folgenden Web-APIs sind für Worker verfügbar:
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Worker können auch andere Worker erstellen, daher sind diese APIs ebenfalls verfügbar:
+Worker können auch andere Worker erzeugen, daher stehen diese APIs ebenfalls zur Verfügung:
 
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
@@ -121,26 +121,26 @@ Worker können auch andere Worker erstellen, daher sind diese APIs ebenfalls ver
 ## Web Worker Schnittstellen
 
 - [`Worker`](/de/docs/Web/API/Worker)
-  - : Repräsentiert einen laufenden Worker-Thread, der es Ihnen ermöglicht, Nachrichten an den laufenden Worker-Code zu senden.
+  - : Repräsentiert einen laufenden Worker-Thread und ermöglicht es Ihnen, Nachrichten an den laufenden Worker-Code zu senden.
 - [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)
-  - : Definiert die absolute Position des Scriptes, das vom [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird.
+  - : Definiert den absoluten Ort des von dem [`Worker`](/de/docs/Web/API/Worker) ausgeführten Skripts.
 - [`SharedWorker`](/de/docs/Web/API/SharedWorker)
-  - : Repräsentiert eine spezifische Art von Worker, der von mehreren {{Glossary("browsing_context", "Browsing-Kontexten")}} (d.h. Fenster, Tabs oder IFrames) oder sogar anderen Workern zugegriffen werden kann.
+  - : Repräsentiert eine spezielle Art von Worker, die von mehreren {{Glossary("browsing_context", "Browsing-Kontexten")}} (d.h. Fenstern, Tabs oder IFrames) oder sogar anderen Workern aus zugänglich ist.
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
-  - : Repräsentiert den generischen Geltungsbereich eines beliebigen Workers (erfüllt die gleiche Aufgabe wie [`Window`](/de/docs/Web/API/Window) für normalen Webinhalt). Verschiedene Arten von Workern haben Bereichsobjekte, die von dieser Schnittstelle erben und spezifischere Funktionen hinzufügen.
+  - : Repräsentiert den generischen Geltungsbereich eines Workers (gleiche Aufgabe wie [`Window`](/de/docs/Web/API/Window) für normale Webinhalte). Verschiedene Arten von Workern haben Geltungsbereichsobjekte, die von dieser Schnittstelle erben und spezifischere Funktionen hinzufügen.
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
-  - : Repräsentiert den Geltungsbereich eines dedizierten Workers, erbt von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) und fügt einige dedizierte Funktionen hinzu.
+  - : Repräsentiert den Geltungsbereich eines dedizierten Workers, der von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) erbt und einige dedizierte Funktionen hinzufügt.
 - [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)
-  - : Repräsentiert den Geltungsbereich eines geteilten Workers, erbt von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) und fügt einige dedizierte Funktionen hinzu.
+  - : Repräsentiert den Geltungsbereich eines Shared Workers, der von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) erbt und einige dedizierte Funktionen hinzufügt.
 - [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)
-  - : Repräsentiert die Identität und den Status des Benutzer-Agents (des Clients).
+  - : Repräsentiert die Identität und den Zustand des User-Agents (des Clients).
 
 ## Beispiele
 
-Wir haben ein paar Demos erstellt, um die Nutzung von Web Workern zu zeigen:
+Wir haben einige Demos erstellt, um die Nutzung von Web Workern zu demonstrieren:
 
-- [Einfaches Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
-- [Einfaches Beispiel für einen geteilten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([geteilten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)).
+- [Grundlegendes Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+- [Grundlegendes Beispiel für einen Shared Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([Shared Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)).
 - [OffscreenCanvas Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/offscreen-canvas-worker) ([OffscreenCanvas Worker ausführen](https://mdn.github.io/dom-examples/web-workers/offscreen-canvas-worker/)).
 
 Weitere Informationen darüber, wie diese Demos funktionieren, finden Sie in [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers).

@@ -2,12 +2,12 @@
 title: Grundlegende Nutzung von canvas
 slug: Web/API/Canvas_API/Tutorial/Basic_usage
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial", "Web/API/Canvas_API/Tutorial/Drawing_shapes")}}
 
-Beginnen wir dieses Tutorial, indem wir uns das {{HTMLElement("canvas")}} {{Glossary("HTML", "HTML")}}-Element selbst ansehen. Am Ende dieser Seite werden Sie wissen, wie man einen Canvas-2D-Kontext einrichtet und ein erstes Beispiel in Ihrem Browser zeichnet.
+Lassen Sie uns dieses Tutorial beginnen, indem wir uns das {{HTMLElement("canvas")}}-Element selbst ansehen. Am Ende dieser Seite werden Sie wissen, wie Sie einen 2D-Kontext für das Canvas einrichten und ein erstes Beispiel in Ihrem Browser gezeichnet haben.
 
 ## Das `<canvas>`-Element
 
@@ -15,22 +15,22 @@ Beginnen wir dieses Tutorial, indem wir uns das {{HTMLElement("canvas")}} {{Glos
 <canvas id="tutorial" width="150" height="150"></canvas>
 ```
 
-Auf den ersten Blick sieht ein {{HTMLElement("canvas")}}-Element ähnlich wie das {{HTMLElement("img")}}-Element aus, mit dem einzigen offensichtlichen Unterschied, dass es keine `src`- und `alt`-Attribute hat. In der Tat hat das `<canvas>`-Element nur zwei Attribute, [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height). Beide sind optional und können auch über {{Glossary("DOM", "DOM")}}-[Eigenschaften](/de/docs/Web/API/HTMLCanvasElement) gesetzt werden. Wenn keine `width`- und `height`-Attribute angegeben sind, wird das Canvas anfangs **300 Pixel** breit und **150 Pixel** hoch sein. Das Element kann durch {{Glossary("CSS", "CSS")}} beliebig dimensioniert werden, aber während der Darstellung wird das Bild an seine Layoutgröße skaliert: Wenn die CSS-Größen die Proportionen des ursprünglichen Canvas nicht respektieren, erscheint es verzerrt.
+Auf den ersten Blick sieht ein {{HTMLElement("canvas")}}-Element dem {{HTMLElement("img")}}-Element ähnlich, mit dem einzigen klaren Unterschied, dass es keine `src` und `alt` Attribute hat. Tatsächlich hat das `<canvas>`-Element nur zwei Attribute, [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height). Diese sind beide optional und können auch mit {{Glossary("DOM", "DOM")}}-[Eigenschaften](/de/docs/Web/API/HTMLCanvasElement) gesetzt werden. Wenn keine `width` und `height` Attribute angegeben sind, ist das Canvas anfangs **300 Pixel** breit und **150 Pixel** hoch. Das Element kann beliebig mit {{Glossary("CSS", "CSS")}} skaliert werden, aber während der Darstellung wird das Bild so skaliert, dass es seine Layoutgröße erfüllt: Wenn die CSS-Größe das Verhältnis des initialen Canvas nicht respektiert, wird es verzerrt erscheinen.
 
 > [!NOTE]
-> Wenn Ihre Darstellungen verzerrt erscheinen, versuchen Sie, Ihre `width`- und `height`-Attribute explizit in den `<canvas>`-Attributen anzugeben und nicht CSS zu verwenden.
+> Wenn Ihre Darstellungen verzerrt erscheinen, versuchen Sie, Ihre `width` und `height` Attribute explizit in den `<canvas>` Attributen anzugeben und nicht CSS zu verwenden.
 
-Das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut ist nicht spezifisch für das `<canvas>`-Element, sondern eine der [globalen HTML-Attribute](/de/docs/Web/HTML/Global_attributes), die auf jedes HTML-Element, wie z.B. [`class`](/de/docs/Web/HTML/Global_attributes/class), angewendet werden können. Es ist immer eine gute Idee, eine `id` anzugeben, da dies die Identifizierung in einem Skript erheblich erleichtert.
+Das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut ist nicht spezifisch für das `<canvas>`-Element, sondern eines der [globalen HTML-Attribute](/de/docs/Web/HTML/Global_attributes), die auf jedes HTML-Element angewendet werden können (wie beispielsweise [`class`](/de/docs/Web/HTML/Global_attributes/class)). Es ist immer eine gute Idee, eine `id` bereitzustellen, da dies die Identifizierung in einem Skript erheblich erleichtert.
 
-Das `<canvas>`-Element kann wie ein normales Bild gestylt werden ({{cssxref("margin")}}, {{cssxref("border")}}, {{cssxref("background")}}…). Diese Regeln beeinflussen jedoch nicht das eigentliche Zeichnen auf dem Canvas. Wie dies gemacht wird, wird in einem [eigenen Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) dieses Tutorials erläutert. Wenn keine Stylingregeln auf das Canvas angewendet werden, ist es anfangs vollständig transparent.
+Das `<canvas>`-Element kann wie jedes normale Bild gestylt werden ({{cssxref("margin")}}, {{cssxref("border")}}, {{cssxref("background")}}…). Diese Regeln beeinflussen jedoch nicht das eigentliche Zeichnen auf dem Canvas. Wie dies gemacht wird, erfahren wir in einem [dedizierten Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) dieses Tutorials. Wenn keine Styling-Regeln auf das Canvas angewendet werden, ist es anfangs vollständig transparent.
 
-### Barrierefreier Inhalt
+### Zugänglicher Inhalt
 
-Das `<canvas>`-Element muss, wie die Elemente {{HTMLElement("img")}}, {{HTMLElement("video")}}, {{HTMLElement("audio")}} und {{HTMLElement("picture")}}, barrierefrei gestaltet werden, indem Ersatztext bereitgestellt wird, der angezeigt wird, wenn die Medien nicht geladen werden oder der Benutzer sie nicht wie vorgesehen erleben kann. Sie sollten immer Ersatzinhalt, Untertitel und alternativen Text bereitstellen, je nach Medientyp.
+Das `<canvas>`-Element muss, ähnlich wie die {{HTMLElement("img")}}, {{HTMLElement("video")}}, {{HTMLElement("audio")}} und {{HTMLElement("picture")}}-Elemente, durch Bereitstellung eines Fallback-Texts zugänglich gemacht werden, der angezeigt wird, wenn das Medium nicht geladen wird oder der Benutzer es nicht wie vorgesehen erleben kann. Sie sollten immer Fallback-Inhalte, Untertitel und alternativen Text bereitstellen, die für den Medientyp geeignet sind.
 
-Das Bereitstellen von Ersatzinhalt ist sehr einfach: Fügen Sie einfach den alternativen Inhalt innerhalb des `<canvas>`-Elements ein, damit er von Screenreadern, Spidern und anderen automatisierten Bots aufgerufen werden kann. Browser ignorieren standardmäßig den Inhalt innerhalb des Containers und rendern das Canvas normal, es sei denn, `<canvas>` wird nicht unterstützt.
+Die Bereitstellung eines Fallback-Inhalts ist sehr einfach: Fügen Sie einfach den alternativen Inhalt innerhalb des `<canvas>`-Elements ein, damit er von Bildschirmlesegeräten, Suchmaschinen und anderen automatisierten Bots aufgerufen werden kann. Browser ignorieren standardmäßig den Inhalt innerhalb des Containers und stellen das Canvas normal dar, es sei denn, `<canvas>` wird nicht unterstützt.
 
-Zum Beispiel könnten wir eine Textbeschreibung des Canvas-Inhalts bereitstellen oder ein statisches Bild des dynamisch gerenderten Inhalts angeben. Dies könnte folgendermaßen aussehen:
+Zum Beispiel könnten wir eine Textbeschreibung des Canvas-Inhalts bereitstellen oder ein statisches Bild des dynamisch gerenderten Inhalts. Dies könnte so aussehen:
 
 ```html
 <canvas id="stockGraph" width="150" height="150">
@@ -42,30 +42,30 @@ Zum Beispiel könnten wir eine Textbeschreibung des Canvas-Inhalts bereitstellen
 </canvas>
 ```
 
-Dem Benutzer zu sagen, einen anderen Browser zu verwenden, der Canvas unterstützt, hilft Benutzern nicht, die das Canvas überhaupt nicht lesen können. Nützlicher Ersatztext oder Unter-DOM-Inhalte hinzufügen, erhöht die Barrierefreiheit eines ansonsten nicht barrierefreien Elements.
+Dem Benutzer zu sagen, er solle einen anderen Browser verwenden, der das Canvas unterstützt, hilft Benutzern nicht, die das Canvas überhaupt nicht lesen können. Nützliche Fallback-Texte oder zusätzliche DOMs verbessern die Zugänglichkeit eines ansonsten nicht zugänglichen Elements.
 
 ### Erforderliches `</canvas>`-Tag
 
-Aufgrund der Art und Weise, wie der Fallback bereitgestellt wird, benötigt das {{HTMLElement("canvas")}}-Element im Gegensatz zum {{HTMLElement("img")}}-Element **zwingend** das schließende Tag (`</canvas>`). Wenn dieses Tag nicht vorhanden ist, würde der Rest des Dokuments als Fallback-Inhalt betrachtet und nicht angezeigt werden.
+Aufgrund der Art und Weise, wie Fallbacks bereitgestellt werden, erfordert das {{HTMLElement("canvas")}}-Element **im Gegensatz** zum {{HTMLElement("img")}}-Element das abschließende Tag (`</canvas>`). Wenn dieses Tag nicht vorhanden ist, würde der Rest des Dokuments als Fallback-Inhalt betrachtet und nicht angezeigt werden.
 
-Wenn kein Fallback-Inhalt benötigt wird, ist ein einfaches `<canvas id="foo" role="presentation" …></canvas>` vollständig kompatibel mit allen Browsern, die Canvas überhaupt unterstützen. Dies sollte jedoch nur verwendet werden, wenn das Canvas rein dekorativer Natur ist.
+Wenn kein Fallback-Inhalt benötigt wird, ist ein einfaches `<canvas id="foo" role="presentation" …></canvas>` vollständig kompatibel mit allen Browsern, die das Canvas überhaupt unterstützen. Dies sollte nur verwendet werden, wenn das Canvas rein präsentativ ist.
 
 ## Der Rendering-Kontext
 
-Das {{HTMLElement("canvas")}}-Element erstellt eine Zeichenfläche fester Größe, die einen oder mehrere **Rendering-Kontexte** bereitstellt, die verwendet werden, um den angezeigten Inhalt zu erzeugen und zu manipulieren. In diesem Tutorial konzentrieren wir uns auf den 2D-Rendering-Kontext. Andere Kontexte können verschiedene Arten des Renderings bieten; zum Beispiel verwendet [WebGL](/de/docs/Web/API/WebGL_API) einen 3D-Kontext, der auf [OpenGL ES](https://www.khronos.org/opengles/) basiert.
+Das {{HTMLElement("canvas")}}-Element erzeugt eine Zeichenfläche fester Größe, die einen oder mehrere **Rendering-Kontexte** bereitstellt, die verwendet werden, um den angezeigten Inhalt zu erstellen und zu bearbeiten. In diesem Tutorial konzentrieren wir uns auf den 2D-Rendering-Kontext. Andere Kontexte können unterschiedliche Arten des Renderings bereitstellen; zum Beispiel verwendet [WebGL](/de/docs/Web/API/WebGL_API) einen 3D-Kontext basierend auf [OpenGL ES](https://www.khronos.org/opengles/).
 
-Das Canvas ist anfangs leer. Um etwas anzuzeigen, muss ein Skript zuerst auf den Rendering-Kontext zugreifen und darauf zeichnen. Das {{HTMLElement("canvas")}}-Element hat eine Methode namens [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), die verwendet wird, um den Rendering-Kontext und seine Zeichnungsfunktionen zu erhalten. `getContext()` nimmt einen Parameter, den Typ des Kontexts. Für 2D-Grafiken, wie in diesem Tutorial behandelt, gibt man `"2d"` an, um einen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) zu erhalten.
+Das Canvas ist anfangs leer. Um etwas anzuzeigen, muss ein Skript zunächst auf den Rendering-Kontext zugreifen und darauf zeichnen. Das {{HTMLElement("canvas")}}-Element hat eine Methode namens [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), die verwendet wird, um den Rendering-Kontext und seine Zeichenfunktionen abzurufen. `getContext()` nimmt einen Parameter, den Typ des Kontexts. Für 2D-Grafiken, wie sie in diesem Tutorial behandelt werden, geben Sie `"2d"` an, um einen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) zu erhalten.
 
 ```js
 const canvas = document.getElementById("tutorial");
 const ctx = canvas.getContext("2d");
 ```
 
-Die erste Zeile im Skript ruft das Knoten im DOM ab, das das {{HTMLElement("canvas")}}-Element darstellt, indem es die Methode [`document.getElementById()`](/de/docs/Web/API/Document/getElementById) aufruft. Sobald Sie den Elementknoten haben, können Sie mit der `getContext()`-Methode auf den Zeichenkontext zugreifen.
+Die erste Zeile im Skript ruft den Knoten im DOM ab, der das {{HTMLElement("canvas")}}-Element darstellt, indem die Methode [`document.getElementById()`](/de/docs/Web/API/Document/getElementById) aufgerufen wird. Sobald Sie den Elementknoten haben, können Sie über seine `getContext()`-Methode auf den Zeichenkontext zugreifen.
 
-## Überprüfung auf Unterstützung
+## Überprüfung der Unterstützung
 
-Der Fallback-Inhalt wird in Browsern angezeigt, die das {{HTMLElement("canvas")}} nicht unterstützen. Skripte können auch programmatisch durch Testen auf das Vorhandensein der `getContext()`-Methode auf Unterstützung prüfen. Unser Code-Schnipsel von oben sieht dann etwa so aus:
+Der Fallback-Inhalt wird in Browsern angezeigt, die {{HTMLElement("canvas")}} nicht unterstützen. Skripte können die Unterstützung auch programmgesteuert überprüfen, indem sie das Vorhandensein der `getContext()`-Methode testen. Unser obiger Code-Schnipsel wird so etwas wie:
 
 ```js
 const canvas = document.getElementById("tutorial");
@@ -78,12 +78,12 @@ if (canvas.getContext) {
 }
 ```
 
-## Eine Skelett-Vorlage
+## Eine Grundstruktur
 
 Hier ist eine minimalistische Vorlage, die wir als Ausgangspunkt für spätere Beispiele verwenden werden.
 
 > [!NOTE]
-> Es ist keine gute Praxis, ein Skript in HTML einzubetten. Wir tun es hier, um das Beispiel übersichtlich zu halten.
+> Es ist keine gute Praxis, ein Skript in HTML einzubetten. Wir tun dies hier, um das Beispiel kurz zu halten.
 
 ```html
 <!doctype html>
@@ -112,15 +112,15 @@ Hier ist eine minimalistische Vorlage, die wir als Ausgangspunkt für spätere B
 </html>
 ```
 
-Das Skript enthält eine Funktion namens `draw()`, die ausgeführt wird, sobald die Seite geladen ist; dies wird erreicht, indem das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis im Dokument überwacht wird. Diese Funktion oder eine ähnliche kann auch mit [`setTimeout()`](/de/docs/Web/API/SetTimeout), [`setInterval()`](/de/docs/Web/API/SetInterval) oder einem anderen Ereignishandler aufgerufen werden, solange die Seite zuerst geladen wurde.
+Das Skript enthält eine Funktion namens `draw()`, die ausgeführt wird, sobald die Seite fertig geladen ist; dies wird durch das Lauschen auf das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis am Dokument erreicht. Diese Funktion oder eine ähnliche könnte auch mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), [`setInterval()`](/de/docs/Web/API/Window/setInterval) oder einem anderen Ereignishandler aufgerufen werden, solange die Seite zuvor geladen wurde.
 
-Hier ist, wie eine Vorlage in Aktion aussehen würde. Wie hier gezeigt, ist sie anfangs leer.
+So würde eine Vorlage in Aktion aussehen. Wie hier gezeigt, ist sie anfangs leer.
 
 {{EmbedLiveSample("A_skeleton_template", "", "160")}}
 
 ## Ein einfaches Beispiel
 
-Um zu beginnen, schauen wir uns ein einfaches Beispiel an, das zwei sich überschneidende Rechtecke zeichnet, von denen eines eine Alphatransparenz hat. Wir werden in späteren Beispielen genauer betrachten, wie dies funktioniert.
+Um zu beginnen, schauen wir uns ein einfaches Beispiel an, das zwei sich überschneidende Rechtecke zeichnet, von denen eines eine Alpha-Transparenz aufweist. Wir werden später im Detail erkunden, wie das funktioniert.
 
 ```html
 <!doctype html>
@@ -150,7 +150,7 @@ Um zu beginnen, schauen wir uns ein einfaches Beispiel an, das zwei sich übersc
 </html>
 ```
 
-Dieses Beispiel sieht folgendermaßen aus:
+Dieses Beispiel sieht so aus:
 
 {{EmbedLiveSample("A_simple_example", "", "160")}}
 

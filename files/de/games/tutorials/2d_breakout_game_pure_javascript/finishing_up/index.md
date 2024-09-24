@@ -2,26 +2,26 @@
 title: Abschluss
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up
 l10n:
-  sourceCommit: 942bbbe848b4b742a689de970f697d4c5b355bde
+  sourceCommit: b795bc99fc5c5d8a96c1b202a12750404085c28a
 ---
 
 {{GamesSidebar}}
 
 {{Previous("Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
 
-Dies ist der **10. und letzte Schritt** des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson10.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson10.html) finden.
+Dies ist der **10. und letzte Schritt** des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson10.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson10.html).
 
-Es gibt immer Verbesserungsmöglichkeiten für jedes Spiel, das wir schreiben. Zum Beispiel können wir dem Spieler mehr als ein Leben anbieten. Er könnte ein oder zwei Fehler machen und dennoch in der Lage sein, das Spiel zu beenden. Wir könnten auch unser Code-Rendering verbessern.
+Es gibt immer Raum für Verbesserungen in jedem Spiel, das wir erstellen. Zum Beispiel können wir dem Spieler mehr als ein Leben anbieten. Er könnte ein oder zwei Fehler machen und dennoch in der Lage sein, das Spiel zu beenden. Wir könnten auch unser Code-Rendering verbessern.
 
-## Dem Spieler einige Leben geben
+## Dem Spieler ein paar Leben geben
 
-Die Implementierung von Leben ist recht einfach. Fügen wir zuerst eine Variable hinzu, um die Anzahl der Leben zu speichern, an derselben Stelle, an der wir unsere anderen Variablen deklariert haben:
+Das Implementieren von Leben ist ziemlich einfach. Lassen Sie uns zunächst eine Variable hinzufügen, um die Anzahl der Leben zu speichern, an derselben Stelle, an der wir unsere anderen Variablen deklariert haben:
 
 ```js
 let lives = 3;
 ```
 
-Das Zeichnen des Lebenszählers sieht fast genauso aus wie das Zeichnen des Punktestandes — fügen Sie die folgende Funktion in Ihren Code ein, unterhalb der `drawScore()` Funktion:
+Das Zeichnen des Lebenszählers sieht fast genauso aus wie das Zeichnen des Punktezählers — fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der `drawScore()` Funktion:
 
 ```js
 function drawLives() {
@@ -31,7 +31,7 @@ function drawLives() {
 }
 ```
 
-Anstatt das Spiel sofort zu beenden, werden wir die Anzahl der Leben verringern, bis sie nicht mehr verfügbar sind. Wir können auch den Ball und die Paddle-Positionen zurücksetzen, wenn der Spieler mit seinem nächsten Leben beginnt. Ersetzen Sie also in der `draw()` Funktion die folgenden drei Zeilen:
+Anstatt das Spiel sofort zu beenden, reduzieren wir die Anzahl der Leben, bis sie nicht mehr verfügbar sind. Wir können auch die Ball- und Schlägerposition zurücksetzen, wenn der Spieler mit seinem nächsten Leben beginnt. Ersetzen Sie in der `draw()` Funktion die folgenden drei Zeilen:
 
 ```js
 alert("GAME OVER");
@@ -39,7 +39,7 @@ document.location.reload();
 clearInterval(interval); // Needed for Chrome to end game
 ```
 
-Dadurch können wir eine etwas komplexere Logik hinzufügen, wie unten angegeben:
+Mit dieser Änderung können wir der folgenden, etwas komplexeren Logik hinzufügen:
 
 ```js
 lives--;
@@ -56,11 +56,11 @@ if (!lives) {
 }
 ```
 
-Jetzt, wenn der Ball den unteren Rand des Bildschirms trifft, ziehen wir ein Leben von der `lives` Variablen ab. Wenn keine Leben mehr übrig sind, ist das Spiel verloren; wenn noch einige Leben übrig sind, werden die Positionen von Ball und Paddle zurückgesetzt, ebenso wie die Bewegung des Balls.
+Jetzt ziehen wir, wenn der Ball den unteren Rand des Bildschirms berührt, ein Leben von der `lives` Variablen ab. Wenn keine Leben mehr übrig sind, ist das Spiel verloren; wenn noch Leben übrig sind, werden die Position des Balls und des Schlägers zurückgesetzt, zusammen mit der Bewegung des Balls.
 
-### Leben-Anzeige rendern
+### Anzeige der Leben rendern
 
-Nun müssen Sie einen Aufruf von `drawLives()` in die `draw()` Funktion einfügen und ihn unterhalb des `drawScore()` Aufrufs hinzufügen.
+Nun müssen Sie einen Aufruf zu `drawLives()` innerhalb der `draw()` Funktion hinzufügen und ihn unterhalb des `drawScore()` Aufrufs platzieren.
 
 ```js
 drawLives();
@@ -68,13 +68,13 @@ drawLives();
 
 ## Verbesserung des Renderings mit requestAnimationFrame()
 
-Arbeiten wir nun an etwas, das nicht mit der Spielmechanik verbunden ist, sondern mit der Art und Weise, wie es gerendert wird. [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) hilft dem Browser, das Spiel besser zu rendern als die feste Bildrate, die wir derzeit mit [`setInterval()`](/de/docs/Web/API/SetInterval) implementiert haben. Ersetzen Sie die folgende Zeile:
+Arbeiten wir nun an etwas, das nicht mit den Spielmechaniken verbunden ist, sondern mit der Art, wie es gerendert wird. [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) hilft dem Browser, das Spiel besser zu rendern als die feste Bildrate, die wir derzeit mit [`setInterval()`](/de/docs/Web/API/Window/setInterval) implementiert haben. Ersetzen Sie die folgende Zeile:
 
 ```js
 interval = setInterval(draw, 10);
 ```
 
-durch:
+mit:
 
 ```js
 draw();
@@ -92,11 +92,11 @@ Dann fügen Sie ganz unten in der `draw()` Funktion (direkt vor der schließende
 requestAnimationFrame(draw);
 ```
 
-Die `draw()` Funktion wird jetzt wieder und wieder innerhalb einer `requestAnimationFrame()` Schleife ausgeführt, aber anstatt der festen 10 Millisekunden Bildrate geben wir die Kontrolle über die Bildrate an den Browser zurück. Es wird die Bildrate entsprechend synchronisieren und die Formen nur rendern, wenn nötig. Dies führt zu einer effizienteren, flüssigeren Animationsschleife als die ältere `setInterval()` Methode.
+Die `draw()` Funktion wird nun immer wieder in einer `requestAnimationFrame()` Schleife ausgeführt, aber anstatt der festen 10 Millisekunden Bildrate geben wir die Kontrolle über die Bildrate wieder an den Browser. Er wird die Bildrate entsprechend synchronisieren und die Formen nur dann rendern, wenn es nötig ist. Dies erzeugt eine effizientere, fließendere Animationsschleife als die ältere `setInterval()` Methode.
 
-## Vergleichen Sie Ihren Code
+## Vergleich Ihres Codes
 
-Das war alles — die endgültige Version des Spiels ist fertig und einsatzbereit!
+Das war's — die endgültige Version des Spiels ist bereit und kann loslegen!
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -293,12 +293,12 @@ document.getElementById("runButton").addEventListener("click", function () {
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, die Anzahl der Leben und den Winkel, in dem der Ball vom Paddle abprallt, zu ändern.
+> Versuchen Sie, die Anzahl der Leben und den Winkel zu ändern, in dem der Ball vom Schläger abprallt.
 
-## Game over - vorerst!
+## Spiel beendet - vorerst!
 
-Sie haben alle Lektionen abgeschlossen - herzlichen Glückwunsch! Bis zu diesem Punkt sollten Sie nun die Grundlagen der Canvas-Manipulation und die Logik hinter 2D-Spielen kennen. Jetzt ist ein guter Zeitpunkt, um einige Frameworks zu lernen und die Spieleentwicklung fortzusetzen. Sie können den Gegenpart dieser Serie, [2D Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) oder das [Cyber Orb in Phaser gebaut](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation) Tutorial anschauen. Sie können auch die [Spiele-Sektion auf MDN](/de/docs/Games) durchsehen, um Inspiration und mehr Wissen zu sammeln.
+Sie haben alle Lektionen abgeschlossen - herzlichen Glückwunsch! An diesem Punkt sollten Sie nun die Grundlagen der Canvas-Manipulation und der Logik hinter 2D-Spielen kennen. Jetzt ist ein guter Zeitpunkt, um einige Frameworks zu lernen und die Spieleentwicklung fortzusetzen. Sie können sich das Gegenstück dieser Serie ansehen, das [2D Breakout Game mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) oder das [Cyber Orb mit Phaser](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation) Tutorial. Sie können auch den [Spielebereich auf MDN](/de/docs/Games) durchstöbern, um Inspiration und mehr Wissen zu sammeln.
 
-Sie könnten auch zur [Indexseite dieser Tutorialserie](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) zurückkehren. Viel Spaß beim Programmieren!
+Sie könnten auch zur [Indexseite dieser Tutorialserie](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) zurückgehen. Viel Spaß beim Codieren!
 
 {{Previous("Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}

@@ -1,19 +1,19 @@
 ---
-title: Verwendung von WebSocketStream zur Erstellung eines Clients
+title: Verwendung von WebSocketStream zum Schreiben eines Clients
 slug: Web/API/WebSockets_API/Using_WebSocketStream
 l10n:
-  sourceCommit: d102514706e844bd642850aa340c9645c74bf70c
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{DefaultAPISidebar("WebSockets API")}}{{non-standard_header}}
 
-Die [`WebSocketStream`](/de/docs/Web/API/WebSocketStream) API ist eine auf {{jsxref("Promise")}} basierende Alternative zur [`WebSocket`](/de/docs/Web/API/WebSocket) API zur Erstellung und Nutzung von WebSocket-Verbindungen auf der Client-Seite. `WebSocketStream` nutzt die [Streams API](/de/docs/Web/API/Streams_API) zum Empfangen und Senden von Nachrichten, was bedeutet, dass Socket-Verbindungen automatisch von Stream-[Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) profitieren können (keine zusätzlichen Maßnahmen durch den Entwickler erforderlich), um die Geschwindigkeit des Lesens oder Schreibens zu regulieren und Engpässe in der Anwendung zu vermeiden.
+Die [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-API ist eine {{jsxref("Promise")}}-basierte Alternative zu [`WebSocket`](/de/docs/Web/API/WebSocket), um clientseitige WebSocket-Verbindungen zu erstellen und zu nutzen. `WebSocketStream` verwendet die [Streams API](/de/docs/Web/API/Streams_API), um das Empfangen und Senden von Nachrichten zu handhaben. Das bedeutet, dass Socket-Verbindungen automatisch den Vorteil der Stream-[Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) nutzen können (kein zusätzliches Eingreifen des Entwicklers erforderlich), um die Lesegeschwindigkeit oder Schreibgeschwindigkeit zu regulieren und dadurch Engpässe in der Anwendung zu vermeiden.
 
-Dieser Artikel erklärt, wie Sie die [`WebSocketStream`](/de/docs/Web/API/WebSocketStream) API verwenden, um einen WebSocket-Client zu erstellen.
+Dieser Artikel erklärt, wie Sie die [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-API verwenden, um einen WebSocket-Client zu erstellen.
 
 ## Feature-Erkennung
 
-Um zu prüfen, ob die `WebSocketStream` API unterstützt wird, können Sie das folgende Snippet verwenden:
+Um zu überprüfen, ob die `WebSocketStream`-API unterstützt wird, können Sie Folgendes verwenden:
 
 ```js
 if ("WebSocketStream" in self) {
@@ -23,13 +23,13 @@ if ("WebSocketStream" in self) {
 
 ## Erstellen eines WebSocketStream-Objekts
 
-Um einen WebSocket-Client zu erstellen, müssen Sie zunächst eine neue `WebSocketStream`-Instanz mit dem [`WebSocketStream()`](/de/docs/Web/API/WebSocketStream/WebSocketStream)-Konstruktor erstellen. In seiner einfachsten Form nimmt es die URL des WebSocket-Servers als Argument:
+Um einen WebSocket-Client zu erstellen, müssen Sie zuerst eine neue `WebSocketStream`-Instanz mit dem [`WebSocketStream()`](/de/docs/Web/API/WebSocketStream/WebSocketStream)-Konstruktor erstellen. In seiner einfachsten Form nimmt er die URL des WebSocket-Servers als Argument:
 
 ```js
 const wss = new WebSocketStream("wss://example.com/wss");
 ```
 
-Es kann auch ein Optionsobjekt akzeptieren, das benutzerdefinierte Protokolle und/oder ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) enthält (siehe [Die Verbindung schließen](#die_verbindung_schließen)):
+Er kann auch ein Optionsobjekt aufnehmen, das benutzerdefinierte Protokolle und/oder ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) enthält (siehe [Schließen der Verbindung](#schließen_der_verbindung)):
 
 ```js
 const controller = new AbortController();
@@ -39,15 +39,15 @@ const queueWSS = new WebSocketStream("wss://example.com/queue", {
 });
 ```
 
-## Daten senden und empfangen
+## Senden und Empfangen von Daten
 
-Die `WebSocketStream`-Instanz besitzt eine [`opened`](/de/docs/Web/API/WebSocketStream/opened)-Eigenschaft — diese gibt ein Promise zurück, das mit einem Objekt erfüllt wird, das eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)- und eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz enthält, sobald die WebSocket-Verbindung erfolgreich geöffnet wurde:
+Die `WebSocketStream`-Instanz hat eine [`opened`](/de/docs/Web/API/WebSocketStream/opened)-Eigenschaft — diese gibt ein Promise zurück, das mit einem Objekt erfüllt wird, das eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)- und eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz enthält, sobald die WebSocket-Verbindung erfolgreich geöffnet wurde:
 
 ```js
 const { readable, writable } = await wss.opened;
 ```
 
-Mit den Methoden [`getReader()`](/de/docs/Web/API/ReadableStream/getReader) und [`getWriter()`](/de/docs/Web/API/WritableStream/getWriter) dieser Objekte bekommen wir einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) und einen [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter), die jeweils verwendet werden können, um aus der Socket-Verbindung zu lesen und in diese zu schreiben:
+Das Aufrufen von [`getReader()`](/de/docs/Web/API/ReadableStream/getReader) und [`getWriter()`](/de/docs/Web/API/WritableStream/getWriter) an diesen Objekten liefert uns einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) bzw. einen [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter), die genutzt werden können, um aus der bzw. in die Socket-Verbindung zu lesen und zu schreiben:
 
 ```js
 const reader = readable.getReader();
@@ -60,7 +60,7 @@ Um Daten in die Socket-Verbindung zu schreiben, können Sie [`WritableStreamDefa
 writer.write("My message");
 ```
 
-Um Daten aus der Socket-Verbindung zu lesen, können Sie kontinuierlich [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) aufrufen, bis der Stream abgeschlossen ist, was durch `done` als `true` angezeigt wird:
+Um Daten aus der Socket-Verbindung zu lesen, können Sie kontinuierlich [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) aufrufen, bis der Stream beendet ist, was angezeigt wird, wenn `done` `true` ist:
 
 ```js
 while (true) {
@@ -73,17 +73,17 @@ while (true) {
 }
 ```
 
-Der Browser kontrolliert automatisch die Rate, mit der der Client Daten empfängt und sendet, indem er bei Bedarf Backpressure anwendet. Wenn Daten schneller ankommen, als der Client sie `read()`en kann, übt die zugrunde liegende Streams API Backpressure auf den Server aus. Zusätzlich werden `write()`-Operationen nur dann fortgesetzt, wenn es sicher ist.
+Der Browser kontrolliert automatisch die Rate, mit der der Client Daten empfängt und sendet, indem er bei Bedarf Backpressure anwendet. Wenn Daten schneller ankommen, als der Client sie `lesen()` kann, übt die zugrundeliegende Streams API Backpressure auf den Server aus. Außerdem werden `write()`-Operationen nur dann fortgesetzt, wenn dies sicher ist.
 
-## Die Verbindung schließen
+## Schließen der Verbindung
 
-Mit der `WebSocketStream` API sind die Informationen, die zuvor über `WebSocket` [`close`](/de/docs/Web/API/WebSocket/close_event) und [`error`](/de/docs/Web/API/WebSocket/error_event) Events verfügbar waren, jetzt über die [`closed`](/de/docs/Web/API/WebSocketStream/closed)-Eigenschaft verfügbar — diese gibt ein Promise zurück, das mit einem Objekt erfüllt wird, das den Schließcode (sehen Sie die vollständige Liste der [`CloseEvent` Statuscodes](/de/docs/Web/API/CloseEvent/code#value)) und den Grund enthält, warum der Server die Verbindung geschlossen hat:
+Mit `WebSocketStream` sind die Informationen, die vorher über die `WebSocket`-Ereignisse [`close`](/de/docs/Web/API/WebSocket/close_event) und [`error`](/de/docs/Web/API/WebSocket/error_event) verfügbar waren, jetzt über die [`closed`](/de/docs/Web/API/WebSocketStream/closed)-Eigenschaft verfügbar — diese gibt ein Promise zurück, das mit einem Objekt erfüllt wird, das den Schließungscode (siehe die vollständige Liste der [`CloseEvent`-Statuscodes](/de/docs/Web/API/CloseEvent/code#value)) und den Grund enthält, warum der Server die Verbindung geschlossen hat:
 
 ```js
 const { code, reason } = await wss.closed;
 ```
 
-Wie bereits erwähnt, kann die WebSocket-Verbindung mit einem [`AbortController`](/de/docs/Web/API/AbortController) geschlossen werden. Das benötigte [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird beim Erstellen an den `WebSocketStream`-Konstruktor übergeben, und [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) kann dann bei Bedarf aufgerufen werden:
+Wie bereits erwähnt, kann die WebSocket-Verbindung mit einem [`AbortController`](/de/docs/Web/API/AbortController) geschlossen werden. Das notwendige [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird dem `WebSocketStream`-Konstruktor während der Erstellung übergeben, und [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) kann dann bei Bedarf aufgerufen werden:
 
 ```js
 const controller = new AbortController();
@@ -106,16 +106,16 @@ wss.close({
 ```
 
 > [!NOTE]
-> Je nach Serverkonfiguration und Statuscode, den Sie verwenden, kann der Server sich entscheiden, einen benutzerdefinierten Code zugunsten eines gültigen Codes zu ignorieren, der für den Schließungsgrund korrekt ist.
+> Abhängig von der Serverkonfiguration und dem von Ihnen verwendeten Statuscode kann der Server sich entscheiden, einen benutzerdefinierten Code zugunsten eines gültigen Codes zu ignorieren, der für den Schließungsgrund korrekt ist.
 
-## Ein vollständiges Beispiel-Client
+## Ein vollständiger Beispielclient
 
-Zur Demonstration der grundlegenden Nutzung von `WebSocketStream` haben wir einen Beispiel-Client erstellt. Sie können die [vollständige Liste](#vollständige_auflistung) am Ende des Artikels sehen und der folgenden Erklärung folgen.
+Um die grundlegende Verwendung von `WebSocketStream` zu demonstrieren, haben wir einen Beispielclient erstellt. Sie können die [vollständige Auflistung](#vollständige_auflistung) am Ende des Artikels sehen und der untenstehenden Erklärung folgen.
 
 > [!NOTE]
-> Um das Beispiel zum Laufen zu bringen, benötigen Sie auch eine Serverkomponente. Wir haben unseren Client so geschrieben, dass er mit dem in [Writing a WebSocket server in JavaScript (Deno)](/de/docs/Web/API/WebSockets_API/Writing_a_WebSocket_server_in_JavaScript_Deno) beschriebenen Deno-Server funktioniert, aber jeder kompatible Server wird funktionieren.
+> Um das Beispiel funktionsfähig zu machen, benötigen Sie auch einen Serverkomponenten. Wir haben unseren Client entwickelt, um mit dem Deno-Server zu arbeiten, der in [Schreiben eines WebSocket-Servers in JavaScript (Deno)](/de/docs/Web/API/WebSockets_API/Writing_a_WebSocket_server_in_JavaScript_Deno) erklärt wird, aber jeder kompatible Server wird funktionieren.
 
-Das HTML für die Demo ist wie folgt. Es beinhaltet Informations-`<h2>`- und {{htmlelement("p")}}-Elemente, ein {{htmlelement("button")}}, um die WebSocket-Verbindung zu schließen, das initial deaktiviert ist, und ein {{htmlelement("div")}}, in das wir Ausgabenachrichten schreiben können.
+Das HTML für die Demo sieht wie folgt aus. Es enthält informative [`<h2>`](/de/docs/Web/HTML/Element/Heading_Elements)- und {{htmlelement("p")}}-Elemente, einen {{htmlelement("button")}}, um die WebSocket-Verbindung zu schließen, der anfänglich deaktiviert ist, und ein {{htmlelement("div")}}, in das wir Ausgabemeldungen schreiben können.
 
 ```html
 <h2>WebSocketStream Test</h2>
@@ -124,7 +124,7 @@ Das HTML für die Demo ist wie folgt. Es beinhaltet Informations-`<h2>`- und {{h
 <div id="output"></div>
 ```
 
-Nun zum JavaScript. Zuerst holen wir uns die Referenzen zum Ausgabe-`<div>` und zum Schließen-`<button>`, und definieren eine Hilfsfunktion, die Nachrichten in das `<div>` schreibt:
+Nun zum JavaScript. Zuerst holen wir Referenzen zum Ausgabe-`<div>` und dem Schließen-`<button>` und definieren eine Hilfsfunktion, die Nachrichten an das `<div>` schreibt:
 
 ```js
 const output = document.querySelector("#output");
@@ -137,7 +137,7 @@ function writeToScreen(message) {
 }
 ```
 
-Als nächstes erstellen wir eine `if ... else` Struktur, um das Vorhandensein von `WebSocketStream` zu erkennen und eine informative Nachricht in nicht unterstützenden Browsern auszugeben:
+Als nächstes erstellen wir eine `if ... else`-Struktur zur Feature-Erkennung von `WebSocketStream` und geben eine informative Meldung auf nicht unterstützenden Browsern aus:
 
 ```js
 if (!("WebSocketStream" in self)) {
@@ -147,7 +147,7 @@ if (!("WebSocketStream" in self)) {
 }
 ```
 
-Im unterstützenden Code-Pfad beginnen wir mit der Definition einer Variablen, die die URL des WebSocket-Servers enthält, und der Konstruktion einer neuen `WebSocketServer`-Instanz:
+Im unterstützenden Codepfad beginnen wir mit der Definition einer Variablen, die die WebSocket-Server-URL enthält, und erstellen eine neue `WebSocketServer`-Instanz:
 
 ```js
 const wsURL = "ws://127.0.0.1/";
@@ -155,11 +155,11 @@ const wss = new WebSocketStream(wsURL);
 ```
 
 > [!NOTE]
-> Best Practice ist es, in Produktions-Apps sichere WebSockets (`wss://`) zu nutzen. In dieser Demo verbinden wir uns jedoch mit localhost, daher müssen wir das nicht-sichere WebSocket-Protokoll (`ws://`) verwenden, damit das Beispiel funktioniert.
+> Best Practice ist es, in Produktions-Apps sichere WebSockets (`wss://`) zu verwenden. In diesem Demo verbinden wir uns jedoch mit localhost, daher müssen wir das unsichere WebSocket-Protokoll (`ws://`) verwenden, damit das Beispiel funktioniert.
 
-Der Hauptteil unseres Codes befindet sich in der `start()`-Funktion, die wir definieren und dann sofort aufrufen. Wir warten das [`opened`](/de/docs/Web/API/WebSocketStream/opened)-Promise ab, schreiben dann nach Erfüllung eine Nachricht, um dem Leser mitzuteilen, dass die Verbindung erfolgreich ist, und erstellen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)- und [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Instanzen aus den zurückgegebenen Eigenschaften `readable` und `writable`.
+Der Hauptteil unseres Codes ist in der `start()`-Funktion enthalten, die wir definieren und dann sofort aufrufen. Wir warten auf das Versprechen [`opened`](/de/docs/Web/API/WebSocketStream/opened), und nachdem es erfüllt ist, schreiben wir eine Nachricht, um dem Leser mitzuteilen, dass die Verbindung erfolgreich ist, und erstellen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)- und [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Instanzen aus den zurückgegebenen `readable`- und `writable`-Eigenschaften.
 
-Als Nächstes erstellen wir eine `start()`-Funktion, die "ping"-Nachrichten an den Server sendet und "pong"-Nachrichten zurückerhält, und rufen sie auf. Im Funktionskörper warten wir das `wss.opened`-Promise ab und erstellen einen Leser und Schreiber aus seinen Fulfillment-Werten. Sobald die Verbindung geöffnet ist, kommunizieren wir dies dem Benutzer und aktivieren den Schließen-Button. Dann `write()` wir einen `"ping"`-Wert zur Verbindung und kommunizieren dies dem Benutzer. Zu diesem Zeitpunkt wird der Server mit einer `"pong"`-Nachricht antworten. Wir warten das `read()` der Antwort ab, kommunizieren sie dem Benutzer und schreiben dann nach einer Wartezeit von 5 Sekunden erneut einen `"ping"` an den Server. Dies setzt die `"ping"`/`"pong"`-Schleife unendlich fort.
+Als nächstes erstellen wir eine `start()`-Funktion, die "ping"-Nachrichten an den Server sendet und "pong"-Nachrichten zurück erhält, und rufen sie auf. Im Funktionskörper warten wir auf das Versprechen `wss.opened` und erstellen einen Reader und Writer aus den Erfüllungswerten. Sobald die Verbindung geöffnet ist, teilen wir dies dem Benutzer mit und aktivieren den Schließen-Button. Als Nächstes `write()` wir einen `"ping"`-Wert an den Socket und teilen das dem Benutzer mit. Zu diesem Zeitpunkt wird der Server mit einer `"pong"`-Nachricht antworten. Wir warten auf das `read()` der Antwort, kommunizieren es dem Benutzer und schreiben dann nach einer Zeitverzögerung von 5 Sekunden ein weiteres `"ping"` an den Server. Dies setzt der `"ping"`/`"pong"`-Schleife unendlich fort:
 
 ```js
 async function start() {
@@ -194,9 +194,9 @@ start();
 ```
 
 > [!NOTE]
-> Die Funktion [`setTimeout`](/de/docs/Web/API/SetTimeout) umschließt den `write()`-Aufruf in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block, um eventuelle Fehler zu behandeln, die auftreten können, wenn die Anwendung versucht, in den Stream zu schreiben, nachdem dieser geschlossen wurde.
+> Die Funktion [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) kapselt den `write()`-Aufruf in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block, um alle Fehler zu behandeln, die auftreten können, wenn die Anwendung versucht, in den Stream zu schreiben, nachdem er geschlossen wurde.
 
-Nun fügen wir einen Promise-basierten Codeabschnitt hinzu, um den Benutzer über den Code und den Grund zu informieren, falls die WebSocket-Verbindung geschlossen wird, wie vom [`closed`](/de/docs/Web/API/WebSocketStream/closed)-Promise signalisiert:
+Wir fügen nun einen code-basierten Abschnitt ein, um den Benutzer über den Code und den Grund zu informieren, wenn die WebSocket-Verbindung geschlossen wird, wie es durch die Erfüllung des [`closed`](/de/docs/Web/API/WebSocketStream/closed)-Versprechens angezeigt wird:
 
 ```js
 wss.closed.then((result) => {
@@ -207,7 +207,7 @@ wss.closed.then((result) => {
 });
 ```
 
-Schließlich fügen wir einen Ereignislistener für den Schließen-Button hinzu, der die Verbindung mit der `close()`-Methode mit einem Code und einem benutzerdefinierten Grund schließt. Die Funktion deaktiviert auch den Schließen-Button — wir möchten nicht, dass Benutzer ihn drücken, wenn die Verbindung bereits geschlossen ist.
+Schließlich fügen wir einen Ereignis-Listener für den Schließen-Button hinzu, der die Verbindung mit der `close()`-Methode mit einem Code und einem benutzerdefinierten Grund schließt. Die Funktion deaktiviert auch den Schließen-Button — wir wollen nicht, dass Benutzer darauf drücken, wenn die Verbindung bereits geschlossen ist:
 
 ```js
 closeBtn.addEventListener("click", () => {

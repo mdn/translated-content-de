@@ -1,51 +1,51 @@
 ---
-title: CSS und JavaScript-Animationsleistung
+title: CSS- und JavaScript-Animationsleistung
 slug: Web/Performance/CSS_JavaScript_animation_performance
 l10n:
-  sourceCommit: e03b13c7e157ec7b7bb02a6c7c4854b862195905
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-Animationen sind entscheidend für ein angenehmes Benutzererlebnis in vielen Anwendungen. Es gibt viele Möglichkeiten, Web-Animationen zu implementieren, wie CSS-{{cssxref("transition", "Transitions")}}/{{cssxref("animation", "Animations")}} oder JavaScript-basierte Animationen (unter Verwendung von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)). In diesem Artikel analysieren wir die Leistungsunterschiede zwischen CSS-basierten und JavaScript-basierten Animationen.
+Animationen sind entscheidend für eine angenehme Benutzererfahrung in vielen Anwendungen. Es gibt viele Möglichkeiten, Web-Animationen zu implementieren, wie CSS-{{cssxref("transition","Übergänge")}}/{{cssxref("animation","Animationen")}} oder JavaScript-basierte Animationen (mithilfe von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)). In diesem Artikel analysieren wir die Leistungsunterschiede zwischen CSS-basierten und JavaScript-basierten Animationen.
 
-## CSS-Transitions und -Animations
+## CSS-Übergänge und -Animationen
 
-Sowohl CSS-Transitions als auch -Animations können zur Erstellung von Animationen verwendet werden. Sie haben jeweils ihre eigenen Anwendungsfälle:
+Sowohl CSS-Übergänge als auch Animationen können verwendet werden, um Animationen zu schreiben. Sie haben jeweils ihre eigenen Anwendungsszenarien:
 
-- CSS-{{cssxref("transition", "Transitions")}} bieten eine einfache Möglichkeit, Animationen zwischen dem aktuellen Stil und einem Endzustand des CSS zu ermöglichen, z.B. zwischen einer Ruhestellung eines Buttons und einem Hover-Zustand. Selbst wenn sich ein Element mitten in einer Transition befindet, startet die neue Transition sofort vom aktuellen Stil, anstatt zum Endzustand des CSS zu springen. Weitere Details finden Sie unter [CSS-Transitions verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions).
-- CSS-{{cssxref("animation", "Animations")}} hingegen ermöglichen es Entwicklern, Animationen zwischen einem Satz von Anfangs- und Endwerten von Eigenschaften zu erstellen, anstatt zwischen zwei Zuständen. CSS-Animations bestehen aus zwei Komponenten: einem Stil, der die CSS-Animation beschreibt, und einem Satz von Schlüsselbildern, die die Start- und Endzustände des Animationsstils sowie mögliche Zwischenpunkte angeben. Weitere Informationen finden Sie unter [CSS-Animations verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations).
+- CSS-{{cssxref("transition","Übergänge")}} bieten eine einfache Möglichkeit, Animationen zwischen dem aktuellen Stil und einem End-CSS-Zustand zu erstellen, z. B. einem ruhenden Button-Zustand und einem Hover-Zustand. Selbst wenn ein Element sich mitten in einem Übergang befindet, beginnt der neue Übergang sofort ab dem aktuellen Stil, anstatt zum End-CSS-Zustand zu springen. Weitere Details finden Sie unter [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions).
+- CSS-{{cssxref("animation","Animationen")}} hingegen ermöglichen es Entwicklern, Animationen zwischen einer Reihe von Startwerteigenschaften und einem finalen Satz zu erstellen, anstatt zwischen zwei Zuständen. CSS-Animationen bestehen aus zwei Komponenten: einem Stil, der die CSS-Animation beschreibt, und einem Satz von Schlüsselbildern, die die Start- und Endzustände des Animationsstils sowie mögliche Zwischenpunkte angeben. Weitere Details finden Sie unter [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations).
 
-In Bezug auf die Leistung gibt es keinen Unterschied zwischen der Implementierung einer Animation mit CSS-Transitions oder CSS-Animations. Beide werden in diesem Artikel unter demselben CSS-basierten Dach zusammengefasst.
+Hinsichtlich der Leistung gibt es keinen Unterschied zwischen der Implementierung einer Animation mit CSS-Übergängen oder Animationen. Beide werden in diesem Artikel unter dem gleichen CSS-basierten Ansatz klassifiziert.
 
 ## requestAnimationFrame
 
-Die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) API bietet eine effiziente Möglichkeit, Animationen in JavaScript zu erstellen. Die Callback-Funktion der Methode wird vom Browser vor dem nächsten Neuzeichnen bei jedem Frame aufgerufen. Im Vergleich zu [`setTimeout()`](/de/docs/Web/API/SetTimeout)/[`setInterval()`](/de/docs/Web/API/SetInterval), die einen spezifischen Verzögerungsparameter benötigen, ist `requestAnimationFrame()` weitaus effizienter. Entwickler können Animationen erstellen, indem sie jedes Mal, wenn die Schleife aufgerufen wird, den Stil eines Elements ändern (oder das Canvas neu zeichnen oder was auch immer).
+Die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-API bietet eine effiziente Möglichkeit, Animationen in JavaScript zu erstellen. Die Rückruffunktion der Methode wird vom Browser vor dem nächsten Neuzeichnen bei jedem Frame aufgerufen. Im Vergleich zu [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)/[`setInterval()`](/de/docs/Web/API/Window/setInterval), die einen spezifischen Verzögerungsparameter benötigen, ist `requestAnimationFrame()` wesentlich effizienter. Entwickler können eine Animation erstellen, indem sie den Stil eines Elements jedes Mal ändern, wenn die Schleife aufgerufen wird (oder die Canvas-Zeichnung aktualisieren oder was auch immer).
 
 > [!NOTE]
-> Wie CSS-Transitions und -Animations pausiert `requestAnimationFrame()`, wenn der aktuelle Tab in den Hintergrund verschoben wird.
+> Ähnlich wie bei CSS-Übergängen und -Animationen pausiert `requestAnimationFrame()`, wenn der aktuelle Tab in den Hintergrund geschoben wird.
 
-Für weitere Details lesen Sie [animieren mit JavaScript von setInterval zu requestAnimationFrame](https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/).
+Weitere Details finden Sie unter [Animationen mit JavaScript von setInterval zu requestAnimationFrame](https://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/).
 
-## Leistungsvergleich:<br>Transitions vs. requestAnimationFrame
+## Leistungsvergleich:<br>Übergänge vs. requestAnimationFrame
 
-Tatsache ist, dass in den meisten Fällen die Leistung von CSS-basierten Animationen fast die gleiche ist wie die von JavaScript-Animationen – zumindest in Firefox. Einige JavaScript-basierte Bibliotheken wie [GSAP](https://gsap.com/) und [Velocity.JS](http://velocityjs.org/) behaupten sogar, dass sie in der Lage sind, bessere Leistung als [native CSS-Transitions/-Animations](https://css-tricks.com/myth-busting-css-animations-vs-javascript/) zu erreichen. Dies kann darauf zurückzuführen sein, dass CSS-Transitions/-Animations die Elementstile im Haupt-UI-Thread vor jedem Neuzeichenereignis neu abtasten, was fast dasselbe ist wie das neu abtasten von Elementstilen über einen `requestAnimationFrame()`-Callback, der ebenfalls vor dem nächsten Neuzeichnen ausgelöst wird. Wenn beide Animationen im Haupt-UI-Thread erfolgen, gibt es keinen Unterschied hinsichtlich der Leistung.
+Tatsächlich ist in den meisten Fällen die Leistung von CSS-basierten Animationen fast identisch mit der von JavaScript-Animationen — zumindest in Firefox. Einige JavaScript-basierte Animationsbibliotheken, wie [GSAP](https://gsap.com/) und [Velocity.JS](http://velocityjs.org/), behaupten sogar, dass sie eine bessere Leistung als [native CSS-Übergänge/-Animationen](https://css-tricks.com/myth-busting-css-animations-vs-javascript/) erreichen können. Dies kann passieren, weil CSS-Übergänge/-Animationen die Stilelemente im Haupt-UI-Thread vor jedem Neuzeichnungsereignis neu abtasten, was fast dasselbe ist wie das Abtasten von Stilelementen über einen `requestAnimationFrame()`-Callback, der ebenfalls vor dem nächsten Neuzeichnen ausgelöst wird. Wenn beide Animationen im Haupt-UI-Thread durchgeführt werden, gibt es hinsichtlich der Leistung keinen Unterschied.
 
-In diesem Abschnitt führen wir Sie durch einen Leistungstest mit Firefox, um zu sehen, welche Animationsmethode insgesamt besser zu sein scheint.
+In diesem Abschnitt führen wir Sie durch einen Leistungstest mit Firefox, um zu sehen, welche Animationsmethode insgesamt besser erscheint.
 
 ### Aktivieren der FPS-Tools
 
-Bevor Sie das Beispiel durchgehen, aktivieren Sie zuerst die FPS-Tools, um die aktuelle Bildrate zu sehen:
+Bevor Sie das Beispiel durchgehen, aktivieren Sie bitte zuerst die FPS-Tools, um die aktuelle Bildrate zu sehen:
 
-1. Geben Sie in der URL-Leiste _about:config_ ein; klicken Sie auf die Schaltfläche `Ich werde vorsichtig sein, versprochen!`, um den Konfigurationsbildschirm zu betreten.
-   ![Warnbildschirm, dass das Ändern von Einstellungen riskant sein kann, mit einem Button, um Risiken zu akzeptieren.](pic1.png)
-2. Suchen Sie in der Suchleiste nach der `layers.acceleration.draw-fps`-Einstellung.
-3. Doppelklicken Sie auf den Eintrag, um den Wert auf `true` zu setzen. Nun sehen Sie drei kleine violette Boxen in der oberen linken Ecke des Firefox-Fensters. Die erste Box repräsentiert die FPS.
-   ![Das Eingeben des Suchbegriffs filtert die Optionen. Nur die layers.acceleration.draw-fps-Einstellung wird angezeigt und ist auf true gesetzt. Drei Zahlen (001, 001 und 108) erscheinen in der oberen linken Ecke des Browsers und überlagern dessen UI.](pic2.png)
+1. Geben Sie _about:config_ in die URL-Leiste ein und klicken Sie auf den Button `Ich werde vorsichtig sein, ich verspreche es!`, um den Konfigurationsbildschirm zu betreten.
+   ![Warnhinweis, dass das Ändern von Einstellungen riskant sein kann, mit einem Button zur Bestätigung des Risikos.](pic1.png)
+2. Suchen Sie in der Suchleiste nach der Einstellung `layers.acceleration.draw-fps`.
+3. Doppelklicken Sie auf den Eintrag, um den Wert auf `true` zu setzen. Jetzt sollten Sie drei kleine violette Kästchen in der oberen linken Ecke des Firefox-Fensters sehen. Das erste Kästchen steht für FPS.
+   ![Durch das Eingeben des Suchbegriffs werden die Optionen gefiltert. Nur die layers.acceleration.draw-fps-Einstellung wird angezeigt und steht auf true. Drei Zahlen (001, 001 und 108) erscheinen in der oberen linken Ecke des Browsers, über der Benutzeroberfläche.](pic2.png)
 
-### Durchführung des Leistungstests
+### Ausführen des Leistungstests
 
-Anfangs im unten gezeigten Test werden insgesamt 1000 {{htmlelement("div")}}-Elemente durch CSS-Animation transformiert.
+Zunächst werden im unten gezeigten Test insgesamt 1000 {{htmlelement("div")}}-Elemente durch eine CSS-Animation transformiert.
 
 ```js
 const boxes = [];
@@ -162,25 +162,25 @@ function animate(time) {
 }
 ```
 
-{{ EmbedLiveSample("Durchführung des Leistungstests", "100%", "480") }}
+{{ EmbedLiveSample("Ausführen des Leistungstests", "100%", "480") }}
 
-Die Animation kann durch Klicken des Umschaltknopfes zu `requestAnimationFrame()` gewechselt werden.
+Die Animation kann durch Klicken auf den Umschalter auf `requestAnimationFrame()` umgeschaltet werden.
 
-Versuchen Sie jetzt, beide auszuführen und vergleichen Sie die FPS für jede (die erste violette Box). Sie sollten sehen, dass die Leistung von CSS-Animations und `requestAnimationFrame()` sehr ähnlich ist.
+Versuchen Sie nun, beide auszuführen und vergleichen Sie die FPS für jede (das erste violette Kästchen). Sie sollten feststellen, dass die Leistung von CSS-Animationen und `requestAnimationFrame()` sehr nah beieinander liegt.
 
-### Animation außerhalb des Haupt-Threads
+### Animation außerhalb des Hauptthreads
 
-Selbst angesichts der obigen Testergebnisse würden wir argumentieren, dass CSS-Animations die bessere Wahl sind. Aber wie? Der Schlüssel liegt darin, dass solange die Eigenschaften, die wir animieren möchten, keinen Reflow/Neuzeichnen auslösen (lesen Sie [CSS Triggers](https://csstriggers.com/) für mehr Informationen), wir diese Abtastvorgänge vom Haupt-Thread entfernen können. Die häufigste Eigenschaft ist der CSS-Transform. Wenn ein Element als [Layer](https://wiki.mozilla.org/Gecko:Overview#Graphics) promotet wird, können Transform-Eigenschaften in der GPU animiert werden, was zu besserer Leistung/Effizienz führt, insbesondere auf mobilen Geräten. Erfahren Sie mehr Details in [OffMainThreadCompositing](https://wiki.mozilla.org/Platform/GFX/OffMainThreadCompositing).
+Auch angesichts der obigen Testergebnisse würden wir argumentieren, dass CSS-Animationen die bessere Wahl sind. Aber wie? Der Schlüssel liegt darin, dass solange die Eigenschaften, die wir animieren möchten, keinen Neufluss/Neuzeichnen auslösen (lesen Sie [CSS triggers](https://csstriggers.com/) für mehr Informationen), können wir diese Abtastvorgänge aus dem Hauptthread auslagern. Die häufigste Eigenschaft ist die CSS-Transformation. Wenn ein Element als eine [Ebene](https://wiki.mozilla.org/Gecko:Overview#Graphics) gefördert wird, kann das Animieren von Transformationseigenschaften auf der GPU erfolgen, was eine bessere Leistung/Effizienz bedeutet, insbesondere auf mobilen Geräten. Weitere Details finden Sie unter [OffMainThreadCompositing](https://wiki.mozilla.org/Platform/GFX/OffMainThreadCompositing).
 
-Um OMTA (Off Main Thread Animation) in Firefox zu aktivieren, können Sie zu _about:config_ gehen und nach `layers.offmainthreadcomposition.async-animations` suchen. Wechseln Sie seinen Wert zu `true`.
+Um die OMTA (Off Main Thread Animation) in Firefox zu aktivieren, können Sie zu _about:config_ gehen und nach `layers.offmainthreadcomposition.async-animations` suchen. Ändern Sie seinen Wert auf `true`.
 
-![Das Eingeben des Suchbegriffs filtert die Optionen. Nur die layers.offmainthreadcomposition.async-animations-Einstellung wird angezeigt und ist auf true gesetzt. Die drei Zahlen in der oberen linken Ecke des Browsers, oberhalb seiner UI, haben sich auf 005, 003 und 108 erhöht.](pic3.png)
+![Durch das Eingeben des Suchbegriffs werden die Optionen gefiltert. Nur die layers.offmainthreadcomposition.async-animations-Einstellung wird angezeigt und steht auf true. Die drei Zahlen in der oberen linken Ecke des Browsers, über der Benutzeroberfläche, haben sich auf 005, 003 und 108 erhöht.](pic3.png)
 
-Nachdem Sie OMTA aktiviert haben, versuchen Sie, den obigen Test erneut auszuführen. Sie sollten feststellen, dass die FPS der CSS-Animations jetzt deutlich höher sind.
+Nachdem Sie OMTA aktiviert haben, versuchen Sie erneut, den obigen Test auszuführen. Sie sollten feststellen, dass die FPS der CSS-Animationen nun deutlich höher sein werden.
 
 > [!NOTE]
-> In Nightly/Developer Edition sollten Sie sehen, dass OMTA standardmäßig aktiviert ist, sodass Sie die Tests möglicherweise umgekehrt durchführen müssen (testen Sie zuerst mit aktiviertem OMTA und dann deaktivieren, um ohne OMTA zu testen).
+> In Nightly/Developer Edition sollten Sie sehen, dass OMTA standardmäßig aktiviert ist. Sie müssen die Tests möglicherweise andersherum durchführen (zuerst mit aktivierter Option testen, dann deaktivieren, um ohne OMTA zu testen).
 
 ## Zusammenfassung
 
-Browser sind in der Lage, Rendering-Flows zu optimieren. Zusammenfassend sollten wir immer versuchen, unsere Animationen mit CSS-Transitions/-Animations zu erstellen, wenn möglich. Wenn Ihre Animationen wirklich komplex sind, müssen Sie möglicherweise auf JavaScript-basierte Animationen zurückgreifen.
+Browser sind in der Lage, Rendering-Prozesse zu optimieren. Zusammenfassend sollten wir nach Möglichkeit immer versuchen, unsere Animationen mit CSS-Übergängen/-Animationen zu erstellen. Wenn Ihre Animationen wirklich komplex sind, müssen Sie möglicherweise stattdessen auf JavaScript-basierte Animationen zurückgreifen.

@@ -2,16 +2,16 @@
 title: caret-color
 slug: Web/CSS/caret-color
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
 ---
 
 {{CSSRef}}
 
-Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Einfügepunktes** fest, dem sichtbaren Marker, an dem das nächste eingegebene Zeichen eingefügt wird. Dieser wird manchmal auch als **Texteingabecursor** bezeichnet. Der Einfügepunkt erscheint in Elementen wie {{HTMLElement("input")}} oder solchen mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) Attribut. Der Einfügepunkt ist normalerweise eine dünne vertikale Linie, die blinkt, um besser sichtbar zu sein. Standardmäßig ist er schwarz, aber seine Farbe kann mit dieser Eigenschaft verändert werden.
+Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Einfüge-Carets** fest, des sichtbaren Markers, an dem das nächste getippte Zeichen eingefügt wird. Dies wird manchmal als **Texteingabe-Cursor** bezeichnet. Das Caret erscheint in Elementen wie {{HTMLElement("input")}} oder solchen mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut. Das Caret ist typischerweise eine dünne vertikale Linie, die blinkt, um es besser erkennbar zu machen. Standardmäßig ist es schwarz, aber seine Farbe kann mit dieser Eigenschaft geändert werden.
 
 {{EmbedInteractiveExample("pages/css/caret-color.html")}}
 
-Beachten Sie, dass der Einfügepunkt nur eine Art von Caret ist. Zum Beispiel haben viele Browser einen "Navigations-Caret", der ähnlich wie ein Einfügepunkt funktioniert, aber im nicht bearbeitbaren Text bewegt werden kann. Andererseits ist das Mauszeiger-Bild, das beim Überfahren von Text erscheint, wo die {{cssxref("cursor")}} Eigenschaft auf `auto` steht, oder beim Überfahren eines Elements, wo die `cursor` Eigenschaft `text` oder `vertical-text` ist, obwohl es manchmal wie ein Caret aussieht, kein Caret (es ist ein Cursor).
+Beachten Sie, dass das Einfüge-Caret nur eine Art von Caret ist. Beispielsweise haben viele Browser ein "Navigations-Caret", das ähnlich wie ein Einfüge-Caret funktioniert, jedoch in nicht editierbarem Text verschoben werden kann. Andererseits ist das Mauszeiger-Symbol, das angezeigt wird, wenn Sie über Text schweben, wo die {{cssxref("cursor")}} Eigenschaft `auto` ist, oder wenn Sie über ein Element schweben, bei dem die `cursor` Eigenschaft `text` oder `vertical-text` ist, obwohl es manchmal wie ein Caret aussieht, kein Caret (es ist ein Cursor).
 
 ## Syntax
 
@@ -39,10 +39,10 @@ caret-color: unset;
 
 - `auto`
 
-  - : Der User-Agent wählt eine geeignete Farbe für den Caret. Dies ist in der Regel {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der User-Agent kann eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast mit dem umgebenden Inhalt sicherzustellen, wobei der Wert von `currentcolor`, der Hintergrund, Schatten und andere Faktoren berücksichtigt werden.
+  - : Der Benutzeragent wählt eine geeignete Farbe für das Caret aus. Dies ist im Allgemeinen {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der Benutzeragent kann eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast mit dem umgebenden Inhalt sicherzustellen, unter Berücksichtigung des Werts von `currentcolor`, des Hintergrunds, von Schatten und anderen Faktoren.
 
     > [!NOTE]
-    > Während User-Agents möglicherweise `currentcolor` (das normalerweise animierbar ist) für den `auto`-Wert verwenden, wird `auto` in Übergängen und Animationen nicht interpoliert.
+    > Während Benutzeragenten `currentcolor` (das normalerweise animierbar ist) für den `auto` Wert verwenden können, wird `auto` in Übergängen und Animationen nicht interpoliert.
 
 - {{cssxref("&lt;color&gt;")}}
   - : Die Farbe des Carets.
@@ -102,6 +102,6 @@ p.custom {
 ## Siehe auch
 
 - Das {{HTMLElement("input")}} Element
-- Das HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) Attribut, das verwendet werden kann, um den Text eines beliebigen Elements bearbeitbar zu machen
+- Das HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut, das verwendet werden kann, um beliebigen Text in einem Element editierbar zu machen
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("column-rule-color")}}
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}} und {{cssxref("column-rule-color")}}

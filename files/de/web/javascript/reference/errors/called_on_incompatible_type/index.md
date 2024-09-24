@@ -1,8 +1,8 @@
 ---
-title: "TypeError: X.prototype.y auf inkompatiblem Typ aufgerufen"
+title: "TypeError: X.prototype.y auf inkompatiblen Typ aufgerufen"
 slug: Web/JavaScript/Reference/Errors/Called_on_incompatible_type
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: 859f03368d7a2fcb330c4292d58a55920a076bba
 ---
 
 {{jsSidebar("Errors")}}
@@ -24,13 +24,13 @@ TypeError: undefined is not an object (Safari)
 
 {{jsxref("TypeError")}}
 
-## Was ist schiefgegangen?
+## Was ist schiefgelaufen?
 
 Wenn dieser Fehler ausgelöst wird, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen, das nicht dem von der Funktion erwarteten Typ entspricht.
 
-Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und ein `this`-Argument bereitgestellt wird, das nicht den erwarteten Typ hat.
+Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und dabei ein `this`-Argument bereitgestellt wird, das nicht den erwarteten Typ hat.
 
-Das Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion, wenn es von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder eine Lambda-Funktion bereitstellen, die den Aufruf durchführt, oder die Funktion {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt festzulegen.
+Dieses Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel jener Funktion sein, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder die Callback-Funktion in eine andere Funktion einwickeln oder die Methode {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt festzulegen.
 
 ## Beispiele
 
@@ -59,7 +59,7 @@ const myFun = function () {
   console.log(this);
 };
 ["bar", "baz"].forEach((x) => myFun.bind(x));
-// This works using the "bind" function. It creates a lambda forwarding the argument.
+// This works using the "bind" function. It creates a new function forwarding the argument.
 ```
 
 ## Siehe auch

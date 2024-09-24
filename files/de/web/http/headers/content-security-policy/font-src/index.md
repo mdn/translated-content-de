@@ -2,13 +2,14 @@
 title: "CSP: font-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/font-src
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`font-src`**-Direktive gibt gültige Quellen für Schriften an, die mit {{cssxref("@font-face")}} geladen werden.
+Das HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`font-src`**-Direktive spezifiziert
+gültige Quellen für Schriften, die mit {{cssxref("@font-face")}} geladen werden.
 
 <table class="properties">
   <tbody>
@@ -23,7 +24,7 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
         <code>default-src</code>-Direktive.
       </td>
     </tr>
@@ -32,22 +33,24 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `font-src`-Richtlinie erlaubt werden:
-
 ```http
-Content-Security-Policy: font-src <source>;
-Content-Security-Policy: font-src <source> <source>;
+Content-Security-Policy: font-src 'none';
+Content-Security-Policy: font-src <source-expression-list>;
 ```
 
-### Quellen
+Diese Direktive kann einen der folgenden Werte haben:
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+- `'none'`
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind verpflichtend.
+- `<source-expression-list>`
 
-Beachten Sie, dass derselbe Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen.
+
+    Quellenausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellenausdruck wird in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
 Angenommen, dieser CSP-Header:
 
@@ -55,7 +58,7 @@ Angenommen, dieser CSP-Header:
 Content-Security-Policy: font-src https://example.com/
 ```
 
-Das Laden der folgenden Schriftart-Ressource wird blockiert und nicht geladen:
+Das folgende Laden von Schriftarten-Ressourcen wird blockiert und nicht geladen:
 
 ```html
 <style>

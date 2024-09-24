@@ -2,22 +2,22 @@
 title: "CSP: connect-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/connect-src
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`**-Direktive schränkt die URLs ein, die über Skript-Schnittstellen geladen werden können. Die APIs, die eingeschränkt werden, sind:
+Das HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`connect-src`**-Direktive beschränkt die URLs, die über Skript-Schnittstellen geladen werden können. Die folgenden APIs werden durch diese Direktive kontrolliert:
 
-- {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping),
-- [`fetch()`](/de/docs/Web/API/Window/fetch),
-- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest),
-- [`WebSocket`](/de/docs/Web/API/WebSocket),
-- [`EventSource`](/de/docs/Web/API/EventSource), und
-- [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon).
+- Das [`ping`](/de/docs/Web/HTML/Element/a#ping)-Attribut in {{htmlelement("a")}}-Elementen
+- [`fetch()`](/de/docs/Web/API/Window/fetch)
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
+- [`WebSocket`](/de/docs/Web/API/WebSocket)
+- [`EventSource`](/de/docs/Web/API/EventSource)
+- [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
 
-> **Note:** `connect-src 'self'` löst sich nicht zu WebSocket-Schemata in allen Browsern auf, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
+> **Note:** `connect-src 'self'` löst nicht in allen Browsern zu WebSocket-Schemata auf. Mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -30,9 +30,9 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}}-Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der Nutzeragent nach der
         <code>default-src</code>-Direktive.
       </td>
     </tr>
@@ -41,30 +41,32 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die connect-src-Richtlinie erlaubt werden:
-
 ```http
-Content-Security-Policy: connect-src <source>;
-Content-Security-Policy: connect-src <source> <source>;
+Content-Security-Policy: connect-src 'none';
+Content-Security-Policy: connect-src <source-expression-list>;
 ```
 
-### Quellen
+Diese Direktive kann einen der folgenden Werte haben:
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+- `'none'`
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+- `<source-expression-list>`
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+
+    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Angenommen, dieser CSP-Header:
+Gegeben dieser CSP-Header:
 
 ```http
 Content-Security-Policy: connect-src https://example.com/
 ```
 
-Die folgenden Verbindungen werden blockiert und werden nicht geladen:
+Die folgenden Verbindungen werden blockiert und nicht geladen:
 
 ```html
 <a ping="https://not-example.com">

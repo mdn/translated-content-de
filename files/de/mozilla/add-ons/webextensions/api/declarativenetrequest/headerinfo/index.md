@@ -2,32 +2,32 @@
 title: declarativeNetRequest.HeaderInfo
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/HeaderInfo
 l10n:
-  sourceCommit: a0835f752a97d1c4d738639f562db9d8e7551a1e
+  sourceCommit: 3d2cd62710699f455811feb389b474e90218605d
 ---
 
 {{AddonSidebar}}
 
-Der Antwort-Header, der für die Anfrage abgeglichen werden soll, deklariert im {{WebExtAPIRef("declarativeNetRequest.RuleCondition", "rule.condition")}}`.excludedResponseHeaders` Array oder {{WebExtAPIRef("declarativeNetRequest.RuleCondition", "rule.condition")}}`.responseHeaders` Array. Falls angegeben, muss das Array nicht leer sein.
+Der Antwort-Header, der für die Anfrage zu matchen ist, wird im {{WebExtAPIRef("declarativeNetRequest.RuleCondition", "rule.condition")}}`.excludedResponseHeaders` Array oder im {{WebExtAPIRef("declarativeNetRequest.RuleCondition", "rule.condition")}}`.responseHeaders` Array deklariert. Wenn angegeben, muss das Array nicht leer sein.
 
-Bei Verwendung in der Bedingung `responseHeaders` wird die Regel angewendet, wenn die Anfrage dieser Header-Bedingung entspricht. Bei Verwendung in der Bedingung `excludedResponseHeaders` wird die Regel nicht angewendet, wenn die Anfrage dieser Header-Bedingung entspricht.
+Wenn es in der Bedingung responseHeaders verwendet wird, stimmt die Regel überein, wenn die Anfrage dieser Antwort-Header-Bedingung entspricht. Wenn es in der Bedingung excludedResponseHeaders verwendet wird, stimmt die Regel nicht überein, wenn die Anfrage dieser Antwort-Header-Bedingung entspricht.
 
-Jedes Objekt beschreibt einen Header, der abgeglichen oder ausgeschlossen werden soll. Um mehrere Header zu überprüfen, können mehrere Objekte in diesen Arrays oder über mehrere Regeln hinweg angegeben werden.
+Jedes Objekt beschreibt einen Header, der zu matchen oder auszuschließen ist. Um mehrere Header zu prüfen, können mehrere Objekte in diesen Arrays oder über mehrere Regeln hinweg angegeben werden.
 
-> [!NOTE] Der Abgleich nach Headern ist eine relativ neue Funktion. Stellen Sie sicher, dass die Verfügbarkeit erkannt wird, bevor Sie sich darauf verlassen. Während einige Browser die komplette Regel ignorieren, wenn eine nicht erkannte Bedingung vorhanden ist, hat Chrome von Version 121 bis 127 die gesamte Regel angewandt, während die `responseHeaders` Bedingung ignoriert wurde. Dies könnte dazu führen, dass mehr Anfragen als beabsichtigt abgeglichen werden. Siehe [Chromium issue 347186592](https://issues.chromium.org/issues/347186592).
+> [!NOTE] Das Matching von Headern ist ein relativ neues Feature. Stellen Sie sicher, dass Sie die Verfügbarkeit vor der Nutzung erkennen. Während einige Browser die Regel vollständig ignorieren, wenn eine nicht erkannte Bedingung vorliegt, hat Chrome 121 bis 127 die ganze Regel angewendet, während die `responseHeaders`-Bedingung ignoriert wurde. Dies könnte dazu führen, dass mehr Anfragen als beabsichtigt gematcht werden, siehe [Chromium Issue 347186592](https://crbug.com/347186592).
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `header`
-  - : Ein `string`. Der Name des Headers. Diese Bedingung stimmt nur auf den Namen überein, wenn sowohl `values` als auch `excludedValues` nicht angegeben sind.
+  - : Ein `string`. Der Name des Headers. Diese Bedingung matcht den Namen nur, wenn sowohl Werte als auch ausgeschlossene Werte nicht angegeben sind.
 - `values` {{optional_inline}}
-  - : Ein Array von `string`. Falls angegeben, stimmt diese Bedingung überein, wenn der Wert des Headers mindestens einem Muster in dieser Liste entspricht. Dies unterstützt die Groß-/Kleinschreibung-unempfindliche Übereinstimmung des Header-Wertes sowie die folgenden Konstrukte:
-    - `'*'` : Entspricht einer beliebigen Anzahl von Zeichen.
-    - `'?'` : Entspricht null oder einem Zeichen.
+  - : Ein Array von `string`. Wenn angegeben, stimmt diese Bedingung überein, wenn der Wert des Headers mindestens ein Muster in dieser Liste matcht. Dies unterstützt eine Groß-/Kleinschreibung ignorierende Übereinstimmung von Header-Werten sowie die folgenden Konstrukte:
+    - `'*'` : Matcht eine beliebige Anzahl von Zeichen.
+    - `'?'` : Matcht null oder ein Zeichen.
     - `'*'` und `'?'` können mit einem Backslash maskiert werden, z.B. `'\*'` und `'\?'`.
 - `excludedValues` {{optional_inline}}
-  - : Ein Array von `string`. Falls angegeben, wird diese Bedingung nicht erfüllt, wenn der Header existiert, aber sein Wert mindestens ein Element aus dieser Liste enthält. Dies verwendet dasselbe Glob-Muster-Syntax wie `values`. Wenn `values` und `excludedValues` beide übereinstimmen, hat `excludedValues` Vorrang.
+  - : Ein Array von `string`. Wenn angegeben, wird diese Bedingung nicht gematcht, wenn der Header existiert, aber sein Wert mindestens ein Element in dieser Liste enthält. Dies verwendet die gleiche Glob-Muster-Syntax wie `values`. Wenn sowohl `values` als auch `excludedValues` übereinstimmen, hat `excludedValues` Vorrang.
 
 {{WebExtExamples("h2")}}
 

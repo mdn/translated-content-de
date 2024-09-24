@@ -2,13 +2,13 @@
 title: "CSP: prefetch-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/prefetch-src
 l10n:
-  sourceCommit: f3e3823253fceeb2bb53fcbaf68d3c568e3d20b1
+  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`prefetch-src`** Direktive spezifiziert gültige Ressourcen, die vorab geladen oder vorab gerendert werden dürfen.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`prefetch-src`** Direktive gibt gültige Ressourcen an, die vorab geladen oder vorgeladen werden dürfen.
 
 <table class="properties">
   <tbody>
@@ -23,8 +23,8 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der User Agent nach der
-        <code>default-src</code> Direktive suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code> Direktive.
       </td>
     </tr>
   </tbody>
@@ -32,30 +32,32 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `prefetch-src` Richtlinie erlaubt werden:
-
 ```http
-Content-Security-Policy: prefetch-src <source>;
-Content-Security-Policy: prefetch-src <source> <source>;
+Content-Security-Policy: prefetch-src 'none';
+Content-Security-Policy: prefetch-src <source-expression-list>;
 ```
 
-### Quellen
+Diese Direktive kann einen der folgenden Werte haben:
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
+- `'none'`
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+- `<source-expression-list>`
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+
+    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
 
 ## Beispiel
 
-### Vorab geladene Ressourcen stimmen nicht mit dem Header überein
+### Prefetch-Ressourcen stimmen nicht mit dem Header überein
 
-Gegeben ist eine Seite mit der folgenden Content Security Policy:
+Bei einer Seite mit der folgenden Content Security Policy:
 
 ```http
 Content-Security-Policy: prefetch-src https://example.com/
 ```
 
-Abrufe für den folgenden Code werden Netzwerkfehler zurückgeben, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
+Wird das Abrufen des folgenden Codes zu Netzwerkfehlern führen, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
 
 ```html
 <link rel="prefetch" href="https://example.org/" />

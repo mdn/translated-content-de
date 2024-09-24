@@ -1,50 +1,50 @@
 ---
-title: Funktionen und Klassen verfügbar für Web Workers
+title: Funktionen und Klassen, die Webarbeitern zur Verfügung stehen
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zu dem Standard-Satz von [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, etc.) sind verschiedene Funktionen aus dem DOM in Workers verfügbar. Dieser Artikel stellt eine Liste dieser Funktionen bereit.
+Zusätzlich zu den standardmäßigen [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) stehen Arbeitern eine Vielzahl von Funktionen aus dem DOM zur Verfügung. Dieser Artikel liefert eine Liste dieser Funktionen.
 
 ## Worker-Kontexte & Funktionen
 
-**Workers laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während [`Window`](/de/docs/Web/API/Window) nicht direkt für Workers verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und über ihre eigenen von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) abgeleiteten Kontexte für Workers zugänglich:
+**Arbeiter laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Obwohl [`Window`](/de/docs/Web/API/Window) Arbeitern nicht direkt zur Verfügung steht, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und werden Arbeitern durch ihre eigenen, von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) abgeleiteten Kontexte bereitgestellt:
 
-- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Workers
-- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für geteilte Workers
-- [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service Workers](/de/docs/Web/API/Service_Worker_API)
+- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Arbeiter
+- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für geteilte Arbeiter
+- [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service-Arbeiter](/de/docs/Web/API/Service_Worker_API)
 
-Einige der Funktionen (ein Teil davon), die sowohl für alle Workers als auch für den Haupt-Thread (aus `WindowOrWorkerGlobalScope`) gemeinsam sind, sind:
+Einige der Funktionen (ein Teilset), die für alle Arbeiter und den Hauptthread (vom `WindowOrWorkerGlobalScope`) gemeinsam sind, sind:
 
-- [`atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
-- [`btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
-- [`clearInterval()`](/de/docs/Web/API/ClearInterval)
-- [`clearTimeout()`](/de/docs/Web/API/ClearTimeout)
-- [`createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap)
-- [`dump()`](/de/docs/Web/API/WorkerGlobalScope/dump) {{non-standard_inline}}
-- [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
-- [`queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
-- [`reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
-- [`setInterval()`](/de/docs/Web/API/SetInterval)
-- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
-- [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
-- [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Workers)
-- [`cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Workers)
+- [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
+- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
+- [`WorkerGlobalScope.clearInterval()`](/de/docs/Web/API/WorkerGlobalScope/clearInterval)
+- [`WorkerGlobalScope.clearTimeout()`](/de/docs/Web/API/WorkerGlobalScope/clearTimeout)
+- [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap)
+- [`WorkerGlobalScope.dump()`](/de/docs/Web/API/WorkerGlobalScope/dump) {{non-standard_inline}}
+- [`WorkerGlobalScope.fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
+- [`WorkerGlobalScope.queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
+- [`WorkerGlobalScope.reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
+- [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)
+- [`WorkerGlobalScope.setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)
+- [`WorkerGlobalScope.structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
+- [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Arbeiter)
+- [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Arbeiter)
 
-Die folgenden Funktionen sind **nur** für Workers verfügbar:
+Die folgenden Funktionen sind **ausschließlich** Arbeitern vorbehalten:
 
-- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Workers)
-- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Workers)
+- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Arbeiter)
+- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Arbeiter)
 
-## Web-APIs in Workers verfügbar
+## Web-APIs, die in Arbeitern verfügbar sind
 
 > [!NOTE]
-> Wenn eine aufgelistete API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein davon ausgegangen werden, dass sie in Web Workers verfügbar ist. Sie können auch die Unterstützung für ein bestimmtes Objekt/eine bestimmte Funktion mithilfe der Website testen: <https://worker-playground.glitch.me/>
+> Wenn eine angegebene API von einer Plattform in einer bestimmten Version unterstützt wird, kann im Allgemeinen angenommen werden, dass sie in Webarbeitern verfügbar ist. Sie können auch die Unterstützung eines bestimmten Objekts oder einer Funktion auf der Website testen: <https://worker-playground.glitch.me/>
 
-Die folgenden Web-APIs sind für Workers verfügbar:
+Die folgenden Web-APIs stehen Arbeitern zur Verfügung:
 
 - [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
@@ -63,7 +63,7 @@ Die folgenden Web-APIs sind für Workers verfügbar:
 - [Idle Detection API](/de/docs/Web/API/Idle_Detection_API)
 - [IndexedDB API](/de/docs/Web/API/IndexedDB_API)
 - [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
-- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur dedizierte Workers)
+- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur dedizierte Arbeiter)
 - [Network Information API](/de/docs/Web/API/Network_Information_API)
 - [Notifications API](/de/docs/Web/API/Notifications_API)
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
@@ -88,7 +88,7 @@ Die folgenden Web-APIs sind für Workers verfügbar:
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Workers können auch andere Workers erzeugen, daher sind diese APIs ebenfalls verfügbar:
+Arbeiter können auch andere Arbeiter erzeugen, daher stehen auch diese APIs zur Verfügung:
 
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
@@ -97,5 +97,5 @@ Workers können auch andere Workers erzeugen, daher sind diese APIs ebenfalls ve
 
 ## Siehe auch
 
-- [Verwendung von Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [`Worker`](/de/docs/Web/API/Worker)

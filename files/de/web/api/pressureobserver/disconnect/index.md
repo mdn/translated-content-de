@@ -1,14 +1,14 @@
 ---
-title: "PressureObserver: disconnect()-Methode"
+title: "PressureObserver: `disconnect()`-Methode"
 short-title: disconnect()
 slug: Web/API/PressureObserver/disconnect
 l10n:
-  sourceCommit: a251e34887530216e319fee73b5b859c8c943a53
+  sourceCommit: e1d2d6a3880d47638de6b5a54b58df92826ec58e
 ---
 
-{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **`disconnect()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces stoppt den Rückruf des Druckbeobachters, sodass keine Druckaufzeichnungen mehr von allen Quellen empfangen werden.
+Die **`disconnect()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces stoppt den Rückruf des Pressure-Observers, keine Druckaufzeichnungen mehr von allen Quellen zu erhalten.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einen Druckbeobachter stoppen
+### Beenden eines Pressure-Observers
 
-Das folgende Beispiel sammelt 20 Stichproben und trennt dann den Druckbeobachter, um das Empfangen weiterer Druckaufzeichnungen zu deaktivieren.
+Das folgende Beispiel sammelt 20 Proben und trennt dann den Pressure-Observer, um keine weiteren Druckaufzeichnungen zu empfangen.
 
 ```js
 const samples = [];

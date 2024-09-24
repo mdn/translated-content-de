@@ -2,14 +2,14 @@
 title: "CSP: manifest-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/manifest-src
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-
+Die HTTP
 {{HTTPHeader("Content-Security-Policy")}}`: manifest-src`
-Direktive legt fest, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource angewendet werden kann.
+Direktive gibt an, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource angewendet werden kann.
 
 <table class="properties">
   <tbody>
@@ -22,9 +22,9 @@ Direktive legt fest, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        Ja. Wenn diese Direktive nicht vorhanden ist, sucht der Benutzeragent nach der
         <code>default-src</code> Direktive.
       </td>
     </tr>
@@ -33,30 +33,32 @@ Direktive legt fest, welches [Manifest](/de/docs/Web/Manifest) auf die Ressource
 
 ## Syntax
 
-Einer oder mehrere Quellen können für die `manifest-src` Richtlinie erlaubt werden:
-
 ```http
-Content-Security-Policy: manifest-src <source>;
-Content-Security-Policy: manifest-src <source> <source>;
+Content-Security-Policy: manifest-src 'none';
+Content-Security-Policy: manifest-src <source-expression-list>;
 ```
 
-### Quellen
+Diese Direktive kann einen der folgenden Werte haben:
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
+- `'none'`
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+- `<source-expression-list>`
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie einem der angegebenen Quellausdrücke entsprechen.
+
+    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: die Syntax für jeden Quellausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) angegeben.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Angenommen, dieser CSP-Header:
+Angenommen, dieser CSP-Header wird verwendet:
 
 ```http
 Content-Security-Policy: manifest-src https://example.com/
 ```
 
-Die folgende {{HTMLElement("link")}} wird blockiert und nicht geladen:
+Das folgende {{HTMLElement("link")}} wird blockiert und nicht geladen:
 
 ```html
 <link rel="manifest" href="https://not-example.com/manifest" />

@@ -2,31 +2,31 @@
 title: "Im Detail: Microtasks und die JavaScript-Laufzeitumgebung"
 slug: Web/API/HTML_DOM_API/Microtask_guide/In_depth
 l10n:
-  sourceCommit: 5fc275a2cb01ea3c361d6a0af057e96a00122984
+  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
 ---
 
 {{DefaultAPISidebar("HTML DOM")}}
 
-Beim Debugging oder möglicherweise bei der Entscheidung über den besten Ansatz zur Lösung eines Problems in Bezug auf Timing und Planung von Aufgaben und Microtasks gibt es Dinge, wie die JavaScript-Laufzeit im Hintergrund arbeitet, die nützlich zu verstehen sein könnten.
+Beim Debuggen oder, möglicherweise, wenn Sie versuchen, den besten Ansatz zur Lösung eines Problems bezüglich Timing und Planung von Tasks und Microtasks zu finden, gibt es Aspekte, wie die JavaScript-Laufzeit im Hintergrund arbeitet, die nützlich zu verstehen sein können.
 
-JavaScript ist eine von Natur aus einsträngige Sprache. Es wurde in einer Ära entwickelt, in der dies eine positive Entscheidung war; es gab nur wenige Mehrprozessor-Computer für die breite Öffentlichkeit, und die zu erwartende Menge an Code, die von JavaScript verarbeitet werden sollte, war zu dieser Zeit relativ gering.
+JavaScript ist eine von Natur aus einthreadige Sprache. Es wurde in einer Zeit entworfen, in der dies eine positive Wahl war; es gab nur wenige Mehrprozessor-Computer für die breite Öffentlichkeit, und der erwartete Umfang an Code, der von JavaScript verarbeitet werden sollte, war zu dieser Zeit relativ gering.
 
-Mit der Zeit wissen wir natürlich, dass Computer sich zu leistungsstarken Multicore-Systemen entwickelt haben und JavaScript zu einer der am häufigsten verwendeten Sprachen in der Computerwelt geworden ist. Eine Vielzahl der beliebtesten Anwendungen basiert zumindest teilweise auf JavaScript-Code. Um dies zu unterstützen, war es notwendig, Wege zu finden, um Projekten die Möglichkeit zu geben, die Einschränkungen einer einsträngigen Sprache zu überwinden.
+Im Laufe der Zeit wissen wir natürlich, dass sich Computer zu leistungsstarken Mehrkernsystemen entwickelt haben und JavaScript zu einer der am häufigsten verwendeten Sprachen in der Computerwelt geworden ist. Eine Vielzahl der beliebtesten Anwendungen basiert zumindest teilweise auf JavaScript-Code. Um dies zu unterstützen, war es notwendig, Wege zu finden, um Projekte von den Einschränkungen einer einthreadigen Sprache zu befreien.
 
-Beginnend mit der Einführung von Timeouts und Intervallen als Teil der Web-API ([`setTimeout()`](/de/docs/Web/API/SetTimeout) und [`setInterval()`](/de/docs/Web/API/SetInterval)) hat sich die JavaScript-Umgebung, die von Webbrowsern bereitgestellt wird, schrittweise weiterentwickelt, um leistungsstarke Funktionen zu umfassen, die die Planung von Aufgaben, die Entwicklung mehrsträngiger Anwendungen und so weiter ermöglichen. Um zu verstehen, wo [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) hier ins Spiel kommt, ist es hilfreich zu verstehen, wie die JavaScript-Laufzeit funktioniert, wenn Code geplant und ausgeführt wird.
+Beginnend mit der Einführung von Timeouts und Intervallen als Teil der Web-API ([`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setInterval()`](/de/docs/Web/API/Window/setInterval)), hat sich die JavaScript-Umgebung, die von Webbrowsern bereitgestellt wird, schrittweise weiterentwickelt, um leistungsstarke Funktionen bereitzustellen, die die Planung von Aufgaben, die Entwicklung von Mehrthread-Anwendungen und so weiter ermöglichen. Um zu verstehen, an welcher Stelle [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) hier ins Spiel kommt, ist es hilfreich zu verstehen, wie die JavaScript-Laufzeit bei der Planung und Ausführung von Code arbeitet.
 
 ## JavaScript-Ausführungskontexte
 
 > [!NOTE]
-> Die Details hier sind im Allgemeinen für die meisten JavaScript-Programmierer nicht wichtig. Diese Informationen werden als Grundlage dafür bereitgestellt, warum Microtasks nützlich sind und wie sie funktionieren; wenn Sie es nicht wichtig finden, können Sie dies überspringen und später darauf zurückkommen, wenn Sie feststellen, dass Sie es benötigen.
+> Die Einzelheiten hier sind für die meisten JavaScript-Programmierer im Allgemeinen nicht wichtig. Diese Informationen werden als Grundlage dafür bereitgestellt, warum Microtasks nützlich sind und wie sie funktionieren; wenn es Ihnen egal ist, können Sie dies überspringen und später zurückkehren, wenn Sie feststellen, dass Sie es benötigen.
 
-Wenn ein Fragment von JavaScript-Code ausgeführt wird, läuft es in einem **Ausführungskontext**. Es gibt drei Codearten, die einen neuen Ausführungskontext erstellen:
+Wenn ein Fragment von JavaScript-Code ausgeführt wird, läuft es innerhalb eines **Ausführungskontextes**. Es gibt drei Arten von Code, die einen neuen Ausführungskontext erstellen:
 
 - Der globale Kontext ist der Ausführungskontext, der erstellt wird, um den Hauptteil Ihres Codes auszuführen; das heißt, jeder Code, der außerhalb einer JavaScript-Funktion existiert.
 - Jede Funktion wird in ihrem eigenen Ausführungskontext ausgeführt. Dies wird häufig als "lokaler Kontext" bezeichnet.
-- Die Verwendung der schlecht beratenen {{jsxref("Global_Objects/eval", "eval()")}}-Funktion erstellt ebenfalls einen neuen Ausführungskontext.
+- Die Verwendung der nicht empfohlenen {{jsxref("Global_Objects/eval", "eval()")}}-Funktion erstellt ebenfalls einen neuen Ausführungskontext.
 
-Jeder Kontext ist im Wesentlichen eine Ebene des Geltungsbereichs innerhalb Ihres Codes. Wenn eines dieser Code-Segmente mit der Ausführung beginnt, wird ein neuer Kontext erstellt, in dem es ausgeführt wird; dieser Kontext wird dann zerstört, wenn der Code beendet wird. Betrachten Sie das folgende JavaScript-Programm:
+Jeder Kontext ist im Wesentlichen eine Ebene des Scopes innerhalb Ihres Codes. Wenn eines dieser Code-Segmente mit der Ausführung beginnt, wird ein neuer Kontext erstellt, um ihn auszuführen; dieser Kontext wird dann zerstört, wenn der Code beendet wird. Betrachten Sie das folgende JavaScript-Programm:
 
 ```js
 const outputElem = document.getElementById("output");
@@ -60,95 +60,95 @@ greetUser("Teresa");
 greetUser("Veronica");
 ```
 
-Dieses kurze Programm enthält drei Ausführungskontexte, von denen einige mehrmals im Laufe der Programmausführung erstellt und zerstört werden. Wenn jeder Kontext erstellt wird, wird er auf den **Ausführungskontext-Stapel** gelegt. Beim Beenden wird der Kontext aus dem Kontext-Stapel entfernt.
+Dieses kurze Programm enthält drei Ausführungskontexte, von denen einige im Laufe der Programmausführung mehrmals erstellt und zerstört werden. Wenn jeder Kontext erstellt wird, wird er auf den **Ausführungskontext-Stack** gelegt. Wenn er beendet wird, wird der Kontext aus dem Kontext-Stack entfernt.
 
-- Beim Start des Programms wird der globale Kontext erstellt.
+- Beim Programmstart wird der globale Kontext erstellt.
 
-  - Wenn `greetUser("Mike")` erreicht wird, wird ein Kontext für die `greetUser()`-Funktion erstellt; dieser Ausführungskontext wird auf den Ausführungskontext-Stapel gedrückt.
+  - Wenn `greetUser("Mike")` erreicht wird, wird ein Kontext für die `greetUser()`-Funktion erstellt; dieser Ausführungskontext wird auf den Ausführungskontext-Stack geschoben.
 
-    - Wenn `greetUser()` `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstapel entfernt und zerstört. Die Programmausführung wird mit dem nächsten auf dem Stapel gefundenen Kontext fortgesetzt, der `greetUser()` ist; diese Funktion setzt die Ausführung dort fort, wo sie unterbrochen wurde.
-    - Die `greetUser()`-Funktion gibt zurück und ihr Kontext wird vom Stapel entfernt und zerstört.
+    - Wenn `greetUser()` `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstapel entfernt und zerstört. Die Programmausführung wird mit dem nächsten im Stapel gefundenen Kontext fortgesetzt, der `greetUser()` ist; diese Funktion setzt die Ausführung dort fort, wo sie aufgehört hat.
+    - Die `greetUser()`-Funktion kehrt zurück und ihr Kontext wird aus dem Stapel entfernt und zerstört.
 
-  - Wenn `greetUser("Teresa")` erreicht wird, wird ein Kontext dafür erstellt und auf den Stapel gedrückt.
+  - Wenn `greetUser("Teresa")` erreicht wird, wird ein Kontext dafür erstellt und auf den Stapel geschoben.
 
-    - Wenn `greetUser()` `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstapel entfernt und zerstört. `greetUser()` setzt die Ausführung dort fort, wo sie unterbrochen wurde.
-    - Die `greetUser()`-Funktion gibt zurück und ihr Kontext wird vom Stapel entfernt und zerstört.
+    - Wenn `greetUser()` `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstapel entfernt und zerstört. `greetUser()` wird dort fortgesetzt, wo es aufgehört hat.
+    - Die `greetUser()`-Funktion kehrt zurück und ihr Kontext wird aus dem Stapel entfernt und zerstört.
 
-  - Wenn `greetUser("Veronica")` erreicht wird, wird ein Kontext dafür erstellt und auf den Stapel gedrückt.
+  - Wenn `greetUser("Veronica")` erreicht wird, wird ein Kontext dafür erstellt und auf den Stapel geschoben.
 
     - Wenn `greetUser()` `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstapel entfernt und zerstört.
-    - Die `greetUser()`-Funktion gibt zurück und ihr Kontext wird vom Stapel entfernt und zerstört.
+    - Die `greetUser()`-Funktion kehrt zurück und ihr Kontext wird aus dem Stapel entfernt und zerstört.
 
-- Die Hauptprogrammbeendung und ihr Ausführungskontext wird vom Ausführungsstapel entfernt; da keine Kontexte mehr auf dem Stapel verbleiben, endet die Programmausführung.
+- Das Hauptprogramm endet und sein Ausführungskontext wird aus dem Ausführungsstapel entfernt; da keine Kontexte mehr im Stapel vorhanden sind, endet die Programmausführung.
 
-Durch die Verwendung von Ausführungskontexten auf diese Weise kann jedes Programm und jede Funktion ihre eigenen Variablen und anderen Objekte haben. Jeder Kontext verfolgt zusätzlich die nächste Zeile im Programm, die ausgeführt werden soll, und andere Informationen, die für den Betrieb dieses Kontextes entscheidend sind. Durch die Verwendung der Kontexte und des Kontextstapels auf diese Weise können viele der Grundlagen der Programmoperationen verwaltet werden, einschließlich lokaler und globaler Variablen, Funktionsaufrufe und Rückgaben und so weiter.
+Durch die Verwendung von Ausführungskontexten in dieser Weise kann jedes Programm und jede Funktion ihre eigenen Variablen und anderen Objekte besitzen. Jeder Kontext verfolgt außerdem die nächste Zeile im Programm, die ausgeführt werden soll, und andere für den Betrieb dieses Kontexts kritische Informationen. Indem die Kontexte und der Kontext-Stack auf diese Weise genutzt werden, können viele der Grundlagen dafür, wie ein Programm arbeitet, verwaltet werden, einschließlich lokaler und globaler Variablen, Funktionsaufrufe und Rückgaben und so weiter.
 
-Eine besondere Bemerkung zu rekursiven Funktionen — das sind Funktionen, die sich selbst über mehrere Rekursionsebenen oder -stufen aufrufen: Jeder rekursive Aufruf der Funktion erstellt einen neuen Ausführungskontext. Dies ermöglicht der JavaScript-Laufzeit, die Rekursionsebenen zu verfolgen und die Rückgabe von Ergebnissen durch diese Rekursion zu steuern, bedeutet jedoch auch, dass bei jedem Rekurs der Funktion mehr Speicher benötigt wird, um den neuen Kontext zu erstellen.
+Ein besonderer Hinweis zu rekursiven Funktionen, das heißt, Funktionen, die sich möglicherweise über mehrere Ebenen der Tiefe oder der Rekursion selbst aufrufen: Jeder rekursive Aufruf der Funktion erstellt einen neuen Ausführungskontext. Dies ermöglicht es der JavaScript-Laufzeit, die Rekursionsebenen und die Rückgabe der Ergebnisse durch diese Rekursion zu verfolgen, bedeutet jedoch auch, dass bei jedem Aufrufen der Funktion mehr Speicher benötigt wird, um den neuen Kontext zu erstellen.
 
 ## Lauf, JavaScript, lauf
 
-Um JavaScript-Code auszuführen, hält die Laufzeitengine eine Reihe von **Agenten** bereit, um JavaScript-Code auszuführen. Jeder Agent besteht aus einer Reihe von Ausführungskontexten, dem Ausführungskontext-Stapel, einem Hauptthread, einem Set für alle zusätzlichen Threads, die möglicherweise erstellt werden, um Worker zu verwalten, einer Aufgaben-Warteschlange und einer Microtask-Warteschlange. Abgesehen vom Hauptthread — den einige Browser über mehrere Agenten hinweg teilen — ist jede Komponente eines Agenten einzigartig für diesen Agenten.
+Um JavaScript-Code auszuführen, unterhält die Laufzeit-Engine eine Reihe von **Agenten**, in denen JavaScript-Code ausgeführt wird. Jeder Agent besteht aus einer Reihe von Ausführungskontexten, dem Ausführungskontext-Stack, einem Haupt-Thread, einem Set für alle zusätzlichen Threads, die erstellt werden können, um Worker zu behandeln, einer Task-Warteschlange und einer Microtask-Warteschlange. Abgesehen vom Haupt-Thread – den einige Browser über mehrere Agenten hinweg teilen – ist jede Komponente eines Agenten einzigartig für diesen Agenten.
 
 Hier betrachten wir, wie die Laufzeit im Detail funktioniert.
 
-### Ereignisschleifen
+### Event-Loops
 
-Jeder Agent wird von einer [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) gesteuert, die wiederholt durchlaufen wird. Während jeder Iteration führt sie höchstens eine anstehende JavaScript-Aufgabe aus, dann alle anstehenden Microtasks, und führt dann gegebenenfalls das Rendering und Zeichnung durch, bevor sie erneut durchläuft.
+Jeder Agent wird durch einen [Event-Loop](/de/docs/Web/JavaScript/Event_loop) angetrieben, der wiederholt verarbeitet wird. Während jeder Iteration führt er höchstens eine ausstehende JavaScript-Task aus, danach alle ausstehenden Microtasks, dann führt er alle erforderlichen Rendering- und Zeichenoperationen durch, bevor er erneut aufruft.
 
-Der Code Ihrer Website oder Anwendung läuft im selben **{{Glossary("thread", "Thread")}}**, der dieselbe **Ereignisschleife** teilt, wie die Benutzeroberfläche des Webbrowsers selbst. Dies ist der **{{Glossary("main_thread", "Hauptthread")}}**, und zusätzlich zur Ausführung des Hauptcodekörpers Ihrer Site behandelt er auch das Empfangen und Verteilen von Benutzer- und anderen Ereignissen, das Rendern und Zeichnen von Webinhalten und so weiter.
+Der Code Ihrer Website oder App läuft im gleichen **{{Glossary("thread", "Thread")}}**, der gleichen **Event-Loop**, wie die Benutzeroberfläche des Webbrowsers selbst. Dies ist der **{{Glossary("main_thread", "Haupt-Thread")}}**, und zusätzlich zur Ausführung des Hauptcodes Ihrer Website bearbeitet er den Empfang und die Verteilung von Benutzer- und anderen Ereignissen, das Rendering und Zeichnen von Web-Inhalten und so weiter.
 
-Die Ereignisschleife treibt alles an, was im Browser bezüglich der Interaktion mit dem Benutzer passiert, aber für unsere Zwecke hier ist sie wichtiger, da sie für die Planung und Ausführung jedes Code-Segments verantwortlich ist, das innerhalb ihres Threads läuft.
+Der Event-Loop treibt dann alles an, was im Browser passiert, wenn es um die Interaktion mit dem Benutzer geht, aber wichtiger noch für unsere Zwecke hier, ist er verantwortlich für die Planung und Ausführung jedes Codes, der innerhalb seines Threads ausgeführt wird.
 
-Es gibt drei Arten von Ereignisschleifen:
+Es gibt drei Arten von Event-Loops:
 
-- Fensterereignisschleife
-  - : Die Fensterereignisschleife ist diejenige, die alle Fenster mit einem ähnlichen Ursprung steuert (obwohl es weitere Einschränkungen gibt, wie unten beschrieben).
-- Worker-Ereignisschleife
-  - : Eine Worker-Ereignisschleife ist diejenige, die einen Worker steuert; dies schließt alle Formen von Workern ein, einschließlich grundlegender [Web Worker](/de/docs/Web/API/Web_Workers_API), [Shared Worker](/de/docs/Web/API/SharedWorker) und [Service Worker](/de/docs/Web/API/Service_Worker_API). Worker werden in einem oder mehreren Agenten gehalten, die vom "Haupt"code getrennt sind; der Browser kann eine einzige Ereignisschleife für alle Worker eines bestimmten Typs verwenden oder mehrere Ereignisschleifen verwenden, um sie zu handhaben.
-- Worklet-Ereignisschleife
-  - : Eine [Worklet](/de/docs/Web/API/Worklet)-Ereignisschleife ist die Ereignisschleife, die Agenten steuert, die den Code für die Worklets eines bestimmten Agenten ausführen. Dies schließt Worklets vom Typ [`Worklet`](/de/docs/Web/API/Worklet) und [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ein.
+- Window-Event-Loop
+  - : Der Window-Event-Loop ist derjenige, der alle Fenster mit gemeinsamem Ursprung steuert (obwohl es dazu weitere Einschränkungen gibt, wie unten beschrieben).
+- Worker-Event-Loop
+  - : Ein Worker-Event-Loop ist einer, der einen Worker steuert; dies umfasst alle Formen von Workern, einschließlich einfacher [Web-Worker](/de/docs/Web/API/Web_Workers_API), [Shared-Worker](/de/docs/Web/API/SharedWorker), und [Service-Worker](/de/docs/Web/API/Service_Worker_API). Worker werden in einem oder mehreren Agenten gehalten, die vom "Haupt"-Code getrennt sind; der Browser kann einen einzelnen Event-Loop für alle Worker eines bestimmten Typs verwenden oder mehrere Event-Loops einsetzen, um sie zu handhaben.
+- Worklet-Event-Loop
+  - : Ein {{domxref("Worklet", "worklet", "", 1)}}-Event-Loop ist der Event-Loop, der Agenten antreibt, welche den Code für die Worklets eines gegebenen Agenten ausführen. Dies schließt Worklets des Typs [`Worklet`](/de/docs/Web/API/Worklet) und [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ein.
 
-Mehrere Fenster, die aus demselben {{Glossary("origin", "Ursprung")}} geladen wurden, können auf derselben Ereignisschleife laufen, wobei jede Aufgaben in die Ereignisschleife einreiht, sodass ihre Aufgaben der Reihe nach mit dem Prozessor abgearbeitet werden. Beachten Sie, dass im Web-Sprachgebrauch das Wort "Fenster" tatsächlich "Browser-Level-Container, in dem Webinhalte laufen" bedeutet, einschließlich eines tatsächlichen Fensters, eines Tabs oder eines Frames.
+Mehrere Fenster, die vom gleichen {{Glossary("origin", "Origin")}} geladen wurden, können auf dem gleichen Event-Loop laufen, wobei jedes Aufgaben in die Event-Loop-Warteschlange einreiht, damit ihre Aufgaben abwechselnd mit dem Prozessor ausgeführt werden. Bedenken Sie, dass im Web-Jargon das Wort "Window" tatsächlich "Browser-Ebene-Container bedeutet, in dem Web-Inhalt läuft," einschließlich eines tatsächlichen Fensters, eines Tabs oder eines Frames.
 
-Es gibt spezielle Umstände, unter denen dieses Teilen einer Ereignisschleife zwischen Fenstern mit gemeinsamen Ursprung möglich ist, wie zum Beispiel:
+Es gibt spezifische Umstände, unter denen dieses Teilen einer Event-Loop unter Fenstern mit gemeinsamen Ursprung möglich ist, wie zum Beispiel:
 
-- Wenn ein Fenster das andere Fenster geöffnet hat, teilen sie wahrscheinlich eine Ereignisschleife.
-- Wenn ein Fenster tatsächlich ein Container innerhalb eines {{HTMLElement("iframe")}} ist, teilt es wahrscheinlich eine Ereignisschleife mit dem Fenster, das es enthält.
-- Die Fenster teilen zufällig denselben Prozess in einer Multi-Prozess-Webbrowser-Implementierung.
+- Wenn ein Fenster das andere Fenster geöffnet hat, teilen sie wahrscheinlich eine Event-Loop.
+- Wenn ein Fenster tatsächlich ein Container innerhalb eines {{HTMLElement("iframe")}} ist, teilt es wahrscheinlich eine Event-Loop mit dem Fenster, das ihn enthält.
+- Die Fenster teilen zufällig denselben Prozess in einer Mehrprozess-Webbrowser-Implementierung.
 
-Die Details können von Browser zu Browser variieren, abhängig davon, wie sie implementiert sind.
+Die Details können je nach Browser variieren, abhängig davon, wie sie implementiert sind.
 
-#### Aufgaben vs. Microtasks
+#### Tasks vs. Microtasks
 
-Eine **Aufgabe** ist alles, was geplant ist, durch die Standardmechanismen wie das anfängliche Starten der Skriptausführung, das asynchrone Senden eines Ereignisses usw. ausgeführt zu werden. Abgesehen von der Verwendung von Ereignissen können Sie eine Aufgabe durch die Verwendung von [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder [`setInterval()`](/de/docs/Web/API/SetInterval) in die Warteschlange einreihen.
+Eine **Task** ist alles, was durch die Standardmechanismen geplant wird, wie beispielsweise das anfängliche Ausführen eines Skripts, das asynchrone Verteilen eines Ereignisses, und so weiter. Abgesehen von der Verwendung von Ereignissen können Sie eine Task mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder [`setInterval()`](/de/docs/Web/API/Window/setInterval) einreihen.
 
-Der Unterschied zwischen der Aufgaben-Warteschlange und der Microtask-Warteschlange ist einfach, aber sehr wichtig:
+Der Unterschied zwischen der Task-Warteschlange und der Microtask-Warteschlange ist einfach, aber sehr wichtig:
 
-- Wenn eine neue Iteration der Ereignisschleife beginnt, führt die Laufzeit die nächste Aufgabe aus der Aufgaben-Warteschlange aus. Weitere Aufgaben und Aufgaben, die nach dem Start der Iteration zur Warteschlange hinzugefügt werden, _werden bis zur nächsten Iteration nicht ausgeführt_.
-- Jedes Mal, wenn eine Aufgabe beendet wird und der Ausführungskontextstapel leer ist, werden alle Microtasks in der Microtask-Warteschlange der Reihe nach ausgeführt. Der Unterschied besteht darin, dass die Ausführung von Microtasks fortgesetzt wird, bis die Warteschlange leer ist — selbst wenn in der Zwischenzeit neue geplant werden. Mit anderen Worten, Microtasks können neue Microtasks einreihen, und diese neuen Microtasks werden ausgeführt, bevor die nächste Aufgabe beginnt, und bevor die aktuelle Ereignisschleifen-Iteration endet.
+- Wenn eine neue Iteration der Event-Loop beginnt, führt die Laufzeit die nächste Task aus der Task-Warteschlange aus. Weitere Tasks und Tasks, die nach Beginn der Iteration zur Warteschlange hinzugefügt werden, _werden erst in der nächsten Iteration ausgeführt_.
+- Immer wenn eine Task endet und der Ausführungskontext-Stack leer ist, werden alle Microtasks in der Microtask-Warteschlange der Reihe nach ausgeführt. Der Unterschied besteht darin, dass die Ausführung der Microtasks so lange fortgesetzt wird, bis die Warteschlange leer ist – selbst wenn zwischenzeitlich neue Microtasks geplant werden. Mit anderen Worten, Microtasks können neue Microtasks einreihen und diese neuen Microtasks werden ausgeführt, bevor die nächste Task beginnt und bevor das Ende der aktuellen Event-Loop-Iteration erreicht ist.
 
 ### Probleme
 
-Da Ihr Code im selben Thread läuft, der dieselbe Ereignisschleife verwendet wie die Benutzeroberfläche des Browsers, wird der Browser selbst blockiert, wenn Ihr Code blockiert oder in eine Endlosschleife gerät. Selbst eine träge Leistung, sei es durch einen Fehler oder aufgrund komplexer Arbeiten, die von Ihrem Code ausgeführt werden, kann dazu führen, dass der Benutzer unter einem trägen Browser leidet.
+Da Ihr Code im gleichen Thread läuft, unter Verwendung der gleichen Event-Loop, wie die Benutzeroberfläche des Browsers, blockiert der Browser selbst, wenn Ihr Code blockiert oder in eine Endlosschleife gerät. Sogar langsame Leistung, die entweder durch einen Fehler oder durch komplexe Arbeiten in Ihrem Code verursacht wird, kann den Benutzer mit einem trägen Browser belasten.
 
-Wenn mehrere Programme und mehrere Codeobjekte innerhalb dieser Programme gleichzeitig arbeiten wollen, zusammen mit einem Browser, der auch Prozessorzeit benötigt — ganz zu schweigen von der Zeit, die für das Rendern und Zeichnen der Website und seiner eigenen Benutzeroberfläche, die Bearbeitung von Benutzereignissen usw. benötigt wird — wird heutzutage alles viel zu leicht verstopft.
+Wenn mehrere Programme und mehrere Codeobjekte innerhalb dieser Programme versuchen, gleichzeitig zu arbeiten, zusammen mit einem Browser, der ebenfalls Verarbeitungszeit benötigt – geschweige denn Zeit zum Rendern und Zeichnen der Seite und seiner eigenen Benutzeroberfläche, zur Behandlung von Benutzerereignissen usw. – wird heutzutage alles viel zu leicht verstopft.
 
 ### Lösungen
 
-Die Verwendung von [Web Workern](/de/docs/Web/API/Web_Workers_API), die es dem Hauptskript ermöglichen, andere Skripte in neuen Threads auszuführen, hilft, dieses Problem zu lindern. Eine gut gestaltete Website oder Anwendung verwendet Worker, um alle komplexen oder langwierigen Operationen auszuführen und lässt den Hauptthread so wenig wie möglich über die Aktualisierung, das Layout und das Rendering der Webseite hinaus arbeiten.
+Die Nutzung von [Web-Workern](/de/docs/Web/API/Web_Workers_API), die es dem Hauptskript erlauben, andere Skripte in neuen Threads auszuführen, trägt dazu bei, dieses Problem zu lindern. Eine gut gestaltete Website oder App nutzt Worker, um alle komplexen oder langwierigen Operationen durchzuführen, während der Haupt-Thread so wenig Arbeit wie möglich außerhalb der Aktualisierung, des Layouts und des Renderns der Webseite verrichtet.
 
-Dies wird weiter durch die Verwendung von [asynchronem JavaScript](/de/docs/Learn/JavaScript/Asynchronous) und Techniken wie [Promisen](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) alleviiert, die es dem Hauptcode ermöglichen, weiterzulaufen, während auf die Ergebnisse einer Anfrage gewartet wird. Code, der jedoch auf einer grundlegenderen Ebene ausgeführt wird — beispielsweise Code, der eine Bibliothek oder ein Framework bildet — benötigt möglicherweise eine Möglichkeit, Code zu einem sicheren Zeitpunkt einzuplanen, während er immer noch auf dem Hauptthread ausgeführt wird, unabhängig von den Ergebnissen jeder einzelnen Anfrage oder Aufgabe.
+Dies wird weiter erleichtert durch die Verwendung von [asynchronem JavaScript](/de/docs/Learn/JavaScript/Asynchronous)-Techniken wie {{jsxref("Global_Objects/Promise", "Promises", "", 1)}}, um den Hauptcode weiterlaufen zu lassen, während auf die Ergebnisse einer Anforderung gewartet wird. Dennoch könnte Code, der auf einer grundlegenderen Ebene läuft – wie Code, der eine Bibliothek oder ein Framework bildet – eine Möglichkeit benötigen, Code zu einem sicheren Zeitpunkt einzuplanen, während er immer noch auf dem Haupt-Thread läuft, unabhängig von den Ergebnissen einer einzelnen Anfrage oder Aufgabe.
 
-Microtasks stellen eine weitere Lösung für dieses Problem dar, indem sie einen genaueren Zugriff ermöglichen, indem es möglich ist, Code zu planen, der ausgeführt werden soll, bevor die nächste Iteration der Ereignisschleife beginnt, anstatt bis zur nächsten warten zu müssen.
+Microtasks sind eine weitere Lösung für dieses Problem, indem sie einen feineren Zugriff ermöglichen, indem es möglich ist, Code einzuplanen, der ausgeführt werden soll, bevor die nächste Iteration der Event-Loop beginnt, anstatt bis zur nächsten warten zu müssen.
 
-Die Microtask-Warteschlange gibt es schon eine Weile, aber sie wurde historisch nur intern verwendet, um Dinge wie Promises anzutreiben. Die Einführung von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), das Entwicklern zugänglich gemacht wurde, schafft eine einheitliche Warteschlange für Microtasks, die überall dort verwendet wird, wo es notwendig ist, die Fähigkeit zu haben, Code sicher einzuplanen, wenn keine Ausführungskontexte mehr auf dem JavaScript-Ausführungskontextstapel sind. Über mehrere Instanzen hinweg und in allen Browsern und JavaScript-Laufzeiten hinweg bedeutet ein standardisierter Microqueue-Mechanismus, dass diese Microtasks zuverlässig in der gleichen Reihenfolge arbeiten und so potenziell schwer zu findende Bugs vermieden werden.
+Die Microtask-Warteschlange gibt es schon seit einiger Zeit, wurde aber historisch nur intern benutzt, um Dinge wie Promises zu betreiben. Die Ergänzung von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), das es Web-Entwicklern zugänglich macht, schafft eine einheitliche Warteschlange für Microtasks, die überall dort verwendet wird, wo die Fähigkeit benötigt wird, Code sicher einzuplanen, wenn keine Ausführungskontexte mehr auf dem JavaScript-Ausführungskontext-Stack sind. Über mehrere Instanzen und über alle Browser und JavaScript-Laufzeiten hinweg bedeutet ein standardisierter Microqueue-Mechanismus, dass diese Microtasks zuverlässig in der gleichen Reihenfolge arbeiten und somit schwer zu findende Fehler vermeiden.
 
 ## Siehe auch
 
 - [Microtask-Leitfaden](/de/docs/Web/API/HTML_DOM_API/Microtask_guide)
 - [`Window.queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask)
-- [Die Ereignisschleife](/de/docs/Web/JavaScript/Event_loop)
+- [Der Event-Loop](/de/docs/Web/JavaScript/Event_loop)
 - [Asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous)
   - [Einführung in asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous/Introducing)
   - [Kooperatives asynchrones JavaScript: Timeouts und Intervalle](/de/docs/Learn/JavaScript/Asynchronous)
-  - [Angenehme asynchrone Programmierung mit Promises](/de/docs/Learn/JavaScript/Asynchronous/Promises)
+  - [Elegante asynchrone Programmierung mit Promises](/de/docs/Learn/JavaScript/Asynchronous/Promises)

@@ -1,16 +1,16 @@
 ---
-title: "PressureObserver: takeRecords() Methode"
+title: "PressureObserver: takeRecords()-Methode"
 short-title: takeRecords()
 slug: Web/API/PressureObserver/takeRecords
 l10n:
-  sourceCommit: a251e34887530216e319fee73b5b859c8c943a53
+  sourceCommit: e1d2d6a3880d47638de6b5a54b58df92826ec58e
 ---
 
-{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **`takeRecords()`**-Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver) Schnittstelle gibt die aktuelle Liste von Druckaufzeichnungen zurück, die im Druckbeobachter gespeichert sind, und leert ihn.
+Die **`takeRecords()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces gibt die aktuelle Liste der in der Druckbeobachtung gespeicherten Druckaufzeichnungen zurück und leert diese.
 
-Sie ist nützlich, wenn Sie die Beobachtung einer Quelle stoppen möchten, aber sicherstellen wollen, dass Sie alle Aufzeichnungen erhalten, die noch nicht in den Beobachter-Callback übergeben wurden.
+Sie ist nützlich, wenn Sie die Beobachtung einer Quelle stoppen möchten, aber sicherstellen wollen, dass Sie alle Aufzeichnungen erhalten, die noch nicht an den Beobachter-Callback übergeben wurden.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Ein {{jsxref("Array")}} von [`PressureRecord`](/de/docs/Web/API/PressureRecord)-
 
 ## Beispiele
 
-### Aufzeichnungen entnehmen
+### Aufzeichnungen abrufen
 
-Im folgenden Beispiel wird die aktuelle Liste von Druckaufzeichnungen in `records` gespeichert und der Druckbeobachter geleert.
+Im folgenden Beispiel wird die aktuelle Liste der Druckaufzeichnungen in `records` gespeichert und der Druckbeobachter geleert.
 
 ```js
 const observer = new PressureObserver(callback):

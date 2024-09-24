@@ -3,23 +3,27 @@ title: "Text: wholeText-Eigenschaft"
 short-title: wholeText
 slug: Web/API/Text/wholeText
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: eebedad55b4974c4cebdc7c82a8dfddeeffb0ea6
 ---
 
 {{ apiref("DOM") }}
 
-Die schreibgeschützte **`wholeText`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle gibt den vollständigen Text aller logisch benachbarten [`Text`](/de/docs/Web/API/Text)-Knoten zum Knoten zurück. Der Text wird in Dokumentreihenfolge verkettet. Dies ermöglicht es, einen beliebigen Textknoten anzugeben und den gesamten benachbarten Text als einzelnen String zu erhalten.
+Die schreibgeschützte **`wholeText`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle
+gibt den gesamten Text aller [`Text`](/de/docs/Web/API/Text)-Knoten zurück, die logisch an den Knoten angrenzen.
+Der Text wird in Dokument-Reihenfolge verkettet.
+Dies ermöglicht es, einen beliebigen Textknoten anzugeben und den gesamten angrenzenden Text als eine einzelne Zeichenkette zu erhalten.
 
 > [!NOTE]
-> Dies ist ähnlich wie ein Aufruf von [`Node.normalize()`](/de/docs/Web/API/Node/normalize) gefolgt vom Lesen des Textwerts, jedoch ohne den Baum zu ändern.
+> Dies ist ähnlich dem Aufruf von [`Node.normalize()`](/de/docs/Web/API/Node/normalize), gefolgt vom Lesen des Textwertes,
+> jedoch ohne den Baum zu verändern.
 
 ## Wert
 
-Ein String mit dem verketteten Text.
+Eine Zeichenkette mit dem verketteten Text.
 
 ## Beispiel
 
-Angenommen, Sie haben den folgenden einfachen Absatz auf Ihrer Webseite:
+Angenommen, Sie haben folgenden einfachen Absatz auf Ihrer Webseite:
 
 ```html
 <p>
@@ -30,17 +34,17 @@ Angenommen, Sie haben den folgenden einfachen Absatz auf Ihrer Webseite:
 </p>
 ```
 
-Sie entscheiden sich, den mittleren Satz nicht zu mögen, also entfernen Sie ihn:
+Sie entscheiden sich, den mittleren Satz nicht mehr zu mögen, also entfernen Sie ihn:
 
 ```js
 const paragraph = document.querySelector("p"); // Reads the paragraph
 paragraph.removeChild(paragraph.childNodes[1]); // Delete the strong element
 ```
 
-Jetzt haben Sie _"Through-hiking is great! However, casting a ballot is tricky."_, mit zwei Knoten vor dem Hyperlink:
+Nun endet der Text mit _"Through-hiking is great! However, casting a ballot is tricky."_, mit zwei Knoten vor dem Hyperlink:
 
-1. Ein [`Text`](/de/docs/Web/API/Text)-Knoten, der die Zeichenkette `"Through-hiking is great!"` enthält
-2. Ein zweiter `Text`-Knoten, der die Zeichenkette `" However, "` enthält
+1. Ein [`Text`](/de/docs/Web/API/Text), der die Zeichenkette `"Through-hiking is great!"` enthält.
+2. Ein zweiter `Text`-Knoten, der die Zeichenkette `" However, "` enthält.
 
 Um diese beiden Knoten auf einmal zu erhalten, würden Sie `paragraph.childNodes[0].wholeText` aufrufen:
 
@@ -58,4 +62,4 @@ console.log(`'${paragraph.childNodes[0].wholeText}'`); // 'Through-hiking is gre
 
 ## Siehe auch
 
-- Die [`Text`](/de/docs/Web/API/Text)-Schnittstelle, zu der sie gehört.
+- Die [`Text`](/de/docs/Web/API/Text)-Schnittstelle, zu der es gehört.
