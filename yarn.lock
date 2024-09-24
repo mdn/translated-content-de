@@ -329,10 +329,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-fdir@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.1.1.tgz#316b58145a05223b75c8b371e80bb3bad8f1441e"
-  integrity sha512-QfKBVg453Dyn3mr0Q0O+Tkr1r79lOTAKSi9f/Ot4+qVEwxWhav2Z+SudrG9vQjM2aYRMQQZ2/Q1zdA8ACM1pDg==
+fdir@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.3.0.tgz#fcca5a23ea20e767b15e081ee13b3e6488ee0bb0"
+  integrity sha512-QOnuT+BOtivR77wYvCWHfGt9s4Pz1VIMbD463vegT5MLqNXy8rYFT/lPVEqf/bhYeT6qmqrNHhsX+rWwe3rOCQ==
 
 fill-range@^7.0.1:
   version "7.0.1"
