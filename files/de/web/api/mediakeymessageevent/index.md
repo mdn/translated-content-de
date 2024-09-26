@@ -5,14 +5,6 @@ l10n:
   sourceCommit: ba9a6bebd0e7bf1dd6b5c4eed156d8f1748ade0f
 ---
 
----
-
-title: MediaKeyMessageEvent
-slug: Web/API/MediaKeyMessageEvent
-page-type: web-api-interface
-browser-compat: api.MediaKeyMessageEvent
----
-
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
 Die **`MediaKeyMessageEvent`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält den Inhalt und die zugehörigen Daten, wenn das Inhaltsentschlüsselungsmodul eine Nachricht für die Sitzung generiert.
@@ -21,21 +13,21 @@ Die **`MediaKeyMessageEvent`**-Schnittstelle der [Encrypted Media Extensions API
 
 ## Konstruktor
 
-- {{domxref("MediaKeyMessageEvent.MediaKeyMessageEvent","MediaKeyMessageEvent()")}}
+- [`MediaKeyMessageEvent()`](/de/docs/Web/API/MediaKeyMessageEvent/MediaKeyMessageEvent)
   - : Erstellt eine neue Instanz von `MediaKeyMessageEvent`.
 
-## Instanzattribute
+## Instanzeigenschaften
 
-Erbt Attribute von seinem Elternteil, {{domxref("Event")}}.
+Erbt Eigenschaften von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event).
 
-- {{domxref("MediaKeyMessageEvent.message")}} {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüsselsystem.
-- {{domxref("MediaKeyMessageEvent.messageType")}} {{ReadOnlyInline}}
-  - : Gibt den Nachrichtentyp an. Kann einer von `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
+- [`MediaKeyMessageEvent.message`](/de/docs/Web/API/MediaKeyMessageEvent/message) {{ReadOnlyInline}}
+  - : Gibt einen {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüsselsystem.
+- [`MediaKeyMessageEvent.messageType`](/de/docs/Web/API/MediaKeyMessageEvent/messageType) {{ReadOnlyInline}}
+  - : Gibt den Typ der Nachricht an. Kann `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
 
 ## Instanzmethoden
 
-Erbt Methoden von seinem Elternteil, {{domxref("Event")}}.
+Erbt Methoden von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -47,6 +39,6 @@ Erbt Methoden von seinem Elternteil, {{domxref("Event")}}.
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

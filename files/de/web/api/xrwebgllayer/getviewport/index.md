@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getViewport()`**-Methode des {{domxref("XRWebGLLayer")}}-Interfaces gibt den {{domxref("XRViewport")}} zurück, der verwendet werden sollte, um den angegebenen {{domxref("XRView")}} in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzigen Framebuffer für beide Augen verwenden, stellt das zurückgegebene Viewport die Region des Framebuffers dar, in die die Szene für das Auge, das durch den View dargestellt wird, gerendert werden soll.
+Die **`getViewport()`**-Methode des [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Interfaces gibt die [`XRViewport`](/de/docs/Web/API/XRViewport) zurück, die verwendet werden sollte, um die angegebene [`XRView`](/de/docs/Web/API/XRView) in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzelnen Framebuffer für beide Augen verwenden, stellt das zurückgegebene Viewport den Bereich des Framebuffers dar, in den die Szene für das Auge gerendert werden sollte, das durch die Ansicht repräsentiert wird.
 
 ## Syntax
 
@@ -19,24 +19,22 @@ getViewport(view)
 ### Parameter
 
 - `view`
-  - : Ein {{domxref("XRView")}}-Objekt, das den View angibt, für den das Viewport zurückgegeben werden soll.
+  - : Ein [`XRView`](/de/docs/Web/API/XRView)-Objekt, das die Ansicht angibt, für die der Viewport zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("XRViewport")}}-Objekt, das das Viewport repräsentiert, das das Zeichnen auf den Teil der Schicht beschränken wird, der dem angegebenen `view` entspricht.
+Ein [`XRViewport`](/de/docs/Web/API/XRViewport)-Objekt, das den Viewport darstellt, der das Zeichnen auf den Teil der Schicht beschränken wird, der der angegebenen `view` entspricht.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn entweder der angegebene `view` nicht in einem aktiven {{domxref("XRFrame")}} ist oder wenn dieses `XRFrame` und das {{domxref("XRWebGLLayer")}} nicht Teil derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) sind.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn entweder die angegebene `view` nicht in einem aktiven [`XRFrame`](/de/docs/Web/API/XRFrame) ist oder wenn sich `XRFrame` und der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) nicht in derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) befinden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt teilweise, wie der Callback für die {{domxref("XRSession.requestAnimationFrame", "requestAnimationFrame()")}}-Funktion aussehen könnte, wobei `getViewport()` verwendet wird, um das Viewport zu erhalten, damit das Zeichnen auf den Bereich begrenzt werden kann, der für das Auge vorgesehen ist, dessen Ansicht derzeit gerendert wird.
+Dieses Beispiel zeigt teilweise, wie der Callback für die [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Funktion aussehen könnte, wobei `getViewport()` verwendet wird, um den Viewport zu erhalten, sodass das Zeichnen auf den für das Auge vorgesehenen Bereich beschränkt werden kann, dessen Blickpunkt gerade gerendert wird.
 
-Dies funktioniert, weil das Set von Ansichten, das von einem {{domxref("XRViewerPose")}} zurückgegeben wird, jeweils die Perspektive eines Auges auf die Szene darstellt. Da der Framebuffer in der Mitte geteilt ist, die eine Hälfte für jedes Auge, wird das Einstellen des WebGL-Viewports, um das WebXR-Layer-Viewport zu entsprechen, sicherstellen, dass beim Rendern der Szene für die aktuelle Augenpose es in die richtige Hälfte des Framebuffers gerendert wird.
-
-**<<<--- Link zu entsprechendem Abschnitt im Artikel Kameras und Ansichten hinzufügen --->>>**
+Dies funktioniert, weil die Menge der von einem [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurückgegebenen Ansichten jeweils die Perspektive eines Auges auf die Szene darstellen. Da der Framebuffer in zwei Hälften geteilt ist, eine Hälfte für jedes Auge, stellt das Setzen des WebGL-Viewports so ein, dass es zum WebXR-Layer-Viewport passt, sicher, dass beim Rendern der Szene für die Pose des aktuellen Auges diese in die richtige Hälfte des Framebuffers gerendert wird.
 
 ```js
 function drawFrame(time, frame) {
