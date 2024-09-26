@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Permissions-Policy")}}-Kopfzeile `publickey-credentials-get`-Direktive steuert, ob das aktuelle Dokument erlaubt ist, auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zuzugreifen, um öffentliche Schlüsselanmeldeinformationen abzurufen, d.h. über {{domxref("CredentialsContainer.get","navigator.credentials.get({publicKey})")}}.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `publickey-credentials-get` steuert, ob das aktuelle Dokument Zugriff auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) erhält, um Public-Key-Anmeldeinformationen abzurufen, d. h. über {{domxref("CredentialsContainer.get","navigator.credentials.get({publicKey})")}}.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` {{domxref("DOMException")}} abgelehnt.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, wird das von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` {{domxref("DOMException")}} abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: publickey-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt ist, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Das Standard-allowlist für `publickey-credentials-get` ist `self`.
+Die Standardzulassungsliste für `publickey-credentials-get` ist `self`.
 
 ## Spezifikationen
 
@@ -34,7 +34,7 @@ Das Standard-allowlist für `publickey-credentials-get` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Kopfzeile
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
 - [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)
-- {{DOMxRef("PublicKeyCredential")}} Schnittstelle
+- {{DOMxRef("PublicKeyCredential")}}-Schnittstelle

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Das HTTP-{{HTTPHeader("Content-Security-Policy")}}-(CSP)-**`script-src-elem`**-Direktiv gibt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente an.
+Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`script-src-elem`**-Direktive legt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente fest.
 
-Dieses Direktive gibt nur gültige Quellen in `<script>`-Elementen an (sowohl für Skriptanfragen als auch für Skriptblöcke). Es gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen können, wie z.B. Inline-Skript-Ereignishandler (`onclick`), Skriptausführungsmethoden [basierend auf der "unsafe-eval"-Prüfung](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_eval_expressions) und [XSLT-Stylesheets](/de/docs/Web/XSLT). (Gültige Quellen können für alle JavaScript-Skriptquellen mit {{CSP("script-src")}} oder nur für Inline-Skript-Handler mit {{CSP("script-src-attr")}} angegeben werden.)
+Diese Direktive spezifiziert nur gültige Quellen in `<script>`-Elementen (sowohl Skriptanfragen als auch -blöcke). Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen können, wie inline-Skript-Event-Handler (`onclick`), Skriptausführungsmethoden [mit der Prüfung "unsafe-eval"](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_eval_expressions), und [XSLT Stylesheets](/de/docs/Web/XSLT). (Gültige Quellen können für alle JavaScript-Skriptquellen mit {{CSP("script-src")}} oder nur für Inline-Skript-Handler mit {{CSP("script-src-attr")}} spezifiziert werden.)
 
 <table class="properties">
   <tbody>
@@ -22,10 +22,9 @@ Dieses Direktive gibt nur gültige Quellen in `<script>`-Elementen an (sowohl f�
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja.
-        Wenn dieses Direktive fehlt, sucht der User Agent nach dem {{CSP("script-src")}}-Direktiv. Wenn beide fehlen, wird auf das <code>default-src</code>-Direktiv zurückgegriffen.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der {{CSP("script-src")}}-Direktive, und wenn beide fehlen, fällt er auf die <code>default-src</code>-Direktive zurück.
       </td>
     </tr>
   </tbody>
@@ -33,7 +32,7 @@ Dieses Direktive gibt nur gültige Quellen in `<script>`-Elementen an (sowohl f�
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `script-src-elem`-Richtlinie zugelassen werden:
+Einer oder mehrere Quellen können für die `script-src-elem`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: script-src-elem <source>;
@@ -49,21 +48,21 @@ Content-Security-Policy: script-src-elem <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass diese gleiche Menge an Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und in einer [Reihe anderer Direktivs](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Bitte beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verstoßfall
+### Verletzungsfall
 
-Angenommen, dieser CSP-Header wird verwendet:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: script-src-elem https://example.com/
 ```
 
-… wird das folgende Skript blockiert und nicht geladen oder ausgeführt:
+…das folgende Skript wird blockiert und wird nicht geladen oder ausgeführt:
 
 ```html
 <script src="https://not-example.com/js/library.js"></script>
@@ -73,7 +72,7 @@ Content-Security-Policy: script-src-elem https://example.com/
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

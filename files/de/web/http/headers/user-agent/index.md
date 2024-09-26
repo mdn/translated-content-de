@@ -2,15 +2,15 @@
 title: User-Agent
 slug: Web/HTTP/Headers/User-Agent
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{HTTPSidebar}}
 
-Der **User-Agent** ist ein {{Glossary("request header")}}, der eine charakteristische Zeichenkette darstellt. Diese ermöglicht es Servern und Netzwerk-Partnern, die Anwendung, das Betriebssystem, den Anbieter und/oder die Version des anfordernden {{Glossary("user agent")}} zu identifizieren.
+Der **User-Agent**-{{Glossary("request header")}} ist eine charakteristische Zeichenkette, die es Servern und Netzwerkpartnern ermöglicht, die Anwendung, das Betriebssystem, den Anbieter und/oder die Version des anfordernden {{Glossary("user agent")}} zu identifizieren.
 
 > [!WARNING]
-> Bitte lesen Sie [Browser-Erkennung mithilfe des User-Agent](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent), um zu verstehen, warum es in der Regel eine schlechte Idee ist, verschiedenen Browsern unterschiedliche Webseiten oder Dienste anzubieten.
+> Bitte lesen Sie [Browsererkennung mittels User-Agent](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent), um zu verstehen, warum es im Allgemeinen keine gute Idee ist, unterschiedliche Webseiten oder Dienste für verschiedene Browser bereitzustellen.
 
 <table class="properties">
   <tbody>
@@ -31,7 +31,7 @@ Der **User-Agent** ist ein {{Glossary("request header")}}, der eine charakterist
 User-Agent: <product> / <product-version> <comment>
 ```
 
-Übliches Format für Webbrowser:
+Allgemeines Format für Webbrowser:
 
 ```http
 User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
@@ -40,23 +40,23 @@ User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <
 ### Direktiven
 
 - \<product>
-  - : Ein Produktbezeichner — der Name oder der Entwicklungscode.
+  - : Ein Produktidentifikator — sein Name oder Entwicklungscode.
 - \<product-version>
   - : Versionsnummer des Produkts.
 - \<comment>
-  - : Null oder mehr Kommentare, die weitere Details enthalten. Zum Beispiel Informationen zu Unterprodukten.
+  - : Null oder mehr Kommentare mit weiteren Details. Zum Beispiel, Informationen über Unterprodukte.
 
 ## Firefox UA-String
 
-Weitere Informationen zu User-Agent-Strings auf Firefox- und Gecko-Basis finden Sie unter [Firefox Benutzeragenten-String-Referenz](/de/docs/Web/HTTP/Headers/User-Agent/Firefox). Der UA-String von Firefox besteht aus 4 Komponenten:
+Weitere Informationen zu User-Agent-Strings bei Firefox- und Gecko-basierten Browsern finden Sie in der [Referenz für den Firefox User-Agent-String](/de/docs/Web/HTTP/Headers/User-Agent/Firefox). Der UA-String von Firefox ist in 4 Komponenten unterteilt:
 
 ```plain
 Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion
 ```
 
-1. `Mozilla/5.0` ist das allgemeine Token, das besagt, dass der Browser mit Mozilla kompatibel ist. Aus historischen Gründen senden heutzutage fast alle Browser diesen.
-2. **_platform_** beschreibt die native Plattform, auf der der Browser läuft (Windows, Mac, Linux, Android usw.) und ob es sich um ein Mobiltelefon handelt. {{Glossary("Firefox OS")}}-Telefone geben `Mobile` an — das Web ist die Plattform. Beachten Sie, dass **_platform_** aus mehreren mit "`;`" getrennten Tokens bestehen kann. Siehe unten für weitere Details und Beispiele.
-3. **rv:_geckoversion_** zeigt die Veröffentlichungsnummer von Gecko an (z. B. "_17.0_"). In neueren Browsern ist **_geckoversion_** identisch mit **_firefoxversion_**.
+1. `Mozilla/5.0` ist das allgemeine Token, das besagt, dass der Browser mit Mozilla kompatibel ist. Aus historischen Gründen senden heute fast alle Browser diesen Wert.
+2. **_platform_** beschreibt die native Plattform, auf der der Browser läuft (Windows, Mac, Linux, Android, usw.) und ob es sich um ein Mobiltelefon handelt. {{Glossary("Firefox OS")}}-Telefone sagen `Mobile` — das Web ist die Plattform. Beachten Sie, dass **_platform_** aus mehreren durch `;` getrennten Tokens bestehen kann. Weitere Details und Beispiele siehe unten.
+3. **rv:_geckoversion_** gibt die Veröffentlichungsnummer von Gecko an (z. B. "_17.0_"). In neueren Browsern ist **_geckoversion_** identisch mit **_firefoxversion_**.
 4. **_Gecko/geckotrail_** zeigt an, dass der Browser auf Gecko basiert. (Auf dem Desktop ist **_geckotrail_** immer der feste String `20100101`.)
 5. **_Firefox/firefoxversion_** zeigt an, dass der Browser Firefox ist und gibt die Version an (z. B. "_17.0_").
 
@@ -69,7 +69,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0
 
 ## Chrome UA-String
 
-Der User-Agent-String von Chrome (oder Chromium/Blink-basierten Engines) ähnelt dem von Firefox. Zur Kompatibilität werden Zeichenfolgen wie `KHTML, like Gecko` und `Safari` hinzugefügt.
+Der User-Agent-String von Chrome (oder Chromium/Blink-basierten Engines) ist dem von Firefox ähnlich. Aus Kompatibilitätsgründen fügt er Strings wie `KHTML, like Gecko` und `Safari` hinzu.
 
 ### Beispiele
 
@@ -79,7 +79,7 @@ Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51
 
 ## Opera UA-String
 
-Der Opera-Browser basiert ebenfalls auf der Blink-Engine, weshalb er fast genauso aussieht wie der Chrome-UA-String, jedoch um `"OPR/<version>"` ergänzt wird.
+Der Opera-Browser basiert ebenfalls auf der Blink-Engine, weshalb er fast genauso aussieht wie der Chrome UA-String, jedoch mit der Hinzufügung von `"OPR/<version>"`.
 
 ### Beispiele
 
@@ -87,7 +87,7 @@ Der Opera-Browser basiert ebenfalls auf der Blink-Engine, weshalb er fast genaus
 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41
 ```
 
-Ältere, auf Presto basierende Opera-Versionen verwendeten:
+Ältere, Presto-basierte Opera-Versionen verwendeten:
 
 ```plain
 Opera/9.80 (Macintosh; Intel Mac OS X; U; en) Presto/2.2.15 Version/10.00
@@ -106,7 +106,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 
 ## Safari UA-String
 
-In diesem Beispiel ist der User-Agent-String die mobile Version von Safari. Er enthält das Wort `"Mobile"`.
+In diesem Beispiel handelt es sich um den User-Agent-String der mobilen Safari-Version. Er enthält das Wort `"Mobile"`.
 
 ### Beispiele
 
@@ -114,7 +114,7 @@ In diesem Beispiel ist der User-Agent-String die mobile Version von Safari. Er e
 Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1
 ```
 
-## Crawler- und Bot-UA-Strings
+## Crawler und Bot UA-Strings
 
 ### Beispiele
 
@@ -126,7 +126,7 @@ Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
 Mozilla/5.0 (compatible; YandexAccessibilityBot/3.0; +http://yandex.com/bots)
 ```
 
-## Bibliotheks- und Netz-Tool UA-Strings
+## Bibliothek- und Netztool-UA-Strings
 
 ### Beispiele
 
@@ -142,13 +142,13 @@ PostmanRuntime/7.26.5
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [User-Agent-Erkennung, Geschichte und Checkliste](https://hacks.mozilla.org/2013/09/user-agent-detection-history-and-checklist/)
-- [Firefox Benutzeragenten-String-Referenz](/de/docs/Web/HTTP/Headers/User-Agent/Firefox)
-- [Browser-Erkennung mithilfe des User-Agent](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent)
-- [Client Hints](/de/docs/Web/HTTP/Client_hints)
+- [Referenz für den Firefox User-Agent-String](/de/docs/Web/HTTP/Headers/User-Agent/Firefox)
+- [Browsererkennung mittels User-Agent](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent)
+- [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)

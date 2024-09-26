@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Server-Timing`**-Header kommuniziert eine oder mehrere Metriken und Beschreibungen für einen bestimmten Anforderungs-Antwort-Zyklus. Er wird verwendet, um Backend-Server-Timing-Metriken (z.B. Datenbank-Lese-/Schreibzugriffe, CPU-Zeit, Dateizugriffe etc.) in den Entwicklerwerkzeugen im Browser des Nutzers oder in der {{domxref("PerformanceServerTiming")}}-Schnittstelle darzustellen.
+Der **`Server-Timing`**-Header kommuniziert eine oder mehrere Metriken und Beschreibungen für einen bestimmten Anforderungs-/Antwortzyklus. Er wird verwendet, um beliebige Timing-Metriken des Backend-Servers (z. B. Datenbanklese-/schreibvorgänge, CPU-Zeit, Dateisystemzugriff usw.) in den Entwicklertools im Browser des Benutzers oder in der {{domxref("PerformanceServerTiming")}}-Schnittstelle anzuzeigen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
@@ -24,14 +24,14 @@ Der **`Server-Timing`**-Header kommuniziert eine oder mehrere Metriken und Besch
 
 ## Syntax
 
-Die Syntax des `Server-Timing`-Headers ermöglicht es, Metriken auf verschiedene Arten zu kommunizieren: nur der Servermetriken-Name, Metrik mit Wert, Metrik mit Wert und Beschreibung und Metrik mit Beschreibung.
+Die Syntax des `Server-Timing`-Headers ermöglicht es Ihnen, Metriken auf verschiedene Weise zu kommunizieren: nur der Name der Servermetrik, Metrik mit Wert, Metrik mit Wert und Beschreibung sowie Metrik mit Beschreibung.
 
 Dieser Header kann eine oder mehrere Metriken enthalten, die durch Kommas getrennt sind. Jede Metrik hat einen Namen, eine optionale Dauer und eine optionale Beschreibung. Diese Komponenten sind durch Semikolons getrennt.
 
-Die Dauerkomponente besteht aus dem String `"dur"`, gefolgt von `"="`, gefolgt von dem Wert, wie `"dur=23.2"`.
-Die Beschreibungs-Komponente besteht aus dem String `"desc"`, gefolgt von `"="`, gefolgt von dem Wert, wie `"desc=DB lookup"`.
+Die Dauerdarstellung besteht aus dem String `"dur"`, gefolgt von `"="`, gefolgt vom Wert, wie `"dur=23.2"`.
+Die Beschreibungsdarstellung besteht aus dem String `"desc"`, gefolgt von `"="`, gefolgt vom Wert, wie `"desc=DB lookup"`.
 
-Die Spezifikation empfiehlt, Namen und Beschreibungen so kurz wie möglich zu halten (verwenden Sie Abkürzungen und lassen Sie optionale Werte weg, wo möglich), um die HTTP-Übertragungslast zu minimieren.
+Die Spezifikation empfiehlt, Namen und Beschreibungen so kurz wie möglich zu halten (Abkürzungen verwenden und optionale Werte weglassen, wo möglich), um den HTTP-Overhead zu minimieren.
 
 ```http
 // Einzelne Metrik ohne Wert
@@ -54,11 +54,11 @@ Server-Timing: total;dur=123.4
 
 ## Datenschutz und Sicherheit
 
-Der `Server-Timing`-Header kann potenziell sensible Anwendungs- und Infrastrukturdaten preisgeben. Erwägen Sie, auf der Serverseite zu kontrollieren, welche Metriken wann und wem zurückgegeben werden. Beispielsweise könnten Sie Metriken nur authentifizierten Nutzern anzeigen und der Öffentlichkeit nichts.
+Der `Server-Timing`-Header kann potenziell sensible Informationen über die Anwendung und Infrastruktur preisgeben. Überlegen Sie, welche Metriken wann und an wen auf der Serverseite zurückgegeben werden. Beispielsweise könnten Sie Metriken nur authentifizierten Benutzern anzeigen und der Öffentlichkeit nichts zugänglich machen.
 
 ## PerformanceServerTiming-Schnittstelle
 
-Zusätzlich dazu, dass `Server-Timing`-Header-Metriken in den Entwicklerwerkzeugen des Browsers erscheinen, ermöglicht die {{domxref("PerformanceServerTiming")}}-Schnittstelle Werkzeugen, Metriken automatisch zu sammeln und aus JavaScript zu verarbeiten. Diese Schnittstelle ist auf denselben Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}}-Header verwenden, um die Domänen anzugeben, die Zugriff auf die Servermetriken haben dürfen. Die Schnittstelle ist nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar.
+Zusätzlich dazu, dass `Server-Timing`-Header-Metriken in den Entwicklertools des Browsers erscheinen, ermöglicht die {{domxref("PerformanceServerTiming")}}-Schnittstelle Tools, Metriken automatisch von JavaScript zu sammeln und zu verarbeiten. Diese Schnittstelle ist auf denselben Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}}-Header verwenden, um die Domains festzulegen, die auf die Servermetriken zugreifen dürfen. Die Schnittstelle ist nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar.
 
 Die Komponenten des `Server-Timing`-Headers werden wie folgt den {{domxref("PerformanceServerTiming")}}-Eigenschaften zugeordnet:
 
@@ -70,7 +70,7 @@ Die Komponenten des `Server-Timing`-Headers werden wie folgt den {{domxref("Perf
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

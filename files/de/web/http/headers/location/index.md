@@ -1,5 +1,5 @@
 ---
-title: Standort
+title: Location
 slug: Web/HTTP/Headers/Location
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,19 +7,24 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Location`** Antwort-Header gibt die URL an, zu der eine Seite umgeleitet werden soll. Er hat nur eine Bedeutung, wenn er mit einer `3xx` (Umleitung) oder `201` (erstellt) Statusantwort bereitgestellt wird.
+Der **`Location`** Antwort-Header gibt die URL an, zu der eine Seite weitergeleitet werden soll. Er hat nur eine Bedeutung, wenn er mit einem `3xx` (Weiterleitung) oder `201` (erstellt) Statusantwort gesendet wird.
 
-Bei der Umleitung hängt die HTTP-Methode, die verwendet wird, um die neue Anfrage zur Abrufung der durch `Location` angegebenen Seite zu machen, von der ursprünglichen Methode und der Art der Umleitung ab:
+Bei Weiterleitungen hängt die HTTP-Methode, die verwendet wird, um die neue Anfrage zu stellen, um die Seite abzurufen, auf die `Location` zeigt, von der ursprünglichen Methode und der Art der Weiterleitung ab:
 
-- {{HTTPStatus("303")}} (See Other) Antworten führen immer zur Verwendung der {{HTTPMethod("GET")}} Methode.
-- {{HTTPStatus("307")}} (Temporary Redirect) und {{HTTPStatus("308")}} (Permanent Redirect) ändern nicht die Methode, die in der ursprünglichen Anfrage verwendet wurde.
-- {{HTTPStatus("301")}} (Moved Permanently) und {{HTTPStatus("302")}} (Found) ändern die Methode meistens nicht, obwohl ältere User-Agents dies möglicherweise tun (also man weiß es im Grunde nicht).
+- {{HTTPStatus("303")}} (See Other) Antworten führen immer zur Verwendung einer
+  {{HTTPMethod("GET")}} Methode.
+- {{HTTPStatus("307")}} (Temporary Redirect) und
+  {{HTTPStatus("308")}} (Permanent Redirect) ändern die in der ursprünglichen Anfrage verwendete Methode nicht.
+- {{HTTPStatus("301")}} (Moved Permanently) und {{HTTPStatus("302")}} (Found) ändern die Methode meistens nicht, obwohl ältere User-Agents dies möglicherweise tun (weshalb man im Grunde nicht sicher sein kann).
 
 Alle Antworten mit einem dieser Statuscodes senden einen `Location` Header.
 
-Bei der Ressourcenerstellung zeigt er die URL der neu erstellten Ressource an.
+Im Falle der Ressourcenerstellung gibt er die URL zur neu erstellten Ressource an.
 
-`Location` und {{HTTPHeader("Content-Location")}} sind unterschiedlich. `Location` gibt das Ziel einer Umleitung oder die URL einer neu erstellten Ressource an. {{HTTPHeader("Content-Location")}} gibt die direkte URL an, die verwendet werden soll, um auf die Ressource zuzugreifen, wenn [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) durchgeführt wurde, ohne dass eine weitere Inhaltsaushandlung erforderlich ist. `Location` ist ein Header, der mit der Antwort verbunden ist, während {{HTTPHeader("Content-Location")}} mit der zurückgegebenen Entität verbunden ist.
+`Location` und {{HTTPHeader("Content-Location")}} sind unterschiedlich.
+`Location` gibt das Ziel einer Weiterleitung oder die URL einer neu erstellten Ressource an. {{HTTPHeader("Content-Location")}} gibt die direkte URL an,
+die verwendet werden soll, um auf die Ressource zuzugreifen, wenn [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) stattgefunden hat,
+ohne dass eine weitere Inhaltsaushandlung erforderlich ist. `Location` ist ein mit der Antwort verbundenes Header, während {{HTTPHeader("Content-Location")}} mit der zurückgegebenen Entität verbunden ist.
 
 <table class="properties">
   <tbody>
@@ -62,4 +67,6 @@ Location: /index.html
 ## Siehe auch
 
 - {{HTTPHeader("Content-Location")}}
-- Status von Antworten, die einen `Location` Header enthalten: {{HTTPStatus("201")}}, {{HTTPStatus("301")}}, {{HTTPStatus("302")}}, {{HTTPStatus("303")}}, {{HTTPStatus("307")}}, {{HTTPStatus("308")}}.
+- Status von Antworten, die einen `Location` Header enthalten: {{HTTPStatus("201")}},
+  {{HTTPStatus("301")}}, {{HTTPStatus("302")}}, {{HTTPStatus("303")}},
+  {{HTTPStatus("307")}}, {{HTTPStatus("308")}}.

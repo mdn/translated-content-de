@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} `accelerometer`-Direktive steuert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts über die {{domxref('Accelerometer')}}-Schnittstelle sammeln darf.
+Die HTTP-Directive {{HTTPHeader('Permissions-Policy')}} `accelerometer` steuert, ob das aktuelle Dokument berechtigt ist, Informationen über die Beschleunigung des Geräts durch das {{domxref('Accelerometer')}}-Interface zu sammeln.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des {{domxref("Accelerometer.Accelerometer", "Accelerometer()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere gilt: Wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der Aufruf des Konstruktors {{domxref("Accelerometer.Accelerometer", "Accelerometer()")}} eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,17 +18,17 @@ Permissions-Policy: accelerometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, die Funktion zu nutzen. Siehe [Permissions-Policy > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen (`origins`), für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `accelerometer` ist: `self`.
+Die Standard-Positivliste (`allowlist`) für `accelerometer` ist: `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität mit Browsern
 
 {{Compat}}
 

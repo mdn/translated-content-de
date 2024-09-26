@@ -1,5 +1,5 @@
 ---
-title: Unterstützt-Lademodus
+title: Supports-Loading-Mode
 slug: Web/HTTP/Headers/Supports-Loading-Mode
 l10n:
   sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}{{SeeCompatTable}}
 
-Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, sich für das Laden in einem neuen, risikoreicheren Kontext zu entscheiden, in dem sie ansonsten nicht geladen werden könnte.
+Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, das Laden in einem neuen, risikoreicheren Kontext zu erlauben, in dem sie sonst nicht geladen werden könnte.
 
 <table class="properties">
   <tbody>
@@ -31,17 +31,17 @@ Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, sich für d
 ## Syntax
 
 ```http
-Supports-Loading-Mode: <kommagetrennte Liste von Client-Hinweis-Headern>
+Supports-Loading-Mode: <comma-separated list of client hint headers>
 ```
 
-## Direktiven
+## Anweisungen
 
-Der Wert des `Supports-Loading-Mode` Headers ist eine Liste von einem oder mehreren Tokens, die die folgenden Werte enthalten können:
+Der Wert des `Supports-Loading-Mode` Headers ist eine Liste von einem oder mehreren Tokens, die folgende Werte beinhalten können:
 
 - `credentialed-prerender` {{experimental_inline}}
-  - : Gibt an, dass ein Zielursprung dem Laden von Dokumenten über Cross-Origin, gleiche Site [Prerendering](/de/docs/Web/API/Speculation_Rules_API#using_prerendering) zustimmt.
+  - : Gibt an, dass der Zielursprung das Laden von Dokumenten über Cross-Origin, Same-Site [prerendering](/de/docs/Web/API/Speculation_Rules_API#using_prerendering) erlaubt.
 - `fenced-frame`
-  - : Die Antwort kann innerhalb eines [abgeschirmten Rahmens](/de/docs/Web/API/Fenced_frame_API) geladen werden. Ohne diese explizite Zustimmung werden alle Navigationen innerhalb eines abgeschirmten Rahmens fehlschlagen.
+  - : Die Antwort kann innerhalb eines [fenced frame](/de/docs/Web/API/Fenced_frame_API) geladen werden. Ohne diese explizite Zustimmung schlagen alle Navigationen innerhalb eines fenced frames fehl.
 
 ## Beispiele
 
@@ -53,13 +53,13 @@ Supports-Loading-Mode: fenced-frame
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- [API für abgeschirmte Rahmen](/de/docs/Web/API/Fenced_frame_API)
+- [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API)
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
-- [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading)
-- [Prerender-Seiten in Chrome für sofortige Seiten-Navigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com
+- [Speculative loading](/de/docs/Web/Performance/Speculative_loading)
+- [Seiten in Chrome vorab rendern für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `picture-in-picture` kontrolliert, ob das aktuelle Dokument erlaubt ist, ein Video im {{domxref("Picture-in-Picture API", "Bild-im-Bild", "", "nocode")}}-Modus abzuspielen.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `picture-in-picture`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, ein Video im {{domxref("Picture-in-Picture API", "Picture-in-Picture", "", "nocode")}}-Modus abzuspielen.
 
-Konkret gilt, dass wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, Aufrufe von {{domxref("HTMLVideoElement.requestPictureInPicture()")}} einen {{domxref("DOMException")}} vom Typ `SecurityError` auslösen werden.
+Insbesondere wird bei einer definierten Richtlinie, die die Nutzung dieser Funktion blockiert, ein Aufruf von {{domxref("HTMLVideoElement.requestPictureInPicture()")}} einen {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,21 +18,21 @@ Permissions-Policy: picture-in-picture=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [„Permissions-Policy“ > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `picture-in-picture` ist `*`.
+Die Standard-Allowlist für `picture-in-picture` ist `*`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}}-Header
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

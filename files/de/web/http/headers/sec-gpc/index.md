@@ -7,15 +7,14 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
-Der **`Sec-GPC`** ([**G**lobal **P**rivacy **C**ontrol](https://globalprivacycontrol.org/)) Request-Header zeigt an, ob der Benutzer zustimmt, dass eine Website oder ein Dienst ihre persönlichen Informationen an Dritte verkauft oder weitergibt.
+Der **`Sec-GPC`** ([**G**lobal **P**rivacy **C**ontrol](https://globalprivacycontrol.org/)) Anfrage-Header gibt an, ob der Benutzer der Verkauf oder das Teilen seiner persönlichen Informationen mit Dritten durch eine Website oder einen Dienst zustimmt.
 
-Die Spezifikation definiert nicht, wie der Benutzer seine Zustimmung zur Website zurückziehen oder erteilen kann.
-Wo möglich, wird der Mechanismus im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) unten angegeben.
+Die Spezifikation definiert nicht, wie der Benutzer die Einwilligung zur Website zurückziehen oder erteilen kann. Wo möglich, wird der Mechanismus im Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) unten angegeben.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>{{Glossary("Request header")}}</td>
     </tr>
     <tr>
@@ -33,18 +32,18 @@ Sec-GPC: 1
 
 ## Direktiven
 
-Der `Sec-GPC`-Header wird mit einem Wert von `1` gesendet, wenn der Benutzer angegeben hat, dass er bevorzugt, dass seine Informationen nicht mit Dritten geteilt oder an diese verkauft werden.
+Der `Sec-GPC` Header wird mit einem Wert von `1` gesendet, wenn der Benutzer angegeben hat, dass er es vorzieht, dass seine Informationen nicht mit Dritten geteilt oder an sie verkauft werden.
 
-Andernfalls wird der Header nicht gesendet, was darauf hinweist, dass der Benutzer entweder keine Entscheidung getroffen hat oder mit der Weitergabe oder dem Verkauf seiner Informationen an Dritte einverstanden ist.
+Andernfalls wird der Header nicht gesendet, was anzeigt, dass entweder der Benutzer keine Entscheidung getroffen hat oder der Benutzer damit einverstanden ist, dass seine Informationen geteilt oder verkauft werden.
 
 ## Beispiele
 
-### Lesen des Global Privacy Control-Status von JavaScript
+### Lesen des Global Privacy Control-Status aus JavaScript
 
-Die GPC-Präferenz des Benutzers kann auch aus JavaScript mit der Eigenschaft {{domxref("Navigator.globalPrivacyControl")}} oder {{domxref("WorkerNavigator.globalPrivacyControl")}} gelesen werden:
+Die GPC-Präferenz des Benutzers kann auch aus JavaScript gelesen werden, indem die {{domxref("Navigator.globalPrivacyControl")}} oder {{domxref("WorkerNavigator.globalPrivacyControl")}} Eigenschaft verwendet wird:
 
 ```js
-navigator.globalPrivacyControl; // "false" or "true"
+navigator.globalPrivacyControl; // "false" oder "true"
 ```
 
 ## Spezifikationen
@@ -58,8 +57,8 @@ navigator.globalPrivacyControl; // "false" or "true"
 ## Siehe auch
 
 - {{domxref("Navigator.globalPrivacyControl")}}
-- {{HTTPHeader("DNT")}} header
-- {{HTTPHeader("Tk")}} header
+- {{HTTPHeader("DNT")}} Header
+- {{HTTPHeader("Tk")}} Header
 - [globalprivacycontrol.org](https://globalprivacycontrol.org/)
-- [Global Privacy Control Spec](https://privacycg.github.io/gpc-spec/)
+- [Global Privacy Control Spezifikation](https://privacycg.github.io/gpc-spec/)
 - [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)

@@ -7,25 +7,25 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`font-src`** Direktive gibt
-gültige Quellen für Schriften an, die mit {{cssxref("@font-face")}} geladen werden.
+Das HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`font-src`**-Direktive spezifiziert
+gültige Quellen für Schriften, die mit {{cssxref("@font-face")}} geladen werden.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">CSP version</th>
+      <th scope="row">CSP-Version</th>
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Directive type</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der User-Agent nach der
-        <code>default-src</code> Direktive suchen.
+        Ja. Wenn diese Direktive nicht vorhanden ist, wird der User-Agent nach der
+        <code>default-src</code>-Direktive suchen.
       </td>
     </tr>
   </tbody>
@@ -33,7 +33,7 @@ gültige Quellen für Schriften an, die mit {{cssxref("@font-face")}} geladen we
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `font-src` Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `font-src`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: font-src <source>;
@@ -42,21 +42,21 @@ Content-Security-Policy: font-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+`<source>` kann jeder der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Angesichts dieses CSP-Headers:
+Gegeben diese CSP-Header:
 
 ```http
 Content-Security-Policy: font-src https://example.com/
 ```
 
-Das folgende Laden von Schriftressourcen wird blockiert und nicht geladen:
+Das folgende Laden einer Schriftart wird blockiert und lädt nicht:
 
 ```html
 <style>
@@ -74,7 +74,7 @@ Das folgende Laden von Schriftressourcen wird blockiert und nicht geladen:
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

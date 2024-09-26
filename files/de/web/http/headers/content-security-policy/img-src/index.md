@@ -7,23 +7,23 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`img-src`** gibt gültige Quellen für Bilder und Favicons an.
+Das HTTP `Content-Security-Policy` **`img-src`**-Direktiv gibt gültige Quellen für Bilder und Favicons an.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">CSP version</th>
+      <th scope="row">CSP-Version</th>
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Directive type</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} fallback</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
-        <code>default-src</code>-Direktive.
+        Ja. Wenn dieses Direktive nicht vorhanden ist, wird der User-Agent das
+        <code>default-src</code>-Direktiv heranziehen.
       </td>
     </tr>
   </tbody>
@@ -31,7 +31,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`img-src`** gibt 
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `img-src`-Richtlinie erlaubt sein:
+Eine oder mehrere Quellen können für die `img-src`-Richtlinie zugelassen werden:
 
 ```http
 Content-Security-Policy: img-src <source>;
@@ -40,24 +40,24 @@ Content-Security-Policy: img-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der in [CSP-Quellen-Werte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass diese gleichen Werte in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden können.
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Angenommen dieser CSP-Header:
+Gegebenenfalls diesen CSP-Header:
 
 ```http
 Content-Security-Policy: img-src https://example.com/
 ```
 
-Folgendes {{HTMLElement("img")}}-Element wird blockiert und nicht geladen:
+Wird das folgende {{HTMLElement("img")}} blockiert und nicht geladen:
 
 ```html
-<img src="https://not-example.com/foo.jpg" alt="example picture" />
+<img src="https://not-example.com/foo.jpg" alt="Beispielbild" />
 ```
 
 ## Spezifikationen

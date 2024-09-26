@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-Prefers-Reduced-Transparency`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#user_preference_media_features_client_hints) Anforderungsheader zeigt die Präferenz des User-Agents für reduzierte Transparenz an.
+Der **`Sec-CH-Prefers-Reduced-Transparency`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#user_preference_media_features_client_hints) Anforderungs-Header gibt die Präferenz des User-Agents für reduzierte Transparenz an.
 
-Wenn ein Server einem Client über den {{httpheader("Accept-CH")}}-Header signalisiert, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert, kann der Client mit diesem Header antworten, um die Präferenz des Nutzers für reduzierte Transparenz anzugeben. Der Server kann dann dem Client entsprechend angepasste Inhalte senden — zum Beispiel CSS oder Bilder — um die Transparenz der Inhalte zu reduzieren.
+Wenn ein Server einem Client über den {{httpheader("Accept-CH")}} Header signalisiert, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert, kann der Client mit diesem Header antworten, um die Benutzerpräferenz für reduzierte Transparenz anzugeben. Der Server kann dann dem Client entsprechend angepasste Inhalte – zum Beispiel CSS oder Bilder – senden, um die Transparenz des Inhalts zu reduzieren.
 
-Dieser Header orientiert sich an der {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} Medienabfrage.
+Dieser Header ist dem {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} Media-Query nachempfunden.
 
 <table class="properties">
   <tbody>
@@ -39,18 +39,18 @@ Sec-CH-Prefers-Reduced-Transparency: <preference>
 
 - `<preference>`
 
-  - : Die Präferenz des User-Agents für reduzierte Transparenz. Diese wird oft aus der Einstellung des darunterliegenden Betriebssystems übernommen. Der Wert dieser Direktive kann entweder `no-preference` oder `reduce` sein.
+  - : Die Präferenz des User-Agents für reduzierte Transparenz. Diese wird oft aus der Einstellung des zugrunde liegenden Betriebssystems übernommen. Der Wert dieser Direktive kann entweder `no-preference` oder `reduce` sein.
 
 ## Beispiele
 
-Der Client stellt eine erste Anfrage an den Server:
+Der Client sendet eine erste Anfrage an den Server:
 
 ```http
 GET / HTTP/1.1
 Host: example.com
 ```
 
-Der Server antwortet und teilt dem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert. In diesem Beispiel wird auch {{httpheader("Critical-CH")}} verwendet, was anzeigt, dass `Sec-CH-Prefers-Reduced-Transparency` als [kritischer Client-Hinweis](/de/docs/Web/HTTP/Client_hints#critical_client_hints) betrachtet wird.
+Der Server antwortet und teilt dem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert. In diesem Beispiel wird auch {{httpheader("Critical-CH")}} verwendet, was bedeutet, dass `Sec-CH-Prefers-Reduced-Transparency` als [kritischer Client-Hinweis](/de/docs/Web/HTTP/Client_hints#critical_client_hints) angesehen wird.
 
 ```http
 HTTP/1.1 200 OK
@@ -61,9 +61,9 @@ Critical-CH: Sec-CH-Prefers-Reduced-Transparency
 ```
 
 > [!NOTE]
-> Wir haben auch `Sec-CH-Prefers-Reduced-Transparency` im {{httpheader("Vary")}} Header angegeben, um dem Browser mitzuteilen, dass der ausgelieferte Inhalt basierend auf diesem Header-Wert variieren wird — auch wenn die URL gleich bleibt — sodass der Browser nicht einfach eine bestehende zwischengespeicherte Antwort verwenden sollte, sondern diese Antwort separat zwischenspeichern sollte. Jeder im `Critical-CH` Header aufgeführte Header sollte auch im `Accept-CH` und `Vary` Header vorhanden sein.
+> Wir haben `Sec-CH-Prefers-Reduced-Transparency` auch im {{httpheader("Vary")}} Header angegeben, um dem Browser anzuzeigen, dass der bereitgestellte Inhalt basierend auf diesem Header-Wert unterschiedlich sein wird — selbst wenn die URL gleich bleibt — sodass der Browser nicht einfach eine vorhandene zwischengespeicherte Antwort verwenden sollte, sondern diese Antwort separat zwischenspeichern sollte. Jeder Header, der im `Critical-CH` Header aufgeführt ist, sollte auch in den `Accept-CH` und `Vary` Headern vorhanden sein.
 
-Der Client wiederholt automatisch die Anfrage (aufgrund der oben angegebenen `Critical-CH`), und teilt dem Server über `Sec-CH-Prefers-Reduced-Transparency` mit, dass er eine Nutzerpräferenz für reduzierte Transparenz hat:
+Der Client wiederholt automatisch die Anfrage (aufgrund der oben angegebenen `Critical-CH`), und teilt dem Server über `Sec-CH-Prefers-Reduced-Transparency` mit, dass eine Benutzerpräferenz für reduzierte Transparenz besteht:
 
 ```http
 GET / HTTP/1.1
@@ -71,13 +71,13 @@ Host: example.com
 Sec-CH-Prefers-Reduced-Transparency: "reduce"
 ```
 
-Der Client wird diesen Header in nachfolgenden Anfragen in der aktuellen Sitzung beibehalten, es sei denn, dass die `Accept-CH` Antworten darauf hinweisen, dass er vom Server nicht mehr unterstützt wird.
+Der Client wird den Header in nachfolgenden Anfragen in der aktuellen Sitzung beibehalten, es sei denn, `Accept-CH` ändert sich in den Antworten, um anzuzeigen, dass er vom Server nicht mehr unterstützt wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -85,6 +85,6 @@ Der Client wird diesen Header in nachfolgenden Anfragen in der aktuellen Sitzung
 
 - [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung des Datenschutzes der Nutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzer-Privatsphäre und Entwicklererfahrung mit User-Agent Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

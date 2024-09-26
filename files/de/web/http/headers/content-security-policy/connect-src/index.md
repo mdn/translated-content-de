@@ -7,8 +7,8 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`**-Direktive beschränkt die URLs, die über Skript-Schnittstellen geladen werden können. Die eingeschränkten APIs sind:
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`connect-src`**-Direktive beschränkt die URLs, die mit Skript-Schnittstellen geladen werden können. Die eingeschränkten APIs sind:
 
 - {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping),
 - {{domxref("Window/fetch", "fetch()")}},
@@ -17,7 +17,7 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
 - {{domxref("EventSource")}}, und
 - {{domxref("Navigator.sendBeacon()")}}.
 
-> **Note:** `connect-src 'self'` führt in allen Browsern nicht zu WebSocket-Schemen, weitere Informationen finden Sie in diesem [Problem](https://github.com/w3c/webappsec-csp/issues/7).
+> **Note:** `connect-src 'self'` wird in allen Browsern nicht in Websocket-Schemata aufgelöst, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -26,13 +26,13 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
+      <th scope="row">Direktiventyp</th>
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive nicht vorhanden ist, sucht der User-Agent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
         <code>default-src</code>-Direktive.
       </td>
     </tr>
@@ -41,7 +41,7 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die connect-src-Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die connect-src-Policy erlaubt werden:
 
 ```http
 Content-Security-Policy: connect-src <source>;
@@ -50,15 +50,15 @@ Content-Security-Policy: connect-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelisteten Werte sein.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verstoßfälle
+### Verletzungsfälle
 
-Angesichts dieses CSP-Headers:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: connect-src https://example.com/
@@ -90,7 +90,7 @@ Die folgenden Verbindungen werden blockiert und nicht geladen:
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

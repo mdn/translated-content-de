@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `usb` steuert, ob das aktuelle Dokument die {{domxref("WebUSB API", "WebUSB API", "", "nocode")}} verwenden darf.
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `usb` Direktive kontrolliert, ob das aktuelle Dokument die Verwendung der {{domxref("WebUSB API", "WebUSB API", "", "nocode")}} erlaubt.
 
-Insbesondere wird, wenn eine definierte Richtlinie die Nutzung von WebHID blockiert, die {{domxref("Navigator.usb")}}-Eigenschaft nicht verfügbar sein.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung von WebHID blockiert, wird die {{domxref("Navigator.usb")}} Eigenschaft nicht verfügbar sein.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: usb=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die standardmäßige Allowlist für `usb` ist `self`.
+Die standardmäßige Erlaubnisliste für `usb` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die standardmäßige Allowlist für `usb` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader('Permissions-Policy')}}-Header
-- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader('Permissions-Policy')}} Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

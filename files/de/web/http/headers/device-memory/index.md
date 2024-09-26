@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Das **`Device-Memory`** [Geräte-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#device_client_hints) Anforderungsheaderfeld zeigt die ungefähre Menge an verfügbarem RAM auf dem Client-Gerät an. Der Header ist Teil der {{DOMxRef("Device Memory API", "Device Memory API", "", "nocode")}}.
+Das **`Device-Memory`** [Device Client Hint](/de/docs/Web/HTTP/Client_hints#device_client_hints) Anforderungsheaderfeld zeigt die ungefähre Menge des verfügbaren RAM auf dem Clientgerät an. Der Header ist Teil der {{DOMxRef("Device Memory API", "Device Memory API", "", "nocode")}}.
 
 <table class="properties">
   <tbody>
@@ -15,7 +15,7 @@ Das **`Device-Memory`** [Geräte-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
@@ -27,9 +27,9 @@ Das **`Device-Memory`** [Geräte-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#
 
 > [!NOTE]
 >
-> - Client-Hinweise sind nur bei sicheren Ursprüngen (über TLS) zugänglich.
-> - Ein Server muss sich entscheiden, den `Device-Memory`-Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwortheader sendet.
-> - Server, die sich für den `Device-Memory`-Client-Hinweis entscheiden, geben ihn typischerweise auch im {{HTTPHeader("Vary")}} Header an. Dies informiert Caches darüber, dass der Server je nach Headerwert in einer Anfrage unterschiedliche Antworten senden kann.
+> - Client-Hints sind nur auf sicheren Ursprüngen (über TLS) zugänglich.
+> - Ein Server muss sich entscheiden, den `Device-Memory` Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header sendet.
+> - Server, die sich für den `Device-Memory` Client-Hint entscheiden, geben diesen typischerweise auch im {{HTTPHeader("Vary")}} Header an. Dies informiert Caches darüber, dass der Server unterschiedliche Antworten basierend auf dem Wert des Headers in einer Anfrage senden kann.
 
 ## Syntax
 
@@ -40,19 +40,19 @@ Device-Memory: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die ungefähre Menge an Geräte-RAM. Mögliche Werte sind: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
+  - : Die ungefähre Menge des Geräte-RAM. Mögliche Werte sind: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
 
-Die Menge an Geräte-RAM kann als {{glossary("fingerprinting")}} Variable verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Potenzial für Missbrauch zu verringern.
+Die Menge des Geräte-RAM kann als {{glossary("Fingerprinting")}}-Variable verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Potenzial für Missbrauch zu verringern.
 
 ## Beispiele
 
-Der Server muss zunächst zustimmen, den `Device-Memory`-Header zu empfangen, indem er die Antwortheader {{HTTPHeader("Accept-CH")}} mit `Device-Memory` sendet.
+Der Server muss zunächst dafür optieren, den `Device-Memory` Header zu erhalten, indem er die Antwort-Header {{HTTPHeader("Accept-CH")}} sendet, die `Device-Memory` enthalten.
 
 ```http
 Accept-CH: Device-Memory
 ```
 
-Dann kann der Client bei nachfolgenden Anfragen den `Device-Memory`-Header zurücksenden:
+Dann kann der Client bei nachfolgenden Anfragen den `Device-Memory` Header zurücksenden:
 
 ```http
 Device-Memory: 1
@@ -68,11 +68,11 @@ Device-Memory: 1
 
 ## Siehe auch
 
-- [Verbesserung der Benutzer-Datenschutz und Entwickler-Erfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzer-Privatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{DOMxRef("Device Memory API", "Device Memory API", "", "nocode")}}
 - {{DOMxRef("Navigator.deviceMemory")}}
 - {{DOMxRef("WorkerNavigator.deviceMemory")}}
-- Geräte-Client-Hinweise
+- Device Client Hints
 
   - {{HTTPHeader("Content-DPR")}}
   - {{HTTPHeader("DPR")}}
@@ -80,4 +80,4 @@ Device-Memory: 1
   - {{HTTPHeader("Width")}}
 
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

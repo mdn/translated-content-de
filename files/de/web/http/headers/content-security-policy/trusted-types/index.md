@@ -2,14 +2,14 @@
 title: "CSP: trusted-types"
 slug: Web/HTTP/Headers/Content-Security-Policy/trusted-types
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`trusted-types`** {{experimental_inline}} Direktive weist Benutzeragenten an, die Erstellung von Trusted Types-Policies einzuschränken - Funktionen, die nicht fälschbare, typisierte Werte erstellen sollen, die anstelle von Strings an DOM XSS-Senken übergeben werden.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`trusted-types`** {{experimental_inline}} Direktive weist Benutzeragenten an, die Erstellung von Trusted Types-Richtlinien einzuschränken - Funktionen, die nicht fälschbare, typisierte Werte erstellen, die an DOM-XSS-Senken anstelle von Zeichenfolgen übergeben werden sollen.
 
-Zusammen mit der **[`require-trusted-types-for`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)** Direktive ermöglicht dies es Autoren, Regeln zu definieren, die das Schreiben von Werten in das DOM schützen und somit die Angriffsmöglichkeiten durch DOM XSS auf kleine, isolierte Teile des Webanwendungscodes reduzieren, was deren Überwachung und Codeüberprüfung erleichtert. Diese Direktive deklariert eine Positivliste von Trusted Type-Policy-Namen, die mit `trustedTypes.createPolicy` aus der Trusted Types API erstellt wurden.
+Zusammen mit der **[`require-trusted-types-for`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)** Direktive ermöglicht dies Autoren, Regeln festzulegen, die das Schreiben von Werten in das DOM überwachen und so die Angriffsfläche für DOM-XSS auf kleine, isolierte Teile des Webanwendungscodes reduzieren, was deren Überwachung und Codeüberprüfung erleichtert. Diese Direktive deklariert eine Positivliste von Trusted Types-Richtliniennamen, die mit `trustedTypes.createPolicy` aus der Trusted Types-API erstellt wurden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ Content-Security-Policy: trusted-types <policyName> <policyName> 'allow-duplicat
 ```
 
 - \<policyName>
-  - : Ein gültiger Policy-Name besteht nur aus alphanumerischen Zeichen oder einem der folgenden Zeichen: "`-#=_/@.%`". Ein Stern (`*`) als Policy-Name weist den Benutzeragenten an, jeden einzigartigen Policy-Namen zuzulassen ('`allow-duplicates`' kann dies weiter lockern).
+  - : Ein gültiger Richtlinienname besteht nur aus alphanumerischen Zeichen oder einem von `-#=_/@.%`. Ein Sternchen (`*`) als Richtlinienname weist den Benutzeragenten an, jeden eindeutigen Richtliniennamen zuzulassen (`allow-duplicates` kann diese Einschränkung weiter lockern).
 - `'none'`
-  - : Verhindert die Erstellung jeglicher Trusted Type-Policy (entspricht dem Nicht-Angeben eines _\<policyName>_).
+  - : Untersagt die Erstellung jeglicher Trusted Type-Richtlinien (entspricht dem Nicht-Spezifizieren eines _\<policyName>_).
 - `'allow-duplicates'`
-  - : Erlaubt die Erstellung von Policies mit einem Namen, der bereits verwendet wurde.
+  - : Erlaubt die Erstellung von Richtlinien mit einem Namen, der bereits verwendet wurde.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Content-Security-Policy: trusted-types <policyName> <policyName> 'allow-duplicat
 if (typeof trustedTypes !== "undefined") {
   const policyFoo = trustedTypes.createPolicy("foo", {});
   const policyFoo2 = trustedTypes.createPolicy("foo", {});
-  const policyBaz = trustedTypes.createPolicy("baz", {}); // Löst einen Fehler aus und wirft eine SecurityPolicyViolationEvent.
+  const policyBaz = trustedTypes.createPolicy("baz", {}); // Löst aus und sendet ein SecurityPolicyViolationEvent.
 }
 ```
 
@@ -51,6 +51,6 @@ if (typeof trustedTypes !== "undefined") {
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - [Cross-Site Scripting (XSS)](/de/docs/Glossary/Cross-site_scripting)
-- [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
-- Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Filter
+- [Verhindern von DOM-basierten Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
+- Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Sanitizer
 - [Trusted Types Polyfill](https://github.com/w3c/trusted-types#polyfill)

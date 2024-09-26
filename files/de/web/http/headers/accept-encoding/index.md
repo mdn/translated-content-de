@@ -7,24 +7,24 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Encoding`** Anfrage-HTTP-Header gibt an, welche Inhaltscodierung (normalerweise ein Komprimierungsalgorithmus) der Client verstehen kann. Der Server verwendet die [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation), um einen der Vorschläge auszuwählen und informiert den Client über diese Wahl mit dem {{HTTPHeader("Content-Encoding")}} Antwort-Header.
+Der **`Accept-Encoding`** HTTP-Header in der Anfrage gibt die Inhaltskodierung (normalerweise ein Komprimierungsalgorithmus) an, die der Client verstehen kann. Der Server verwendet [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation), um eines der vorgeschlagenen Formate auszuwählen und informiert den Client über diese Wahl mit dem {{HTTPHeader("Content-Encoding")}} Header in der Antwort.
 
-Selbst wenn sowohl der Client als auch der Server die gleichen Komprimierungsalgorithmen unterstützen, kann der Server entscheiden, den Körper einer Antwort nicht zu komprimieren, wenn der Wert `identity` ebenfalls akzeptabel ist. Zwei häufige Gründe führen dazu:
+Auch wenn sowohl der Client als auch der Server dieselben Komprimierungsalgorithmen unterstützen, kann der Server entscheiden, den Inhalt einer Antwort nicht zu komprimieren, wenn der `identity`-Wert ebenfalls akzeptabel ist. Zwei häufige Gründe sind dafür:
 
-- Die zu sendenden Daten sind bereits komprimiert, daher würde eine zweite Komprimierung die übertragene Datenmenge nicht verringern. Dies gilt für vorab komprimierte Bildformate (beispielsweise JPEG);
-- Der Server ist überlastet und kann keine Rechenressourcen zur Durchführung der Komprimierung bereitstellen. Zum Beispiel empfiehlt Microsoft, nicht zu komprimieren, wenn ein Server mehr als 80 % seiner Rechenleistung nutzt.
+- Die zu sendenden Daten sind bereits komprimiert, sodass eine zweite Komprimierung die übertragene Datenmenge nicht verringern würde. Dies gilt für vorkomprimierte Bildformate (z. B. JPEG);
+- Der Server ist überlastet und kann keine Rechenressourcen für die Komprimierung bereitstellen. Microsoft empfiehlt beispielsweise, keine Komprimierung vorzunehmen, wenn ein Server mehr als 80 % seiner Rechenkapazität nutzt.
 
-Solange die Direktiven `identity;q=0` oder `*;q=0` den Wert `identity`, was keine Kodierung bedeutet, nicht ausdrücklich verbieten, darf der Server niemals einen {{HTTPStatus("406")}} `Nicht akzeptabel` Fehler zurückgeben.
+Solange die Direktiven `identity;q=0` oder `*;q=0` den `identity`-Wert, der keine Kodierung bedeutet, nicht ausdrücklich verbieten, darf der Server niemals einen {{HTTPStatus("406")}} `Not Acceptable` Fehler zurückgeben.
 
 > [!NOTE]
 >
-> - Ein IANA-Register hält [eine Liste der offiziellen Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding) bereit.
-> - Die `bzip` und `bzip2` Kodierungen sind nicht standardisiert, können jedoch in einigen Fällen, einschließlich Unterstützung für ältere Systeme, verwendet werden.
+> - Ein IANA-Register führt [eine Liste offizieller Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
+> - Die `bzip` und `bzip2` Kodierungen sind nicht standardisiert, können jedoch in einigen Fällen verwendet werden, einschließlich Unterstützung älterer Systeme.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Request header")}}</td>
     </tr>
     <tr>
@@ -52,21 +52,21 @@ Accept-Encoding: deflate, gzip;q=1.0, *;q=0.5
 ## Direktiven
 
 - `gzip`
-  - : Ein Komprimierungsformat, das die [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einer 32-Bit-CRC verwendet.
+  - : Ein Komprimierungsformat, das den [Lempel-Ziv-Algorithmus](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einem 32-Bit-CRC nutzt.
 - `compress`
   - : Ein Komprimierungsformat, das den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW) Algorithmus verwendet.
 - `deflate`
-  - : Ein Komprimierungsformat, das die [zlib](https://en.wikipedia.org/wiki/Zlib) Struktur mit dem [_deflate_](https://en.wikipedia.org/wiki/DEFLATE) Komprimierungsalgorithmus verwendet.
+  - : Ein Komprimierungsformat, das die [zlib](https://en.wikipedia.org/wiki/Zlib) Struktur mit dem [_deflate_](https://en.wikipedia.org/wiki/DEFLATE) Komprimierungsalgorithmus nutzt.
 - `br`
-  - : Ein Komprimierungsformat, das den [Brotli-Algorithmus](https://en.wikipedia.org/wiki/Brotli) verwendet.
+  - : Ein Komprimierungsformat, das den [Brotli](https://en.wikipedia.org/wiki/Brotli) Algorithmus verwendet.
 - `zstd`
-  - : Ein Komprimierungsformat, das den [Zstandard-Algorithmus](https://en.wikipedia.org/wiki/Zstd) verwendet.
+  - : Ein Komprimierungsformat, das den [Zstandard](https://en.wikipedia.org/wiki/Zstd) Algorithmus benutzt.
 - `identity`
-  - : Gibt die Identity-Funktion an (d. h. ohne Änderung oder Komprimierung). Dieser Wert wird immer als akzeptabel angesehen, selbst wenn er weggelassen wird.
+  - : Gibt die Identitätsfunktion an (d. h. ohne Änderungen oder Komprimierung). Dieser Wert gilt immer als akzeptabel, auch wenn er weggelassen wird.
 - `*`
-  - : Passt zu jeder Inhaltskodierung, die nicht bereits im Header aufgeführt ist. Dies ist der Standardwert, wenn der Header nicht vorhanden ist. Diese Direktive deutet nicht darauf hin, dass ein Algorithmus unterstützt wird, sondern gibt an, dass keine Präferenz ausgedrückt wird.
-- `;q=` (q-Werte Gewichtung)
-  - : Jeder Wert wird in einer Präferenzreihenfolge ausgedrückt, die durch einen relativen [Qualitätswert](/de/docs/Glossary/Quality_values), genannt _Gewicht_, angegeben wird.
+  - : Entspricht jeder nicht bereits im Header aufgeführten Inhaltskodierung. Dies ist der Standardwert, wenn der Header nicht vorhanden ist. Diese Direktive deutet nicht darauf hin, dass irgendein Algorithmus unterstützt wird, sondern dass keine Präferenz ausgedrückt wird.
+- `;q=` (q-Wert Gewichtung)
+  - : Jeder Wert wird in einer Präferenzreihenfolge ausgedrückt, die mit einem relativen [Qualitätswert](/de/docs/Glossary/Quality_values) bezeichnet wird, der _Gewicht_ genannt wird.
 
 ## Beispiele
 
@@ -93,6 +93,6 @@ Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1
 - HTTP [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
 - Ein Header mit dem Ergebnis der Inhaltsaushandlung: {{HTTPHeader("Content-Encoding")}}
 - Andere ähnliche Header: {{HTTPHeader("TE")}}, {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Language")}}
-- {{Glossary("Brotli-Komprimierung")}}
-- {{Glossary("GZip-Komprimierung")}}
-- {{Glossary("Zstandard-Komprimierung")}}
+- {{Glossary("Brotli compression")}}
+- {{Glossary("GZip compression")}}
+- {{Glossary("Zstandard compression")}}

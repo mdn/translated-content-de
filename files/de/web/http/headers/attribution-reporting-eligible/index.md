@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Attribution-Reporting-Eligible`** Anforderungsheader zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attribution-Quelle oder einen Auslöser zu registrieren.
+Der **`Attribution-Reporting-Eligible`** Anforderungsheader zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Auslöser zu registrieren.
 
-Dieser Header wird nie manuell gesetzt, sondern vom Browser als Reaktion auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Abhängig von den im `Attribution-Reporting-Eligible`-Wert angegebenen erlaubten Registrierungen wird vom Server erwartet, dass er mit einem {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
+Dieser Header wird niemals manuell gesetzt, sondern vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Je nach den in dem `Attribution-Reporting-Eligible`-Wert spezifizierten erlaubten Registrierungen wird erwartet, dass der Server mit einem {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}} Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
 
 Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) für weitere Details.
 
@@ -32,18 +32,18 @@ Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API
 Attribution-Reporting-Eligible: <allowed-registrations>
 ```
 
-## Direktiven
+## Richtlinien
 
 - `<allowed-registrations>`
   - : Ein strukturiertes Header-Wörterbuch, das die in der entsprechenden Antwort erlaubten Registrierungen darstellt. Mögliche Schlüssel sind:
     - `event-source`
-      - : Eine [ereignisbasierte Attribution-Quelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) kann registriert werden.
+      - : Eine [ereignisbasiertes Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) kann registriert werden.
     - `navigation-source`
-      - : Eine [navigationsbasierte Attribution-Quelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) kann registriert werden.
+      - : Eine [navigationsbasierte Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) kann registriert werden.
     - `trigger`
       - : Ein [Attributionsauslöser](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers) kann registriert werden.
 
-Jede Antwort in einer Weiterleitungskette kann höchstens eine Quelle oder einen Auslöser registrieren.
+Jede Antwort in einer Umleitungskette kann höchstens eine Quelle oder einen Auslöser registrieren.
 
 ## Beispiele
 

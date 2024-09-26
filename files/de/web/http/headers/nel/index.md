@@ -38,4 +38,4 @@ NEL: { "report_to": "name_of_reporting_group", "max_age": 12345, "include_subdom
 
 ## Siehe auch
 
-- [Network Error Logging (NEL) Erklärer](/de/docs/Web/HTTP/Network_Error_Logging)
+- [Network Error Logging (NEL) Erklärung](/de/docs/Web/HTTP/Network_Error_Logging)

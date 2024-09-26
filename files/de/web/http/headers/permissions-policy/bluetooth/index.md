@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `bluetooth`-Direktive steuert, ob das aktuelle Dokument die [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `bluetooth` steuert, ob das aktuelle Dokument die [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) verwenden darf.
 
-Konkret bedeutet dies, dass, wo eine definierte Richtlinie die Nutzung dieser Funktion verbietet, die Methoden des {{domxref('Bluetooth')}}-Objekts, das von {{domxref('Navigator.bluetooth')}} zurückgegeben wird, den Zugriff blockieren werden:
+Insbesondere wenn eine festgelegte Richtlinie die Nutzung dieses Features verbietet, werden die Methoden des {{domxref('Bluetooth')}}-Objekts, das durch {{domxref('Navigator.bluetooth')}} zurückgegeben wird, den Zugriff blockieren:
 
-- {{DOMxRef("Bluetooth.getAvailability()")}} wird sein zurückgegebenes {{jsxref("Promise")}} immer mit einem Wert von `false` erfüllen.
-- {{DOMxRef("Bluetooth.getDevices()")}} wird sein zurückgegebenes {{jsxref("Promise")}} mit einem `SecurityError`-{{domxref("DOMException")}} ablehnen.
-- {{DOMxRef("Bluetooth.requestDevice()")}} wird sein zurückgegebenes {{jsxref("Promise")}} mit einem `SecurityError`-{{domxref("DOMException")}} ablehnen.
+- {{DOMxRef("Bluetooth.getAvailability()")}} wird immer sein zurückgegebenes {{jsxref("Promise")}} mit einem Wert von `false` erfüllen.
+- {{DOMxRef("Bluetooth.getDevices()")}} wird sein zurückgegebenes {{jsxref("Promise")}} mit einem `SecurityError` {{domxref("DOMException")}} ablehnen.
+- {{DOMxRef("Bluetooth.requestDevice()")}} wird sein zurückgegebenes {{jsxref("Promise")}} mit einem `SecurityError` {{domxref("DOMException")}} ablehnen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Permissions-Policy: bluetooth=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
@@ -32,8 +32,8 @@ Die Standard-Whitelist für `bluetooth` ist `self`.
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Web Bluetooth API in allen Browsing-Kontexten außer für ihren eigenen Ursprung und diejenigen, deren Ursprung `https://example.com` ist, deaktivieren.
-Dazu kann sie den folgenden HTTP-Antwort-Header verwenden, um eine Berechtigungsrichtlinie zu definieren:
+SecureCorp Inc. möchte die Web Bluetooth API in allen Browsing-Kontexten außer für den eigenen Ursprung und solche, deren Ursprung `https://example.com` ist, deaktivieren.
+Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: bluetooth=(self "https://example.com")
@@ -41,20 +41,20 @@ Permissions-Policy: bluetooth=(self "https://example.com")
 
 ### Mit einem \<iframe>-Element
 
-FastCorp Inc. möchte `bluetooth` für alle Cross-Origin-Child-Frames deaktivieren, außer für ein bestimmtes `<iframe>`.
-Dazu kann sie den folgenden HTTP-Antwort-Header verwenden, um eine Berechtigungsrichtlinie zu definieren:
+FastCorp Inc. möchte `bluetooth` für alle cross-origin-Kinderframes deaktivieren, außer für ein bestimmtes `<iframe>`.
+Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
 
 ```http
 Permissions-Policy: bluetooth=(self https://other.com/blue)
 ```
 
-Dann ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut im `<iframe>`-Element einfügen:
+Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut zum `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/blue" allow="bluetooth"></iframe>
 ```
 
-`<iframe>`-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
+`<iframe>`-Attribute können selektiv Features in bestimmten Frames aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
 
 ## Spezifikationen
 

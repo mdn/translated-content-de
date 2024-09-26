@@ -1,5 +1,5 @@
 ---
-title: Ursprung
+title: Origin
 slug: Web/HTTP/Headers/Origin
 l10n:
   sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Origin`**-Anforderungsheader gibt den {{glossary("origin")}} (Schema, Hostname und Port) an, der die Anfrage _verursacht_ hat. Zum Beispiel, wenn ein User-Agent Ressourcen anfordern muss, die in einer Seite enthalten sind oder von Skripten abgerufen werden, die er ausführt, dann kann der Ursprung der Seite in die Anfrage einbezogen werden.
+Der **`Origin`** Request-Header gibt den {{glossary("origin", "Ursprung")}} (Schema, Hostname und Port) an, der die Anfrage _verursacht_ hat. Beispielsweise, wenn ein User-Agent Ressourcen anfordern muss, die in einer Seite enthalten sind oder von Skripten abgerufen werden, die er ausführt, dann kann der Ursprung der Seite in der Anfrage angegeben werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>{{Glossary("Request header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">{{Glossary("Forbidden header name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -34,40 +34,40 @@ Origin: <scheme>://<hostname>:<port>
 
 - `null`
 
-  - : Der Ursprung ist "datenschutzsensitiv" oder ein _undurchsichtiger Ursprung_, wie es durch die HTML-Spezifikation definiert ist (spezifische Fälle sind im Abschnitt [Beschreibung](#beschreibung) aufgeführt).
+  - : Der Ursprung ist "datenschutzempfindlich" oder ein _undurchsichtiger Ursprung_, wie in der HTML-Spezifikation definiert (spezifische Fälle sind im [Beschreibung](#beschreibung)-Abschnitt aufgeführt).
 
 - `<scheme>`
   - : Das verwendete Protokoll.
-    Üblicherweise ist es das HTTP-Protokoll oder seine sichere Version, HTTPS.
+    In der Regel ist es das HTTP-Protokoll oder dessen gesicherte Version, HTTPS.
 - `<hostname>`
-  - : Der Domainname oder die IP-Adresse des Ursprungsservers.
+  - : Der Domain-Name oder die IP-Adresse des Ursprung-Servers.
 - `<port>` {{optional_inline}}
-  - : Portnummer, auf der der Server lauscht.
-    Wenn kein Port angegeben ist, wird der Standardport für den angeforderten Dienst impliziert (z.B. "80" für eine HTTP-URL).
+  - : Die Portnummer, auf der der Server lauscht.
+    Wenn kein Port angegeben ist, wird der Standardport für den angeforderten Dienst angenommen (z.B. "80" für eine HTTP-URL).
 
 ## Beschreibung
 
-Der `Origin`-Header ähnelt dem {{HTTPHeader("Referer")}}-Header, gibt jedoch keinen Pfad preis und kann `null` sein. Er wird verwendet, um den "Sicherheitskontext" für die Ursprung-Anfrage bereitzustellen, außer in Fällen, in denen die Ursprungsinformationen sensibel oder unnötig wären.
+Der `Origin`-Header ähnelt dem {{HTTPHeader("Referer")}}-Header, gibt jedoch nicht den Pfad an und kann `null` sein. Er wird verwendet, um den "Sicherheitskontext" für die Ursprung-Anfrage bereitzustellen, außer in Fällen, in denen die Ursprungsinformationen sensibel oder unnötig wären.
 
-Im Allgemeinen fügen User-Agenten den `Origin`-Anforderungsheader hinzu zu:
+Im Allgemeinen fügen User-Agents den `Origin`-Anforderungsheader zu:
 
-- {{Glossary("CORS", "cross origin")}}-Anfragen.
-- [gleichherkunfts-](/de/docs/Web/Security/Same-origin_policy-Anfragen, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfragen (d.h. sie werden zu gleichherkunfts-{{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}}-Anfragen hinzugefügt).
+- {{Glossary("CORS", "Cross-Origin")}}-Anfragen hinzu.
+- [same-origin](/de/docs/Web/Security/Same-origin_policy)-Anfragen hinzu, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfragen (d.h. sie werden zu same-origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}} Anfragen hinzugefügt).
 
-Es gibt einige Ausnahmen zu den oben genannten Regeln; zum Beispiel wird der `Origin`-Header nicht hinzugefügt, wenn eine {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfrage in [kein-CORS-Modus](/de/docs/Web/API/Request/mode#value) gemacht wird.
+Es gibt einige Ausnahmen zu den obigen Regeln; zum Beispiel, wenn eine Cross-Origin {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfrage im [no-cors mode](/de/docs/Web/API/Request/mode#value) gestellt wird, wird der `Origin`-Header nicht hinzugefügt.
 
-Der `Origin`-Header-Wert kann in einer Reihe von Fällen `null` sein, einschließlich (nicht erschöpfend):
+Der `Origin`-Header-Wert kann in mehreren Fällen `null` sein, einschließlich (nicht vollständig):
 
 - Ursprünge, deren Schema nicht `http`, `https`, `ftp`, `ws`, `wss` oder `gopher` ist (einschließlich `blob`, `file` und `data`).
-- Cross-Origins Images und Mediendaten, einschließlich der in `<img>`, `<video>` und `<audio>` Elementen.
-- Dokumente, die programmgesteuert mit `createDocument()` erstellt wurden, aus einer `data:` URL generiert wurden oder keinen erstellenden Browsing-Kontext haben.
+- Cross-Origin-Bilder und Mediadaten, einschließlich solcher in `<img>`, `<video>` und `<audio>`-Elementen.
+- Dokumente, die programmgesteuert mit `createDocument()` erstellt wurden, aus einer `data:`-URL generiert oder die keinen Creator-Browsing-Kontext haben.
 - Weiterleitungen über Ursprünge hinweg.
-- iframes mit einem Sandbox-Attribut, das nicht den Wert `allow-same-origin` enthält.
-- Antworten, die Netzwerkfehler sind.
-- [`Referrer-Policy`](/de/docs/Web/HTTP/Headers/Referrer-Policy) auf `no-referrer` gesetzt für nicht-`cors`-Anfragemodi (z.B. einfache Formularübermittlungen).
+- iframes mit einem sandbox-Attribut, das nicht den Wert `allow-same-origin` enthält.
+- Antworten, die Netzwerkausfälle sind.
+- [`Referrer-Policy`](/de/docs/Web/HTTP/Headers/Referrer-Policy) festgesetzt auf `no-referrer` für nicht-`cors`-Anfragemodi (z.B. einfache Formularübermittlungen).
 
 > [!NOTE]
-> Es gibt eine detailliertere Auflistung von Fällen, die `null` zurückgeben können, auf Stack Overflow: [When do browsers send the Origin header? When do browsers set the origin to null?](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802)
+> Eine detailliertere Auflistung von Fällen, die `null` zurückgeben können, finden Sie auf Stack Overflow: [Wann senden Browser den Origin-Header? Wann setzen Browser den Ursprung auf null?](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802)
 
 ## Beispiele
 
@@ -83,7 +83,7 @@ Origin: https://developer.mozilla.org:80
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
@@ -92,4 +92,4 @@ Origin: https://developer.mozilla.org:80
 - {{HTTPHeader("Host")}}
 - {{HTTPHeader("Referer")}}
 - [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
-- [When do browsers send the Origin header? When do browsers set the origin to null?](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802) (Stack Overflow)
+- [Wann senden Browser den Origin-Header? Wann setzen Browser den Ursprung auf null?](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802) (Stack Overflow)

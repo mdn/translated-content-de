@@ -7,7 +7,8 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-frame-src`**-Direktive gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die in {{HTMLElement("fencedframe")}}-Elementen geladen werden.
+Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`fenced-frame-src`**-Direktive spezifiziert gültige Quellen für verschachtelte Browsing-Kontexte, die in {{HTMLElement("fencedframe")}}-Elementen geladen werden.
 
 <table class="properties">
   <tbody>
@@ -32,7 +33,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-frame-src`**-
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `fenced-frame-src`-Richtlinie zugelassen werden:
+Eine oder mehrere Quellen können für die `fenced-frame-src`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: fenced-frame-src <source>;
@@ -41,26 +42,26 @@ Content-Security-Policy: fenced-frame-src <source> <source>;
 
 ### Quellen
 
-`<source>`s für `fenced-frame-src` sind stärker eingeschränkt als für {{CSP("frame-src")}}. Es können nur die folgenden Quellenausdrücke verwendet werden:
+`<source>`s für `fenced-frame-src` sind eingeschränkter als für {{CSP("frame-src")}}. Es können nur die folgenden Quellenausdrücke verwendet werden:
 
-- Der scheme-source `"https:"`
-- Der host-source `"https://*:*"`
+- Die schema-Quelle `"https:"`
+- Die host-Quelle `"https://*:*"`
 - Der String `"*"`
 
 > [!NOTE]
-> Sehen Sie die vollständige Liste der [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources).
+> Sehen Sie die vollständige Liste der [CSP Source Values](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources).
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Gegeben dieser CSP-Header:
+Gegeben diesen CSP-Header:
 
 ```http
 Content-Security-Policy: fenced-frame-src https://example.com/
 ```
 
-Die folgenden Quellen werden in einem abgeschirmten Rahmen nicht geladen:
+Die folgenden Quellen werden in einem Fenced Frame nicht geladen:
 
 - `https://not-example.com/` (Domain stimmt nicht überein)
 - `https://example.org/` (TLD stimmt nicht überein)
@@ -69,7 +70,7 @@ Die folgenden Quellen werden in einem abgeschirmten Rahmen nicht geladen:
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
 {{Compat}}
 

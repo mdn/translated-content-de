@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Range`** HTTP-Header in der Antwort gibt an, wo in einer vollständigen Nachrichtenstruktur eine Teilnachricht gehört.
+Der **`Content-Range`** Antwort-HTTP-Header zeigt an, wo in einer vollständigen Nachricht eine Teilnachricht gehört.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Response header")}},
         {{Glossary("Content header")}}
@@ -42,13 +42,13 @@ Content-Range: <unit> */<size>
 ## Direktiven
 
 - \<unit>
-  - : Die Einheit, in der Bereiche spezifiziert sind. Dies ist normalerweise `bytes`.
+  - : Die Einheit, in der Bereiche angegeben werden. Dies ist normalerweise `bytes`.
 - \<range-start>
-  - : Eine ganze Zahl in der angegebenen Einheit, die die Startposition des angeforderten Bereichs angibt (nullbasiert und inklusive).
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Startposition (nullbasiert & inklusive) des Anforderungsbereichs angibt.
 - \<range-end>
-  - : Eine ganze Zahl in der angegebenen Einheit, die die Endposition des angeforderten Bereichs angibt (nullbasiert und inklusive).
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Endposition (nullbasiert & inklusive) des angeforderten Bereichs angibt.
 - \<size>
-  - : Die Gesamtlänge des Dokuments (oder `'*'`, wenn unbekannt).
+  - : Die Gesamtlänge des Dokuments (oder `'*'`, falls unbekannt).
 
 ## Beispiele
 

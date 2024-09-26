@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `display-capture` steuert, ob das Dokument berechtigt ist, die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API), das heißt, {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}}, zu nutzen, um den Bildschirminhalt zu erfassen.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der Direktive `display-capture` kontrolliert, ob das Dokument berechtigt ist, die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API), also {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}}, zu verwenden, um den Bildschirminhalt aufzunehmen.
 
-Wenn `display-capture` in einem Dokument deaktiviert ist, kann das Dokument keine Bildschirmerfassung über {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} initiieren und wird eine `NotAllowedError`-Ausnahme auslösen.
+Wenn `display-capture` in einem Dokument deaktiviert ist, wird das Dokument nicht in der Lage sein, die Bildschirmaufnahme über {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} zu starten und wird eine `NotAllowedError`-Ausnahme auslösen.
 
 ## Syntax
 
@@ -18,23 +18,23 @@ Permissions-Policy: display-capture=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `display-capture` ist `self`.
+Die Standardliste für `display-capture` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}}-Header
+- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Permissions_Policy)
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Using the Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
+- [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)

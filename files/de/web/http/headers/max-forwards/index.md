@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Max-Forwards`** HTTP-Header einer Anfrage wird in Verbindung mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode verwendet, um die Anzahl der Knoten (gewöhnlich Proxies) zu begrenzen, die die Anfrage durchläuft. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ der Knoten angibt, die sie passieren muss. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage wird zum nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Dann wird die Anfrage, mit Ausnahme einiger Header, als der Body einer `200 OK`-Antwort zurückgesendet.
+Der **`Max-Forwards`** HTTP-Request-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode verwendet, um die Anzahl der Knoten (normalerweise Proxys) zu begrenzen, die eine Anfrage passiert. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ an Knoten angibt, die besucht werden muss. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage zum nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anfrage wird dann mit Ausnahme einiger Header als Body einer `200 OK`-Antwort zurückgesendet.
 
-Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, nimmt ein Knoten an, dass es keine maximale Anzahl von Weiterleitungen gibt.
+Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, wird ein Knoten annehmen, dass es keine maximale Anzahl von Weiterleitungen gibt.
 
 <table class="properties">
   <tbody>
@@ -18,8 +18,8 @@ Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, nim
       <td>{{Glossary("Request header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>no</td>
+      <th scope="row">{{Glossary("Verbotener Headername")}}</th>
+      <td>nein</td>
     </tr>
   </tbody>
 </table>
@@ -41,10 +41,10 @@ Max-Forwards: 10
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
-Dieses Feature ist weder für Browser bestimmt noch in diesen implementiert.
+Dieses Feature ist weder auf Browser ausgerichtet noch in diesen implementiert.
 
 ## Siehe auch
 
-- Die HTTP-Methode [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)
+- Die HTTP-[`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode

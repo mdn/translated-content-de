@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Cookie`** HTTP-Anforderungsheader enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Cookies), die mit dem Server assoziiert sind (d.h. zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet oder in JavaScript mit {{domxref("Document.cookie")}} gesetzt).
+Der HTTP-Anforderungsheader **`Cookie`** enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Cookies), die mit dem Server verknüpft sind (d. h. zuvor vom Server mit dem Header {{HTTPHeader("Set-Cookie")}} gesendet oder in JavaScript mit {{domxref("Document.cookie")}} gesetzt).
 
-Der `Cookie`-Header ist optional und kann weggelassen werden, wenn beispielsweise die Datenschutzeinstellungen des Browsers Cookies blockieren.
+Der `Cookie`-Header ist optional und kann weggelassen werden, wenn zum Beispiel die Datenschutzeinstellungen des Browsers das Speichern von Cookies blockieren.
 
 <table class="properties">
   <tbody>
@@ -35,7 +35,7 @@ Cookie: name=value; name2=value2; name3=value3
 ## Direktiven
 
 - \<cookie-list>
-  - : Eine Liste von Name-Wert-Paaren in der Form `<cookie-name>=<cookie-value>`. Die Paare in der Liste werden durch ein Semikolon und ein Leerzeichen (`'; '`) getrennt.
+  - : Eine Liste von Name-Wert-Paaren in der Form `<cookie-name>=<cookie-value>`. Die Paare in der Liste sind durch ein Semikolon und einen Leerraum (`'; '`) getrennt.
 
 ## Beispiele
 

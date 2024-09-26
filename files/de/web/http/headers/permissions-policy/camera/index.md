@@ -1,5 +1,5 @@
 ---
-title: "Berechtigungsrichtlinie: Kamera"
+title: "Permissions-Policy: camera"
 slug: Web/HTTP/Headers/Permissions-Policy/camera
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,9 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `camera` steuert, ob dem aktuellen Dokument die Verwendung von Videoeingabegeräten erlaubt ist.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
+`camera`-Direktive steuert, ob das aktuelle Dokument berechtigt ist,
+Videoeingabegeräte zu verwenden.
 
-Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, ein Aufruf von {{domxref("MediaDevices.getUserMedia()")}} ein {{jsxref("Promise")}} zurückgeben, der mit einem `NotAllowedError` {{domxref("DOMException")}} abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden {{domxref("MediaDevices.getUserMedia()")}}-Aufrufe ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError`-{{domxref("DOMException")}} abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +20,11 @@ Permissions-Policy: camera=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, denen die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `camera` ist `self`.
+Die Standard-Allowlist für `camera` ist `self`.
 
 ## Spezifikationen
 
@@ -35,4 +37,4 @@ Die Standard-Whitelist für `camera` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

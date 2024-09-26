@@ -7,7 +7,8 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`** Direktive definiert die gültigen Quellen für [Web Workers](/de/docs/Web/API/Web_Workers_API) und eingebettete Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Für Workers werden nicht konforme Anfragen vom Benutzeragenten als fatale Netzwerkfehler behandelt.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`child-src`** Direktive definiert die gültigen Quellen für [Web Worker](/de/docs/Web/API/Web_Workers_API) und verschachtelte Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Bei Workern werden nicht konforme Anfragen vom Benutzeragenten als fatale Netzwerkfehler behandelt.
 
 <table class="properties">
   <tbody>
@@ -20,7 +21,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`** Direkti
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
         Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
         <code>default-src</code> Direktive.
@@ -31,7 +32,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`** Direkti
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `child-src`-Richtlinie erlaubt werden:
+Es können eine oder mehrere Quellen für die `child-src`-Richtlinie zugelassen werden:
 
 ```http
 Content-Security-Policy: child-src <source>;
@@ -40,21 +41,21 @@ Content-Security-Policy: child-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieses Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} verwendet werden kann (und in einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)).
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Angenommen, dieser CSP-Header:
+Angenommen, folgender CSP-Header ist gegeben:
 
 ```http
 Content-Security-Policy: child-src https://example.com/
 ```
 
-Dieses {{HTMLElement("iframe")}} und dieser Worker werden blockiert und nicht geladen:
+Dieses {{HTMLElement("iframe")}} und der Worker werden blockiert und nicht geladen:
 
 ```html
 <iframe src="https://not-example.com"></iframe>
@@ -68,7 +69,7 @@ Dieses {{HTMLElement("iframe")}} und dieser Worker werden blockiert und nicht ge
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

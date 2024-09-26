@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive **`screen-wake-lock`** steuert, ob das aktuelle Dokument die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) verwenden darf, um anzuzeigen, dass das Gerät den Bildschirm nicht abdunkeln oder ausschalten sollte.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} **`screen-wake-lock`**-Direktive steuert, ob das aktuelle Dokument die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) verwenden darf, um anzugeben, dass das Gerät den Bildschirm nicht dimmen oder ausschalten soll.
 
-Insbesondere, wenn durch eine definierte Richtlinie die Verwendung dieses Features blockiert ist, werden {{domxref("WakeLock.request()")}}-Aufrufe ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `NotAllowedError` abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden die Aufrufe von {{domxref("WakeLock.request()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ Permissions-Policy: screen-wake-lock=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `screen-wake-lock` ist `self`.
+Die Standardliste für `screen-wake-lock` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API)
-- {{HTTPHeader('Permissions-Policy')}}-Header
+- {{HTTPHeader('Permissions-Policy')}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

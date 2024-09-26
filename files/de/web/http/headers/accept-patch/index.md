@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Patch`** Antwort-HTTP-Header gibt an, welchen Medientyp der Server in einer PATCH-Anfrage verarbeiten kann.
+Der **`Accept-Patch`** Antwort-HTTP-Header gibt an, welchen Medientyp der Server in einer PATCH-Anfrage versteht.
 
-**`Accept-Patch`** als Antwort auf eine beliebige Methode bedeutet, dass PATCH auf der durch die Request-URI identifizierten Ressource erlaubt ist. Zwei häufige Fälle führen dazu:
+**`Accept-Patch`** als Antwort auf eine beliebige Methode bedeutet, dass PATCH auf die durch die Request-URI identifizierte Ressource erlaubt ist. Zwei häufige Fälle führen dazu:
 
-Ein Server, der eine PATCH-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen Accept-Patch-Header angeben, der einen oder mehrere unterstützte Medientypen referenziert.
+Ein Server, der eine PATCH-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen Accept-Patch-Header zurückgeben, der einen oder mehrere unterstützte Medientypen angibt.
 
 > [!NOTE]
-> Ein IANA-Register pflegt [eine Liste von Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml).
+> Ein IANA-Register führt [eine Liste von Medientypen](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@ Accept-Patch: text/example;charset=utf-8
 Accept-Patch: application/merge-patch+json
 ```
 
-## Anweisungen
+## Direktiven
 
 Keine
 
@@ -57,9 +57,9 @@ Accept-Patch: application/merge-patch+json
 
 ## Browser-Kompatibilität
 
-Browser-Kompatibilität ist für diesen Header nicht relevant (Header wird vom Server gesendet, und die Spezifikation definiert kein Client-Verhalten).
+Die Browser-Kompatibilität ist für diesen Header nicht relevant (Header wird vom Server gesendet und die Spezifikation definiert kein Client-Verhalten).
 
 ## Siehe auch
 
-- HTTP-Methode {{HTTPMethod("PATCH")}}
+- Http-Methode {{HTTPMethod("PATCH")}}
 - HTTP Semantik und Kontext {{RFC("7231", "PUT", "4.3.4")}}

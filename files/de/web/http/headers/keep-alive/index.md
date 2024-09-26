@@ -7,17 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Keep-Alive`** Allgemein-Header ermöglicht es dem Sender, Hinweise darüber zu geben, wie die Verbindung verwendet werden kann, um ein Timeout und eine maximale Anzahl von Anfragen festzulegen.
+Der allgemeine Header **`Keep-Alive`** ermöglicht dem Absender, einen Hinweis darauf zu geben, wie die Verbindung verwendet werden kann, um ein Timeout und eine maximale Anzahl von Anfragen festzulegen.
 
 > [!NOTE]
-> Setzen Sie den {{HTTPHeader("Connection")}} Header auf "keep-alive", damit dieser Header eine Wirkung hat.
+> Setzen Sie den {{HTTPHeader("Connection")}}-Header auf "keep-alive", damit dieser Header eine Wirkung hat.
 
 > [!WARNING]
 > Verbindungsspezifische Header-Felder wie
-> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in
-> [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
-> [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten.
-> Chrome und Firefox ignorieren sie in HTTP/2-Antworten, aber Safari hält sich an die Anforderungen der HTTP/2-Spezifikation und lädt keine Antwort, die sie enthält.
+> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
+> [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten. Chrome und
+> Firefox ignorieren sie in HTTP/2-Antworten, aber Safari entspricht den HTTP/2-Spezifikationsanforderungen und lädt keine Antwort, die sie enthält.
 
 <table class="properties">
   <tbody>
@@ -45,14 +44,14 @@ Keep-Alive: parameters
 
 - `parameters`
 
-  - : Eine durch Kommas getrennte Liste von Parametern, wobei jeder aus einem Bezeichner und einem Wert besteht, die durch das Gleichheitszeichen (`'='`) getrennt sind. Die folgenden Bezeichner sind möglich:
+  - : Eine durch Komma getrennte Liste von Parametern, die jeweils aus einem Identifikator und einem durch das Gleichheitszeichen (`'='`) getrennten Wert bestehen. Die folgenden Identifikatoren sind möglich:
 
-    - `timeout`: Eine Ganzzahl, die die Zeit in Sekunden angibt, die der Host eine ruhende Verbindung offen lassen darf, bevor sie geschlossen wird. Eine Verbindung ist ruhend, wenn von einem Host keine Daten gesendet oder empfangen werden. Ein Host kann eine ruhende Verbindung länger offenhalten als die `timeout` Sekunden, sollte jedoch versuchen, die Verbindung zumindest für `timeout` Sekunden zu behalten.
-    - `max`: Eine Ganzzahl, die die maximale Anzahl von Anfragen darstellt, die über diese Verbindung gesendet werden können, bevor sie geschlossen wird. Sofern nicht `0`, wird dieser Wert für nicht gepipeline Verbindungen ignoriert, da eine andere Anfrage in der nächsten Antwort gesendet wird. Eine HTTP-Pipeline kann ihn verwenden, um die Pipelinierung zu begrenzen.
+    - `timeout`: Eine ganze Zahl, die angibt, wie viele Sekunden der Host eine inaktive Verbindung offen lassen wird, bevor sie geschlossen wird. Eine Verbindung ist inaktiv, wenn von einem Host keine Daten gesendet oder empfangen werden. Ein Host kann eine inaktive Verbindung länger als `timeout` Sekunden offen halten, sollte jedoch versuchen, eine Verbindung mindestens `timeout` Sekunden aufrechtzuerhalten.
+    - `max`: Eine ganze Zahl, die die maximale Anzahl von Anfragen angibt, die über diese Verbindung gesendet werden können, bevor sie geschlossen wird. Außer `0` wird dieser Wert bei nicht-pipelined Verbindungen ignoriert, da eine andere Anfrage in der nächsten Antwort gesendet wird. Eine HTTP-Pipeline kann ihn verwenden, um das Pipelining zu begrenzen.
 
 ## Beispiele
 
-Eine Antwort, die einen `Keep-Alive` Header enthält:
+Eine Antwort, die einen `Keep-Alive`-Header enthält:
 
 ```http
 HTTP/1.1 200 OK
@@ -71,7 +70,7 @@ Server: Apache
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

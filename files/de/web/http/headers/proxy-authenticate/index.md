@@ -1,5 +1,5 @@
 ---
-title: Proxy-Authentifizierung
+title: Proxy-Authenticate
 slug: Web/HTTP/Headers/Proxy-Authenticate
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Proxy-Authenticate`** Antwort-Header definiert die Authentifizierungsmethode, die verwendet werden sollte, um Zugriff auf eine Ressource hinter einem {{Glossary("proxy server")}} zu erhalten. Er authentifiziert die Anfrage an den Proxy-Server und ermöglicht ihm, die Anfrage weiterzuleiten.
+Der HTTP-Header **`Proxy-Authenticate`** definiert die Authentifizierungsmethode, die verwendet werden sollte, um Zugang zu einer Ressource hinter einem {{Glossary("proxy server")}} zu erhalten. Er authentifiziert die Anfrage an den Proxy-Server und ermöglicht es ihm, die Anfrage weiterzuleiten.
 
-Der `Proxy-Authenticate` Header wird zusammen mit einem {{HTTPStatus("407")}} `Proxy Authentication Required` gesendet.
+Der `Proxy-Authenticate`-Header wird zusammen mit einem {{HTTPStatus("407")}} `Proxy Authentication Required` gesendet.
 
 <table class="properties">
   <tbody>
@@ -18,8 +18,8 @@ Der `Proxy-Authenticate` Header wird zusammen mit einem {{HTTPStatus("407")}} `P
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>no</td>
+      <th scope="row">{{Glossary("Forbiddener Headername")}}</th>
+      <td>nein</td>
     </tr>
   </tbody>
 </table>
@@ -34,9 +34,9 @@ Proxy-Authenticate: <type> realm=<realm>
 
 - \<type>
   - : [Authentication type](/de/docs/Web/HTTP/Authentication#authentication_schemes). Ein häufiger Typ ist ["Basic"](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme).
-    IANA pflegt eine [Liste von Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
+    IANA führt eine [Liste von Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
 - realm=\<realm>
-  - : Eine Beschreibung des geschützten Bereichs, der Realm. Wenn kein Realm angegeben ist, zeigen Clients häufig stattdessen einen formatierten Hostnamen an.
+  - : Eine Beschreibung des geschützten Bereichs, das Realm. Wenn kein Realm angegeben ist, zeigen Clients oft einen formatierten Hostnamen an.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ Proxy-Authenticate: Basic realm="Access to the internal site"
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

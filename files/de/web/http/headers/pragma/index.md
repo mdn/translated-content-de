@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}
 
-Der **`Pragma`** HTTP/1.0-Generalkopf ist ein implementierungsspezifischer Header, der verschiedene Effekte entlang der Anfrage-Antwort-Kette haben kann. Dieser Header dient der Abwärtskompatibilität mit den HTTP/1.0-Caches, die keinen {{HTTPHeader("Cache-Control")}} HTTP/1.1-Header haben.
+Der **`Pragma`** HTTP/1.0-Generalkopf ist ein implementierungsspezifischer Header, der entlang der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Rückwärtskompatibilität mit HTTP/1.0-Caches, die keinen {{HTTPHeader("Cache-Control")}} HTTP/1.1-Header haben.
 
-> **Note:** `Pragma` ist nicht für HTTP-Antworten spezifiziert und ist daher kein verlässlicher Ersatz für den allgemeinen HTTP/1.1-`Cache-Control`-Header, obwohl sein Verhalten dem von `Cache-Control: no-cache` entspricht, wenn das `Cache-Control`-Headerfeld in einer Anfrage weggelassen wird. Verwenden Sie `Pragma` nur für die Abwärtskompatibilität mit HTTP/1.0-Clients.
+> **Hinweis:** `Pragma` ist für HTTP-Antworten nicht spezifiziert und daher kein zuverlässiger Ersatz für den allgemeinen HTTP/1.1 `Cache-Control`-Header, obwohl sein Verhalten dasselbe ist wie bei `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anforderung weggelassen wird. Verwenden Sie `Pragma` nur für die Rückwärtskompatibilität mit HTTP/1.0-Clients.
 
 <table class="properties">
   <tbody>
@@ -17,7 +17,8 @@ Der **`Pragma`** HTTP/1.0-Generalkopf ist ein implementierungsspezifischer Heade
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request header")}},
-        {{Glossary("Response header")}} (das Verhalten bei Antworten ist nicht spezifiziert und daher implementierungsspezifisch).
+        {{Glossary("Response header")}} (Antwortverhalten ist nicht
+        spezifiziert und daher implementierungsspezifisch).
       </td>
     </tr>
     <tr>
@@ -42,7 +43,7 @@ Pragma: no-cache
 ## Direktiven
 
 - no-cache
-  - : Entspricht `Cache-Control: no-cache`. Erzwingt, dass Caches die Anfrage zur Validierung an den Ursprungsserver senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
+  - : Entspricht `Cache-Control: no-cache`. Zwingt Caches, die Anforderung an den Ursprungsserver zur Validierung zu senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
 
 ## Beispiele
 
@@ -54,7 +55,7 @@ Pragma: no-cache
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 

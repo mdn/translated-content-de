@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der **`Downlink`** [Client-Hint](/de/docs/Web/HTTP/Client_hints)-Anforderungsheader-Feld gibt die ungefähre Bandbreite der Verbindung des Clients zum Server in Mbps an.
+Das **`Downlink`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Request-Header-Feld gibt die ungefähre Bandbreite der Verbindung des Clients zum Server in Mbps an.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>
         {{Glossary("Request header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
@@ -25,12 +25,12 @@ Der **`Downlink`** [Client-Hint](/de/docs/Web/HTTP/Client_hints)-Anforderungshea
   </tbody>
 </table>
 
-Der Wert von `Downlink` wird in Mbps angegeben und auf den nächsten 25 Kilobit pro Sekunde gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer verwenden könnte, um ähnliche Informationen zu erhalten.
+Der Wert von `Downlink` wird in Mbps angegeben und auf die nächsten 25 Kilobits pro Sekunde gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu vermeiden. Es gibt viele andere Mechanismen, die ein Angreifer verwenden könnte, um ähnliche Informationen zu erhalten.
 
-Dieser Hint ermöglicht es einem Server, basierend auf der Netzwerkbandbreite zu entscheiden, welche Informationen gesendet werden. Beispielsweise könnte ein Server wählen, auf Netzwerken mit geringer Bandbreite kleinere Versionen von Bildern und anderen Ressourcen zu senden.
+Der Hinweis ermöglicht es einem Server, zu entscheiden, welche Informationen basierend auf der Netzwerkbandbreite gesendet werden. Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen auf Netzwerken mit geringer Bandbreite senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass eine andere Ressource für jeden unterschiedlichen Wert des Headers gesendet wird (siehe [HTTP Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `Downlink` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, wird empfohlen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ändert sich wahrscheinlich oft, was die Ressource effektiv nicht zwischenspeicherbar macht.
+> Der {{HTTPHeader("Vary")}} Header wird in Antworten verwendet, um anzugeben, dass eine andere Ressource für jeden anderen Wert des Headers gesendet wird (siehe [HTTP Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `Downlink` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, verzichten Sie darauf, es im {{HTTPHeader("Vary")}} Header anzugeben – es wird wahrscheinlich häufig ändern, was die Ressource de facto nicht cachebar macht.
 
 ## Syntax
 
@@ -38,20 +38,20 @@ Dieser Hint ermöglicht es einem Server, basierend auf der Netzwerkbandbreite zu
 Downlink: <number>
 ```
 
-## Direktiven
+## Anweisungen
 
 - \<number>
-  - : Die Downlink-Rate in Mbps, gerundet auf die nächsten 25 Kilobit.
+  - : Die Downlink-Rate in Mbps, gerundet auf die nächsten 25 Kilobits.
 
 ## Beispiele
 
-Ein Server muss zuerst zustimmen, den `Downlink`-Header zu empfangen, indem er den Antwortheader {{HTTPHeader("Accept-CH")}} sendet, der `Downlink` enthält.
+Ein Server muss zuerst die Zustimmung erhalten, den `Downlink` Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header sendet, der `Downlink` enthält.
 
 ```http
 Accept-CH: Downlink
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen einen `Downlink`-Header zurücksenden:
+Dann könnte der Client bei nachfolgenden Anfragen einen `Downlink` Header zurücksenden:
 
 ```http
 Downlink: 1.7
@@ -67,7 +67,7 @@ Downlink: 1.7
 
 ## Siehe auch
 
-- [Verbesserung der Privatsphäre der Nutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - Netzwerk-Client-Hints
 
   - {{HTTPHeader("RTT")}}
@@ -75,5 +75,5 @@ Downlink: 1.7
   - {{HTTPHeader("Save-Data")}}
 
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
 - {{domxref("NetworkInformation.effectiveType")}}

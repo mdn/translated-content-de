@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Platform`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anfrage-Header stellt die Plattform oder das Betriebssystem bereit, auf dem der User Agent läuft. Zum Beispiel: "Windows" oder "Android".
+Der **`Sec-CH-UA-Platform`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungs-Header gibt die Plattform oder das Betriebssystem an, auf dem der User-Agent läuft. Zum Beispiel: "Windows" oder "Android".
 
-`Sec-CH-UA-Platform` ist ein [Low-Entropy-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints). Sofern es nicht durch eine Berechtigungsrichtlinie des User Agents blockiert wird, wird es standardmäßig gesendet (ohne dass der Server durch das Senden von {{HTTPHeader("Accept-CH")}} zustimmt).
+`Sec-CH-UA-Platform` ist ein [Low-Entropy-Hint](/de/docs/Web/HTTP/Client_hints#low_entropy_hints). Es wird standardmäßig gesendet (ohne dass der Server dies durch das Senden von {{HTTPHeader("Accept-CH")}} verlangt), es sei denn, es wird durch eine Berechtigungsrichtlinie des User-Agents blockiert.
 
 <table class="properties">
   <tbody>
@@ -17,7 +17,7 @@ Der **`Sec-CH-UA-Platform`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Clien
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
@@ -36,11 +36,11 @@ Sec-CH-UA-Platform: <platform>
 ### Direktiven
 
 - `<platform>`
-  - : Eine der folgenden Zeichenfolgen: `"Android"`, `"Chrome OS"`, `"Chromium OS"`, `"iOS"`, `"Linux"`, `"macOS"`, `"Windows"` oder `"Unknown"`.
+  - : Einer der folgenden Zeichenketten: `"Android"`, `"Chrome OS"`, `"Chromium OS"`, `"iOS"`, `"Linux"`, `"macOS"`, `"Windows"` oder `"Unknown"`.
 
 ## Beispiele
 
-Da `Sec-CH-UA-Platform` ein [Low-Entropy-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) ist, wird er typischerweise in allen Anfragen gesendet.
+Da `Sec-CH-UA-Platform` ein [Low-Entropy-Hint](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) ist, wird es typischerweise in allen Anfragen gesendet.
 
 Ein Browser, der auf einem macOS-Computer läuft, könnte den folgenden Header zu allen Anfragen hinzufügen.
 
@@ -52,14 +52,14 @@ Sec-CH-UA-Platform: "macOS"
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
-- [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Nutzerprivatsphäre und Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Client-Hints](/de/docs/Web/HTTP/Client_hints)
+- [User-Agent-Client-Hints-API](/de/docs/Web/API/User-Agent_Client_Hints_API)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

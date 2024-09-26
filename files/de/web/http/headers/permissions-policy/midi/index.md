@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `midi` steuert, ob das aktuelle Dokument die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `midi`-Direktive steuert, ob das aktuelle Dokument die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) verwenden darf.
 
-Speziell dort, wo eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref("Navigator.requestMIDIAccess()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `SecurityError` abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref("Navigator.requestMIDIAccess()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `SecurityError` abgelehnt wird.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Permissions-Policy: midi=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `midi` ist `self`.
+Die Standard-Allowlist für `midi` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

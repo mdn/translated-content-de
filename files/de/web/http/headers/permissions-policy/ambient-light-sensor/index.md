@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader('Permissions-Policy')}}-Headerdirektive `ambient-light-sensor` kontrolliert, ob das aktuelle Dokument berechtigt ist, Informationen über die Lichtmenge in der Umgebung des Geräts über die {{domxref('AmbientLightSensor')}}-Schnittstelle zu sammeln.
+Der HTTP-{{HTTPHeader('Permissions-Policy')}}-Header `ambient-light-sensor`-Direktive kontrolliert, ob das aktuelle Dokument berechtigt ist, Informationen über die Lichtmenge in der Umgebung des Geräts über die {{domxref('AmbientLightSensor')}}-Schnittstelle zu sammeln.
 
-Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, der Aufruf von {{domxref("AmbientLightSensor.AmbientLightSensor", "AmbientLightSensor()")}}-Konstruktoren eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des {{domxref("AmbientLightSensor.AmbientLightSensor", "AmbientLightSensor()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: ambient-light-sensor=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `ambient-light-sensor` ist `self`.
+Die Standard-allowlist für `ambient-light-sensor` ist `self`.
 
 ## Spezifikationen
 

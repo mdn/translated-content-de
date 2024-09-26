@@ -1,5 +1,5 @@
 ---
-title: "Berechtigungsrichtlinie: payment"
+title: "Permissions-Policy: payment"
 slug: Web/HTTP/Headers/Permissions-Policy/payment
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das HTTP-Headerfeld {{HTTPHeader("Permissions-Policy")}} mit der Direktive `payment` steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
+Das HTTP-{{HTTPHeader("Permissions-Policy")}} Header-Feld `payment` steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Verwendung dieses Features blockiert, werden Aufrufe des {{DOMxRef("PaymentRequest.PaymentRequest", "PaymentRequest()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des {{DOMxRef("PaymentRequest.PaymentRequest", "PaymentRequest()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: payment=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [Berechtigungsrichtlinie > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Anerkennungsliste für `payment` ist `self`.
+Die standardmäßige Erlaubnisliste für `payment` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-Anerkennungsliste für `payment` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Headerfeld
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header-Feld
+- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Permissions_Policy)

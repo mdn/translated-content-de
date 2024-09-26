@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Host`**-Anforderungsheader gibt den Host und die Portnummer des Servers an, an den die Anfrage gesendet wird.
+Der **`Host`** Request-Header gibt den Host und die Portnummer des Servers an, an den die Anfrage gesendet wird.
 
-Wenn kein Port angegeben ist, wird der Standardport für den angeforderten Dienst impliziert (z.B. `443` für eine HTTPS-URL und `80` für eine HTTP-URL).
+Wenn kein Port angegeben ist, wird der Standardport für den angeforderten Dienst angenommen (z. B. `443` für eine HTTPS-URL und `80` für eine HTTP-URL).
 
-Ein `Host`-Header-Feld muss in allen HTTP/1.1-Anforderungsnachrichten gesendet werden. Ein {{HTTPStatus("400")}} (Bad Request)-Statuscode kann an jede HTTP/1.1-Anforderungsnachricht gesendet werden, die kein `Host`-Header-Feld enthält oder mehr als eines enthält.
+Ein `Host`-Headerfeld muss in allen HTTP/1.1-Anfragen gesendet werden. Ein {{HTTPStatus("400")}} (Bad Request) Statuscode kann an jede HTTP/1.1-Anfrage gesendet werden, die kein oder mehr als ein `Host`-Headerfeld enthält.
 
 <table class="properties">
   <tbody>
@@ -35,9 +35,9 @@ Host: <host>:<port>
 ## Direktiven
 
 - \<host>
-  - : der Domainname des Servers (für virtuelles Hosting).
+  - : Der Domainname des Servers (für virtuelles Hosting).
 - \<port> {{optional_inline}}
-  - : TCP-Portnummer, auf der der Server wartet.
+  - : TCP-Portnummer, auf der der Server hört.
 
 ## Beispiele
 

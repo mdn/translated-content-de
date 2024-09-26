@@ -7,26 +7,30 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-src`**-Richtlinie gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die mithilfe von Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`frame-src`** Direktive legt gültige Quellen für geschachtelte
+Browsing-Kontexte fest, die mit Elementen wie {{HTMLElement("frame")}} und
+{{HTMLElement("iframe")}} geladen werden.
 
-> **Note:** **`frame-src`** ermöglicht es Ihnen, anzugeben, von wo iframes auf einer Seite geladen werden dürfen. Dies unterscheidet sich von **`frame-ancestors`**, das festlegt, welche übergeordnete Quelle eine Seite einbetten darf.
+> **Note:** **`frame-src`** erlaubt es Ihnen, festzulegen, von welchen Quellen iframes in einer Seite geladen werden dürfen.
+> Dies unterscheidet sich von **`frame-ancestors`**, das festlegt, welche übergeordnete Quelle eine Seite einbetten darf.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">CSP-Version</th>
+      <th scope="row">CSP Version</th>
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
       <th scope="row">Fallback</th>
       <td>
-        Wenn diese Richtlinie fehlt, sucht der Benutzeragent nach der
-        {{CSP("child-src")}}-Richtlinie (die auf die
-        {{CSP("default-src")}}-Richtlinie zurückfällt).
+        Wenn diese Direktive fehlt, sucht der User-Agent nach der
+        {{CSP("child-src")}} Direktive (welche auf die
+        {{CSP("default-src")}} Direktive zurückgreift).
       </td>
     </tr>
   </tbody>
@@ -34,7 +38,7 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-src`**-Richtli
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `frame-src`-Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `frame-src` Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: frame-src <source>;
@@ -43,15 +47,15 @@ Content-Security-Policy: frame-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+`<source>` kann einen der in [CSP Source Values](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte annehmen.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass derselbe Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Angenommen, dieser CSP-Header ist vorhanden:
+Gegebenenfalls diesen CSP-Header:
 
 ```http
 Content-Security-Policy: frame-src https://example.com/
@@ -67,7 +71,7 @@ Das folgende {{HTMLElement("iframe")}} wird blockiert und nicht geladen:
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
 {{Compat}}
 

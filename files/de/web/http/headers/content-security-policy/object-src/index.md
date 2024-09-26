@@ -7,15 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}}
-**`object-src`** gibt gültige Quellen für die
-{{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente an.
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} **`object-src`** legt gültige Quellen für die {{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente fest.
 
 > [!NOTE]
-> Elemente, die durch `object-src` gesteuert werden, gelten möglicherweise zufälligerweise
-> als veraltete HTML-Elemente und erhalten keine neuen standardisierten Funktionen (wie
-> die Sicherheitsattribute `sandbox` oder `allow` für
-> `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Abruf-Direktive einzuschränken (z.B. explizit `object-src 'none'` festzulegen, wenn möglich).
+> Elemente, die durch `object-src` kontrolliert werden, werden möglicherweise zufällig als veraltete HTML-Elemente betrachtet und erhalten keine neuen standardisierten Funktionen (wie die Sicherheitsattribute `sandbox` oder `allow` für `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z. B. `object-src 'none'` explizit zu setzen, wenn möglich).
 
 <table class="properties">
   <tbody>
@@ -24,14 +19,14 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}}
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch directive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der Benutzeragent nach der
-        <code>default-src</code> Direktive suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code>-Direktive.
       </td>
     </tr>
   </tbody>
@@ -48,9 +43,9 @@ Content-Security-Policy: object-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
+`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass derselbe Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass diese gleiche Menge an Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
@@ -62,7 +57,7 @@ Angenommen, dieser CSP-Header:
 Content-Security-Policy: object-src https://example.com/
 ```
 
-Die folgenden {{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente werden blockiert und nicht geladen:
+Die folgenden {{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente werden blockiert und laden nicht:
 
 ```html
 <embed src="https://not-example.com/flash"></embed>

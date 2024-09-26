@@ -1,5 +1,5 @@
 ---
-title: "Berechtigungsrichtlinie: microphone"
+title: "Permissions-Policy: microphone"
 slug: Web/HTTP/Headers/Permissions-Policy/microphone
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `microphone` steuert, ob das aktuelle Dokument Audiogeräte verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `microphone`-Direktive steuert, ob das aktuelle Dokument Audioeingabegeräte verwenden darf.
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref("MediaDevices.getUserMedia()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError` {{domxref("DOMException")}} verworfen wird.
+Konkret, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref("MediaDevices.getUserMedia()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError`-{{domxref("DOMException")}} abgelehnt wird.
 
 ## Syntax
 
@@ -18,21 +18,21 @@ Permissions-Policy: microphone=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, die Funktion zu verwenden. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `microphone` ist `self`.
+Die standardmäßige Erlaubnisliste für `microphone` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

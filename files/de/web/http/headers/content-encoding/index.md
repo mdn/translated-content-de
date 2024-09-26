@@ -7,11 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Encoding`** {{Glossary("representation header")}} listet alle Codierungen auf, die auf eine Ressource angewendet wurden, und in welcher Reihenfolge. Dies ermöglicht es dem Empfänger, die Daten zu decodieren, um das Originalformat zu erhalten, das im {{HTTPHeader("Content-Type")}}-Header beschrieben ist. Die Inhaltscodierung wird hauptsächlich verwendet, um Inhalte zu komprimieren, ohne Informationen über den ursprünglichen Medientyp zu verlieren.
+Der **`Content-Encoding`** {{Glossary("representation header")}} listet alle Kodierungen auf, die auf eine Ressource angewendet wurden, und in welcher Reihenfolge sie angewendet wurden.
+Dies ermöglicht es dem Empfänger zu wissen, wie die Daten dekodiert werden müssen, um das im {{HTTPHeader("Content-Type")}} Header beschriebene Originalformat zu erhalten.
+Die Inhaltskodierung wird hauptsächlich verwendet, um Inhalte zu komprimieren, ohne Informationen über den ursprünglichen Medientyp zu verlieren.
 
-Server werden ermutigt, Daten so weit wie möglich zu komprimieren und sollten Inhaltscodierung verwenden, wo dies angemessen ist. Die Komprimierung eines bereits komprimierten Medientyps wie .zip oder .jpeg ist möglicherweise nicht angemessen, da dies den Inhalt vergrößern kann. Wenn das ursprüngliche Medium bereits in irgendeiner Weise kodiert ist (z.B. eine .zip-Datei), dann würde diese Information nicht im `Content-Encoding`-Header enthalten sein.
+Servern wird empfohlen, Daten so weit wie möglich zu komprimieren und dort, wo es angemessen ist, die Inhaltskodierung zu verwenden.
+Das Komprimieren eines bereits komprimierten Medientyps wie einer .zip- oder .jpeg-Datei ist möglicherweise nicht angemessen, da dies die Größe des Inhalts erhöhen kann.
+Wenn das Originalmedium bereits auf irgendeine Weise kodiert ist (z.B. eine .zip-Datei), dann würde diese Information nicht im `Content-Encoding` Header enthalten sein.
 
-Wenn ein `Content-Encoding`-Header vorhanden ist, beziehen sich andere Metadaten (z.B. {{HTTPHeader("Content-Length")}}) auf die kodierte Form der Daten und nicht auf die ursprüngliche Ressource, es sei denn, dies wird ausdrücklich angegeben. Die Inhaltscodierung unterscheidet sich von {{HTTPHeader("Transfer-Encoding")}}, da `Transfer-Encoding` festlegt, wie HTTP-Nachrichten selbst über das Netzwerk auf einer [Hop-by-Hop-Basis](/de/docs/Web/HTTP/Headers#hop-by-hop_headers) übertragen werden.
+Wenn ein `Content-Encoding` Header vorhanden ist, beziehen sich andere Metadaten (z.B. {{HTTPHeader("Content-Length")}}) auf die kodierte Form der Daten und nicht auf die ursprüngliche Ressource, es sei denn, es wird ausdrücklich angegeben.
+Die Inhaltskodierung unterscheidet sich von der {{HTTPHeader("Transfer-Encoding")}}, da `Transfer-Encoding` angibt, wie HTTP-Nachrichten selbst über das Netzwerk [hop-by-hop](/de/docs/Web/HTTP/Headers#hop-by-hop_headers) übertragen werden.
 
 <table class="properties">
   <tbody>
@@ -42,27 +47,32 @@ Content-Encoding: deflate, gzip
 ## Direktiven
 
 - `gzip`
-  - : Ein Format, das das [Lempel-Ziv-Kodierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einem 32-Bit-CRC verwendet. Dies ist das ursprüngliche Format des UNIX _gzip_-Programms. Der HTTP/1.1-Standard empfiehlt außerdem, dass die Server, die diese Inhaltskodierung unterstützen, `x-gzip` als Alias erkennen, aus Gründen der Kompatibilität.
+  - : Ein Format unter Verwendung der [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einem 32-Bit-CRC.
+    Dies ist das ursprüngliche Format des UNIX _gzip_ Programms.
+    Der HTTP/1.1-Standard empfiehlt auch, dass Server, die diese Inhaltskodierung unterstützen, `x-gzip` als Alias erkennen, aus Kompatibilitätsgründen.
 - `compress`
-  - : Ein Format, das den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW)-Algorithmus verwendet. Der Wertname wurde vom UNIX _compress_-Programm übernommen, das diesen Algorithmus implementierte. Wie das compress-Programm, das auf den meisten UNIX-Distributionen verschwunden ist, wird diese Inhaltskodierung heute von vielen Browsern nicht mehr verwendet, teilweise wegen eines Patents (es ist 2003 abgelaufen).
+  - : Ein Format unter Verwendung des [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW) Algorithmus.
+    Der Wertename wurde vom UNIX _compress_ Programm übernommen, das diesen Algorithmus implementierte.
+    Wie das Compress-Programm, das aus den meisten UNIX-Distributionen verschwunden ist, wird diese Inhaltskodierung heute von vielen Browsern nicht mehr verwendet, teilweise wegen eines Patentproblems (es ist 2003 abgelaufen).
 - `deflate`
-  - : Verwendet die [zlib](https://en.wikipedia.org/wiki/Zlib)-Struktur (definiert in {{rfc(1950)}}) mit dem [deflate](https://en.wikipedia.org/wiki/Deflate)-Kompressionsalgorithmus (definiert in {{rfc(1951)}}).
+  - : Verwendung der [zlib](https://en.wikipedia.org/wiki/Zlib) Struktur (definiert in {{rfc(1950)}}) mit dem [deflate](https://en.wikipedia.org/wiki/Deflate) Kompressionsalgorithmus (definiert in {{rfc(1951)}}).
 - `br`
-  - : Ein Format, das die {{glossary("Brotli compression","Brotli")}}-Algorithmusstruktur verwendet (definiert in {{rfc(7932)}}).
+  - : Ein Format unter Verwendung der {{glossary("Brotli-Komprimierung","Brotli")}} Algorithmusstruktur (definiert in {{rfc(7932)}}).
 - `zstd`
-  - : Ein Format, das die {{glossary("Zstandard compression","Zstandard")}}-Algorithmusstruktur verwendet (definiert in {{rfc(8878)}}).
+  - : Ein Format unter Verwendung der {{glossary("Zstandard-Komprimierung","Zstandard")}} Algorithmusstruktur (definiert in {{rfc(8878)}}).
 
 ## Beispiele
 
-### Komprimieren mit gzip
+### Komprimierung mit gzip
 
-Auf der Clientseite können Sie eine Liste von Komprimierungsschemata angeben, die in einer HTTP-Anfrage gesendet werden. Der {{HTTPHeader("Accept-Encoding")}}-Header wird verwendet, um über die Inhaltskodierung zu verhandeln.
+Auf der Client-Seite können Sie eine Liste von Komprimierungsmethoden angeben, die in einer HTTP-Anfrage gesendet werden.
+Der {{HTTPHeader("Accept-Encoding")}} Header wird für die Verhandlung der Inhaltskodierung verwendet.
 
 ```http
 Accept-Encoding: gzip, deflate
 ```
 
-Der Server antwortet mit dem verwendeten Schema, angezeigt durch den `Content-Encoding`-Antwort-Header.
+Der Server antwortet mit dem verwendeten Schema, das durch den `Content-Encoding` Antwortheader angegeben wird.
 
 ```http
 Content-Encoding: gzip

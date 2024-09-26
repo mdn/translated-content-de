@@ -9,7 +9,7 @@ l10n:
 
 Der allgemeine HTTP-Header **`Date`** enthält das Datum und die Uhrzeit, zu der die Nachricht erstellt wurde.
 
-> **Warning:** `Date` ist in der [Liste der verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name) in der Fetch-Spezifikation aufgeführt, daher wird dieser Code den `Date`-Header nicht senden:
+> **Warning:** `Date` ist in den [verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name) der Fetch-Spezifikation aufgeführt, daher wird dieser Code den `Date`-Header nicht senden:
 >
 > ```js
 > fetch("https://httpbin.org/get", {
@@ -44,20 +44,20 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - \<day-name>
-  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (case-sensitive).
+  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (Groß-/Kleinschreibung beachten).
 - \<day>
-  - : 2-stellige Tageszahl, z.B. "04" oder "23".
+  - : Zweistellige Tageszahl, z.B. "04" oder "23".
 - \<month>
   - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
-    "Nov", "Dec" (case-sensitive).
+    "Nov", "Dec" (Groß-/Kleinschreibung beachten).
 - \<year>
-  - : 4-stellige Jahreszahl, z.B. "1990" oder "2016".
+  - : Vierstellige Jahreszahl, z.B. "1990" oder "2016".
 - \<hour>
-  - : 2-stellige Stundenzahl, z.B. "09" oder "23".
+  - : Zweistellige Stundenzahl, z.B. "09" oder "23".
 - \<minute>
-  - : 2-stellige Minutenzahl, z.B. "04" oder "59".
+  - : Zweistellige Minutenzahl, z.B. "04" oder "59".
 - \<second>
-  - : 2-stellige Sekundenzahl, z.B. "04" oder "59".
+  - : Zweistellige Sekundenzahl, z.B. "04" oder "59".
 - GMT
   - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in Ortszeit.
 

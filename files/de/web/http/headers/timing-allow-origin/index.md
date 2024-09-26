@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Timing-Allow-Origin`** Antwort-Header spezifiziert Ursprünge, die berechtigt sind, Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden, die sonst aufgrund von Cross-Origin-Beschränkungen als null gemeldet würden.
+Der **`Timing-Allow-Origin`** Antwort-Header gibt an, welche Ursprünge die Werte von Attributen sehen dürfen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden, welche ansonsten aufgrund von Cross-Origin-Beschränkungen als null gemeldet würden.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
@@ -32,19 +32,19 @@ Timing-Allow-Origin: <origin>[, <origin>]*
 ## Direktiven
 
 - `*`
-  - : Der Server kann "\*" als Platzhalter spezifizieren, wodurch jeder Ursprung berechtigt ist, Timing-Ressourcen zu sehen.
+  - : Der Server kann "\*" als Platzhalter angeben und damit jedem Ursprung erlauben, die Timing-Ressourcen zu sehen.
 - \<origin>
-  - : Spezifiziert eine URI, die die Timing-Ressourcen sehen darf. Es können mehrere Ursprünge angegeben werden, getrennt durch Kommas.
+  - : Gibt eine URI an, die die Timing-Ressourcen sehen darf. Sie können mehrere Ursprünge durch Kommas getrennt angeben.
 
 ## Beispiele
 
-Um jeglicher Ressource zu erlauben, Timing-Ressourcen zu sehen:
+Um jeglicher Ressource das Sehen von Timing-Ressourcen zu erlauben:
 
 ```http
 Timing-Allow-Origin: *
 ```
 
-Um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, können Sie spezifizieren:
+Um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, können Sie angeben:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

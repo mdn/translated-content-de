@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hints](/de/docs/Web/HTTP/Client_hints) Header ein Client in nachfolgenden Anfragen einschließen sollte.
+Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um festzulegen, welche [Client-Hints](/de/docs/Web/HTTP/Client_hints)-Header ein Client in nachfolgenden Anfragen einfügen soll.
 
 <table class="properties">
   <tbody>
@@ -29,7 +29,7 @@ Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, w
 </table>
 
 > [!NOTE]
-> Client-Hints sind nur auf sicheren Ursprüngen (über TLS) verfügbar. Der `Accept-CH`-Header sollte für alle sicheren Anfragen beibehalten werden, um sicherzustellen, dass Client-Hints zuverlässig gesendet werden.
+> Client-Hints sind nur auf sicheren Ursprüngen (über TLS) zugänglich. Der `Accept-CH`-Header sollte für alle sicheren Anfragen gespeichert werden, um sicherzustellen, dass die Client-Hints zuverlässig gesendet werden.
 
 ## Syntax
 

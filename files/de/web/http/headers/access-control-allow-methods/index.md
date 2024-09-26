@@ -2,12 +2,12 @@
 title: Access-Control-Allow-Methods
 slug: Web/HTTP/Headers/Access-Control-Allow-Methods
 l10n:
-  sourceCommit: 3eea6ef9070a54ffd6379164ff9fd39db66b5172
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Allow-Methods`** Antwort-Header gibt eine oder mehrere Methoden an, die beim Zugriff auf eine Ressource als Antwort auf eine {{glossary("preflight request")}} erlaubt sind.
+Der **`Access-Control-Allow-Methods`** Antwort-Header spezifiziert eine oder mehrere erlaubte Methoden, wenn auf eine Ressource als Antwort auf eine {{glossary("preflight request")}} zugegriffen wird.
 
 <table class="properties">
   <tbody>
@@ -34,8 +34,7 @@ Access-Control-Allow-Methods: *
 - \<method>
   - : Eine durch Kommas getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
 - `*` (Wildcard)
-  - : Der Wert "`*`" zählt nur als spezieller Platzhalterwert für Anfragen
-    ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird er als literaler Methodenname "`*`" ohne spezielle Semantik behandelt.
+  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird es als der literale Methodenname `*` ohne spezielle Semantik behandelt.
 
 ## Beispiele
 
@@ -48,7 +47,7 @@ Access-Control-Allow-Methods: *
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

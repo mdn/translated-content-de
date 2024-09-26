@@ -7,22 +7,24 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Content-Security-Policy-Report-Only`** Antwort-Header ermöglicht es Webentwicklern, CSP-Verletzungsberichte zu senden, um mit Richtlinien durch Überwachung ihrer Auswirkungen zu experimentieren, ohne diese durchzusetzen. Dies ermöglicht es, CSP-Verletzungen schnell während des Testens zu erkennen und zu beheben.
+Der HTTP **`Content-Security-Policy-Report-Only`** Response-Header ermöglicht es Webentwicklern, CSP-Verletzungsberichte zu senden, um Policies zu testen, indem sie deren Auswirkungen überwachen (aber nicht erzwingen).
+Dadurch können CSP-Verletzungen während der Testphase schnell erkannt und behoben werden.
 
-`Content-Security-Policy-Report-Only` wird auf die gleiche Weise wie {{httpheader("Content-Security-Policy")}} verwendet, aber Verstöße werden nicht durchgesetzt. Die CSP-Direktive {{CSP("report-to")}} muss angegeben werden, damit Berichte gesendet werden: Andernfalls hat die Operation keine Wirkung.
+`Content-Security-Policy-Report-Only` wird auf die gleiche Weise wie {{httpheader("Content-Security-Policy")}} verwendet, aber Verletzungen werden nicht durchgesetzt.
+Die CSP-Direktive {{CSP("report-to")}} muss angegeben werden, damit Berichte gesendet werden: Wenn nicht, hat die Operation keinen Effekt.
 
-Verstoßberichte werden unter Verwendung der [Reporting API](/de/docs/Web/API/Reporting_API) an Endpunkte gesendet, die im {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header definiert und mittels der CSP-Direktive {{CSP("report-to")}} ausgewählt werden.
+Verletzungsberichte werden mit der [Reporting API](/de/docs/Web/API/Reporting_API) an Endpunkte gesendet, die in einem {{HTTPHeader("Reporting-Endpoints")}} HTTP-Response-Header definiert und mit der CSP-Direktive {{CSP("report-to")}} ausgewählt werden.
 
-Für weitere Informationen lesen Sie bitte unseren Leitfaden zur [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP).
+Für weitere Informationen lesen Sie unseren [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) Leitfaden.
 
 > [!NOTE]
 > Der Header kann auch mit der veralteten {{CSP("report-uri")}} Direktive verwendet werden (diese wird durch {{CSP("report-to")}} ersetzt).
-> Die Verwendung und das resultierende Berichtssyntax sind leicht unterschiedlich; siehe das Thema {{CSP("report-uri")}} für mehr Details.
+> Die Nutzung und die resultierende Berichtssyntax sind leicht unterschiedlich; sehen Sie sich das Thema {{CSP("report-uri")}} für weitere Details an.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
@@ -31,7 +33,7 @@ Für weitere Informationen lesen Sie bitte unseren Leitfaden zur [Content Securi
     </tr>
     <tr>
       <th colspan="2" scope="row">
-        Dieser Header wird nicht innerhalb eines {{HTMLElement("meta")}} Elementes unterstützt.
+        Dieser Header wird nicht innerhalb eines {{HTMLElement("meta")}} Elements unterstützt.
       </th>
     </tr>
   </tbody>
@@ -45,19 +47,21 @@ Content-Security-Policy-Report-Only: <policy-directive>; ...; <policy-directive>
 
 ## Direktiven
 
-Die Direktiven des {{HTTPHeader("Content-Security-Policy")}} Headers können auch auf `Content-Security-Policy-Report-Only` angewendet werden, mit Ausnahme der `sandbox` Direktive, die ignoriert wird.
+Die Direktiven des {{HTTPHeader("Content-Security-Policy")}} Headers können auch auf `Content-Security-Policy-Report-Only` angewendet werden, außer der `sandbox` Direktive, die ignoriert wird.
 
-Die CSP-Direktive {{CSP("report-to")}} sollte mit diesem Header verwendet werden, sonst hat sie keine Wirkung.
+Die CSP-Direktive {{CSP("report-to")}} sollte mit diesem Header verwendet werden, sonst hat er keinen Effekt.
 
 ## Beispiele
 
-Um die {{CSP("report-to")}} Direktive zu verwenden, müssen Sie zuerst einen entsprechenden Endpunkt mit dem {{httpheader("Reporting-Endpoints")}} HTTP-Antwort-Header definieren. Im folgenden Beispiel definieren wir einen einzelnen Endpunkt namens `csp-endpoint`.
+Um die {{CSP("report-to")}} Direktive zu verwenden, müssen Sie zuerst einen entsprechenden Endpunkt mit dem {{httpheader("Reporting-Endpoints")}} HTTP-Response-Header definieren.
+Im unten stehenden Beispiel definieren wir einen einzelnen Endpunkt namens `csp-endpoint`.
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 ```
 
-Wir könnten dann das Ziel des Berichts mit {{CSP("report-to")}} und {{CSP("report-uri")}} definieren, wie unten gezeigt. Beachten Sie, dass dieser spezielle Bericht ausgelöst würde, wenn die Seite Ressourcen unsicher oder aus Inline-Code lädt.
+Wir könnten dann das Ziel des Berichts mit {{CSP("report-to")}} und {{CSP("report-uri")}} definieren, wie unten gezeigt.
+Beachten Sie, dass dieser spezielle Bericht ausgelöst würde, wenn die Seite unsicher geladene Ressourcen oder Inline-Code hätte.
 
 ```http
 Content-Security-Policy-Report-Only: default-src https:;
@@ -66,13 +70,13 @@ Content-Security-Policy-Report-Only: default-src https:;
 ```
 
 > [!NOTE]
-> Die `report-to` Direktive wird gegenüber der veralteten `report-uri` bevorzugt, aber wir deklarieren beide, da `report-to` noch keine vollständige Unterstützung über alle Browser hinweg hat.
+> Die `report-to` Direktive wird gegenüber der veralteten `report-uri` bevorzugt, aber wir deklarieren beide, da `report-to` noch keine vollständige plattformübergreifende Unterstützung hat.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

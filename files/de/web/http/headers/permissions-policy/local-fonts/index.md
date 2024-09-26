@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: lokale Schriftarten"
+title: "Permissions-Policy: local-fonts"
 slug: Web/HTTP/Headers/Permissions-Policy/local-fonts
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `local-fonts` steuert, ob das aktuelle Dokument Daten über die lokal installierten Schriftarten des Benutzers mittels der Methode {{DOMxRef("Window.queryLocalFonts()")}} sammeln darf.
+Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `local-fonts`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Daten über die lokal installierten Schriftarten des Benutzers über die {{DOMxRef("Window.queryLocalFonts()")}}-Methode zu sammeln.
 
-Speziell in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden von {{DOMxRef("Window.queryLocalFonts()")}} zurückgegebene {{jsxref("Promise")}}s mit einem {{domxref("DOMException")}} des Typs `SecurityError` zurückgewiesen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden die von {{DOMxRef("Window.queryLocalFonts()")}} zurückgegebenen {{jsxref("Promise")}}s mit einer {{domxref("DOMException")}} des Typs `SecurityError` abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: local-fonts=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Nutzung der Funktion gestattet ist. Weitere Informationen finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung dieser Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-allowlist für `local-fonts` ist `self`.
+Die Standard-Zulassungsliste für `local-fonts` ist `self`.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Die Standard-allowlist für `local-fonts` ist `self`.
 ## Siehe auch
 
 - {{domxref("Local Font Access API", "Local Font Access API", "", "nocode")}}
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

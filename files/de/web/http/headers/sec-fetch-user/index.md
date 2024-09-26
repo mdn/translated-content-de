@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-User`** {{Glossary("Fetch metadata request header", "fetch metadata request header")}} wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert werden, und sein Wert wird immer `?1` sein.
+Der **`Sec-Fetch-User`** {{Glossary("Fetch metadata request header", "fetch metadata request header")}} wird nur für Anfragen gesendet, die durch eine Benutzeraktion initiiert werden, und sein Wert ist immer `?1`.
 
-Ein Server kann diesen Header verwenden, um festzustellen, ob eine Navigationsanfrage von einem Dokument, iframe, etc. durch den Benutzer initiiert wurde.
+Ein Server kann diesen Header verwenden, um festzustellen, ob eine Navigationsanfrage von einem Dokument, einem `<iframe>` usw. vom Benutzer ausgelöst wurde.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
@@ -38,11 +38,11 @@ Sec-Fetch-User: ?1
 
 ## Direktiven
 
-Der Wert wird immer `?1` sein. Wenn eine Anfrage durch etwas anderes als eine Benutzeraktivierung ausgelöst wird, verlangen die Spezifikationen, dass Browser den Header vollständig weglassen.
+Der Wert ist immer `?1`. Wenn eine Anfrage nicht durch eine Benutzeraktion ausgelöst wird, verlangt die Spezifikation, dass Browser den Header vollständig weglassen.
 
 ## Beispiele
 
-Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite im gleichen Ursprung klickt, würde die resultierende Anfrage die folgenden Header haben:
+Wenn ein Benutzer auf einen Link auf einer Seite zu einer anderen Seite im selben Ursprung klickt, hätte die resultierende Anfrage die folgenden Header:
 
 ```http
 Sec-Fetch-Dest: document
@@ -68,4 +68,4 @@ Sec-Fetch-User: ?1
   - {{HTTPHeader("Sec-Fetch-Site")}}
 
 - [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers Spielplatz](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

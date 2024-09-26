@@ -7,10 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`worker-src`** Direktive gibt gültige Quellen für
-{{domxref("Worker")}}, {{domxref("SharedWorker")}} oder {{domxref("ServiceWorker")}}
-Skripte an.
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src`** gibt gültige Quellen für {{domxref("Worker")}}, {{domxref("SharedWorker")}} oder {{domxref("ServiceWorker")}} Skripte an.
 
 <table class="properties">
   <tbody>
@@ -26,10 +23,7 @@ Skripte an.
       <th scope="row">Fallback</th>
       <td>
         <p>
-          Ist diese Direktive nicht vorhanden, sucht der User Agent zunächst nach der
-          {{CSP("child-src")}} Direktive, dann nach der
-          {{CSP("script-src")}} Direktive, und schließlich nach der
-          {{CSP("default-src")}} Direktive, wenn es um die Ausführung von Workern geht.
+          Falls diese Direktive fehlt, sucht der User-Agent zuerst nach der {{CSP("child-src")}}-Direktive, dann nach der {{CSP("script-src")}}-Direktive und schließlich nach der {{CSP("default-src")}}-Direktive, um die Ausführung des Workers zu steuern.
         </p>
       </td>
     </tr>
@@ -38,7 +32,7 @@ Skripte an.
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `worker-src`-Richtlinie erlaubt sein:
+Eine oder mehrere Quellen können für die `worker-src`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: worker-src <source>;
@@ -47,15 +41,15 @@ Content-Security-Policy: worker-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+`<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass dieser gleiche Wertsatz in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Angesichts dieses CSP-Headers:
+Angenommen, dieser CSP-Header ist gesetzt:
 
 ```http
 Content-Security-Policy: worker-src https://example.com/
@@ -75,12 +69,12 @@ Content-Security-Policy: worker-src https://example.com/
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Browserkompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [CSP für Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
+- [CSP für Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
 - {{domxref("Worker")}}, {{domxref("SharedWorker")}}, {{domxref("ServiceWorker")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Length`**-Header gibt die Größe des Nachrichtenkörpers in Bytes an, der an den Empfänger gesendet wird.
+Der **`Content-Length`**-Header gibt die Größe des Nachrichtenkörpers in Bytes an, die an den Empfänger gesendet wird.
 
 <table class="properties">
   <tbody>
@@ -47,7 +47,7 @@ Content-Length: <length>
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: DNT (Nicht verfolgen)
+title: DNT
 slug: Web/HTTP/Headers/DNT
 l10n:
   sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
@@ -8,13 +8,13 @@ l10n:
 {{HTTPSidebar}}{{Deprecated_header}}{{non-standard_header}}
 
 > [!NOTE]
-> Die DNT (Do Not Track)-Spezifikation wurde eingestellt. Weitere Informationen finden Sie unter {{domxref("Navigator.doNotTrack")}}.
+> Die DNT- (Do Not Track) Spezifikation wurde eingestellt. Siehe {{domxref("Navigator.doNotTrack")}} für weitere Informationen.
 
 Der **`DNT`** (**D**o **N**ot
-**T**rack) Anforderungs-Header gibt die Tracking-Präferenz des Nutzers an. Es ermöglicht
-den Nutzern anzugeben, ob sie eher Datenschutz als personalisierte Inhalte bevorzugen.
+**T**rack) Anfrage-Header signalisiert die Tracking-Präferenz des Benutzers. Er ermöglicht es
+Benutzern anzugeben, ob sie Privatsphäre gegenüber personalisierten Inhalten bevorzugen.
 
-DNT ist zugunsten der [Global Privacy Control](https://globalprivacycontrol.org/) veraltet, die mittels des {{HTTPHeader("Sec-GPC")}} Headers an Server kommuniziert wird und für Clients über {{domxref("navigator.globalPrivacyControl")}} zugänglich ist.
+DNT ist zugunsten der [Global Privacy Control](https://globalprivacycontrol.org/) veraltet, die den Servern über den {{HTTPHeader("Sec-GPC")}} Header mitgeteilt wird und für Clients über {{domxref("navigator.globalPrivacyControl")}} zugänglich ist.
 
 <table class="properties">
   <tbody>
@@ -40,18 +40,18 @@ DNT: null
 ## Direktiven
 
 - 0
-  - : Der Nutzer zieht vor, Tracking auf der Zielseite zuzulassen.
+  - : Der Benutzer zieht es vor, Tracking auf der Zielseite zu erlauben.
 - 1
-  - : Der Nutzer zieht vor, nicht auf der Zielseite getrackt zu werden.
+  - : Der Benutzer zieht es vor, nicht auf der Zielseite verfolgt zu werden.
 - null
-  - : Der Nutzer hat keine Präferenz bzgl. des Trackings angegeben.
+  - : Der Benutzer hat keine Präferenz bezüglich des Trackings angegeben.
 
 ## Beispiele
 
-### Lesen des Do Not Track-Status von JavaScript
+### Lesen des Do Not Track-Status mit JavaScript
 
-Die DNT-Präferenz des Nutzers kann auch über JavaScript mit der
-{{domxref("Navigator.doNotTrack")}} Eigenschaft ausgelesen werden:
+Die DNT-Präferenz des Benutzers kann auch mit JavaScript über die
+{{domxref("Navigator.doNotTrack")}}-Eigenschaft ausgelesen werden:
 
 ```js
 navigator.doNotTrack; // "0", "1" oder null
@@ -70,10 +70,10 @@ Teil der eingestellten [Tracking Preference Expression (DNT)](https://www.w3.org
 - {{domxref("Navigator.doNotTrack")}}
 - {{HTTPHeader("Tk")}} Header
 - [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)
-- [Was bedeutet das "Track" in "Do Not Track"? – EFF](https://www.eff.org/deeplinks/2011/02/what-does-track-do-not-track-mean)
+- [Was bedeutet „Track“ in „Do Not Track“? – EFF](https://www.eff.org/deeplinks/2011/02/what-does-track-do-not-track-mean)
 - [DNT auf Electronic Frontier Foundation](https://www.eff.org/issues/do-not-track)
-- Hilfe zu DNT-Browsereinstellungen:
+- DNT-Browsereinstellungen Hilfe:
   - [Firefox](https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature)
   - [Chrome](https://support.google.com/chrome/answer/2790761)
 - [GPC - Global Privacy Control](https://globalprivacycontrol.org/)
-  - [Aktivieren von GPC in Firefox](https://support.mozilla.org/en-US/kb/global-privacy-control?as=u&utm_source=inproduct)
+  - [GPC in Firefox aktivieren](https://support.mozilla.org/en-US/kb/global-privacy-control?as=u&utm_source=inproduct)

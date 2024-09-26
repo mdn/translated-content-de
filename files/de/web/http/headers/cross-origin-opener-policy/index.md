@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Cross-Origin-Opener-Policy`** (COOP)-Antwort-Header ermöglicht es Ihnen sicherzustellen, dass ein oberstes Dokument keine Browsing-Kontextgruppe mit Dokumenten aus anderen Ursprüngen teilt.
+Der HTTP **`Cross-Origin-Opener-Policy`** (COOP) Antwort-Header ermöglicht es Ihnen sicherzustellen, dass ein Dokument auf oberster Ebene keine Browserkontextgruppe mit Cross-Origin-Dokumenten teilt.
 
-COOP isoliert Ihr Dokument pro Prozess, und potenzielle Angreifer können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup-Fenster öffnen, was eine Reihe von Ursprungsübergreifenden Angriffen namens [XS-Leaks](https://github.com/xsleaks/xsleaks) verhindert.
+COOP wird Ihr Dokument prozess-isolieren, und potenzielle Angreifer können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup öffnen würden. Dadurch wird eine Reihe von Cross-Origin-Angriffen, genannt [XS-Leaks](https://github.com/xsleaks/xsleaks), verhindert.
 
-Wenn ein Dokument aus einem anderen Ursprung mit COOP in einem neuen Fenster geöffnet wird, wird das öffnende Dokument keine Referenz darauf haben, und die [`window.opener`](/de/docs/Web/API/Window/opener)-Eigenschaft des neuen Fensters wird `null` sein. Dies ermöglicht Ihnen mehr Kontrolle über Fensterreferenzen als [`rel=noopener`](/de/docs/Web/HTML/Attributes/rel/noopener), das nur ausgehende Navigationsvorgänge betrifft.
+Wenn ein Cross-Origin-Dokument mit COOP in einem neuen Fenster geöffnet wird, hat das öffnende Dokument keine Referenz darauf, und die [`window.opener`](/de/docs/Web/API/Window/opener) Eigenschaft des neuen Fensters wird `null` sein. Dies ermöglicht Ihnen mehr Kontrolle über Fensterreferenzen als [`rel=noopener`](/de/docs/Web/HTML/Attributes/rel/noopener), was nur ausgehende Navigationen beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -37,26 +37,26 @@ Cross-Origin-Opener-Policy: same-origin
 ### Direktiven
 
 - `unsafe-none`
-  - : Dies ist der Standardwert. Erlaubt es dem Dokument, der Browsing-Kontextgruppe seines Öffnenden hinzuzufügen, es sei denn, der Öffner selbst hat einen COOP von `same-origin` oder `same-origin-allow-popups`.
+  - : Dies ist der Standardwert. Erlaubt es dem Dokument, zur Browserkontextgruppe seines Öffners hinzugefügt zu werden, es sei denn, der Öffner selbst hat ein COOP von `same-origin` oder `same-origin-allow-popups`.
 - `same-origin-allow-popups`
-  - : Behält Referenzen zu neu geöffneten Fenstern oder Tabs bei, die entweder kein COOP setzen oder durch Setzen eines COOP von `unsafe-none` die Isolation ablehnen.
+  - : Behält Referenzen auf neu geöffnete Fenster oder Tabs bei, die entweder kein COOP setzen oder durch Setzen eines COOP von `unsafe-none` auf Isolation verzichten.
 - `same-origin`
-  - : Isoliert den Browsing-Kontext exklusiv auf Dokumente desselben Ursprungs. Dokumente aus anderen Ursprüngen werden nicht im selben Browsing-Kontext geladen.
+  - : Isoliert den Browserkontext ausschließlich auf Dokumente gleicher Herkunft. Cross-Origin-Dokumente werden nicht im selben Browserkontext geladen.
 
 ## Beispiele
 
-### Bestimmte Funktionen hängen von der Isolation über Ursprung hinweg ab
+### Bestimmte Funktionen hängen von Cross-Origin-Isolation ab
 
-Bestimmte Funktionen wie {{jsxref("SharedArrayBuffer")}}-Objekte oder {{domxref("Performance.now()")}} mit ungedrosselten Timern sind nur verfügbar, wenn Ihr Dokument einen COOP-Header mit dem Wert `same-origin` gesetzt hat.
+Bestimmte Funktionen wie {{jsxref("SharedArrayBuffer")}} Objekte oder {{domxref("Performance.now()")}} mit ungedrosselten Timern sind nur verfügbar, wenn Ihr Dokument einen COOP-Header mit dem Wert `same-origin` gesetzt hat.
 
 ```http
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Siehe auch den {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-Header, den Sie ebenfalls auf `require-corp` oder `credentialless` setzen müssen.
+Siehe auch den {{HTTPHeader("Cross-Origin-Embedder-Policy")}} Header, den Sie ebenfalls auf `require-corp` oder `credentialless` setzen müssen.
 
-Um zu überprüfen, ob die Isolation über Ursprünge hinweg erfolgreich war, können Sie gegen die {{domxref("Window.crossOriginIsolated")}}-Eigenschaft oder die {{domxref("WorkerGlobalScope.crossOriginIsolated")}}-Eigenschaft testen, die in Fenster- und Worker-Kontexten verfügbar sind:
+Um zu überprüfen, ob die Cross-Origin-Isolation erfolgreich war, können Sie die {{domxref("Window.crossOriginIsolated")}} Eigenschaft oder die {{domxref("WorkerGlobalScope.crossOriginIsolated")}} Eigenschaft für Fenster- und Worker-Kontexte testen:
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -74,7 +74,7 @@ if (crossOriginIsolated) {
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 

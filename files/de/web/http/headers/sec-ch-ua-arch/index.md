@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Arch`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungsheader gibt die zugrunde liegende CPU-Architektur des User-Agents an, wie z. B. ARM oder x86.
+Der **`Sec-CH-UA-Arch`** [User Agent Client Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Request-Header gibt die zugrunde liegende CPU-Architektur des User-Agents an, wie z. B. ARM oder x86.
 
-Dies könnte von einem Server verwendet werden, um beispielsweise das richtige binäre Format einer ausführbaren Datei für einen Benutzer zum Herunterladen auszuwählen und anzubieten.
+Dies könnte beispielsweise von einem Server verwendet werden, um das korrekte Binärformat einer ausführbaren Datei auszuwählen und dem Benutzer zum Herunterladen anzubieten.
 
 <table class="properties">
   <tbody>
@@ -17,7 +17,7 @@ Dies könnte von einem Server verwendet werden, um beispielsweise das richtige b
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client hint</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
@@ -33,21 +33,21 @@ Dies könnte von einem Server verwendet werden, um beispielsweise das richtige b
 Sec-CH-UA-Arch: <arch>
 ```
 
-### Direktiven
+### Anweisungen
 
 - `<arch>`
   - : Ein String, der die zugrunde liegende Plattformarchitektur angibt, wie z. B.: `"x86"`, `"ARM"`, `"[arm64-v8a, armeabi-v7a, armeabi]"`.
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Arch`-Header an, indem er das {{HTTPHeader("Accept-CH")}} in einer Antwort auf eine Anforderung des Clients einschließt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Arch` Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine Antwort auf eine Anfrage des Clients einfügt, wobei der Name des gewünschten Headers als Token verwendet wird:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Arch
 ```
 
-Der Client kann entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Arch`-Header zu nachfolgenden Anfragen hinzufügen. Zum Beispiel, auf einem Windows-X86-basierten Computer könnte der Client den Header wie folgt hinzufügen:
+Der Client kann entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Arch` Header zu nachfolgenden Anfragen hinzufügen. Zum Beispiel könnte der Client auf einem Windows X86-basierten Computer den Header wie folgt hinzufügen:
 
 ```http
 GET /GET /my/page HTTP/1.1
@@ -59,7 +59,7 @@ Sec-CH-UA-Platform: "Windows"
 Sec-CH-UA-Arch: "x86"
 ```
 
-Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) zur Anforderung hinzugefügt werden, obwohl sie nicht in der Serverantwort angegeben sind.
+Beachten Sie oben, dass die [Headers mit niedriger Entropie](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) zur Anfrage hinzugefügt werden, auch wenn sie nicht in der Serverantwort spezifiziert sind.
 
 ## Spezifikationen
 
@@ -71,8 +71,8 @@ Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#
 
 ## Siehe auch
 
-- [Client-Hints](/de/docs/Web/HTTP/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der Anforderungsheader **`TE`** gibt an, welche Transfer-Codierungen der Benutzeragent zu akzeptieren bereit ist. (Sie könnten es informell als `Accept-Transfer-Encoding` bezeichnen, was intuitiver wäre).
+Der **`TE`** Anforderungsheader gibt die Transfercodierungen an, die der Benutzeragent akzeptieren kann. (Man könnte ihn informell als `Accept-Transfer-Encoding` bezeichnen, was intuitiver wäre).
 
 > [!NOTE]
 > In
 > [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
 > [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) wird das `TE`
-> Header-Feld nur akzeptiert, wenn der `trailers` Wert gesetzt ist.
+> Header-Feld nur akzeptiert, wenn der Wert `trailers` gesetzt ist.
 
-Sehen Sie auch den {{HTTPHeader("Transfer-Encoding")}} Antwort-Header für weitere Details zu Transfer-Codierungen. Beachten Sie, dass `chunked` immer für HTTP/1.1-Empfänger akzeptabel ist und Sie müssen `"chunked"` nicht mittels des
-`TE` Headers spezifizieren. Es ist jedoch nützlich, es festzulegen, wenn der Client Trailer-Felder in einer Chunked-Transfer-Codierung mit dem "trailers" Wert akzeptiert.
+Siehe auch den {{HTTPHeader("Transfer-Encoding")}} Antwortheader für weitere Details zu Transfercodierungen. Beachten Sie, dass `chunked` für HTTP/1.1 Empfänger immer akzeptabel ist und Sie nicht `"chunked"` mit dem
+`TE` Header angeben müssen. Es ist jedoch nützlich, wenn der Client Trailer-Felder in einer chunked Transfercodierung mit dem "trailers" Wert akzeptiert.
 
 <table class="properties">
   <tbody>
@@ -46,18 +46,18 @@ TE: trailers, deflate;q=0.5
 ## Direktiven
 
 - `compress`
-  - : Ein Format unter Verwendung des [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW) Algorithmus wird als Transfer-Coding-Name akzeptiert.
+  - : Ein Format, das den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/LZW) (LZW) Algorithmus verwendet, wird als Transfercodierungsname akzeptiert.
 - `deflate`
   - : Die Verwendung der [zlib](https://en.wikipedia.org/wiki/Zlib)
-    Struktur wird als Transfer-Coding-Name akzeptiert.
+    Struktur wird als Transfercodierungsname akzeptiert.
 - `gzip`
-  - : Ein Format unter Verwendung der [Lempel-Ziv-Kodierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77)
-    (LZ77), mit einer 32-Bit-CRC wird als Transfer-Coding-Name akzeptiert.
+  - : Ein Format, das die [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77)
+    (LZ77) mit einer 32-Bit CRC verwendet, wird als Transfercodierungsname akzeptiert.
 - `trailers`
-  - : Gibt an, dass der Client bereit ist, Trailer-Felder in einer Chunked-Transfer-Codierung zu akzeptieren.
+  - : Gibt an, dass der Client bereit ist, Trailer-Felder in einer chunked Transfercodierung zu akzeptieren.
 - `q`
-  - : Wenn mehrere Transfer-Codierungen akzeptabel sind, kann der `q`-Parameter der
-    [quality value](/de/docs/Glossary/Quality_values) Syntax Codierungen nach Präferenz ordnen.
+  - : Wenn mehrere Transfercodierungen akzeptabel sind, kann der `q` Parameter der
+    [Qualitätswert](/de/docs/Glossary/Quality_values) Syntax Codierungen nach Präferenz bewerten.
 
 ## Spezifikationen
 

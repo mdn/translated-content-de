@@ -7,10 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **Trailer**-Antwort-Header ermöglicht es dem Sender, zusätzliche Felder am Ende von Chunked-Nachrichten hinzuzufügen, um Metadaten bereitzustellen, die während der Übertragung des Nachrichtenkörpers dynamisch generiert werden können, wie z.B. eine Integritätsprüfung der Nachricht, digitale Signatur oder Bearbeitungsstatus.
+Der **Trailer**-Antwortkopf ermöglicht es dem Absender, zusätzliche Felder am Ende von Chunk-Nachrichten zu inkludieren, um Metadaten bereitzustellen, die während des Sendens des Nachrichtenkörpers dynamisch generiert werden könnten, wie z. B. eine Integritätsprüfung der Nachricht, eine digitale Signatur oder ein Nachverarbeitungsstatus.
 
 > [!NOTE]
-> Der {{HTTPHeader("TE")}}-Anforderungs-Header muss auf "trailers" gesetzt werden, um Trailer-Felder zu erlauben.
+> Der {{HTTPHeader("TE")}}-Anforderungskopf muss auf "trailers" gesetzt werden, um Trailer-Felder zuzulassen.
 
 <table class="properties">
   <tbody>
@@ -39,13 +39,12 @@ Trailer: header-names
 
 - `header-names`
 
-  - : HTTP-Header-Felder, die im Trailer-Teil von Chunked-Nachrichten vorhanden sein werden.
-    Diese Header-Felder sind **nicht erlaubt**:
+  - : HTTP-Headerfelder, die im Trailer-Abschnitt von Chunk-Nachrichten vorhanden sein werden. Diese Headerfelder sind **nicht erlaubt**:
 
-    - Nachrichtenformatierungs-Header (z.B. {{HTTPHeader("Transfer-Encoding")}} und
+    - Nachrichten-Rahmen-Header (z.B. {{HTTPHeader("Transfer-Encoding")}} und
       {{HTTPHeader("Content-Length")}}),
     - Routing-Header (z.B. {{HTTPHeader("Host")}}),
-    - Anforderungsmodifikatoren (z.B. Steuerungen und Bedingungen, wie
+    - Anforderungs-Modifikatoren (z.B. Steuerungen und Bedingungen, wie
       {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Max-Forwards")}}, oder
       {{HTTPHeader("TE")}}),
     - Authentifizierungs-Header (z.B. {{HTTPHeader("Authorization")}} oder
@@ -55,9 +54,9 @@ Trailer: header-names
 
 ## Beispiele
 
-### Chunked-Transfer-Encoding mit einem abschließenden Header
+### Chunked Transfer Encoding mit einem nachgestellten Header
 
-In diesem Beispiel wird der {{HTTPHeader("Expires")}}-Header am Ende der Chunked-Nachricht verwendet und dient als abschließender Header.
+In diesem Beispiel wird der {{HTTPHeader("Expires")}}-Header am Ende der Chunk-Nachricht verwendet und dient als nachgestellter Header.
 
 ```http
 HTTP/1.1 200 OK
@@ -68,9 +67,9 @@ Trailer: Expires
 7\r\n
 Mozilla\r\n
 9\r\n
-Developer\r\n
+Entwickler\r\n
 7\r\n
-Network\r\n
+Netzwerk\r\n
 0\r\n
 Expires: Wed, 21 Oct 2015 07:28:00 GMT\r\n
 \r\n
@@ -88,4 +87,4 @@ Expires: Wed, 21 Oct 2015 07:28:00 GMT\r\n
 
 - {{HTTPHeader("Transfer-Encoding")}}
 - {{HTTPHeader("TE")}}
-- [Chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)
+- [Chunked Transfer Encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)

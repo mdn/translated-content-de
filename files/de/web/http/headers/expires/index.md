@@ -12,12 +12,12 @@ Der **`Expires`** HTTP-Header enthält das Datum/die Uhrzeit, nach der die Antwo
 Ungültige Ablaufdaten mit dem Wert 0 stellen ein Datum in der Vergangenheit dar und bedeuten, dass die Ressource bereits abgelaufen ist.
 
 > [!NOTE]
-> Wenn es einen {{HTTPHeader("Cache-Control")}}-Header mit der `max-age` oder `s-maxage` Direktive in der Antwort gibt, wird der `Expires`-Header ignoriert.
+> Wenn ein {{HTTPHeader("Cache-Control")}}-Header mit der Direktive `max-age` oder `s-maxage` in der Antwort vorhanden ist, wird der `Expires`-Header ignoriert.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@ Ungültige Ablaufdaten mit dem Wert 0 stellen ein Datum in der Vergangenheit dar
 Expires: <http-date>
 ```
 
-## Richtlinien
+## Direktiven
 
 - \<http-date>
   - : Ein HTTP-Datum-Zeitstempel.

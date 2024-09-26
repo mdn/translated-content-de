@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `serial` steuert, ob das aktuelle Dokument die {{domxref("Web Serial API", "Web Serial API", "", "nocode")}} verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Port angeschlossen sind oder über USB- oder Bluetooth-Geräte, die einen seriellen Port emulieren.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `serial` steuert, ob das aktuelle Dokument die {{domxref("Web Serial API", "Web Serial API", "", "nocode")}} verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Port oder über USB- oder Bluetooth-Geräte, die einen seriellen Port emulieren, verbunden sind.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von {{domxref("Serial.requestPort()")}} und {{domxref("Serial.getPorts()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einer {{domxref("DOMException")}} vom Typ `SecurityError` zurückgewiesen wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von {{domxref("Serial.requestPort()")}} und {{domxref("Serial.getPorts()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `SecurityError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: serial=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `serial` ist `self`.
+Die Standard-Erlaubnisliste für `serial` ist `self`.
 
 ## Spezifikationen
 

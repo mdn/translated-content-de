@@ -7,26 +7,22 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-WebSocket-Protocol`** HTTP {{glossary("request header", "Request-Header")}} und {{glossary("response header", "Antwort-Header")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API) Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um ein [Subprotokoll](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) für die Kommunikation zu verhandeln.
-Dies kann ein weit verbreitetes Protokoll wie SOAP oder WAMP sein oder ein benutzerdefiniertes Protokoll, das vom Client und Server verstanden wird.
+Der **`Sec-WebSocket-Protocol`** HTTP-{{glossary("request header", "Anforderungsheader")}} und {{glossary("response header", "Antwortheader")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungshandshake verwendet, um ein [Subprotokoll](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) für die Kommunikation auszuhandeln. Dies kann ein allgemein bekanntes Protokoll wie SOAP oder WAMP sein oder ein benutzerdefiniertes Protokoll, das vom Client und Server verstanden wird.
 
-In einer Anfrage spezifiziert der Header ein oder mehrere WebSocket-Subprotokolle, die die Webanwendung verwenden möchte, in der Reihenfolge der Präferenz.
-Diese können als Protokollwerte in mehreren Headern hinzugefügt werden oder als kommagetrennte Werte zu einem einzelnen Header hinzugefügt werden.
+In einer Anforderung gibt der Header ein oder mehrere WebSocket-Subprotokolle an, die die Webanwendung in der Reihenfolge der Priorität verwenden möchte. Diese können als Protokollwerte in mehreren Headern hinzugefügt werden oder als kommagetrennte Werte in einem einzigen Header.
 
-In einer Antwort spezifiziert es das vom Server ausgewählte Subprotokoll.
-Dies muss das erste Subprotokoll sein, das der Server aus der in der Anforderung angegebenen Liste unterstützt.
+In einer Antwort gibt es das vom Server ausgewählte Subprotokoll an. Dies muss das erste Subprotokoll sein, das der Server von der im Anforderungsheader bereitgestellten Liste unterstützt.
 
-Der Anfrage-Header wird automatisch vom Browser hinzugefügt und mit Werten gefüllt, die von der Anwendung im [`protocols`](/de/docs/Web/API/WebSocket/WebSocket#protocols) Argument an das `WebSocket()` angegeben werden.
-Das vom Server ausgewählte Subprotokoll wird in der Webanwendung in {{domxref("WebSocket.protocol")}} verfügbar gemacht.
+Der Anforderungsheader wird automatisch vom Browser hinzugefügt und gefüllt, wobei die in dem [`protocols`](/de/docs/Web/API/WebSocket/WebSocket#protocols)-Argument der `WebSocket()`-Funktion angegebenen Werte verwendet werden. Das vom Server ausgewählte Subprotokoll wird in der Webanwendung in {{domxref("WebSocket.protocol")}} verfügbar gemacht.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request-Header")}}, {{Glossary("Response-Header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>{{Glossary("Request header", "Anforderungsheader")}}, {{Glossary("Response header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden header name", "Verbotener Headername")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -34,7 +30,7 @@ Das vom Server ausgewählte Subprotokoll wird in der Webanwendung in {{domxref("
 
 ## Syntax
 
-Anfrage:
+Anforderung:
 
 ```http
 Sec-WebSocket-Protocol: <sub-protocols>
@@ -49,13 +45,11 @@ Sec-WebSocket-Protocol: <selected-sub-protocol>
 ## Direktiven
 
 - `<sub-protocols>`
-  - : Eine kommaseparierte Liste von Subprotokollnamen, in der Reihenfolge der Präferenz.
-    Die Subprotokolle können aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt oder benutzerdefiniert sein, wobei sie vom Client und Server gemeinsam verstanden werden.
+  - : Eine durch Kommata getrennte Liste von Subprotokollnamen, in der Reihenfolge der Priorität. Die Subprotokolle können aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt werden oder ein benutzerdefinierter Name sein, der sowohl vom Client als auch vom Server verstanden wird.
 
 ## Beispiele
 
-Das Subprotokoll wird in der ursprünglichen WebSocket-[Handshake-Anfrage](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) spezifiziert.
-Die folgende Anfrage zeigt, dass der Client `soap` bevorzugt, aber auch `wamp` unterstützt.
+Das Subprotokoll wird in der ursprünglichen WebSocket-[Handshake-Anforderung](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) angegeben. Die folgende Anforderung zeigt, dass der Client `soap` bevorzugt, aber auch `wamp` unterstützt.
 
 ```http
 GET /chat HTTP/1.1
@@ -67,15 +61,14 @@ Sec-WebSocket-Version: 13
 Sec-WebSocket-Protocol: soap, wamp
 ```
 
-Das Spezifizieren der Protokolle auf diese Weise hat denselben Effekt:
+Die Angabe der Protokolle auf diese Weise hat denselben Effekt:
 
 ```http
 Sec-WebSocket-Protocol: soap
 Sec-WebSocket-Protocol: wamp
 ```
 
-Die Antwort des Servers wird den `Sec-WebSocket-Protocol` Header enthalten, der das erste Subprotokoll auswählt, das es aus den Präferenzen des Clients unterstützt.
-Unten ist dies als `soap` dargestellt:
+Die Antwort des Servers wird den `Sec-WebSocket-Protocol`-Header enthalten, welcher das erste vom Server unterstützte Subprotokoll basierend auf den Präferenzen des Clients auswählt. Unten ist dies als `soap` dargestellt:
 
 ```http
 HTTP/1.1 101 Switching Protocols
@@ -89,7 +82,7 @@ Sec-WebSocket-Protocol: soap
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

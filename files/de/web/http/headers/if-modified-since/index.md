@@ -7,11 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`If-Modified-Since`** HTTP-Anforderungsheader macht die Anfrage bedingt: Der Server sendet die angeforderte Ressource mit einem {{HTTPStatus("200")}}-Status nur dann zurück, wenn sie nach dem angegebenen Datum zuletzt geändert wurde. Wenn die Ressource seitdem nicht geändert wurde, ist die Antwort ein {{HTTPStatus("304")}} ohne Body; der {{HTTPHeader("Last-Modified")}}-Antwortheader einer vorherigen Anfrage enthält das Datum der letzten Änderung. Im Gegensatz zu {{HTTPHeader("If-Unmodified-Since")}} kann `If-Modified-Since` nur mit {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} verwendet werden.
+Der **`If-Modified-Since`** HTTP-Anforderungsheader macht die
+Anforderung bedingt: Der Server sendet die angeforderte Ressource mit einem
+{{HTTPStatus("200")}} Status nur zurück, wenn sie nach dem angegebenen Datum zuletzt geändert wurde. Wenn die Ressource seitdem nicht geändert wurde, ist die Antwort ein {{HTTPStatus("304")}} ohne Inhalt; der {{HTTPHeader("Last-Modified")}} Antwortheader einer vorherigen Anforderung enthält das Datum der letzten Änderung. Im Gegensatz zu
+{{HTTPHeader("If-Unmodified-Since")}} kann `If-Modified-Since` nur
+mit einem {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} verwendet werden.
 
-Wenn er in Kombination mit {{HTTPHeader("If-None-Match")}} verwendet wird, wird er ignoriert, es sei denn, der Server unterstützt `If-None-Match` nicht.
+Wenn es in Kombination mit {{HTTPHeader("If-None-Match")}} verwendet wird, wird es ignoriert, es sei denn, der Server unterstützt `If-None-Match` nicht.
 
-Der häufigste Anwendungsfall besteht darin, eine zwischengespeicherte Entität ohne zugehörigen {{HTTPHeader("ETag")}} zu aktualisieren.
+Der häufigste Anwendungsfall ist die Aktualisierung einer zwischengespeicherten Entität ohne zugehöriges
+{{HTTPHeader("ETag")}}.
 
 <table class="properties">
   <tbody>
@@ -35,21 +40,22 @@ If-Modified-Since: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - \<day-name>
-  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (case-sensitive).
+  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (groß-/kleinschreibungssensitiv).
 - \<day>
-  - : 2-stellige Tagesnummer, z. B. "04" oder "23".
+  - : Zweistellige Tageszahl, z.B. "04" oder "23".
 - \<month>
-  - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (case-sensitive).
+  - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
+    "Dec" (groß-/kleinschreibungssensitiv).
 - \<year>
-  - : 4-stellige Jahreszahl, z. B. "1990" oder "2016".
+  - : Vierstellige Jahreszahl, z.B. "1990" oder "2016".
 - \<hour>
-  - : 2-stellige Stundenzahl, z. B. "09" oder "23".
+  - : Zweistellige Stundenzahl, z. B. "09" oder "23".
 - \<minute>
-  - : 2-stellige Minutenzahl, z. B. "04" oder "59".
+  - : Zweistellige Minutenzahl, z.B. "04" oder "59".
 - \<second>
-  - : 2-stellige Sekundenzahl, z. B. "04" oder "59".
+  - : Zweistellige Sekundenzahl, z.B. "04" oder "59".
 - `GMT`
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in lokaler Zeit.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT und niemals in lokaler Zeit angegeben.
 
 ## Beispiele
 
@@ -61,7 +67,7 @@ If-Modified-Since: Wed, 21 Oct 2015 07:28:00 GMT
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität in Browsern
 
 {{Compat}}
 

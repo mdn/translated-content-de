@@ -10,15 +10,15 @@ l10n:
 > [!NOTE]
 > Dies wird durch den {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} ersetzt.
 
-Der **`Sec-CH-UA-Full-Version`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungs-Header liefert die vollständige Versionszeichenkette des User-Agents.
+Der **`Sec-CH-UA-Full-Version`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anfrage-Header liefert die vollständige Versionszeichenkette des User-Agents.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
@@ -41,14 +41,15 @@ Sec-CH-UA-Full-Version: <version>
 
 ## Beispiele
 
-Ein Server verlangt den `Sec-CH-UA-Full-Version` Header, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf jede Anfrage vom Client einbindet und dabei den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version` Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf eine Anfrage des Clients einfügt und dabei den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und fügt den `Sec-CH-UA-Full-Version` Header zu nachfolgenden Anfragen hinzu. Beispielsweise könnte der Client den Header wie folgt hinzufügen:
+Der Client kann sich entscheiden, den Hint bereitzustellen und den `Sec-CH-UA-Full-Version` Header zu späteren Anfragen hinzuzufügen.
+Zum Beispiel könnte der Client den Header folgendermaßen hinzufügen:
 
 ```http
 GET /GET /my/page HTTP/1.1
@@ -64,14 +65,14 @@ Sec-CH-UA-Platform: "Windows"
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Privatsphäre der Benutzer und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

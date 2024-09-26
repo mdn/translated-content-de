@@ -41,7 +41,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`**-Direk
 
 ## Syntax
 
-Es können eine oder mehrere Quellen für die `default-src`-Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `default-src`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: default-src <source>;
@@ -50,7 +50,7 @@ Content-Security-Policy: default-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
 
 Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
@@ -64,7 +64,7 @@ Wenn andere Direktiven angegeben sind, beeinflusst `default-src` diese nicht. De
 Content-Security-Policy: default-src 'self'; script-src https://example.com
 ```
 
-ist dasselbe wie:
+entspricht:
 
 ```http
 Content-Security-Policy: connect-src 'self';
@@ -79,15 +79,15 @@ Content-Security-Policy: connect-src 'self';
                          worker-src 'self'
 ```
 
-### Firefox-Problem mit `default-src: none` SVG Sprite-Blockierung
+### Firefox `default-src: none` SVG-Sprite-Blockierungsproblem
 
-CSP-Richtlinien empfehlen oft, mit `default-src 'none'` zu beginnen, um das Laden von Ressourcen zu blockieren, und dann weitere Direktiven hinzuzufügen, um die Richtlinie zu erweitern, sodass nur die benötigten Ressourcen geladen werden. Zum Beispiel, um das Laden von Bildern nur aus derselben Quelle zu erlauben:
+CSP-Richtlinien empfehlen oft, mit `default-src 'none'` zu beginnen, um das Laden aller Ressourcen zu sperren, und dann weitere Direktiven hinzuzufügen, um die Richtlinie zu öffnen, sodass Sie nur die Ressourcen laden, die Sie benötigen. Zum Beispiel, um das Laden von Bildern derselben Quelle zu erlauben:
 
 ```http
 Content-Security-Policy: default-src 'none'; img-src 'self'
 ```
 
-Hier gibt es jedoch ein Problem. Wenn Sie SVG-Sprites aus externen Dateien über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element einbetten, zum Beispiel:
+Hier gibt es jedoch ein Problem. Wenn Sie SVG-Sprites einbetten, die über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element in externen Dateien definiert sind, zum Beispiel:
 
 ```svg
 <svg>
@@ -95,9 +95,9 @@ Hier gibt es jedoch ein Problem. Wenn Sie SVG-Sprites aus externen Dateien über
 </svg>
 ```
 
-werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Richtlinie festgelegt haben. Firefox behandelt das SVG nicht wie andere Browser als eingebettetes Bild, daher erlaubt `img-src 'self'` das Laden nicht. Sie müssen `default-src 'self'` verwenden, wenn Sie möchten, dass Ihre externen Sprites in Firefox geladen werden (siehe [Bug 1773976](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) und [dieses CSP-Spezifikationsproblem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
+werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Politik festgelegt haben. Firefox behandelt das SVG nicht als eingebettetes Bild wie andere Browser, daher reicht `img-src 'self'` nicht aus, um sie zu laden. Sie müssen `default-src 'self'` verwenden, wenn Sie möchten, dass Ihre externen Sprites in Firefox geladen werden (siehe [Bug 1773976](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) und [dieses CSP-Spezifikationsproblem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
 
-Alternativ können Sie, wenn die `default-src 'none'`-Richtlinie zwingend erforderlich ist, die SVG-Sprites inline in die HTML-Seite einfügen:
+Alternativ können Sie, wenn die `default-src 'none'`-Richtlinie zwingend erforderlich ist, die SVG-Sprites im HTML-Dokument inline einfügen:
 
 ```html
 <body>

@@ -7,12 +7,15 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der `autoplay`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Medien über das {{domxref("HTMLMediaElement")}}-Interface automatisch abzuspielen.
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header
+`autoplay`-Direktive steuert, ob das aktuelle Dokument erlaubt ist,
+Medien über das {{domxref("HTMLMediaElement")}} Interface automatisch abzuspielen.
 
-Speziell dann, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert und es keine Benutzeraktionen gab, wird das von {{domxref("HTMLMediaElement.play()")}} zurückgegebene {{jsxref("Promise")}} mit einer {{domxref("DOMException")}} abgelehnt. Das [`autoplay`](/de/docs/Web/HTML/Element/audio#autoplay)-Attribut in {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert und es keine Benutzerinteraktionen gab, wird das von {{domxref("HTMLMediaElement.play()")}} zurückgegebene {{jsxref("Promise")}} mit einem {{domxref("DOMException")}} zurückgewiesen. Das [`autoplay`](/de/docs/Web/HTML/Element/audio#autoplay) Attribut bei
+{{HTMLElement("audio")}} und {{HTMLElement("video")}} Elementen wird ignoriert.
 
 > [!NOTE]
-> Für weitere Details zu Autoplay und Autoplay-Blockierung siehe den Artikel [Autoplay-Leitfaden für Medien und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide).
+> Für weitere Details zu Autoplay und Autoplay-Blockierung, siehe den Artikel [Autoplay-Leitfaden für Medien und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide).
 
 ## Syntax
 
@@ -21,21 +24,21 @@ Permissions-Policy: autoplay=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion gewährt ist. Siehe [„Permissions-Policy“ > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
+  - : Eine Liste von Ursprüngen, für die die Genehmigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `autoplay` ist `self`.
+Die Standardauflistung für `autoplay` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

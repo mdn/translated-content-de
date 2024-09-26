@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Content-Digest`** Antwort- oder Anfrage-Header bietet einen {{Glossary("digest")}} des tatsächlichen Nachrichteninhalts, des Stroms von Oktetten, die in einer HTTP-Nachricht gerahmt sind. Somit hängt `Content-Digest` unter anderem von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}} ab, nicht aber zum Beispiel von HTTP/1.1's {{HTTPHeader("Transfer-Encoding")}}. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Repräsentation in einer einzigen Nachricht gesendet wurde.
+Der **`Content-Digest`** Antwort- oder Anforderungsheader bietet einen {{Glossary("digest")}} des tatsächlichen Nachrichteninhalts, dem Byte-Strom, der in einer HTTP-Nachricht umrahmt ist. Daher ist `Content-Digest` unter anderem abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}, jedoch nicht abhängig von beispielsweise {{HTTPHeader("Transfer-Encoding")}} von HTTP/1.1. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Darstellung in einer einzelnen Nachricht gesendet wurde.
 
-In diesem Zusammenhang bezieht sich _content_ auf eine bestimmte Oktettenrepräsentation der [ausgewählten Darstellung](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
+In diesem Kontext bezieht sich _content_ auf eine bestimmte Byte-Darstellung der [ausgewählten Darstellung](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
 
-Ein Client kann anfordern, dass ein Server einen `Content-Digest` bereitstellt, indem er {{HTTPHeader("Want-Content-Digest")}} ausstellt.
+Ein Client kann verlangen, dass ein Server einen `Content-Digest` sendet, indem er {{HTTPHeader("Want-Content-Digest")}} ausgibt.
 
 <table class="properties">
   <tbody>
@@ -20,18 +20,18 @@ Ein Client kann anfordern, dass ein Server einen `Content-Digest` bereitstellt, 
       <td>{{Glossary("Representation header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Verbotener Header-Name")}}</th>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-`Content-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), dessen Schlüssel die Namen von Digest-Algorithmen und dessen Werte der Digest in Bytes (oder ein Ganzzahl-Digest für Legacy-Digest-Algorithmen) sind.
+`Content-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), wobei seine Schlüssel die Namen der Digest-Algorithmen und seine Werte der Digest in Bytes (oder ein ganzzahliger Digest für ältere Digest-Algorithmen) sind.
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikation, sind die standard-base64-kodierten Digest-Bytes als Teil der [Wörterbuchsyntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen.
+> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standardmäßig base64-codierten Digest-Bytes als Teil der [Wörterbuchsyntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen.
 
 ```http
 Content-Digest: <digest-algorithm>=:<standard-padded-base64-digest-value>:, ...
@@ -40,7 +40,7 @@ Content-Digest: <digest-algorithm-integer-checksum>=<integer-checksum-value>, ..
 
 ## Direktiven
 
-Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
+Zulässige Digest-Algorithmen finden Sie unter {{HTTPHeader("Repr-Digest")}}.
 
 ## Beispiele
 

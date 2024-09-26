@@ -10,7 +10,7 @@ l10n:
 > [!NOTE]
 > Die DNT (Do Not Track)-Spezifikation wurde eingestellt. Siehe {{domxref("Navigator.doNotTrack")}} für weitere Informationen.
 
-Der **`Tk`** Antwort-Header gibt den Tracking-Status an, der auf die entsprechende Anfrage angewendet wurde.
+Der **`Tk`** Antwort-Header zeigt den Tracking-Status an, der auf die entsprechende Anfrage angewendet wurde.
 
 <table class="properties">
   <tbody>
@@ -28,51 +28,41 @@ Der **`Tk`** Antwort-Header gibt den Tracking-Status an, der auf die entsprechen
 ## Syntax
 
 ```http
-Tk: !  (under construction)
-Tk: ?  (dynamic)
-Tk: G  (gateway or multiple parties)
-Tk: N  (not tracking)
-Tk: T  (tracking)
-Tk: C  (tracking with consent)
-Tk: P  (potential consent)
-Tk: D  (disregarding DNT)
-Tk: U  (updated)
+Tk: !  (im Aufbau)
+Tk: ?  (dynamisch)
+Tk: G  (Gateway oder mehrere Parteien)
+Tk: N  (kein Tracking)
+Tk: T  (Tracking)
+Tk: C  (Tracking mit Zustimmung)
+Tk: P  (potenzielle Zustimmung)
+Tk: D  (DNT ignorieren)
+Tk: U  (aktualisiert)
 ```
 
 ### Direktiven
 
 - !
-  - : In Arbeit. Der Ursprungsserver testet derzeit seine Kommunikation des
-    Tracking-Status.
+  - : Im Aufbau. Der Ursprungsserver testet derzeit die Kommunikation seines Tracking-Status.
 - ?
-  - : Dynamisch. Der Ursprungsserver benötigt mehr Informationen, um den Tracking-Status
-    zu bestimmen.
+  - : Dynamisch. Der Ursprungsserver benötigt mehr Informationen, um den Tracking-Status zu bestimmen.
 - G
-  - : Gateway oder mehrere Parteien. Der Server agiert als Gateway zu einem Austausch,
-    an dem mehrere Parteien beteiligt sind.
+  - : Gateway oder mehrere Parteien. Der Server dient als Gateway zu einem Austausch, der mehrere Parteien umfasst.
 - N
   - : Kein Tracking.
 - T
   - : Tracking.
 - C
-  - : Tracking mit Zustimmung. Der Ursprungsserver glaubt, dass er eine vorherige Zustimmung für
-    das Tracking dieses Benutzers, Benutzeragenten oder Geräts erhalten hat.
+  - : Tracking mit Zustimmung. Der Ursprungsserver glaubt, dass er eine vorherige Zustimmung für das Tracking dieses Benutzers, Benutzeragenten oder Geräts erhalten hat.
 - P
-  - : Potentielle Zustimmung. Der Ursprungsserver weiß nicht in Echtzeit, ob er
-    eine vorherige Zustimmung für das Tracking dieses Benutzers, Benutzeragenten oder Geräts
-    erhalten hat, verspricht jedoch, keine `DNT:1`-Daten zu verwenden oder zu teilen, bis eine solche Zustimmung
-    festgelegt wurde, und verspricht außerdem, alle empfangenen `DNT:1`-Daten innerhalb von 48 Stunden zu löschen oder dauerhaft zu de-identifizieren, für die eine solche Zustimmung
-    nicht erhalten wurde.
+  - : Potenzielle Zustimmung. Der Ursprungsserver weiß nicht in Echtzeit, ob er eine vorherige Zustimmung für das Tracking dieses Benutzers, Benutzeragenten oder Geräts erhalten hat, verspricht jedoch, keine `DNT:1`-Daten zu verwenden oder zu teilen, bis eine solche Zustimmung festgestellt wurde und verspricht weiter, alle empfangenen `DNT:1`-Daten, für die eine solche Zustimmung nicht erhalten wurde, innerhalb von 48 Stunden zu löschen oder dauerhaft zu anonymisieren.
 - D
-  - : Missachtung von DNT. Der Ursprungsserver ist unfähig oder nicht bereit, eine
-    Tracking-Präferenz zu respektieren, die vom anfragenden Benutzeragenten erhalten wurde.
+  - : DNT ignorieren. Der Ursprungsserver ist nicht in der Lage oder nicht bereit, eine von der anfragenden Benutzeragentur übermittelte Tracking-Präferenz zu beachten.
 - U
-  - : Aktualisiert. Die Anfrage führte zu einer potenziellen Änderung des angewendeten
-    Tracking-Status für diesen Benutzer, Benutzeragenten oder dieses Gerät.
+  - : Aktualisiert. Die Anfrage führte zu einer potenziellen Änderung des Tracking-Status, der auf diesen Benutzer, Benutzeragenten oder dieses Gerät anwendbar ist.
 
 ## Beispiele
 
-Ein `Tk` Header für eine Ressource, die behauptet, kein Tracking durchzuführen, würde so aussehen:
+Ein `Tk` Header für eine Ressource, die behauptet, kein Tracking durchzuführen, würde folgendermaßen aussehen:
 
 ```http
 Tk: N

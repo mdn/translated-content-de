@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`SourceMap`**-Header [HTTP](/de/docs/Web/HTTP) verknüpft generierten Code mit einer [Source-Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html), sodass der Browser den ursprünglichen Quellcode rekonstruieren und den rekonstruierten Originalcode im Debugger präsentieren kann.
+Der **`SourceMap`** [HTTP](/de/docs/Web/HTTP)-Antwortheader verlinkt generierten Code mit einer [Source Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html), wodurch der Browser den ursprünglichen Quellcode rekonstruieren und im Debugger anzeigen kann.
 
 <table class="properties">
   <tbody>
@@ -32,7 +32,7 @@ X-SourceMap: <url> (veraltet)
 ### Direktiven
 
 - \<url>
-  - : Eine relative (zur Anforderungs-URL) oder absolute URL, die auf eine Source-Map-Datei verweist.
+  - : Eine relative (zur Anfrage-URL) oder absolute URL, die auf eine Source Map-Datei zeigt.
 
 ## Beispiele
 
@@ -44,10 +44,10 @@ SourceMap: /path/to/file.js.map
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Firefox Developer Tools: Verwenden einer Source-Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)
+- [Firefox-Entwicklerwerkzeuge: Verwendung einer Source Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)

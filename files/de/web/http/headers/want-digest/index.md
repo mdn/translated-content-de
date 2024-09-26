@@ -10,24 +10,24 @@ l10n:
 > [!NOTE]
 > Dieser Header wurde aus der Spezifikation in [Entwurf 8](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-digest-headers-08) entfernt.
 > Verwenden Sie stattdessen {{HTTPHeader("Want-Content-Digest")}}.
-> Für `id-*`-Digest-Algorithmen verwenden Sie {{HTTPHeader("Want-Repr-Digest")}}.
+> Für `id-*` Digest-Algorithmen, verwenden Sie {{HTTPHeader("Want-Repr-Digest")}}.
 
-Der **`Want-Digest`** HTTP-Header in einer Anfrage oder Antwort fordert die Gegenseite auf, einen {{Glossary("digest")}} unter Verwendung des {{HTTPHeader("Digest")}}-Headers bereitzustellen.
+Der **`Want-Digest`** HTTP-Header (Anforderung oder Antwort) fordert die andere Seite auf, einen {{Glossary("digest")}} mit dem {{HTTPHeader("Digest")}}-Header bereitzustellen.
 
-Der Header enthält Bezeichner für einen oder mehrere Digest-Algorithmen, die der Absender wünscht, dass der Server sie verwendet, um den Digest zu erstellen.
-Die Anfrage kann {{Glossary("quality values")}} verwenden, um ihre Präferenz/Reihenfolge für bestimmte Digest-Algorithmen anzugeben.
+Der Header enthält Bezeichner für einen oder mehrere Digest-Algorithmen, die der Absender wünscht, dass der Server sie zur Erstellung des Digest verwendet.
+Die Anforderung kann {{Glossary("quality values")}} zur Angabe ihrer Präferenz/Reihenfolge für bestimmte Digest-Algorithmen verwenden.
 
-Wenn `Want-Digest` keine Digest-Algorithmen enthält, die der Server unterstützt, kann der Server antworten mit:
+Falls `Want-Digest` keine vom Server unterstützten Digest-Algorithmen enthält, kann der Server antworten mit:
 
-- einem Digest, der unter Verwendung eines anderen Digest-Algorithmus berechnet wurde, oder
-- einem [`400 Bad Request`](/de/docs/Web/HTTP/Status/400)-Fehler und einem weiteren `Want-Digest`-Header mit dieser Antwort, der die Algorithmen auflistet, die er unterstützt.
+- einem Digest, der mit einem anderen Digest-Algorithmus berechnet wurde, oder
+- einem [`400 Bad Request`](/de/docs/Web/HTTP/Status/400)-Fehler und einem weiteren `Want-Digest`-Header in dieser Antwort, der die Algorithmen aufführt, die er unterstützt.
 
 Siehe auch den {{HTTPHeader("Digest")}}-Header.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>
         {{Glossary("Request header")}},
         {{Glossary("Response header")}}
@@ -45,18 +45,18 @@ Siehe auch den {{HTTPHeader("Digest")}}-Header.
 ```http
 Want-Digest: <digest-algorithm>
 
-// Mehrere Algorithmen, gewichtet mit der Syntax für Qualitätswerte:
+// Mehrere Algorithmen, gewichtet mit der Qualitätssyntax:
 Want-Digest: <digest-algorithm><q-value>,<digest-algorithm><q-value>
 ```
 
 ## Direktiven
 
 - \<digest-algorithm>
-  - : Digest-Algorithmen sind definiert in [Digest Headers](https://datatracker.ietf.org/doc/draft-ietf-httpbis-digest-headers/).
-    - Erlaubte Digest-Algorithmus-Werte umfassen: `unixsum`, `unixcksum`, `crc32c`, `sha-256` und `sha-512`, `id-sha-256`, `id-sha-512`
-    - Veraltete Algorithmus-Werte umfassen: `md5`, `sha`, `adler32`.
+  - : Digest-Algorithmen sind in den [Digest Headers](https://datatracker.ietf.org/doc/draft-ietf-httpbis-digest-headers/) definiert.
+    - Zulässige Werte für Digest-Algorithmen umfassen: `unixsum`, `unixcksum`, `crc32c`, `sha-256` und `sha-512`, `id-sha-256`, `id-sha-512`
+    - Veraltete Werte für Algorithmen umfassen: `md5`, `sha`, `adler32`.
 - \<q-value>
-  - : Der [Qualitätswert](/de/docs/Glossary/Quality_values), der auf diese Option anzuwenden ist.
+  - : Der [Quality Value](/de/docs/Glossary/Quality_values), der auf diese Option angewendet werden soll.
 
 ## Beispiele
 
@@ -67,10 +67,10 @@ Want-Digest: SHA-512;q=0.3, sha-256;q=1, md5;q=0
 
 ### Grundlegende Funktionsweise
 
-Der Absender stellt eine Liste von Digests zur Verfügung, die er zu akzeptieren bereit ist, und der Server
-verwendet einen von ihnen:
+Der Absender gibt eine Liste von Digests an, die er akzeptieren möchte, und der Server
+verwendet einen davon:
 
-Anfrage:
+Anforderung:
 
 ```http
 GET /item
@@ -86,9 +86,9 @@ Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 ### Nicht unterstützte Digests
 
-Der Server unterstützt keinen der angeforderten Digest-Algorithmen, verwendet daher einen anderen Algorithmus:
+Der Server unterstützt keinen der angeforderten Digest-Algorithmen und verwendet daher einen anderen Algorithmus:
 
-Anfrage:
+Anforderung:
 
 ```http
 GET /item
@@ -102,10 +102,9 @@ HTTP/1.1 200 Ok
 Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 ```
 
-Der Server unterstützt keinen der angeforderten Digest-Algorithmen.
-In diesem Fall antwortet er mit einem 400 Fehler und fügt einen weiteren `Want-Digest`-Header hinzu, der die Algorithmen auflistet, die er unterstützt:
+Der Server unterstützt keinen der angeforderten Digest-Algorithmen. In diesem Fall antwortet er mit einem 400-Fehler und fügt einen weiteren `Want-Digest`-Header hinzu, der die Algorithmen auflistet, die er unterstützt:
 
-Anfrage:
+Anforderung:
 
 ```http
 GET /item
@@ -123,7 +122,7 @@ Want-Digest: sha-256, sha-512
 
 {{Specifications}}
 
-## Browser-Kompatibilität
+## Kompatibilität der Browser
 
 {{Compat}}
 

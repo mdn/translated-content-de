@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: Geolocation"
+title: "Permissions-Policy: geolocation"
 slug: Web/HTTP/Headers/Permissions-Policy/geolocation
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -7,11 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der Direktive `geolocation` steuert, ob das aktuelle Dokument die {{domxref('Geolocation')}}-Schnittstelle verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
+`geolocation`-Direktive steuert, ob das aktuelle Dokument die
+{{domxref('Geolocation')}}-Schnittstelle verwenden darf.
 
-Speziell in Fällen, in denen eine definierte Richtlinie die Nutzung dieses Features blockiert, führen Aufrufe von {{domxref('Geolocation.getCurrentPosition','getCurrentPosition()')}} und {{domxref('Geolocation.watchPosition','watchPosition()')}} dazu, dass die Rückruffunktionen dieser Funktionen mit einem {{domxref('GeolocationPositionError')}}-Code von `PERMISSION_DENIED` aufgerufen werden.
+Konkret bedeutet dies, dass bei einer definierten Richtlinie, die die Nutzung dieses Merkmals blockiert, Aufrufe von
+{{domxref('Geolocation.getCurrentPosition','getCurrentPosition()')}} und
+{{domxref('Geolocation.watchPosition','watchPosition()')}} dazu führen, dass die Rückruffunktion dieser Methoden mit einem {{domxref('GeolocationPositionError')}}-Code von
+`PERMISSION_DENIED` aufgerufen wird.
 
-Standardmäßig kann die Geolocation-API innerhalb von Dokumenten der obersten Ebene und deren same-origin-Kind-Frames verwendet werden. Diese Direktive erlaubt oder verhindert den Zugriff auf Geolocation durch cross-origin-Frames. Dies schließt same-origin-Frames ein.
+Standardmäßig kann die Geolocation-API in Dokumenten auf der obersten Ebene und deren Child-Frames mit demselben Origin verwendet werden. Diese Direktive ermöglicht oder verhindert den Zugriff von Cross-Origin-Frames auf die Geolokation. Dies schließt auch Frames mit demselben Origin ein.
 
 ## Syntax
 
@@ -20,17 +25,18 @@ Permissions-Policy: geolocation=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Verwendung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [„Permissions-Policy“ > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `geolocation` ist `self`.
+Die Standardzulassungsliste für `geolocation` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-Die SecureCorp Inc. möchte die Geolocation-API in allen Browsing-Kontexten deaktivieren, außer für ihren eigenen Ursprung und diejenigen, deren Ursprung `https://example.com` ist. Dies kann sie tun, indem sie den folgenden HTTP-Antwort-Header liefert, um eine Berechtigungsrichtlinie zu definieren:
+SecureCorp Inc. möchte die Geolocation-API in allen Browsing-Kontexten deaktivieren,
+außer für seinen eigenen Origin und diejenigen, deren Origin `https://example.com` ist. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie geschehen:
 
 ```http
 Permissions-Policy: geolocation=(self "https://example.com")
@@ -38,19 +44,20 @@ Permissions-Policy: geolocation=(self "https://example.com")
 
 ### Mit einem \<iframe>-Element
 
-Die FastCorp Inc. möchte `geolocation` für alle cross-origin-Kind-Frames deaktivieren, außer für ein bestimmtes `<iframe>`. Dies kann sie tun, indem sie den folgenden HTTP-Antwort-Header liefert, um eine Berechtigungsrichtlinie zu definieren:
+FastCorp Inc. möchte `geolocation` für alle Cross-Origin-Child-Frames deaktivieren, außer für ein bestimmtes `<iframe>`. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie geschehen:
 
 ```http
 Permissions-Policy: geolocation=(self)
 ```
 
-Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut zum `<iframe>`-Element hinzu:
+Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut im
+`<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/map" allow="geolocation"></iframe>
 ```
 
-Interessanterweise können `allow`-Attribute Funktionen selektiv in bestimmten Frames aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente desselben Ursprungs enthalten.
+Interessanterweise können `allow`-Attribute selektiv Funktionen in bestimmten Frames aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente des gleichen Ursprungs enthalten.
 
 ## Spezifikationen
 

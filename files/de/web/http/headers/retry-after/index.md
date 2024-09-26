@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header **`Retry-After`** in der Antwort gibt an, wie lange der User-Agent warten sollte, bevor er eine Folgeanfrage stellt. Es gibt drei Hauptfälle, in denen dieser Header verwendet wird:
+Der **`Retry-After`** HTTP-Antwort-Header gibt an, wie lange der User-Agent warten soll, bevor er eine Folgeanfrage stellt. Es gibt drei Hauptfälle, in denen dieser Header verwendet wird:
 
-- Wenn er mit einer {{HTTPStatus(503)}} (Dienst nicht verfügbar) Antwort gesendet wird, gibt dies an, wie lange der Dienst voraussichtlich nicht verfügbar sein wird.
-- Wenn er mit einer {{HTTPStatus(429)}} (Zu viele Anfragen) Antwort gesendet wird, gibt dies an, wie lange gewartet werden soll, bevor eine neue Anfrage gestellt wird.
-- Wenn er mit einer Weiterleitungsantwort gesendet wird, wie z.B. {{HTTPStatus(301)}} (Dauerhaft verschoben), gibt dies die minimale Zeit an, die der User-Agent warten sollte, bevor er die weitergeleitete Anfrage stellt.
+- Wird er mit einer {{HTTPStatus(503)}} (Service Unavailable) Antwort gesendet, zeigt dies an, wie lange der Dienst voraussichtlich nicht verfügbar sein wird.
+- Wird er mit einer {{HTTPStatus(429)}} (Too Many Requests) Antwort gesendet, zeigt dies an, wie lange gewartet werden muss, bevor eine neue Anfrage gestellt wird.
+- Wird er mit einer Umleitungsantwort, wie z.B. {{HTTPStatus(301)}} (Moved Permanently), gesendet, gibt dies die Mindestzeit an, die der User-Agent warten soll, bevor die umgeleitete Anfrage gestellt wird.
 
 <table class="properties">
   <tbody>
@@ -36,7 +36,7 @@ Retry-After: <delay-seconds>
 ## Direktiven
 
 - \<http-date>
-  - : Ein Datum, nach dem erneut versucht werden soll. Siehe den Header {{HTTPHeader("Date")}} für weitere Details zum HTTP-Datumsformat.
+  - : Ein Datum, nach dem erneut versucht werden soll. Weitere Details zum HTTP-Datumsformat finden Sie im {{HTTPHeader("Date")}} Header.
 - \<delay-seconds>
   - : Eine nicht-negative Dezimalzahl, die die Sekunden angibt, die nach Erhalt der Antwort verzögert werden sollen.
 
@@ -44,7 +44,7 @@ Retry-After: <delay-seconds>
 
 ### Umgang mit geplanter Ausfallzeit
 
-Die Unterstützung für den `Retry-After` Header ist sowohl bei Clients als auch bei Servern noch uneinheitlich. Einige Crawler und Spider, wie der Googlebot, respektieren jedoch den `Retry-After` Header. Es ist nützlich, ihn zusammen mit einer {{HTTPStatus(503)}} (Dienst nicht verfügbar) Antwort zu senden, damit Suchmaschinen Ihre Seite weiterhin indexieren, wenn die Ausfallzeit vorbei ist.
+Die Unterstützung für den `Retry-After` Header auf sowohl Client- als auch Serverseite ist noch inkonsistent. Einige Crawler und Spider, wie Googlebot, beachten jedoch den `Retry-After` Header. Es ist nützlich, ihn zusammen mit einer {{HTTPStatus(503)}} (Service Unavailable) Antwort zu senden, damit Suchmaschinen Ihre Website weiterhin indexieren, wenn die Ausfallzeit vorbei ist.
 
 ```http
 Retry-After: Wed, 21 Oct 2015 07:28:00 GMT
@@ -61,6 +61,6 @@ Retry-After: 120
 
 ## Siehe auch
 
-- [Google Webmaster-Blog: How to deal with planned site downtime](https://webmasters.googleblog.com/2011/01/how-to-deal-with-planned-site-downtime.html)
-- {{HTTPStatus(503)}} (Dienst nicht verfügbar)
-- {{HTTPStatus(301)}} (Dauerhaft verschoben)
+- [Google Webmaster Blog: How to deal with planned site downtime](https://webmasters.googleblog.com/2011/01/how-to-deal-with-planned-site-downtime.html)
+- {{HTTPStatus(503)}} (Service Unavailable)
+- {{HTTPStatus(301)}} (Moved Permanently)
