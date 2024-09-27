@@ -4,5 +4,7 @@ _githistory.json
 .idea
 .vscode
 mdn/content
+raw.md
+source.md
 yarn-debug.log*
 yarn-error.log*

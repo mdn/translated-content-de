@@ -9,5 +9,7 @@
     ".github",
     "**/conflicting/**",
     "**/orphaned/**",
+    "**/raw.md",
+    "**/source.md",
   ],
 }
